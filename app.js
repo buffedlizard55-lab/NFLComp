@@ -111,6 +111,7 @@ async function loadAllData() {
     STATE.irregularities = irrRes;
     STATE.auditChecks = auditRes;
 
+    populateStrategyBetFilters();
     renderKPIs();
     renderDashboard();
     renderLeaderboard();
@@ -353,11 +354,43 @@ function renderStrategies() {
           </div>
         </div>
 
-        <button class="btn btn-sm" style="width:100%; justify-content:center;" onclick="openStrategyModal('${strat.id}')">Explore Full Methodology & Lineage →</button>
+        <button class="btn btn-sm strategy-review-btn" onclick="openStrategyModal('${strat.id}')">Review strategy, placed bets & next trades →</button>
       </div>
     `;
     grid.appendChild(card);
   });
+}
+
+// ================= BET REVIEW HELPERS =================
+function populateStrategyBetFilters() {
+  const options = [...STATE.strategies]
+    .sort((a, b) => a.username.localeCompare(b.username))
+    .map(s => `<option value="${s.id}">${s.username} — ${s.name}</option>`)
+    .join('');
+
+  ['upcoming-strategy-filter', 'history-strategy-filter'].forEach(id => {
+    const select = document.getElementById(id);
+    if (select) select.insertAdjacentHTML('beforeend', options);
+  });
+}
+
+function openStrategyBetReview(stratId, destination = 'history') {
+  closeModal();
+  const filter = document.getElementById(`${destination}-strategy-filter`);
+  if (filter) filter.value = stratId;
+  if (destination === 'history') {
+    STATE.historyPage = 1;
+    renderHistoryTable();
+  } else {
+    renderUpcomingBets();
+  }
+  switchTab(destination);
+}
+
+function formatBetDate(bet, upcoming = false) {
+  const date = bet.gameday || (bet.bet_timestamp || '').slice(0, 10);
+  const time = upcoming ? bet.gametime : (bet.bet_timestamp || '').slice(11, 16);
+  return `${date || '—'}${time ? ` ${time}` : ''}`;
 }
 
 // ================= UPCOMING BETS =================
@@ -366,10 +399,15 @@ function renderUpcomingBets() {
   if (!tbody) return;
   tbody.innerHTML = '';
 
+  const strategyFilter = document.getElementById('upcoming-strategy-filter')?.value || 'ALL';
   const statusFilter = document.getElementById('upcoming-status-filter')?.value || 'ALL';
   const marketFilter = document.getElementById('upcoming-market-filter')?.value || 'ALL';
 
   let list = [...STATE.upcomingBets];
+
+  if (strategyFilter !== 'ALL') {
+    list = list.filter(u => u.strategy_id === strategyFilter);
+  }
 
   if (statusFilter !== 'ALL') {
     list = list.filter(u => u.status === statusFilter);
@@ -379,8 +417,16 @@ function renderUpcomingBets() {
     list = list.filter(u => u.market === marketFilter);
   }
 
+  if (list.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="11" class="empty-state">No upcoming trades match these filters.</td></tr>';
+    return;
+  }
+
   list.forEach(bet => {
     const tr = document.createElement('tr');
+    tr.className = 'clickable-row';
+    tr.title = 'Open this strategy';
+    tr.onclick = () => openStrategyModal(bet.strategy_id);
     const badgeClass = bet.status === 'READY_TO_BET' ? 'badge-ready' : (bet.status === 'QUALIFIED' ? 'badge-qualified' : 'badge-watching');
     tr.innerHTML = `
       <td><span class="badge ${badgeClass}">${bet.status.replace('_', ' ')}</span></td>
@@ -429,10 +475,15 @@ function renderHistoryTable() {
   tbody.innerHTML = '';
 
   const searchVal = (document.getElementById('history-search')?.value || '').toLowerCase();
+  const strategyFilter = document.getElementById('history-strategy-filter')?.value || 'ALL';
   const seasonFilter = document.getElementById('history-season-filter')?.value || 'ALL';
   const resFilter = document.getElementById('history-res-filter')?.value || 'ALL';
 
   let list = [...STATE.ledger];
+
+  if (strategyFilter !== 'ALL') {
+    list = list.filter(b => b.strategy_id === strategyFilter);
+  }
 
   if (seasonFilter !== 'ALL') {
     list = list.filter(b => String(b.season) === seasonFilter);
@@ -446,6 +497,9 @@ function renderHistoryTable() {
     list = list.filter(b => b.matchup.toLowerCase().includes(searchVal) || b.username.toLowerCase().includes(searchVal) || b.bet_id.toLowerCase().includes(searchVal));
   }
 
+  // Always review the newest placed bets first.
+  list.sort((a, b) => String(b.bet_timestamp || b.gameday || '').localeCompare(String(a.bet_timestamp || a.gameday || '')) || b.bet_id.localeCompare(a.bet_id));
+
   // Pagination
   const totalItems = list.length;
   const totalPages = Math.ceil(totalItems / STATE.historyPageSize) || 1;
@@ -456,8 +510,16 @@ function renderHistoryTable() {
 
   document.getElementById('history-page-info').textContent = `Showing ${totalItems > 0 ? startIdx + 1 : 0} to ${Math.min(startIdx + STATE.historyPageSize, totalItems)} of ${totalItems.toLocaleString()} bets`;
 
+  if (pageItems.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="13" class="empty-state">No placed bets match these filters.</td></tr>';
+    return;
+  }
+
   pageItems.forEach(b => {
     const tr = document.createElement('tr');
+    tr.className = 'clickable-row';
+    tr.title = 'Open this strategy';
+    tr.onclick = () => openStrategyModal(b.strategy_id);
     const badgeClass = b.result === 'WIN' ? 'badge-win' : (b.result === 'LOSS' ? 'badge-loss' : 'badge-push');
     const pnlClass = b.pnl > 0 ? 'color: var(--accent-green);' : (b.pnl < 0 ? 'color: var(--accent-red);' : '');
     tr.innerHTML = `
@@ -488,12 +550,14 @@ function prevHistoryPage() {
 
 function nextHistoryPage() {
   const searchVal = (document.getElementById('history-search')?.value || '').toLowerCase();
+  const strategyFilter = document.getElementById('history-strategy-filter')?.value || 'ALL';
   const seasonFilter = document.getElementById('history-season-filter')?.value || 'ALL';
   const resFilter = document.getElementById('history-res-filter')?.value || 'ALL';
   let list = STATE.ledger;
+  if (strategyFilter !== 'ALL') list = list.filter(b => b.strategy_id === strategyFilter);
   if (seasonFilter !== 'ALL') list = list.filter(b => String(b.season) === seasonFilter);
   if (resFilter !== 'ALL') list = list.filter(b => b.result === resFilter);
-  if (searchVal) list = list.filter(b => b.matchup.toLowerCase().includes(searchVal));
+  if (searchVal) list = list.filter(b => b.matchup.toLowerCase().includes(searchVal) || b.username.toLowerCase().includes(searchVal) || b.bet_id.toLowerCase().includes(searchVal));
 
   const totalPages = Math.ceil(list.length / STATE.historyPageSize);
   if (STATE.historyPage < totalPages) {
@@ -789,6 +853,38 @@ function openStrategyModal(stratId) {
   const content = document.getElementById('modal-strat-content');
 
   const pnlClass = perf && perf.total_pnl >= 0 ? 'color: var(--accent-green);' : 'color: var(--accent-red);';
+  const placedBets = STATE.ledger
+    .filter(b => b.strategy_id === stratId)
+    .sort((a, b) => String(b.bet_timestamp || b.gameday || '').localeCompare(String(a.bet_timestamp || a.gameday || '')) || b.bet_id.localeCompare(a.bet_id));
+  const upcomingBets = STATE.upcomingBets
+    .filter(b => b.strategy_id === stratId)
+    .sort((a, b) => `${a.gameday || ''}T${a.gametime || ''}`.localeCompare(`${b.gameday || ''}T${b.gametime || ''}`));
+  const recentPlaced = placedBets.slice(0, 8);
+  const nextTrades = upcomingBets.slice(0, 8);
+  const placedStake = placedBets.reduce((sum, b) => sum + Number(b.stake || 0), 0);
+  const upcomingStake = upcomingBets.reduce((sum, b) => sum + Number(b.stake || 0), 0);
+
+  const placedRows = recentPlaced.map(b => `
+    <tr>
+      <td>${formatBetDate(b)}</td>
+      <td><strong>${b.matchup}</strong></td>
+      <td><span class="tag-category">${b.market}</span></td>
+      <td><code>${b.selection}</code> <span class="price-muted">${b.price}</span></td>
+      <td>$${Number(b.stake).toFixed(2)}</td>
+      <td><span class="badge ${b.result === 'WIN' ? 'badge-win' : (b.result === 'LOSS' ? 'badge-loss' : 'badge-push')}">${b.result}</span></td>
+      <td class="${b.pnl >= 0 ? 'positive-value' : 'negative-value'}">${b.pnl >= 0 ? '+' : ''}$${Number(b.pnl).toFixed(2)}</td>
+    </tr>`).join('') || '<tr><td colspan="7" class="empty-state">No placed bets recorded for this strategy.</td></tr>';
+
+  const upcomingRows = nextTrades.map(b => `
+    <tr>
+      <td>${formatBetDate(b, true)}</td>
+      <td><strong>${b.matchup}</strong></td>
+      <td><span class="tag-category">${b.market}</span></td>
+      <td><code>${b.selection}</code> <span class="price-muted">${b.current_price}</span></td>
+      <td class="positive-value">+${(Number(b.estimated_edge) * 100).toFixed(1)}%</td>
+      <td>$${Number(b.stake).toFixed(2)}</td>
+      <td><span class="badge ${b.status === 'READY_TO_BET' ? 'badge-ready' : (b.status === 'QUALIFIED' ? 'badge-qualified' : 'badge-watching')}">${b.status.replaceAll('_', ' ')}</span></td>
+    </tr>`).join('') || '<tr><td colspan="7" class="empty-state">No upcoming trades proposed by this strategy.</td></tr>';
 
   content.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
@@ -844,10 +940,50 @@ function openStrategyModal(stratId) {
       <p style="font-size:0.83rem; color:var(--text-secondary);">${strat.failure_analysis || 'No major failure clusters identified.'}</p>
     </div>
 
-    <div style="margin-bottom:14px;">
+    <div style="margin-bottom:18px;">
       <h4 style="color:var(--accent-yellow); text-transform:uppercase; font-size:0.75rem; margin-bottom:4px;">6. Known Limitations</h4>
       <p style="font-size:0.83rem; color:var(--text-secondary);">${strat.limitations || 'None documented.'}</p>
     </div>
+
+    <section class="strategy-bet-review" aria-label="Bets for ${strat.username}">
+      <div class="bet-review-heading">
+        <div>
+          <span class="eyebrow">Strategy activity</span>
+          <h3>Placed bets & upcoming trades</h3>
+          <p>Review what this strategy executed and what it currently wants to place.</p>
+        </div>
+        <div class="bet-review-actions">
+          <button class="btn btn-sm" onclick="openStrategyBetReview('${strat.id}', 'history')">All placed bets →</button>
+          <button class="btn btn-sm btn-primary" onclick="openStrategyBetReview('${strat.id}', 'upcoming')">All upcoming trades →</button>
+        </div>
+      </div>
+
+      <div class="activity-summary-grid">
+        <div class="activity-summary"><span>Placed bets</span><strong>${placedBets.length.toLocaleString()}</strong><small>$${placedStake.toLocaleString('en-US', { maximumFractionDigits: 0 })} risked</small></div>
+        <div class="activity-summary"><span>Upcoming trades</span><strong>${upcomingBets.length.toLocaleString()}</strong><small>$${upcomingStake.toLocaleString('en-US', { maximumFractionDigits: 0 })} proposed</small></div>
+        <div class="activity-summary"><span>Ready now</span><strong>${upcomingBets.filter(b => b.status === 'READY_TO_BET').length}</strong><small>passed execution gates</small></div>
+      </div>
+
+      <div class="bet-review-block">
+        <div class="bet-review-title"><span>Recently placed</span><small>Newest first</small></div>
+        <div class="table-responsive compact-table">
+          <table>
+            <thead><tr><th>Placed</th><th>Matchup</th><th>Market</th><th>Selection / Price</th><th>Stake</th><th>Result</th><th>PnL</th></tr></thead>
+            <tbody>${placedRows}</tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bet-review-block">
+        <div class="bet-review-title"><span>Upcoming trade intentions</span><small>Earliest game first</small></div>
+        <div class="table-responsive compact-table">
+          <table>
+            <thead><tr><th>Game time</th><th>Matchup</th><th>Market</th><th>Selection / Price</th><th>Edge</th><th>Stake</th><th>Status</th></tr></thead>
+            <tbody>${upcomingRows}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   `;
 
   modal.classList.add('open');
@@ -944,10 +1080,12 @@ function setupFilters() {
   document.getElementById('strat-search')?.addEventListener('input', renderStrategies);
   document.getElementById('strat-cat-filter')?.addEventListener('change', renderStrategies);
 
+  document.getElementById('upcoming-strategy-filter')?.addEventListener('change', renderUpcomingBets);
   document.getElementById('upcoming-status-filter')?.addEventListener('change', renderUpcomingBets);
   document.getElementById('upcoming-market-filter')?.addEventListener('change', renderUpcomingBets);
 
   document.getElementById('history-search')?.addEventListener('input', () => { STATE.historyPage = 1; renderHistoryTable(); });
+  document.getElementById('history-strategy-filter')?.addEventListener('change', () => { STATE.historyPage = 1; renderHistoryTable(); });
   document.getElementById('history-season-filter')?.addEventListener('change', () => { STATE.historyPage = 1; renderHistoryTable(); });
   document.getElementById('history-res-filter')?.addEventListener('change', () => { STATE.historyPage = 1; renderHistoryTable(); });
 

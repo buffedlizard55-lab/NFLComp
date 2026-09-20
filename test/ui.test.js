@@ -52,7 +52,37 @@ function runTests() {
   }
   console.log(`✓ upcoming_bets.json validated (${upcoming.length} upcoming signals)`);
 
-  // 4. Check registry.json
+  // 4. Check placed-bet ledger and strategy linkage
+  const ledgerPath = path.join(__dirname, '..', 'data', 'bets_ledger.json');
+  assert.ok(fs.existsSync(ledgerPath), 'data/bets_ledger.json must exist');
+  const ledger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+  assert.ok(ledger.length > 0, 'Placed-bet ledger must not be empty');
+  const strategyIds = new Set(leaderboard.map(s => s.id));
+  for (const bet of ledger) {
+    assert.ok(bet.strategy_id, 'Placed bet must have strategy_id');
+    assert.ok(strategyIds.has(bet.strategy_id), `Placed bet strategy must appear on leaderboard: ${bet.strategy_id}`);
+    assert.ok(bet.bet_timestamp, 'Placed bet must have a placement timestamp');
+    assert.strictEqual(typeof bet.stake, 'number');
+    assert.strictEqual(typeof bet.pnl, 'number');
+  }
+  for (const bet of upcoming) {
+    assert.ok(bet.strategy_id, 'Upcoming trade must have strategy_id');
+    assert.ok(strategyIds.has(bet.strategy_id), `Upcoming strategy must appear on leaderboard: ${bet.strategy_id}`);
+  }
+  console.log(`✓ bets_ledger.json validated (${ledger.length} placed bets linked to strategies)`);
+
+  // 5. Check strategy review UI contracts
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const appJs = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');
+  assert.ok(html.includes('id="upcoming-strategy-filter"'), 'Upcoming view must expose a strategy filter');
+  assert.ok(html.includes('id="history-strategy-filter"'), 'History view must expose a strategy filter');
+  assert.ok(appJs.includes('Placed bets & upcoming trades'), 'Strategy modal must review placed and upcoming trades');
+  assert.ok(appJs.includes("openStrategyBetReview('${strat.id}', 'history')"), 'Strategy modal must link to filtered history');
+  assert.ok(appJs.includes("openStrategyBetReview('${strat.id}', 'upcoming')"), 'Strategy modal must link to filtered upcoming bets');
+  assert.ok(appJs.includes('Always review the newest placed bets first.'), 'History must explicitly sort newest first');
+  console.log('✓ strategy bet review UI contracts validated');
+
+  // 6. Check registry.json
   const regPath = path.join(__dirname, '..', 'data', 'registry.json');
   assert.ok(fs.existsSync(regPath), 'data/registry.json must exist');
   const registry = JSON.parse(fs.readFileSync(regPath, 'utf8'));

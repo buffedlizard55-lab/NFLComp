@@ -254,6 +254,9 @@
           <p class="section-desc">Prospective betting signals generated for the current 2026 NFL schedule. Covers 7 market types: SPREAD, TOTAL, TEAM_TOTAL, PLAYER_PROP, ALT_SPREAD, KALSHI_SPREAD, KALSHI_TOTAL, KALSHI_LIVE. Gated by point-in-time model probabilities, minimum edge thresholds, and verified injury/weather reports. Includes OL, Defensive, Props, Game Script, Travel, International.</p>
         </div>
         <div class="section-controls">
+          <select id="upcoming-strategy-filter" class="select-input" aria-label="Filter upcoming bets by strategy">
+            <option value="ALL">All Strategies</option>
+          </select>
           <select id="upcoming-status-filter" class="select-input">
             <option value="ALL">All Statuses</option>
             <option value="READY_TO_BET">Ready to Bet (Week 2)</option>
@@ -382,7 +385,10 @@
           <p class="section-desc">Audit trail of every simulated wager placed throughout the competition (2020-2026 slice shown). 7 market types, all with point-in-time timestamps, closing line CLV, liquidity bounds, and verification status. Filter by season, strategy, market, or outcome, and export raw audit datasets.</p>
         </div>
         <div class="section-controls">
-          <input type="text" id="history-search" class="search-input" placeholder="Search matchup, bet ID, team...">
+          <input type="text" id="history-search" class="search-input" placeholder="Search matchup, bet ID, strategy...">
+          <select id="history-strategy-filter" class="select-input" aria-label="Filter placed bets by strategy">
+            <option value="ALL">All Strategies</option>
+          </select>
           <select id="history-season-filter" class="select-input">
             <option value="ALL">All Seasons (2020–2026)</option>
             <option value="2026">2026 Season (Live)</option>
