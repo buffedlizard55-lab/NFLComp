@@ -14,10 +14,11 @@ const STATE = {
   ledger: [],
   kalshiTrades: [],
   researchExperiments: [],
+  strategyLab: null,
   registry: [],
   irregularities: [],
   auditChecks: [],
-  currentTab: 'dashboard',
+  currentTab: 'research',
   historyPage: 1,
   historyPageSize: 50,
   leaderSortField: 'total_pnl',
@@ -82,6 +83,7 @@ async function loadAllData() {
       ledgerRes,
       kalshiRes,
       expRes,
+      strategyLabRes,
       regRes,
       irrRes,
       auditRes
@@ -94,6 +96,7 @@ async function loadAllData() {
       fetch('data/bets_ledger.json').then(r => r.json()),
       fetch('data/kalshi_trades.json').then(r => r.json()),
       fetch('data/research_experiments.json').then(r => r.json()),
+      fetch('data/strategy_lab.json').then(r => r.json()),
       fetch('data/registry.json').then(r => r.json()),
       fetch('data/irregularities.json').then(r => r.json()),
       fetch('data/audit_checks.json').then(r => r.json())
@@ -107,6 +110,7 @@ async function loadAllData() {
     STATE.ledger = ledgerRes;
     STATE.kalshiTrades = kalshiRes;
     STATE.researchExperiments = expRes;
+    STATE.strategyLab = strategyLabRes;
     STATE.registry = regRes;
     STATE.irregularities = irrRes;
     STATE.auditChecks = auditRes;
@@ -727,6 +731,47 @@ function generateBarChartSVG(dataObj, width = 600, height = 260) {
 
 // ================= RESEARCH LAB =================
 function renderResearchLab() {
+  const policy = document.getElementById('strategy-lab-policy');
+  const candidateContainer = document.getElementById('strategy-candidates-container');
+  const lab = STATE.strategyLab;
+
+  if (policy && lab) {
+    policy.innerHTML = `
+      <div><span>Source snapshot</span><strong>${lab.source.loaded_games.toLocaleString()} games</strong><small>SHA-256 ${lab.source.sha256.slice(0, 12)}…</small></div>
+      <div><span>Development</span><strong>${lab.policy.development_window}</strong><small>rule formation</small></div>
+      <div><span>Validation</span><strong>${lab.policy.validation_window}</strong><small>first confirmation</small></div>
+      <div><span>Untouched holdout</span><strong>${lab.policy.untouched_holdout_window}</strong><small>promotion gate</small></div>
+    `;
+  }
+
+  if (candidateContainer && lab) {
+    candidateContainer.innerHTML = lab.candidates.map(candidate => {
+      const windows = Object.entries(candidate.windows).map(([name, result]) => `
+        <tr>
+          <td>${name}</td>
+          <td>${result.seasons}</td>
+          <td>${result.bets}</td>
+          <td>${result.wins}-${result.losses}-${result.pushes}</td>
+          <td>${result.win_rate_pct === null ? '—' : `${result.win_rate_pct.toFixed(2)}%`}</td>
+          <td class="${result.roi_pct > 0 ? 'positive-value' : 'negative-value'}">${result.roi_pct > 0 ? '+' : ''}${result.roi_pct.toFixed(2)}%</td>
+        </tr>`).join('');
+      return `
+        <article class="strategy-candidate-card">
+          <div class="candidate-heading">
+            <div><span class="eyebrow">${candidate.market} · ${candidate.strategy_id}</span><h3>${candidate.name}</h3></div>
+            <span class="badge ${candidate.status === 'HOLDOUT_PASSED' ? 'badge-qualified' : 'badge-loss'}">${candidate.status.replaceAll('_', ' ')}</span>
+          </div>
+          <p><strong>Hypothesis:</strong> ${candidate.hypothesis}</p>
+          <p><strong>Fixed rule:</strong> ${candidate.rule}</p>
+          <div class="table-responsive compact-table">
+            <table><thead><tr><th>Window</th><th>Seasons</th><th>Bets</th><th>W-L-P</th><th>Win rate</th><th>ROI</th></tr></thead><tbody>${windows}</tbody></table>
+          </div>
+          <div class="candidate-next"><strong>Next:</strong> ${candidate.next_step}</div>
+          <small>No performance claim is published. Flat-stake historical output authorizes paper testing only.</small>
+        </article>`;
+    }).join('');
+  }
+
   const container = document.getElementById('research-experiments-container');
   if (!container) return;
   container.innerHTML = '';

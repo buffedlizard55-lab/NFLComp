@@ -1,0 +1,30 @@
+name: Strategy Lab Verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 14 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-strategy-research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verify reproducible strategy report
+        run: python -m engine.strategy_lab --check
+      - name: Run engine tests
+        run: python test/engine.test.py
+      - name: Run UI and data-contract tests
+        run: node test/ui.test.js

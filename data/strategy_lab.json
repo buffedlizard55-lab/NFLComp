@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "research_class": "PAPER_TRADING_STRATEGY_LAB",
+  "source": {
+    "path": "data/source/games.csv",
+    "sha256": "2b9d942b56af9de9382dc9519cb59025a82117447eea05eda1e9c7f78d840547",
+    "loaded_games": 7548,
+    "completed_games": 7293,
+    "latest_completed_gameday": "2026-09-17"
+  },
+  "policy": {
+    "development_window": "2000-2019",
+    "validation_window": "2020-2022",
+    "untouched_holdout_window": "2023-2025",
+    "stake": "$100 flat per qualifying observation",
+    "promotion_gate": "At least 100 development, 40 validation, and 40 holdout bets; positive ROI in all three windows.",
+    "warning": "Passing this historical gate authorizes prospective paper testing only. It is not evidence of guaranteed future profit."
+  },
+  "candidates": [
+    {
+      "strategy_id": "STRAT_REST_TNF_005_v3",
+      "name": "Four-Day Rest Differential ATS",
+      "lineage_parent": "STRAT_REST_TNF_005_v1",
+      "hypothesis": "A team with at least four more rest days than its opponent may cover more often than the market price implies.",
+      "market": "SPREAD",
+      "rule": "Regular-season game; absolute home_rest - away_rest >= 4; back the more-rested team at the recorded spread price.",
+      "required_fields": [
+        "home_rest",
+        "away_rest",
+        "spread_line",
+        "home_spread_odds",
+        "away_spread_odds",
+        "home_score",
+        "away_score"
+      ],
+      "missing_value_counts_in_loaded_games": {
+        "home_rest": 0,
+        "away_rest": 0,
+        "spread_line": 240,
+        "home_spread_odds": 2221,
+        "away_spread_odds": 2221,
+        "home_score": 255,
+        "away_score": 255
+      },
+      "windows": {
+        "development": {
+          "seasons": "2000-2019",
+          "bets": 417,
+          "wins": 219,
+          "losses": 188,
+          "pushes": 10,
+          "win_rate_pct": 53.81,
+          "flat_stake_pnl": 2425.94,
+          "roi_pct": 5.82
+        },
+        "validation": {
+          "seasons": "2020-2022",
+          "bets": 86,
+          "wins": 48,
+          "losses": 36,
+          "pushes": 2,
+          "win_rate_pct": 57.14,
+          "flat_stake_pnl": 984.77,
+          "roi_pct": 11.45
+        },
+        "holdout": {
+          "seasons": "2023-2025",
+          "bets": 81,
+          "wins": 44,
+          "losses": 37,
+          "pushes": 0,
+          "win_rate_pct": 54.32,
+          "flat_stake_pnl": 229.44,
+          "roi_pct": 2.83
+        }
+      },
+      "status": "HOLDOUT_PASSED",
+      "next_step": "Register for prospective paper trading; holdout results are not a profit guarantee.",
+      "performance_claim": null
+    },
+    {
+      "strategy_id": "STRAT_DIV_TOTAL_040_v1",
+      "name": "Divisional High-Total Under",
+      "lineage_parent": null,
+      "hypothesis": "Divisional familiarity may reduce scoring relative to high posted totals.",
+      "market": "TOTAL",
+      "rule": "Regular-season divisional game with recorded total >= 47.0; test the Under at the recorded price.",
+      "required_fields": [
+        "div_game",
+        "total_line",
+        "total",
+        "under_odds"
+      ],
+      "missing_value_counts_in_loaded_games": {
+        "div_game": 0,
+        "total_line": 240,
+        "total": 255,
+        "under_odds": 2224
+      },
+      "windows": {
+        "development": {
+          "seasons": "2000-2019",
+          "bets": 335,
+          "wins": 187,
+          "losses": 144,
+          "pushes": 4,
+          "win_rate_pct": 56.5,
+          "flat_stake_pnl": 3567.07,
+          "roi_pct": 10.65
+        },
+        "validation": {
+          "seasons": "2020-2022",
+          "bets": 113,
+          "wins": 58,
+          "losses": 53,
+          "pushes": 2,
+          "win_rate_pct": 52.25,
+          "flat_stake_pnl": 176.98,
+          "roi_pct": 1.57
+        },
+        "holdout": {
+          "seasons": "2023-2025",
+          "bets": 74,
+          "wins": 39,
+          "losses": 35,
+          "pushes": 0,
+          "win_rate_pct": 52.7,
+          "flat_stake_pnl": 89.3,
+          "roi_pct": 1.21
+        }
+      },
+      "status": "HOLDOUT_PASSED",
+      "next_step": "Register for prospective paper trading; holdout results are not a profit guarantee.",
+      "performance_claim": null
+    }
+  ]
+}

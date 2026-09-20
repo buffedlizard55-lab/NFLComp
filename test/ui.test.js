@@ -82,7 +82,26 @@ function runTests() {
   assert.ok(appJs.includes('Always review the newest placed bets first.'), 'History must explicitly sort newest first');
   console.log('✓ strategy bet review UI contracts validated');
 
-  // 6. Check registry.json
+  // 6. Check reproducible strategy lab output
+  const labPath = path.join(__dirname, '..', 'data', 'strategy_lab.json');
+  assert.ok(fs.existsSync(labPath), 'data/strategy_lab.json must exist');
+  const lab = JSON.parse(fs.readFileSync(labPath, 'utf8'));
+  assert.strictEqual(lab.research_class, 'PAPER_TRADING_STRATEGY_LAB');
+  assert.ok(lab.source.sha256, 'Strategy lab must identify its exact source snapshot');
+  assert.strictEqual(lab.policy.untouched_holdout_window, '2023-2025');
+  assert.ok(lab.candidates.length >= 2, 'Strategy lab must continuously test multiple candidates');
+  for (const candidate of lab.candidates) {
+    assert.ok(candidate.rule, 'Candidate must declare a fixed rule');
+    assert.ok(candidate.windows.development, 'Candidate must have a development result');
+    assert.ok(candidate.windows.validation, 'Candidate must have a validation result');
+    assert.ok(candidate.windows.holdout, 'Candidate must have an untouched holdout result');
+    assert.strictEqual(candidate.performance_claim, null, 'Historical candidate must not publish a future performance claim');
+  }
+  assert.ok(html.includes('id="strategy-candidates-container"'), 'Research view must display strategy candidates');
+  assert.ok(html.includes('nav-tab nav-tab-focus active" data-tab="research"'), 'Strategy Lab must be the default primary view');
+  console.log(`✓ strategy lab validated (${lab.candidates.length} reproducible candidates)`);
+
+  // 7. Check registry.json
   const regPath = path.join(__dirname, '..', 'data', 'registry.json');
   assert.ok(fs.existsSync(regPath), 'data/registry.json must exist');
   const registry = JSON.parse(fs.readFileSync(regPath, 'utf8'));

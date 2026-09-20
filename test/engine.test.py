@@ -22,6 +22,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 from engine.data_loader import NFLDataLoader
 from engine.ledger import append_bet, verify_ledger
 from engine.research_discovery import discover_candidates, compare_versions
+from engine.strategy_lab import build_report
+from engine.settlement import settle_spread, settle_total
 from engine.models import (
     DynamicNFLEloEngine,
     BivariatePoissonScoringModel,
@@ -229,6 +231,53 @@ class TestNFLCompExpanded(unittest.TestCase):
         comparison = compare_versions(weather, rest)
         self.assertEqual(comparison["comparison_status"], "REQUIRES_OUT_OF_SAMPLE_TEST")
         self.assertIsNone(comparison["improvement_claim"])
+
+    def test_market_settlement_uses_home_handicap_convention(self):
+        # Home -3.5 wins by 7 and covers; home -3.5 wins by 3 and does not.
+        self.assertEqual(settle_spread(7, -3.5, "home"), 1.0)
+        self.assertEqual(settle_spread(3, -3.5, "home"), 0.0)
+        self.assertEqual(settle_spread(3, -3.0, "home"), 0.5)
+        self.assertEqual(settle_spread(3, -3.5, "away"), 1.0)
+        self.assertEqual(settle_total(48, 47.0, "over"), 1.0)
+        self.assertEqual(settle_total(47, 47.0, "under"), 0.5)
+
+    def test_strategy_lab_uses_fixed_chronological_windows(self):
+        report = build_report("data/source")
+        self.assertEqual(report["policy"]["untouched_holdout_window"], "2023-2025")
+        self.assertEqual(len(report["candidates"]), 2)
+        by_id = {candidate["strategy_id"]: candidate for candidate in report["candidates"]}
+        rest = by_id["STRAT_REST_TNF_005_v3"]
+        division = by_id["STRAT_DIV_TOTAL_040_v1"]
+        self.assertEqual(rest["windows"]["holdout"]["bets"], 81)
+        self.assertEqual(division["windows"]["holdout"]["bets"], 74)
+        self.assertEqual(rest["status"], "HOLDOUT_PASSED")
+        self.assertEqual(division["status"], "HOLDOUT_PASSED")
+        self.assertIsNone(rest["performance_claim"])
+        self.assertIsNone(division["performance_claim"])
+
+    def test_new_strategy_lab_rules_emit_only_observed_market_signals(self):
+        strategies = {strategy.id: strategy for strategy in get_strategy_instances()}
+        rest = strategies["STRAT_REST_TNF_005_v3"]
+        division = strategies["STRAT_DIV_TOTAL_040_v1"]
+        rest_game = {
+            "game_id": "TEST_REST", "home_team": "SF", "away_team": "SEA",
+            "home_rest": 10, "away_rest": 6, "rest_diff": 4,
+            "spread_line": -2.5, "home_spread_odds": -110.0, "away_spread_odds": -110.0,
+            "home_spread_odds_recorded": True, "away_spread_odds_recorded": True,
+        }
+        division_game = {
+            "game_id": "TEST_DIV", "div_game": True, "total_line": 47.0,
+            "under_odds": -110.0, "under_odds_recorded": True,
+        }
+        self.assertEqual(rest.evaluate_game(rest_game, {})[0]["selection"], "SF -2.5")
+        self.assertEqual(division.evaluate_game(division_game, {})[0]["selection"], "Under 47.0")
+        rest_game["rest_diff"] = 3
+        self.assertEqual(rest.evaluate_game(rest_game, {}), [])
+        division_game["div_game"] = False
+        self.assertEqual(division.evaluate_game(division_game, {}), [])
+        rest_game["rest_diff"] = 4
+        rest_game["home_spread_odds_recorded"] = False
+        self.assertEqual(rest.evaluate_game(rest_game, {}), [])
 
     def test_hash_chained_ledger_detects_tampering(self):
         import tempfile

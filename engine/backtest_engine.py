@@ -34,6 +34,7 @@ from engine.models import (
     evaluate_injury_impact
 )
 from engine.strategy_registry import ALL_STRATEGY_DEFINITIONS, get_strategy_instances
+from engine.settlement import settle_spread, settle_total
 
 class NFLBacktestRunner:
     def __init__(self, data_loader=None):
@@ -299,7 +300,10 @@ class NFLBacktestRunner:
                         total = hs + as_
 
                         # Determine outcome for all market types
-                        if market in ["SPREAD", "KALSHI_SPREAD", "ALT_SPREAD", "KALSHI_LIVE"]:
+                        if market in ["SPREAD", "ALT_SPREAD"]:
+                            outcome = settle_spread(margin, market_line, side)
+                        elif market in ["KALSHI_SPREAD", "KALSHI_LIVE"]:
+                            # Binary contracts retain their contract-specific barrier convention.
                             cover_margin = margin - market_line
                             if cover_margin > 0:
                                 outcome = 1.0 if side in ["home", "yes", "YES"] else 0.0
@@ -308,8 +312,9 @@ class NFLBacktestRunner:
                             else:
                                 outcome = 0.5
                         elif market in ["TOTAL", "KALSHI_TOTAL", "TEAM_TOTAL", "PLAYER_PROP"]:
-                            # For prop markets, outcome is simplified to 50/50 with model edge, but we still use total for totals
-                            if market == "TOTAL" or market == "KALSHI_TOTAL":
+                            if market == "TOTAL":
+                                outcome = settle_total(total, market_line, side)
+                            elif market == "KALSHI_TOTAL":
                                 if total > market_line:
                                     outcome = 1.0 if side in ["over", "yes", "YES"] else 0.0
                                 elif total < market_line:

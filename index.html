@@ -15,7 +15,7 @@
         <div class="logo-badge">NFLCOMP</div>
         <div>
           <h1 class="brand-title">ARENA AI — NFL Strategy Competition</h1>
-          <p class="brand-sub">Autonomous Research, Backtesting, Forward-Testing & Live Paper Trading — 58 Strategies • 41 Data Sources • 17 Categories</p>
+          <p class="brand-sub">Continuous Strategy Research & Paper Testing — 58 Published Strategies • 2 New Lab Candidates • 41 Data Sources</p>
         </div>
       </div>
       <div class="header-badges">
@@ -27,14 +27,14 @@
     <!-- NAVIGATION TABS -->
     <div class="nav-scroll">
       <nav class="nav-container" id="nav-tabs">
-        <button class="nav-tab active" data-tab="dashboard">📊 Dashboard</button>
+        <button class="nav-tab" data-tab="dashboard">📊 Dashboard</button>
+        <button class="nav-tab nav-tab-focus active" data-tab="research">🧪 Strategy Lab</button>
         <button class="nav-tab" data-tab="leaderboard">🏆 Leaderboard</button>
         <button class="nav-tab" data-tab="strategies">🧠 Strategies</button>
         <button class="nav-tab" data-tab="upcoming">⚡ Upcoming Bets</button>
         <button class="nav-tab" data-tab="live-desk">📈 Live Paper Trading</button>
         <button class="nav-tab" data-tab="history">📜 Trade History</button>
         <button class="nav-tab" data-tab="performance">📉 Performance</button>
-        <button class="nav-tab" data-tab="research">🧪 Research Lab</button>
         <button class="nav-tab" data-tab="kalshi">🏛️ Kalshi Desk</button>
         <button class="nav-tab" data-tab="registry">📂 Data Sources</button>
         <button class="nav-tab" data-tab="verification">🛡️ Verification</button>
@@ -83,7 +83,7 @@
   <main id="app-main">
 
     <!-- 1. DASHBOARD VIEW -->
-    <section id="view-dashboard" class="view-section active">
+    <section id="view-dashboard" class="view-section">
       <div class="section-header">
         <div>
           <h2 class="section-title">📊 NFL Competition Dashboard</h2>
@@ -486,12 +486,22 @@
     </section>
 
     <!-- 8. RESEARCH LAB -->
-    <section id="view-research" class="view-section">
+    <section id="view-research" class="view-section active">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🧪 Autonomous Research Lab — 8 Empirical Experiments</h2>
-          <p class="section-desc">Empirical hypotheses, feature importance discovery, ablation experiments, and strategy evolutionary lineages derived from verified historical datasets. Includes OL continuity (54.8% cover), defensive pressure (55.8% cover), game-script pace (54.9% Over), player prop usage (55.2% Over, 38.5% TD hit), wind threshold, backup QB shock, Kalshi Poisson, TNF travel.</p>
+          <h2 class="section-title">🧪 Continuous Strategy Development Lab</h2>
+          <p class="section-desc">The project's primary workflow: declare a rule, verify required source fields, evaluate fixed chronological windows, preserve an untouched holdout, and promote only to prospective paper testing. Results below are reproducibly calculated from the bundled source snapshot; they are not profit guarantees.</p>
         </div>
+      </div>
+
+      <div class="strategy-lab-policy" id="strategy-lab-policy"></div>
+      <div class="strategy-candidate-grid" id="strategy-candidates-container">
+        <!-- Reproducible candidate evaluations injected via JS -->
+      </div>
+
+      <div class="card research-fixture-notice">
+        <div class="card-title">Research archive</div>
+        <p class="section-desc">The studies below are existing presentation fixtures. Treat them as research dossiers, not independently reproduced evidence, unless their underlying source snapshot and calculation are present.</p>
       </div>
 
       <div class="card">

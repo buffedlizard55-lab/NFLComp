@@ -18,7 +18,7 @@ Covers all required research categories:
 - Referee tendencies
 """
 
-from engine.models import evaluate_injury_impact
+from engine.models import american_to_implied_prob, evaluate_injury_impact
 
 class NFLStrategy:
     def __init__(self, meta):
@@ -248,18 +248,30 @@ class RestAdvantageStrategy(NFLStrategy):
             side = "home"
             odds = game.get("home_spread_odds", -110.0)
             model_prob = 0.545
-        else:
+        elif self.version == "v2":
             if game.get("weekday") != "Thursday" or game.get("away_rest", 7) > 4:
                 return []
             sel_team = game["home_team"]
             side = "home"
             odds = game.get("home_spread_odds", -110.0)
             model_prob = 0.562
-        implied_p = 0.5238
+        else:
+            # v3 is the pre-declared Strategy Lab rule. It is symmetric: back
+            # whichever team has at least four additional rest days.
+            if abs(rest_diff) < 4:
+                return []
+            bet_home = rest_diff > 0
+            sel_team = game["home_team"] if bet_home else game["away_team"]
+            side = "home" if bet_home else "away"
+            if not game.get(f"{side}_spread_odds_recorded"):
+                return []
+            odds = game[f"{side}_spread_odds"]
+            model_prob = float(self.meta["development_win_rate"])
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
-        if edge < self.min_edge:
+        if self.version != "v3" and edge < self.min_edge:
             return []
-        display_line = -spread
+        display_line = spread if side == "home" else -spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -281,6 +293,41 @@ class RestAdvantageStrategy(NFLStrategy):
                 "weekday": game.get("weekday")
             }
         }]
+
+class DivisionalHighTotalUnderStrategy(NFLStrategy):
+    """Prospective rule promoted by the reproducible Strategy Lab report."""
+
+    def evaluate_game(self, game, context):
+        total_line = game.get("total_line")
+        if not game.get("div_game") or total_line is None or total_line < 47.0:
+            return []
+        if not game.get("under_odds_recorded"):
+            return []
+        odds = game["under_odds"]
+        model_prob = float(self.meta["development_win_rate"])
+        implied_prob = american_to_implied_prob(odds)
+        return [{
+            "strategy_id": self.id,
+            "username": self.username,
+            "game_id": game["game_id"],
+            "market": "TOTAL",
+            "selection": f"Under {total_line:.1f}",
+            "side": "under",
+            "market_line": total_line,
+            "market_odds": odds,
+            "model_prob": round(model_prob, 4),
+            "implied_prob": round(implied_prob, 4),
+            "edge": round(model_prob - implied_prob, 4),
+            "stake": round(self.base_stake, 2),
+            "status": "PAPER_TEST",
+            "supporting_data": {
+                "divisional_game": True,
+                "total_threshold": 47.0,
+                "research_status": "HOLDOUT_PASSED",
+                "warning": "Historical holdout result; not a future-profit claim"
+            }
+        }]
+
 
 class EloQuantStrategy(NFLStrategy):
     def evaluate_game(self, game, context):

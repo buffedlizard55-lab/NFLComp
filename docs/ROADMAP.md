@@ -2,6 +2,17 @@
 
 This document outlines ongoing and scheduled enhancements for future NFL research seasons.
 
+## Continuous strategy cycle (primary priority)
+
+Every research cycle must add or explicitly reject pre-declared strategy candidates. The weekly automation verifies that `data/strategy_lab.json` is reproducible from the exact `games.csv` snapshot and runs both test suites. New source snapshots require a fresh report, but holdout thresholds must never be tuned after viewing holdout output.
+
+Current cycle:
+- `STRAT_REST_TNF_005_v3`: passed the declared historical gate; prospective paper test next.
+- `STRAT_DIV_TOTAL_040_v1`: passed the declared historical gate with a small holdout edge; prospective paper test next.
+- Next candidates must be based only on fields with retained source/provenance. Player props, live markets, and order-book rules stay blocked until timestamped prices and observable outcomes exist.
+
+A candidate is valuable even when it fails: retain the fixed rule and failure result to prevent repeated testing and survivorship bias.
+
 ---
 
 ## 1. Advanced Modeling Tracks
