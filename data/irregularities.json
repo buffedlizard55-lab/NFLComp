@@ -1,0 +1,52 @@
+[
+  {
+    "id": "IRR-01-NFL-BYRON-YOUNG-ROSTER",
+    "title": "Player-Team Discrepancy: Byron Young LAR vs PHI",
+    "category": "ROSTER_DISCREPANCY",
+    "severity": "LOW",
+    "description": "Byron Young was listed under PHI by ESPN injuries JSON but LAR by nfl.com official report. Cross-validated against official gamebook and resolved to LAR.",
+    "source": "nfl.com vs ESPN",
+    "resolution": "Resolved to LAR official league affiliation.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-02-REDDIT-JSON-403",
+    "title": "Reddit JSON API Access Blocked (HTTP 403)",
+    "category": "API_BLOCK",
+    "severity": "MEDIUM",
+    "description": "Automated unauthenticated requests to Reddit JSON endpoints return HTTP 403 Forbidden since platform rate gate updates in 2026.",
+    "source": "https://www.reddit.com/r/NFL_Discussion/about.json",
+    "resolution": "Documented in Data Registry; strategy research transitioned to verified GitHub/NOAA/nflverse mirrors.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-03-TNF-SHORT-REST-WEATHER",
+    "title": "TNF Indoor vs Outdoor Weather Attribution",
+    "category": "ENVIRONMENT_DATA",
+    "severity": "LOW",
+    "description": "Outdoor weather stations for domed stadiums report outdoor barometric pressure that does not affect climate-controlled turf field conditions.",
+    "source": "NOAA NWS",
+    "resolution": "Flagged is_dome flag to strictly enforce wind speed = 0.0 mph for indoor venues.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-04-NFL-POLICY-PDF-404",
+    "title": "NFL Personnel Policy PDFs Return 404",
+    "category": "BROKEN_LINK",
+    "severity": "LOW",
+    "description": "operations.nfl.com policy PDFs returned 404 to HTTP fetcher despite being search-indexed.",
+    "source": "operations.nfl.com",
+    "resolution": "Replaced evidence links with verified active nfl.com/injuries canonical endpoint.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-05-KALSHI-TOUCH-REANCHOR",
+    "title": "Kalshi Orderbook Depth Re-anchoring Between Snapshots",
+    "category": "EXECUTION_MODEL",
+    "severity": "MEDIUM",
+    "description": "Kalshi orderbook ladders are captured periodically; between snapshots depth is re-anchored to the last verified quoted touch.",
+    "source": "Kalshi API",
+    "resolution": "Bounded simulated fills by real historical volume and 500 contract size limits to prevent unrealistic fill assumptions.",
+    "status": "LOGGED_AND_RESOLVED"
+  }
+]

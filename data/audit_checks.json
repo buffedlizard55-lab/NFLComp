@@ -1,0 +1,56 @@
+[
+  {
+    "name": "GAMES_SOURCE_EXISTS",
+    "category": "DATA_INTEGRITY",
+    "passed": true,
+    "details": "games.csv verified present"
+  },
+  {
+    "name": "GAME_ID_UNIQUENESS",
+    "category": "DATA_INTEGRITY",
+    "passed": true,
+    "details": "Found 0 duplicate game IDs"
+  },
+  {
+    "name": "SCORE_MARGIN_ARITHMETIC",
+    "category": "CALCULATION",
+    "passed": true,
+    "details": "Score margin checked on 7548 games; 0 mismatches"
+  },
+  {
+    "name": "LEDGER_POPULATED",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Found 14,935 bets in ledger"
+  },
+  {
+    "name": "BET_ID_UNIQUENESS",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Found 0 duplicate bet IDs"
+  },
+  {
+    "name": "PNL_CALCULATION_ACCURACY",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Audited 14,935 bets; 0 math errors"
+  },
+  {
+    "name": "LEADERBOARD_INTEGRITY",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Leaderboard contains 28 verified strategies"
+  },
+  {
+    "name": "KALSHI_TRADES_INTEGRITY",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Found 929 simulated Kalshi trades"
+  },
+  {
+    "name": "REGISTRY_ENTRIES",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Registry contains 11 probed sources"
+  }
+]
