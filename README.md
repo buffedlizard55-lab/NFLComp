@@ -6,7 +6,7 @@
 [![Simulated Wagers](https://img.shields.io/badge/Ledger-55%2C974%20Wagers-06b6d4)](#permanent-bet-ledger)
 [![Platform](https://img.shields.io/badge/GitHub%20Pages-Live-success)](#web-interface)
 
-A complete, production-grade autonomous NFL sports-betting strategy research, discovery, walk-forward backtesting, forward-testing, paper-trading, and competition platform.
+A paper-trading research prototype for autonomous NFL strategy discovery, walk-forward testing, and audit-focused competition. It is not a production betting system, and checked-in JSON exports are fixtures unless accompanied by source snapshots and provenance.
 
 The system autonomously investigates NFL data sources, extracts predictive variables, formulates quantitative hypotheses, tests multi-version strategy lineages (`v1` → `v2` → `v3`), enforces strict zero-lookahead walk-forward execution, logs every wager into an immutable ledger, and paper-trades the active **2026 NFL Season** slate.
 

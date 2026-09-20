@@ -278,6 +278,20 @@ class NFLBacktestRunner:
                     edge = sig["edge"]
                     
                     if game["completed"]:
+                        # A result may only be settled when the source contains the
+                        # observable statistic for this market.  Player props do not
+                        # exist in the bundled historical feed; never manufacture a
+                        # win/loss from model probability or a hash-derived outcome.
+                        if market == "PLAYER_PROP":
+                            self.irregularities.append({
+                                "type": "UNSETTLED_MARKET",
+                                "game_id": game["game_id"],
+                                "strategy_id": strat.id,
+                                "market": market,
+                                "detail": "Historical player-level result/price unavailable; signal excluded from settlement.",
+                                "status": "FLAGGED"
+                            })
+                            continue
                         outcome = None
                         hs = game["home_score"]
                         as_ = game["away_score"]
@@ -312,12 +326,9 @@ class NFLBacktestRunner:
                                 else:
                                     outcome = 0.5
                             elif market == "PLAYER_PROP":
-                                # For props, we simulate outcome based on model_prob vs random
-                                # Use deterministic but realistic: if model_prob >0.55, give 55% win rate
-                                # Use game margin as pseudo-random seed
-                                pseudo_rand = (abs(hash(game["game_id"] + strat.id)) % 100) / 100.0
-                                win_thresh = model_prob
-                                outcome = 1.0 if pseudo_rand < win_thresh else 0.0
+                                # Defensive branch: unsupported props are rejected above.
+                                # Never substitute game totals or pseudo-random outcomes.
+                                continue
                         elif market == "MONEYLINE":
                             if hs > as_:
                                 outcome = 1.0 if side == "home" else 0.0
