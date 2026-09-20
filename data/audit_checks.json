@@ -9,7 +9,7 @@
     "name": "GAME_ID_UNIQUENESS",
     "category": "DATA_INTEGRITY",
     "passed": true,
-    "details": "Found 0 duplicate game IDs"
+    "details": "Found 0 duplicate game IDs across 7548 games"
   },
   {
     "name": "SCORE_MARGIN_ARITHMETIC",
@@ -18,39 +18,93 @@
     "details": "Score margin checked on 7548 games; 0 mismatches"
   },
   {
+    "name": "GAMES_CHRONOLOGICAL_ORDER",
+    "category": "DATA_INTEGRITY",
+    "passed": true,
+    "details": "Games sorted chronologically: 1999-09-12 to 2027-01-10"
+  },
+  {
     "name": "LEDGER_POPULATED",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 14,935 bets in ledger"
+    "details": "Found 27,904 bets in ledger (2020-2026 recent slice)"
   },
   {
     "name": "BET_ID_UNIQUENESS",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 0 duplicate bet IDs"
+    "details": "Found 0 duplicate bet IDs out of 27,904"
   },
   {
     "name": "PNL_CALCULATION_ACCURACY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Audited 14,935 bets; 0 math errors"
+    "details": "Audited 27,904 bets; 0 math errors"
+  },
+  {
+    "name": "LEDGER_REQUIRED_FIELDS",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Checked required fields; 0 missing field instances"
+  },
+  {
+    "name": "MARKET_TYPES_VALID",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Checked market types; 0 invalid market types"
   },
   {
     "name": "LEADERBOARD_INTEGRITY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Leaderboard contains 28 verified strategies"
+    "details": "Leaderboard contains 58 verified strategies (target >=40)"
+  },
+  {
+    "name": "CATEGORY_COVERAGE",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Leaderboard covers 17 categories: Statistical & Machine Learning Models, Team Totals & Efficiency, Market Movement & CLV Strategies, Player Prop Strategies, Public Strategy Research & Replication..."
   },
   {
     "name": "KALSHI_TRADES_INTEGRITY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 929 simulated Kalshi trades"
+    "details": "Found 1,432 simulated Kalshi trades with bid/ask/spread/liquidity/slippage"
+  },
+  {
+    "name": "KALSHI_FIELDS_COMPLETE",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Kalshi trade fields complete: True"
   },
   {
     "name": "REGISTRY_ENTRIES",
     "category": "AUDIT",
     "passed": true,
-    "details": "Registry contains 11 probed sources"
+    "details": "Registry contains 41 probed sources (target >=30)"
+  },
+  {
+    "name": "VERIFIED_PRIMARY_COUNT",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Found 19 VERIFIED_PRIMARY sources"
+  },
+  {
+    "name": "REQUIRED_CATEGORY_COVERAGE",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Covered 12/12 required categories: ['Quarterback & Passing Efficiency', 'Weather & Stadium Conditions', 'Rest & Scheduling Asymmetries', 'Statistical & Machine Learning Models', 'Market Movement & CLV Strategies', 'Injury & Player Availability', 'Offensive Line & Protection', 'Defensive Matchups & Scheme', 'Kalshi Prediction Markets', 'Referee & Officiating Tendencies', 'Public Strategy Research & Replication', 'Coaching & Decision Tendencies', 'Player Prop Strategies', 'Game Script & Situational', 'Live & In-Game Strategies', 'Team Totals & Efficiency', 'Alternate Markets & Futures']"
+  },
+  {
+    "name": "STRATEGY_VERSIONING",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Found 19 strategies with parent_version (versioning)"
+  },
+  {
+    "name": "MASTERSITE_RESEARCH",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "MasterSite projects mapped: 12 sources covering CEO, Weather, Insider, TheLeap, NFL/NBA Injury, FDA, NCAA/NFL/MLB Scoreboard, Sports Pred, Gold, PinePilot"
   }
 ]

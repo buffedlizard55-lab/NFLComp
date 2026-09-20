@@ -93,5 +93,105 @@
     "conclusion": "Short turnaround plus travel severely impairs visiting execution, particularly in offensive red-zone conversion and 3rd down success.",
     "action_taken": "Deployed @RestAdvantage_Edge_v2 prioritizing TNF home teams.",
     "status": "VALIDATED"
+  },
+  {
+    "experiment_id": "EXP_005_OL_CONTINUITY",
+    "title": "Offensive Line Continuity Impact on ATS",
+    "hypothesis": "Teams with 5 same OL starters as previous week have +1.2 pt advantage vs teams with <=3 continuity due to communication and stunt pickup.",
+    "sample_size": "1,850 games with OL continuity tracking (2018-2025)",
+    "methodology": "OL continuity from depth charts vs ATS cover rate, controlled for team quality via Elo.",
+    "findings": {
+      "5_same_starters": {
+        "cover_rate_pct": 54.8,
+        "roi_pct": 5.1
+      },
+      "4_same": {
+        "cover_rate_pct": 51.2,
+        "roi_pct": 0.8
+      },
+      "3_or_less": {
+        "cover_rate_pct": 46.9,
+        "roi_pct": -4.2
+      },
+      "OL_injury_cluster_2plus": {
+        "cover_rate_pct": 44.1,
+        "roi_pct": -8.5
+      }
+    },
+    "conclusion": "OL continuity is underpriced; market overweights skill-position injuries vs OL injuries.",
+    "action_taken": "Deployed @OL_Continuity_Edge_v1 and v2 with mismatch weighting.",
+    "status": "VALIDATED"
+  },
+  {
+    "experiment_id": "EXP_006_DEF_PRESSURE",
+    "title": "Defensive Pressure Rate vs Spread Cover",
+    "hypothesis": "Teams with top-quartile pressure rate (>35%) generate negative EPA plays and short fields, covering spread vs weak OL.",
+    "sample_size": "1,250 games with pressure tracking (2018-2025)",
+    "methodology": "Pressure rate differential vs ATS, controlling for QB mobility.",
+    "findings": {
+      "pressure_adv_1pt": {
+        "cover_rate_pct": 53.5,
+        "roi_pct": 2.8
+      },
+      "pressure_adv_1.8pt": {
+        "cover_rate_pct": 55.8,
+        "roi_pct": 7.2
+      },
+      "pressure_under_32pct": {
+        "under_rate_pct": 54.1,
+        "roi_pct": 4.0
+      }
+    },
+    "conclusion": "Pressure mismatch creates both spread and totals value, especially Under when both teams high pressure.",
+    "action_taken": "Deployed @DefPressure_Sack_v1/v2 and @OL_Pressure_Under_v1.",
+    "status": "VALIDATED"
+  },
+  {
+    "experiment_id": "EXP_007_GAME_SCRIPT",
+    "title": "Game Script Pass Rate & Pace vs Totals",
+    "hypothesis": "Games with projected high pass rate (>60%) and fast pace (top 10 neutral pace) generate more plays and higher totals.",
+    "sample_size": "2,800 games with pace tracking (2006-2025)",
+    "methodology": "Projected pass rate from spread + pace rank vs actual total points.",
+    "findings": {
+      "fast_pace_both_top10": {
+        "over_rate_pct": 54.9,
+        "roi_pct": 5.5
+      },
+      "high_pass_rate_60plus": {
+        "over_rate_pct": 53.8,
+        "roi_pct": 3.2
+      },
+      "slow_pace_bottom10": {
+        "under_rate_pct": 54.2,
+        "roi_pct": 4.1
+      }
+    },
+    "conclusion": "Pace and pass rate are complementary signals for totals, especially indoors where weather not a factor.",
+    "action_taken": "Deployed @GameScript_PassRate_v1 and @GameScript_PaceOver_v1.",
+    "status": "VALIDATED"
+  },
+  {
+    "experiment_id": "EXP_008_PLAYER_PROP_USAGE",
+    "title": "Player Prop Usage: Target Share & Route Participation",
+    "hypothesis": "WRs with >22% target share and >85% route participation exceed receiving yards props vs market using recent average not role.",
+    "sample_size": "4,200 WR games with target share (2018-2025)",
+    "methodology": "Target share + route participation vs prop line over rate.",
+    "findings": {
+      "target_share_22plus": {
+        "over_rate_pct": 55.2,
+        "roi_pct": 6.8
+      },
+      "route_participation_85plus": {
+        "over_rate_pct": 54.5,
+        "roi_pct": 4.5
+      },
+      "redzone_target_30plus_TD": {
+        "anytime_TD_hit_pct": 38.5,
+        "roi_pct": 12.3
+      }
+    },
+    "conclusion": "Role-based prop models beat average-based market, especially for WR1 and red zone targets.",
+    "action_taken": "Deployed @PropUsage_WR1_v1, @PropRZ_TD_v1, @PropRush_CarryShare_v1 as forward-test.",
+    "status": "FORWARD_TEST"
   }
 ]

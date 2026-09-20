@@ -48,5 +48,55 @@
     "source": "Kalshi API",
     "resolution": "Bounded simulated fills by real historical volume and 500 contract size limits to prevent unrealistic fill assumptions.",
     "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-06-OL-CONTINUITY-TRACKING",
+    "title": "Offensive Line Continuity Tracking Limited Pre-2018",
+    "category": "DATA_LIMITATION",
+    "severity": "LOW",
+    "description": "OL continuity tracking and pressure stats only available from 2018 onward via PFR advanced stats mirror. Pre-2018 games use fallback continuity = 5.",
+    "source": "PFR advanced stats",
+    "resolution": "Documented as known limitation; OL strategies flagged as BACKTESTED from 2018 onward, FORWARD_TEST for full validation.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-07-PLAYER-PROP-HISTORICAL",
+    "title": "Historical Player Prop Lines Not in Free Archive",
+    "category": "DATA_LIMITATION",
+    "severity": "MEDIUM",
+    "description": "Historical player prop lines (receiving yards, rushing yards, receptions) not in nflverse free archive; require paid Odds API or DraftKings archive. Prop strategies classified as FORWARD_TEST.",
+    "source": "DraftKings, FanDuel, Odds API",
+    "resolution": "Prop strategies use role-based projections and are forward-tested on 2026 slate; historical backtest simulated with proxy team totals.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-08-ALT-SPREAD-HISTORICAL",
+    "title": "Alternate Spreads Historical Archive Limited",
+    "category": "DATA_LIMITATION",
+    "severity": "LOW",
+    "description": "Alternate spreads (+/- 3 pts from main) not in nflverse historical; only main spread available. Alt strategies forward-test only.",
+    "source": "nflverse",
+    "resolution": "Flagged as FORWARD_TEST; uses Poisson tail probabilities for fair value.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-09-LIVE-PBP-LATENCY",
+    "title": "Live Play-by-Play Latency & Verification",
+    "category": "EXECUTION_MODEL",
+    "severity": "MEDIUM",
+    "description": "Live win probability strategies require sub-second play-by-play; ESPN hidden API provides real-time but unofficial contract. Live strategies forward-test only until official live feed verified.",
+    "source": "ESPN hidden API",
+    "resolution": "Live strategies marked FORWARD_TEST with WATCHING status for 2026 Week 2.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-10-TRAVEL-COORD-MAPPING",
+    "title": "Travel Distance Coordinate Mapping Approximation",
+    "category": "CALCULATION",
+    "severity": "LOW",
+    "description": "Stadium coordinates for travel fatigue model use approximate centroids; actual team travel may include layovers, not direct stadium-to-stadium.",
+    "source": "NFL stadium coordinates",
+    "resolution": "Haversine distance used as proxy; flagged as approximation, not exact travel.",
+    "status": "LOGGED_AND_RESOLVED"
   }
 ]
