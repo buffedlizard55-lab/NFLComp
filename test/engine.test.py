@@ -20,6 +20,8 @@ import random
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from engine.data_loader import NFLDataLoader
+from engine.ledger import append_bet, verify_ledger
+from engine.research_discovery import discover_candidates, compare_versions
 from engine.models import (
     DynamicNFLEloEngine,
     BivariatePoissonScoringModel,
@@ -216,6 +218,32 @@ class TestNFLCompExpanded(unittest.TestCase):
         pts_lost, breakdown = evaluate_injury_impact(sample_injuries)
         self.assertGreater(pts_lost, 4.0)
         self.assertGreaterEqual(len(breakdown), 2)
+
+    def test_discovery_flags_unavailable_data_without_claiming_edge(self):
+        candidates = discover_candidates([{"wind": 18, "temp": 42, "roof": "outdoors", "total_line": 44}], source_id="snapshot-1")
+        weather = next(c for c in candidates if c["candidate_id"] == "WEATHER_TOTAL")
+        self.assertEqual(weather["status"], "READY_FOR_TEST")
+        self.assertIsNone(weather["performance_claim"])
+        rest = next(c for c in candidates if c["candidate_id"] == "REST_TOTAL_INTERACTION")
+        self.assertEqual(rest["status"], "BLOCKED_MISSING_DATA")
+        comparison = compare_versions(weather, rest)
+        self.assertEqual(comparison["comparison_status"], "REQUIRES_OUT_OF_SAMPLE_TEST")
+        self.assertIsNone(comparison["improvement_claim"])
+
+    def test_hash_chained_ledger_detects_tampering(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "bets.jsonl")
+            append_bet(path, {"bet_id": "B-1", "stake": 10, "result": "WIN"})
+            append_bet(path, {"bet_id": "B-2", "stake": 10, "result": "LOSS"})
+            valid, errors = verify_ledger(path)
+            self.assertTrue(valid, errors)
+            with open(path, "r+", encoding="utf-8") as fh:
+                text = fh.read().replace('"stake": 10', '"stake": 99', 1)
+                fh.seek(0); fh.write(text); fh.truncate()
+            valid, errors = verify_ledger(path)
+            self.assertFalse(valid)
+            self.assertTrue(any("hash mismatch" in error for error in errors))
 
     def test_audit_verifier_expanded(self):
         # First need to ensure data files exist - run simulation if needed
