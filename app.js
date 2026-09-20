@@ -172,40 +172,60 @@ function renderDashboard() {
     tbody.appendChild(tr);
   });
 
-  // Active Week 2 Slate Pulse
+  // Active Week 2 Slate Pulse - dynamic from upcoming bets
   const slateBody = document.getElementById('dash-slate-body');
   if (!slateBody) return;
   slateBody.innerHTML = '';
   
   // Group upcoming bets by matchup
-  const matchupCounts = {};
+  const matchupMap = {};
   STATE.upcomingBets.filter(u => u.week === 2).forEach(u => {
-    matchupCounts[u.matchup] = (matchupCounts[u.matchup] || 0) + 1;
+    if (!matchupMap[u.matchup]) {
+      matchupMap[u.matchup] = { count: 0, gameday: u.gameday, gametime: u.gametime, spread: null, total: null };
+    }
+    matchupMap[u.matchup].count += 1;
+    if (u.market === 'SPREAD' && !matchupMap[u.matchup].spread) matchupMap[u.matchup].spread = u.selection;
+    if (u.market === 'TOTAL' && !matchupMap[u.matchup].total) matchupMap[u.matchup].total = u.selection;
   });
 
-  const sampleGames = [
-    { matchup: 'CAR @ ATL', date: 'Sun 1:00 PM', spread: 'ATL +2.5', total: '43.5' },
-    { matchup: 'NO @ BAL', date: 'Sun 1:00 PM', spread: 'BAL -8.5', total: '45.5' },
-    { matchup: 'MIN @ CHI', date: 'Sun 1:00 PM', spread: 'CHI -4.5', total: '46.5' },
-    { matchup: 'CIN @ HOU', date: 'Sun 1:00 PM', spread: 'HOU -3.0', total: '45.5' },
-    { matchup: 'GB @ NYJ', date: 'Sun 1:00 PM', spread: 'NYJ +3.5', total: '44.5' },
-    { matchup: 'MIA @ SF', date: 'Sun 4:25 PM', spread: 'SF -13.5', total: '44.5' },
-    { matchup: 'SEA @ ARI', date: 'Sun 4:05 PM', spread: 'ARI +3.5', total: '41.5' },
-    { matchup: 'NYG @ LA', date: 'Mon 8:15 PM', spread: 'LA -6.5', total: '47.5' }
-  ];
+  const sortedMatchups = Object.entries(matchupMap).sort((a,b) => b[1].count - a[1].count).slice(0, 8);
 
-  sampleGames.forEach(g => {
-    const tr = document.createElement('tr');
-    const signals = matchupCounts[g.matchup] || 4;
-    tr.innerHTML = `
-      <td><strong>${g.matchup}</strong></td>
-      <td style="color: var(--text-secondary); font-size: 0.78rem;">${g.date}</td>
-      <td><code>${g.spread}</code></td>
-      <td><code>${g.total}</code></td>
-      <td><span class="badge badge-ready">${signals} signals</span></td>
-    `;
-    slateBody.appendChild(tr);
-  });
+  if (sortedMatchups.length === 0) {
+    // Fallback sample if no upcoming
+    const sampleGames = [
+      { matchup: 'CAR @ ATL', date: 'Sun 1:00 PM', spread: 'ATL +2.5', total: '43.5', signals: 4 },
+      { matchup: 'NO @ BAL', date: 'Sun 1:00 PM', spread: 'BAL -8.5', total: '45.5', signals: 6 },
+      { matchup: 'MIN @ CHI', date: 'Sun 1:00 PM', spread: 'CHI -4.5', total: '46.5', signals: 5 },
+      { matchup: 'CIN @ HOU', date: 'Sun 1:00 PM', spread: 'HOU -3.0', total: '45.5', signals: 4 },
+      { matchup: 'GB @ NYJ', date: 'Sun 1:00 PM', spread: 'NYJ +3.5', total: '44.5', signals: 5 },
+      { matchup: 'MIA @ SF', date: 'Sun 4:25 PM', spread: 'SF -13.5', total: '44.5', signals: 3 },
+      { matchup: 'SEA @ ARI', date: 'Sun 4:05 PM', spread: 'ARI +3.5', total: '41.5', signals: 4 },
+      { matchup: 'NYG @ LA', date: 'Mon 8:15 PM', spread: 'LA -6.5', total: '47.5', signals: 4 }
+    ];
+    sampleGames.forEach(g => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${g.matchup}</strong></td>
+        <td style="color: var(--text-secondary); font-size: 0.78rem;">${g.date}</td>
+        <td><code>${g.spread}</code></td>
+        <td><code>${g.total}</code></td>
+        <td><span class="badge badge-ready">${g.signals} signals</span></td>
+      `;
+      slateBody.appendChild(tr);
+    });
+  } else {
+    sortedMatchups.forEach(([matchup, info]) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${matchup}</strong></td>
+        <td style="color: var(--text-secondary); font-size: 0.78rem;">${info.gameday} ${info.gametime || ''}</td>
+        <td><code>${info.spread || '—'}</code></td>
+        <td><code>${info.total || '—'}</code></td>
+        <td><span class="badge badge-ready">${info.count} signals</span></td>
+      `;
+      slateBody.appendChild(tr);
+    });
+  }
 
   renderDashboardEquityChart();
 }
@@ -503,15 +523,22 @@ function renderPerformanceCharts() {
   });
   catContainer.innerHTML = generateBarChartSVG(catPnl, 600, 260);
 
-  // 3. Market Bar Chart
+  // 3. Market Bar Chart - expanded to 7 market types
   const mktPnl = {
     'SPREAD': 0,
     'TOTAL': 0,
-    'KALSHI_SPREAD': 0
+    'TEAM_TOTAL': 0,
+    'PLAYER_PROP': 0,
+    'ALT_SPREAD': 0,
+    'KALSHI_SPREAD': 0,
+    'KALSHI_TOTAL': 0,
+    'KALSHI_LIVE': 0
   };
   STATE.ledger.forEach(b => {
     mktPnl[b.market] = (mktPnl[b.market] || 0) + b.pnl;
   });
+  // Remove zero entries for cleaner chart
+  Object.keys(mktPnl).forEach(k => { if (Math.abs(mktPnl[k]) < 1) delete mktPnl[k]; });
   marketContainer.innerHTML = generateBarChartSVG(mktPnl, 600, 260);
 
   // 4. Season Performance Chart

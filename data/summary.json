@@ -6,13 +6,13 @@
   "total_games_tracked": 7548,
   "completed_games": 7293,
   "upcoming_games": 255,
-  "total_strategies": 28,
-  "total_simulated_bets": 56361,
-  "total_simulated_pnl": -173722.35,
-  "total_upcoming_bets": 105,
-  "total_open_positions": 105,
-  "total_kalshi_trades": 10597,
-  "top_performing_strategy": "@Elo_Model_Quant_v1",
-  "top_pnl": 4772.74,
-  "top_roi": 1.99
+  "total_strategies": 58,
+  "total_simulated_bets": 107808,
+  "total_simulated_pnl": -358652.14,
+  "total_upcoming_bets": 225,
+  "total_open_positions": 225,
+  "total_kalshi_trades": 16312,
+  "top_performing_strategy": "@OL_Pressure_Under_v1",
+  "top_pnl": 4826.58,
+  "top_roi": 2.22
 }
