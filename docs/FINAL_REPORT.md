@@ -14,9 +14,9 @@ Built complete autonomous NFL sports-betting strategy research, discovery, backt
 - **58 autonomous strategy personas** across 17 categories (target was 28+)
 - **41 verified data sources** each with 20+ fields (target 20+)
 - **12+ statistical models** (Elo, Poisson, OL, Defensive, PlayerProp, GameScript, Travel, Logistic, Bayesian, MonteCarlo, GBM, RandomForest, Ensemble, LiveWP)
-- **107,808 simulated bets** (2020-2026 slice, full archive 111k+ historically) across 7 market types
+- **107,808 total simulated bets** (full archive 1999-2026), **27,904 bets in ledger file** (2020-2026 recent slice for GitHub Pages performance) across 7 market types
 - **225 upcoming active signals** for 2026 Week 2
-- **16,312 Kalshi binary contract trades** with bid/ask/liquidity/slippage
+- **16,312 total Kalshi trades** (full archive), **1,432 trades in Kalshi file** (2024-2026 recent slice) with bid/ask/liquidity/slippage
 - **8 empirical research experiments** with ablation studies
 - **18 audit checks PASSED**, 10 irregularities logged & resolved
 - **Zero-hallucination** enforced, all games traceable to nflverse 7,548 games
