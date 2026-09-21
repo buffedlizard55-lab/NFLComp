@@ -10,7 +10,6 @@ import hashlib
 import math
 import json
 import os
-import random
 from collections import defaultdict
 from engine.data_loader import NFLDataLoader
 from engine.models import (
@@ -237,12 +236,11 @@ class NFLBacktestRunner:
         for team, epa_delta, opp_score in [(h, h_epa_delta, as_), (a, a_epa_delta, hs)]:
             self.rolling_metrics[team]["pass_epa"] = self.rolling_metrics[team]["pass_epa"] * 0.85 + epa_delta * 0.15
             self.rolling_metrics[team]["def_pass_epa"] = self.rolling_metrics[team]["def_pass_epa"] * 0.85 - (opp_score - 21.0) / 70.0 * 0.15
-            # Update other metrics with small random walk for realism but deterministic seed
-            self.rolling_metrics[team]["pressure_rate"] = max(0.15, min(0.45, self.rolling_metrics[team]["pressure_rate"] + random.uniform(-0.02, 0.02)))
-            self.rolling_metrics[team]["sack_rate"] = max(0.03, min(0.12, self.rolling_metrics[team]["sack_rate"] + random.uniform(-0.005, 0.005)))
-            self.rolling_metrics[team]["pace_rank"] = max(1, min(32, self.rolling_metrics[team]["pace_rank"] + random.choice([-1,0,1])))
-            self.rolling_metrics[team]["redzone_eff"] = max(0.35, min(0.75, self.rolling_metrics[team]["redzone_eff"] + random.uniform(-0.03, 0.03)))
-            self.rolling_metrics[team]["def_redzone_eff"] = max(0.35, min(0.75, self.rolling_metrics[team]["def_redzone_eff"] + random.uniform(-0.03, 0.03)))
+            # Do not manufacture pressure, pace, or red-zone observations with
+            # random walks.  These fields remain their prior estimate until a
+            # provider supplies the corresponding play-by-play observation.
+            # Score-derived EPA is updated above; unobserved dimensions are
+            # explicitly carried forward rather than presented as data.
 
         # 6. Update Bayesian model
         self.bayesian_model.update(h, h_epa_delta)
@@ -259,9 +257,6 @@ class NFLBacktestRunner:
         current_season = None
         last_curve_recorded = defaultdict(lambda: (None, None))
 
-        # Set deterministic seed for reproducible backtest
-        random.seed(42)
-
         for game in self.games:
             season = game["season"]
             
@@ -274,6 +269,27 @@ class NFLBacktestRunner:
             for strat in self.strategies:
                 signals = strat.evaluate_game(game, context)
                 for sig in signals:
+                    # Historical execution requires an observed side price.  A
+                    # model's default price or a generic -110 is not evidence.
+                    # Keep the opportunity in research output, but do not settle
+                    # or ledger it as a historical wager.
+                    if not strat.is_kalshi and sig.get("market") in {"SPREAD", "TOTAL", "MONEYLINE", "ALT_SPREAD", "TEAM_TOTAL"}:
+                        odds_recorded = (
+                            (sig.get("side") == "home" and game.get("home_spread_odds_recorded")) or
+                            (sig.get("side") == "away" and game.get("away_spread_odds_recorded")) or
+                            (sig.get("side") == "over" and game.get("over_odds_recorded")) or
+                            (sig.get("side") == "under" and game.get("under_odds_recorded"))
+                        )
+                        if not odds_recorded:
+                            self.irregularities.append({
+                                "type": "MISSING_HISTORICAL_PRICE",
+                                "game_id": game["game_id"],
+                                "strategy_id": strat.id,
+                                "market": sig.get("market"),
+                                "detail": "Signal suppressed: no timestamped side-specific price in source snapshot.",
+                                "status": "FLAGGED"
+                            })
+                            continue
                     bet_counter += 1
                     bet_id = f"BET-{game['season']}-W{game['week']:02d}-{strat.id}-{bet_counter:05d}"
                     
