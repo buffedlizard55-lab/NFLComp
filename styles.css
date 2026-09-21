@@ -604,7 +604,7 @@ svg.chart-svg {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  max-width: 900px;
+  max-width: 1180px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -626,6 +626,202 @@ svg.chart-svg {
 
 .modal-close-btn:hover {
   color: var(--text-primary);
+}
+
+.strategy-review-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.strategy-bet-review {
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.bet-review-heading,
+.bet-review-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.bet-review-heading h3 {
+  color: var(--text-primary);
+  font-size: 1.15rem;
+}
+
+.bet-review-heading p,
+.bet-review-title small,
+.price-muted {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.bet-review-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.activity-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+
+.activity-summary {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-summary span,
+.activity-summary small {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.activity-summary strong {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+}
+
+.activity-summary small {
+  text-transform: none;
+}
+
+.bet-review-block {
+  margin-top: 16px;
+}
+
+.bet-review-title {
+  align-items: center;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.compact-table table {
+  font-size: 0.76rem;
+}
+
+.compact-table th,
+.compact-table td {
+  padding: 7px 9px;
+  white-space: nowrap;
+}
+
+.positive-value {
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.negative-value {
+  color: var(--accent-red);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.empty-state {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px !important;
+}
+
+.nav-tab-focus {
+  color: var(--accent-cyan);
+}
+
+.strategy-lab-policy {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.strategy-lab-policy > div {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.strategy-lab-policy span,
+.strategy-lab-policy small,
+.strategy-candidate-card small {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.strategy-lab-policy strong {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.strategy-candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.strategy-candidate-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent-cyan);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+.strategy-candidate-card p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin: 8px 0;
+}
+
+.candidate-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.candidate-heading h3 {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.candidate-next {
+  background: rgba(59, 130, 246, 0.12);
+  border-left: 3px solid var(--accent-blue);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  margin: 10px 0 6px;
+  padding: 8px;
+}
+
+.research-fixture-notice {
+  border-color: var(--accent-yellow);
 }
 
 /* ================= PAGINATION ================= */
@@ -709,6 +905,7 @@ footer {
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .strategy-lab-policy { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
@@ -717,4 +914,11 @@ footer {
   main { padding: 12px; }
   .card { padding: 14px; }
   .strat-metrics-row { grid-template-columns: repeat(2, 1fr); }
+  .activity-summary-grid,
+  .strategy-lab-policy,
+  .strategy-candidate-grid { grid-template-columns: 1fr; }
+  .strategy-candidate-grid { display: grid; }
+  .bet-review-heading { align-items: flex-start; flex-direction: column; }
+  .bet-review-actions { width: 100%; }
+  .bet-review-actions .btn { flex: 1; }
 }

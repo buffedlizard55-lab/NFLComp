@@ -235,6 +235,13 @@ class NFLDataLoader:
                     "home_spread_odds": home_spread_odds,
                     "over_odds": over_odds,
                     "under_odds": under_odds,
+                    # Preserve whether each price was observed in the source. The
+                    # numeric fields above retain legacy -110 fallbacks for older
+                    # strategies, but evidence-gated research must require these.
+                    "away_spread_odds_recorded": bool(r.get("away_spread_odds")),
+                    "home_spread_odds_recorded": bool(r.get("home_spread_odds")),
+                    "over_odds_recorded": bool(r.get("over_odds")),
+                    "under_odds_recorded": bool(r.get("under_odds")),
                     "open_spread": open_spread,
                     "open_total": open_total,
                     "spread_move": (spread_line - open_spread) if (spread_line is not None and open_spread is not None) else 0.0,

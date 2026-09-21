@@ -38,7 +38,8 @@ from engine.strategies import (
     AlternateSpreadValueStrategy,
     TeamTotalEfficiencyStrategy,
     TravelTimeZoneStrategy,
-    InternationalGameStrategy
+    InternationalGameStrategy,
+    DivisionalHighTotalUnderStrategy
 )
 
 ALL_STRATEGY_DEFINITIONS = [
@@ -1355,6 +1356,54 @@ ALL_STRATEGY_DEFINITIONS = [
         "exit_rule": "Final margin vs alt line.",
         "failure_analysis": "Alt spread variance high.",
         "limitations": "Forward test only.",
+        "status": "FORWARD_TEST"
+    },
+
+    # ==================== 19. STRATEGY LAB PROMOTIONS ====================
+    {
+        "id": "STRAT_REST_TNF_005_v3",
+        "username": "@RestDifferential_ATS_v3",
+        "name": "Four-Day Rest Differential ATS",
+        "version": "v3",
+        "parent_version": "STRAT_REST_TNF_005_v1",
+        "category": "Rest & Scheduling Asymmetries",
+        "class": RestAdvantageStrategy,
+        "initial_bankroll": 10000.0,
+        "base_stake": 100.0,
+        "stake_type": "FLAT",
+        "stake_pct": 0.01,
+        "min_edge": 0.0,
+        "development_win_rate": 0.5381,
+        "hypothesis": "A team with at least four more rest days than its opponent may cover more often than the market price implies.",
+        "data_sources": ["Bundled nflverse games.csv snapshot (home_rest, away_rest, spread, score, recorded spread odds)"],
+        "entry_rule": "Regular season; absolute rest differential >=4 days; back the more-rested team.",
+        "price_rule": "Use the recorded side-specific spread price; $100 flat stake during testing.",
+        "exit_rule": "Settle from observed final margin plus the home-team spread handicap.",
+        "failure_analysis": "The 2023-2025 holdout ROI was positive but only 2.83% across 81 bets; prospective results may regress.",
+        "limitations": "Threshold was declared before holdout evaluation in strategy_lab.py; source rest values may contain defaults where unavailable.",
+        "status": "FORWARD_TEST"
+    },
+    {
+        "id": "STRAT_DIV_TOTAL_040_v1",
+        "username": "@DivisionHighTotal_Under_v1",
+        "name": "Divisional High-Total Under",
+        "version": "v1",
+        "parent_version": None,
+        "category": "Game Script & Situational",
+        "class": DivisionalHighTotalUnderStrategy,
+        "initial_bankroll": 10000.0,
+        "base_stake": 100.0,
+        "stake_type": "FLAT",
+        "stake_pct": 0.01,
+        "min_edge": 0.0,
+        "development_win_rate": 0.5650,
+        "hypothesis": "Divisional familiarity may reduce scoring relative to high posted totals.",
+        "data_sources": ["Bundled nflverse games.csv snapshot (div_game, total_line, total, under_odds)"],
+        "entry_rule": "Regular-season divisional game with a recorded total of at least 47.0; test Under.",
+        "price_rule": "Use the recorded Under price; $100 flat stake during testing.",
+        "exit_rule": "Settle against the observed combined final score.",
+        "failure_analysis": "The 2023-2025 holdout edge was small: 1.21% ROI across 74 bets.",
+        "limitations": "Historical passage does not establish a durable edge; this strategy remains prospective paper trading only.",
         "status": "FORWARD_TEST"
     }
 ]
