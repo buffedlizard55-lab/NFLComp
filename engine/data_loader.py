@@ -164,7 +164,11 @@ class NFLDataLoader:
                 total = int(r["total"]) if r.get("total") and r["total"] != "" else (home_score + away_score if home_score is not None and away_score is not None else None)
                 
                 # Betting lines
-                spread_line = float(r["spread_line"]) if r.get("spread_line") and r["spread_line"] != "" else None
+                # nflverse games.csv stores the AWAY spread (positive = away underdog, negative = away favored).
+                # Convert to home spread for internal consistency: home_spread = -away_spread.
+                # Home spread convention: negative = home favored, positive = home underdog.
+                raw_spread = float(r["spread_line"]) if r.get("spread_line") and r["spread_line"] != "" else None
+                spread_line = -raw_spread if raw_spread is not None else None
                 total_line = float(r["total_line"]) if r.get("total_line") and r["total_line"] != "" else None
                 away_ml = float(r["away_moneyline"]) if r.get("away_moneyline") and r["away_moneyline"] != "" else None
                 home_ml = float(r["home_moneyline"]) if r.get("home_moneyline") and r["home_moneyline"] != "" else None

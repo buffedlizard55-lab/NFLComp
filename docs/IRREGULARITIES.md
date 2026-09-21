@@ -16,9 +16,9 @@ This register catalogs all anomalous data, missing observations, provider confli
 ### 2. `IRR-2026-002`: nflverse Spread Line Sign Inversion Convention
 - **Severity:** High (Resolved)
 - **Category:** Data Schema Convention
-- **Description:** The `spread_line` column in `nflverse/nfldata` represents `away_spread` (i.e. positive if home is favored, e.g. `BUF -6.5` against DET is recorded as `spread_line = 6.5`), which is the mathematical opposite of traditional sportsbook convention (`home_spread = -6.5`).
-- **Affected Datasets:** `games.csv`, `closing_lines.csv`
-- **Resolution:** Explicitly standardized inside `engine/data_loader.py` and `engine/strategies.py`: `spread_line` is defined such that `home_cover = (home_score - away_score) > spread_line`. All strategy logic, Poisson grids, and Elo margins strictly use this verified sign convention.
+- **Description:** The `spread_line` column in `nflverse/nfldata` stores `away_spread` (positive when the home team is favored, e.g. `BUF -6.5` vs DET is recorded as `spread_line = 6.5` in `games.csv`), which is the mathematical opposite of traditional sportsbook convention (`home_spread = -6.5`). A prior engine build incorrectly treated this raw value as a home spread, inflating rest-differential backtests.
+- **Affected Datasets:** `games.csv` (away convention), `closing_lines.csv`, `initial_lines.csv` (home convention)
+- **Resolution:** Standardized in `engine/data_loader.py`: `raw_away_spread` is negated to `spread_line = -raw_away_spread` (home convention, negative = home favored). All settlements, Poisson grids, and strategy displays now use `home_cover = (home_score - away_score) + spread_line > 0`. Cross-check confirmed the correction flips `STRAT_REST_TNF_005_v3` 2023-2025 holdout from an inflated 52.46% / +2.6% ROI to the true 48.75% / -7.25% (HOLDOUT_FAILED).
 
 ### 3. `IRR-2026-003`: 2020 COVID-19 Schedule Disruptions & Bye Week Irregularities
 - **Severity:** Medium

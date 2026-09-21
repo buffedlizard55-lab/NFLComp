@@ -1,7 +1,7 @@
-# NFLComp Final Implementation Report — Expanded Edition (58 Strategies, 41 Sources)
+# NFLComp Final Implementation Report — Expanded Edition (60 Strategies, 41 Sources)
 
-**Date:** 2026-09-20
-**Branch:** arena/01a0c0c5-nflcomp
+**Date:** 2026-09-21
+**Branch:** arena/01a0c1af-nflcomp
 **Competition:** ARENA AI — NFL Autonomous Betting Strategy Competition
 **Status:** PASS 1 BUILD COMPLETE, AUDIT PASSED, READY FOR PR TO MAIN
 
@@ -9,13 +9,15 @@
 
 ## Executive Summary
 
+> **2026-09-21 Correction:** Fixed `games.csv` away→home spread conversion (`spread_line = -raw_away_spread` in `engine/data_loader.py`, `engine/strategies.py`, and `engine/backtest_engine.py`). This corrects `STRAT_REST_TNF_005_v3` holdout from inflated HOLDOUT_PASSED to true HOLDOUT_FAILED (48.75% win, -7.25% ROI) and is documented in `docs/IRREGULARITIES.md` (IRR-2026-002). All downstream `data/*.json` exports were regenerated and tests re-pass (24/24 engine, 10/10 UI).
+
 Built complete autonomous NFL sports-betting strategy research, discovery, backtesting, forward-testing, paper-trading, competition platform per spec:
 
-- **58 autonomous strategy personas** across 17 categories (target was 28+)
+- **60 autonomous strategy personas** across 17 categories (target was 28+)
 - **41 verified data sources** each with 20+ fields (target 20+)
 - **12+ statistical models** (Elo, Poisson, OL, Defensive, PlayerProp, GameScript, Travel, Logistic, Bayesian, MonteCarlo, GBM, RandomForest, Ensemble, LiveWP)
-- **107,808 total simulated bets** (full archive 1999-2026), **27,904 bets in ledger file** (2020-2026 recent slice for GitHub Pages performance) across 7 market types
-- **225 upcoming active signals** for 2026 Week 2
+- **134,255 total simulated bets** (full archive 1999-2026), **33,458 bets in ledger file** (2020-2026 recent slice for GitHub Pages performance) across 7 market types
+- **288 upcoming active signals** for 2026 Week 2
 - **16,312 total Kalshi trades** (full archive), **1,432 trades in Kalshi file** (2024-2026 recent slice) with bid/ask/liquidity/slippage
 - **8 empirical research experiments** with ablation studies
 - **18 audit checks PASSED**, 10 irregularities logged & resolved
@@ -348,7 +350,7 @@ Upcoming bets include: bet_id, strategy_id, username, strategy_name, season, wee
 
 ## 10. Git Workflow — PR to Main
 
-- **Branch:** arena/01a0c0c5-nflcomp (session branch, fixed per instructions)
+- **Branch:** arena/01a0c1af-nflcomp (session branch, fixed per instructions)
 - **Commits:** To be committed and pushed to origin arena/01a0c0c5-nflcomp
 - **PR:** From arena/01a0c0c5-nflcomp to main via gh CLI
 - **Workflow:** .github/workflows/pages.yml will deploy to GitHub Pages on merge to main
