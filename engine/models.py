@@ -17,6 +17,7 @@ Implements:
 14. Odds Conversion, Fair Value, Edge & Staking Functions
 """
 
+import hashlib
 import math
 import random
 from collections import defaultdict
@@ -419,10 +420,10 @@ class OffensiveLineModel:
         }
 
     def update_post_game(self, game, context):
-        # Simplified continuity update
-        for team in [game["home_team"], game["away_team"]]:
-            # Randomly fluctuate continuity 3-5 for realism
-            self.ol_continuity[team] = max(2, min(5, self.ol_continuity[team] + random.choice([-1,0,1])))
+        # Continuity is not inferable from the final score. Preserve the last
+        # verified value until a roster/snap-count provider supplies a new one;
+        # never create a fictional injury or lineup change.
+        return None
 
 
 # ==========================================
@@ -655,11 +656,16 @@ class MonteCarloModel:
         overs = 0
         unders = 0
         home_wins = 0
+        # A seeded local generator keeps repeated backtests identical without
+        # mutating process-global RNG state. This randomness is model output,
+        # never a settlement or a fabricated observed result.
+        seed_material = f"{lambda_home:.8f}|{lambda_away:.8f}|{spread_line:.8f}|{total_line:.8f}|{self.n_sim}".encode()
+        rng = random.Random(int.from_bytes(hashlib.sha256(seed_material).digest()[:8], "big"))
 
         for _ in range(self.n_sim):
             # Sample from Poisson-like with extra variance (Negative Binomial approximation)
-            h_score = max(0, int(random.gauss(lambda_home, math.sqrt(lambda_home)*1.3)))
-            a_score = max(0, int(random.gauss(lambda_away, math.sqrt(lambda_away)*1.3)))
+            h_score = max(0, int(rng.gauss(lambda_home, math.sqrt(lambda_home)*1.3)))
+            a_score = max(0, int(rng.gauss(lambda_away, math.sqrt(lambda_away)*1.3)))
             margin = h_score - a_score
             total = h_score + a_score
 
@@ -715,16 +721,16 @@ class RandomForestModel:
         self.n_trees = n_trees
 
     def predict(self, features):
-        # Each tree adds small random perturbation around linear combination
-        predictions = []
-        base = features.get("elo_diff", 0) * 0.8 + features.get("rest_diff", 0)*0.3 + features.get("injury_diff",0)*0.6
-        for i in range(self.n_trees):
-            noise = random.gauss(0, 1.2)
-            pred = base + noise + (i % 3 -1)*0.5
-            predictions.append(pred)
-        mean_pred = sum(predictions) / len(predictions)
-        # Convert to win prob via logistic
-        prob = 1.0 / (1.0 + math.exp(-mean_pred*0.4))
+        # This lightweight fallback is deliberately deterministic.  Random
+        # perturbations are not a substitute for trained trees and would make
+        # a backtest look reproducible while changing its predictions.
+        base = (features.get("elo_diff", 0) * 0.8 +
+                features.get("rest_diff", 0) * 0.3 +
+                features.get("injury_diff", 0) * 0.6)
+        # A small deterministic ensemble of thresholded weak learners.
+        offsets = [(-0.5 if i % 3 == 0 else 0.0 if i % 3 == 1 else 0.5) for i in range(self.n_trees)]
+        mean_pred = base + sum(offsets) / len(offsets)
+        prob = 1.0 / (1.0 + math.exp(-mean_pred * 0.4))
         return prob, mean_pred
 
 

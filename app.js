@@ -196,28 +196,9 @@ function renderDashboard() {
   const sortedMatchups = Object.entries(matchupMap).sort((a,b) => b[1].count - a[1].count).slice(0, 8);
 
   if (sortedMatchups.length === 0) {
-    // Fallback sample if no upcoming
-    const sampleGames = [
-      { matchup: 'CAR @ ATL', date: 'Sun 1:00 PM', spread: 'ATL +2.5', total: '43.5', signals: 4 },
-      { matchup: 'NO @ BAL', date: 'Sun 1:00 PM', spread: 'BAL -8.5', total: '45.5', signals: 6 },
-      { matchup: 'MIN @ CHI', date: 'Sun 1:00 PM', spread: 'CHI -4.5', total: '46.5', signals: 5 },
-      { matchup: 'CIN @ HOU', date: 'Sun 1:00 PM', spread: 'HOU -3.0', total: '45.5', signals: 4 },
-      { matchup: 'GB @ NYJ', date: 'Sun 1:00 PM', spread: 'NYJ +3.5', total: '44.5', signals: 5 },
-      { matchup: 'MIA @ SF', date: 'Sun 4:25 PM', spread: 'SF -13.5', total: '44.5', signals: 3 },
-      { matchup: 'SEA @ ARI', date: 'Sun 4:05 PM', spread: 'ARI +3.5', total: '41.5', signals: 4 },
-      { matchup: 'NYG @ LA', date: 'Mon 8:15 PM', spread: 'LA -6.5', total: '47.5', signals: 4 }
-    ];
-    sampleGames.forEach(g => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong>${g.matchup}</strong></td>
-        <td style="color: var(--text-secondary); font-size: 0.78rem;">${g.date}</td>
-        <td><code>${g.spread}</code></td>
-        <td><code>${g.total}</code></td>
-        <td><span class="badge badge-ready">${g.signals} signals</span></td>
-      `;
-      slateBody.appendChild(tr);
-    });
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td colspan="5" class="empty-state">No verified upcoming market snapshot is available.</td>';
+    slateBody.appendChild(tr);
   } else {
     sortedMatchups.forEach(([matchup, info]) => {
       const tr = document.createElement('tr');

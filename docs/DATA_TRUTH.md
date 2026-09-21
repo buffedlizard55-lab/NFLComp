@@ -21,7 +21,7 @@ A simulated wager is eligible for historical settlement only when all of these a
 
 Historical player props are not included in the bundled nflverse game-level feed. The engine therefore flags and excludes player-prop signals rather than using a random draw, game total, or model probability as a fabricated result. Unverified Kalshi order books likewise belong in forward testing unless an archived, timestamped order book is present.
 
-The legacy loader supplies `-110` as an execution fallback when older rows omit side-specific odds. That fallback is not an observed price. New Strategy Lab candidates require the corresponding `*_odds_recorded` evidence flag and exclude rows where the source price is absent. The lab's sample sizes therefore include only settled games with an observed market line and observed side price.
+The loader preserves missing side-specific odds as `null`; it never supplies a conventional `-110` value. Historical candidates require the corresponding `*_odds_recorded` evidence flag and the backtest runner suppresses signals without an observed side price. A model may use a prior only for an explicitly labelled MODEL_OUTPUT, never as an execution fill.
 
 NFL spread lines in the source are home-team handicaps: negative means the home team is favored. Spread settlement is calculated as `home_score - away_score + spread_line`; selection labels use the home handicap directly and negate it for the away side.
 

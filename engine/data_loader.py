@@ -172,10 +172,17 @@ class NFLDataLoader:
                 total_line = float(r["total_line"]) if r.get("total_line") and r["total_line"] != "" else None
                 away_ml = float(r["away_moneyline"]) if r.get("away_moneyline") and r["away_moneyline"] != "" else None
                 home_ml = float(r["home_moneyline"]) if r.get("home_moneyline") and r["home_moneyline"] != "" else None
-                away_spread_odds = float(r["away_spread_odds"]) if r.get("away_spread_odds") and r["away_spread_odds"] != "" else -110.0
-                home_spread_odds = float(r["home_spread_odds"]) if r.get("home_spread_odds") and r["home_spread_odds"] != "" else -110.0
-                over_odds = float(r["over_odds"]) if r.get("over_odds") and r["over_odds"] != "" else -110.0
-                under_odds = float(r["under_odds"]) if r.get("under_odds") and r["under_odds"] != "" else -110.0
+                # Missing prices stay missing.  A conventional -110 is an
+                # assumption, not source data, and must never become an
+                # executable historical fill.
+                def observed_number(field):
+                    value = r.get(field)
+                    return float(value) if value not in (None, "") else None
+
+                away_spread_odds = observed_number("away_spread_odds")
+                home_spread_odds = observed_number("home_spread_odds")
+                over_odds = observed_number("over_odds")
+                under_odds = observed_number("under_odds")
 
                 # Weather & Environment
                 temp = float(r["temp"]) if r.get("temp") and r["temp"] != "" else None
@@ -184,8 +191,8 @@ class NFLDataLoader:
                 surface = r.get("surface", "grass")
 
                 # Rest
-                away_rest = int(r["away_rest"]) if r.get("away_rest") and r["away_rest"] != "" else 7
-                home_rest = int(r["home_rest"]) if r.get("home_rest") and r["home_rest"] != "" else 7
+                away_rest = int(r["away_rest"]) if r.get("away_rest") and r["away_rest"] != "" else None
+                home_rest = int(r["home_rest"]) if r.get("home_rest") and r["home_rest"] != "" else None
 
                 # Coaches, QBs, Refs
                 away_qb = r.get("away_qb_name", "")
@@ -257,7 +264,7 @@ class NFLDataLoader:
                     "is_dome": roof in ["dome", "closed"],
                     "away_rest": away_rest,
                     "home_rest": home_rest,
-                    "rest_diff": home_rest - away_rest, # + means home has more rest
+                    "rest_diff": (home_rest - away_rest) if home_rest is not None and away_rest is not None else None, # + means home has more rest
                     "div_game": r.get("div_game") == "1",
                     "away_qb": away_qb,
                     "home_qb": home_qb,

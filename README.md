@@ -60,7 +60,9 @@ NFLComp/
 │   ├── strategies.py           # Strategy signal evaluation rules across 14 categories
 │   ├── strategy_registry.py    # 28 strategy definitions, hypotheses, lineages (v1/v2/v3)
 │   ├── backtest_engine.py      # Chronological zero-lookahead backtesting & 2026 paper trading
-│   ├── data_registry.py        # 11 probed & verified primary data sources
+│   ├── data_registry.py        # Data source registry and verification metadata
+│   ├── provenance.py            # Source hashes, availability gates, observed-price helpers
+│   ├── storage.py              # Normalized SQLite write-side store with append-only bets
 │   └── audit_verifier.py       # Automated mathematical audit checks & irregularity detector
 ├── data/                       # Permanent structured JSON data layer
 │   ├── summary.json            # Overall competition KPI metrics
