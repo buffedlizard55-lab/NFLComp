@@ -87,7 +87,7 @@ class QBEPAStrategy(NFLStrategy):
         if edge < self.min_edge:
             return []
         stake = self.base_stake if self.stake_type == "FLAT" else (self.bankroll * self.stake_pct)
-        display_line = -market_spread if bet_home else market_spread
+        display_line = market_spread if bet_home else -market_spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -129,7 +129,7 @@ class BackupQBContrarianStrategy(NFLStrategy):
         model_prob = 0.548
         implied_p = 0.5238
         edge = model_prob - implied_p
-        display_line = -spread if bet_home else spread
+        display_line = spread if bet_home else -spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -353,7 +353,7 @@ class EloQuantStrategy(NFLStrategy):
         if edge < self.min_edge:
             return []
         stake = self.base_stake if self.stake_type == "FLAT" else (self.bankroll * self.stake_pct)
-        display_line = -market_spread if bet_home else market_spread
+        display_line = market_spread if bet_home else -market_spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -441,7 +441,7 @@ class RLMStrategy(NFLStrategy):
         model_prob = 0.540 + min(abs(move) * 0.008, 0.04)
         implied_p = 0.5238
         edge = model_prob - implied_p
-        display_line = -spread if bet_home else spread
+        display_line = spread if bet_home else -spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -486,7 +486,7 @@ class InjuryValuationStrategy(NFLStrategy):
         model_prob = 0.542 + min(abs(net_inj_diff) * 0.008, 0.04)
         implied_p = 0.5238
         edge = model_prob - implied_p
-        display_line = -spread if bet_home else spread
+        display_line = spread if bet_home else -spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -520,7 +520,7 @@ class KalshiPredictionMarketStrategy(NFLStrategy):
             return []
         lh, la = poisson_model.calculate_lambdas(game["home_team"], game["away_team"])
         grid = poisson_model.simulate_probabilities(lh, la)
-        raw_prob = poisson_model.eval_market_prob(grid, "SPREAD", -spread, side="home")
+        raw_prob = poisson_model.eval_market_prob(grid, "SPREAD", spread, side="home")
         p_home_cover = 0.50 + (raw_prob - 0.50) * 0.45
         fair_cents = p_home_cover * 100.0
         mkt_price_cents = 50.0
@@ -641,7 +641,7 @@ class Coaching4thDownStrategy(NFLStrategy):
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.545
         implied_p = 0.5238
-        display_line = -spread if bet_home else spread
+        display_line = spread if bet_home else -spread
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -691,7 +691,7 @@ class OffensiveLineContinuityStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -765,7 +765,7 @@ class DefensivePressureSackStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -835,7 +835,7 @@ class RedZoneEfficiencyStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -1077,7 +1077,7 @@ class LogisticRegressionSpreadStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -1163,7 +1163,7 @@ class BayesianQBStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -1201,7 +1201,7 @@ class MonteCarloEnsembleStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -1237,7 +1237,7 @@ class PublicFadeStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread if bet_home else spread):+.1f}",
+            "selection": f"{sel_team} {(spread if bet_home else -spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,
@@ -1275,7 +1275,7 @@ class AlternateSpreadValueStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "ALT_SPREAD",
-            "selection": f"{sel_team} Alt {(-alt_line if bet_home else alt_line):+.1f}",
+            "selection": f"{sel_team} Alt {(alt_line if bet_home else -alt_line):+.1f}",
             "side": side,
             "market_line": alt_line,
             "market_odds": odds,
@@ -1298,10 +1298,9 @@ class TeamTotalEfficiencyStrategy(NFLStrategy):
         if total is None or spread is None:
             return []
         lh, la = poisson.calculate_lambdas(game["home_team"], game["away_team"])
-        # Correct team total formula: spread positive = home favored => home TT higher
-        # home_tt = total/2 + spread/2, away_tt = total/2 - spread/2
-        home_tt = (total/2) + (spread/2)
-        away_tt = (total/2) - (spread/2)
+        # Home spread convention: negative = home favored => home TT = total/2 - spread/2
+        home_tt = (total/2) - (spread/2)
+        away_tt = (total/2) + (spread/2)
         proj_home_tt = lh
         diff = proj_home_tt - home_tt
         # Increase threshold to avoid noise and unrealistic 71% win rate
@@ -1356,7 +1355,7 @@ class TravelTimeZoneStrategy(NFLStrategy):
             "username": self.username,
             "game_id": game["game_id"],
             "market": "SPREAD",
-            "selection": f"{sel_team} {(-spread):+.1f}",
+            "selection": f"{sel_team} {(spread):+.1f}",
             "side": side,
             "market_line": spread,
             "market_odds": odds,

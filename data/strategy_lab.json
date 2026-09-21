@@ -46,36 +46,36 @@
         "development": {
           "seasons": "2000-2019",
           "bets": 417,
-          "wins": 219,
-          "losses": 188,
-          "pushes": 10,
-          "win_rate_pct": 53.81,
-          "flat_stake_pnl": 2425.94,
-          "roi_pct": 5.82
+          "wins": 213,
+          "losses": 193,
+          "pushes": 11,
+          "win_rate_pct": 52.46,
+          "flat_stake_pnl": 1083.6,
+          "roi_pct": 2.6
         },
         "validation": {
           "seasons": "2020-2022",
           "bets": 86,
-          "wins": 48,
-          "losses": 36,
+          "wins": 42,
+          "losses": 42,
           "pushes": 2,
-          "win_rate_pct": 57.14,
-          "flat_stake_pnl": 984.77,
-          "roi_pct": 11.45
+          "win_rate_pct": 50.0,
+          "flat_stake_pnl": -256.79,
+          "roi_pct": -2.99
         },
         "holdout": {
           "seasons": "2023-2025",
           "bets": 81,
-          "wins": 44,
-          "losses": 37,
-          "pushes": 0,
-          "win_rate_pct": 54.32,
-          "flat_stake_pnl": 229.44,
-          "roi_pct": 2.83
+          "wins": 39,
+          "losses": 41,
+          "pushes": 1,
+          "win_rate_pct": 48.75,
+          "flat_stake_pnl": -587.11,
+          "roi_pct": -7.25
         }
       },
-      "status": "HOLDOUT_PASSED",
-      "next_step": "Register for prospective paper trading; holdout results are not a profit guarantee.",
+      "status": "HOLDOUT_FAILED",
+      "next_step": "Keep the rule archived; do not tune it on the holdout period.",
       "performance_claim": null
     },
     {

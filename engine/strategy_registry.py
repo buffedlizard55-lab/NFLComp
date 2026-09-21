@@ -1379,9 +1379,9 @@ ALL_STRATEGY_DEFINITIONS = [
         "entry_rule": "Regular season; absolute rest differential >=4 days; back the more-rested team.",
         "price_rule": "Use the recorded side-specific spread price; $100 flat stake during testing.",
         "exit_rule": "Settle from observed final margin plus the home-team spread handicap.",
-        "failure_analysis": "The 2023-2025 holdout ROI was positive but only 2.83% across 81 bets; prospective results may regress.",
-        "limitations": "Threshold was declared before holdout evaluation in strategy_lab.py; source rest values may contain defaults where unavailable.",
-        "status": "FORWARD_TEST"
+        "failure_analysis": "Corrected home-spread settlement shows the 2023-2025 holdout ROI was -7.25% across 81 bets (39-41-1, 48.75%), failing the positive-ROI gate; the earlier +2.83% figure was inflated by an away-spread sign error (now fixed to home-spread convention).",
+        "limitations": "Threshold was declared before holdout evaluation in strategy_lab.py; source rest values may contain defaults where unavailable. Holdout failed after spread-sign correction.",
+        "status": "HOLDOUT_FAILED"
     },
     {
         "id": "STRAT_DIV_TOTAL_040_v1",

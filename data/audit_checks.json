@@ -27,19 +27,19 @@
     "name": "LEDGER_POPULATED",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 27,904 bets in ledger (2020-2026 recent slice)"
+    "details": "Found 33,458 bets in ledger (2020-2026 recent slice)"
   },
   {
     "name": "BET_ID_UNIQUENESS",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 0 duplicate bet IDs out of 27,904"
+    "details": "Found 0 duplicate bet IDs out of 33,458"
   },
   {
     "name": "PNL_CALCULATION_ACCURACY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Audited 27,904 bets; 0 math errors"
+    "details": "Audited 33,458 bets; 0 math errors"
   },
   {
     "name": "LEDGER_REQUIRED_FIELDS",
@@ -57,13 +57,13 @@
     "name": "LEADERBOARD_INTEGRITY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Leaderboard contains 58 verified strategies (target >=40)"
+    "details": "Leaderboard contains 60 verified strategies (target >=40)"
   },
   {
     "name": "CATEGORY_COVERAGE",
     "category": "AUDIT",
     "passed": true,
-    "details": "Leaderboard covers 17 categories: Statistical & Machine Learning Models, Team Totals & Efficiency, Market Movement & CLV Strategies, Player Prop Strategies, Public Strategy Research & Replication..."
+    "details": "Leaderboard covers 17 categories: Offensive Line & Protection, Alternate Markets & Futures, Weather & Stadium Conditions, Referee & Officiating Tendencies, Injury & Player Availability..."
   },
   {
     "name": "KALSHI_TRADES_INTEGRITY",
@@ -99,7 +99,7 @@
     "name": "STRATEGY_VERSIONING",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 19 strategies with parent_version (versioning)"
+    "details": "Found 20 strategies with parent_version (versioning)"
   },
   {
     "name": "MASTERSITE_RESEARCH",

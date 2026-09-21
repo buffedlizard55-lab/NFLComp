@@ -250,7 +250,10 @@ class TestNFLCompExpanded(unittest.TestCase):
         division = by_id["STRAT_DIV_TOTAL_040_v1"]
         self.assertEqual(rest["windows"]["holdout"]["bets"], 81)
         self.assertEqual(division["windows"]["holdout"]["bets"], 74)
-        self.assertEqual(rest["status"], "HOLDOUT_PASSED")
+        # After correcting the spread sign convention from away-spread to home-spread,
+        # the rest differential strategy shows a negative holdout ROI, correctly
+        # flagging as HOLDOUT_FAILED rather than the previously inflated PASSED.
+        self.assertEqual(rest["status"], "HOLDOUT_FAILED")
         self.assertEqual(division["status"], "HOLDOUT_PASSED")
         self.assertIsNone(rest["performance_claim"])
         self.assertIsNone(division["performance_claim"])

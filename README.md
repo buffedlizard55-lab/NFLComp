@@ -1,9 +1,9 @@
 # ARENA AI — NFL Autonomous Sports Betting Strategy Research, Testing & Competition (NFLComp)
 
-[![Audit Status](https://img.shields.io/badge/Audit%20Checks-9%2F9%20Passed-10b981)](#audit-verification)
+[![Audit Status](https://img.shields.io/badge/Audit%20Checks-18%2F18%20Passed-10b981)](#audit-verification)
 [![Tracked Games](https://img.shields.io/badge/NFL%20Games-7%2C548%20(1999--2026)-3b82f6)](#data-architecture)
-[![Active Strategies](https://img.shields.io/badge/Strategies-28%20Personas-8b5cf6)](#strategy-roster)
-[![Simulated Wagers](https://img.shields.io/badge/Ledger-55%2C974%20Wagers-06b6d4)](#permanent-bet-ledger)
+[![Active Strategies](https://img.shields.io/badge/Strategies-60%20Personas-8b5cf6)](#strategy-roster)
+[![Simulated Wagers](https://img.shields.io/badge/Ledger-134%2C255%20Wagers-06b6d4)](#permanent-bet-ledger)
 [![Platform](https://img.shields.io/badge/GitHub%20Pages-Live-success)](#web-interface)
 
 A paper-trading research prototype for autonomous NFL strategy discovery, walk-forward testing, and audit-focused competition. It is not a production betting system, and checked-in JSON exports are fixtures unless accompanied by source snapshots and provenance.
@@ -31,7 +31,7 @@ python3 -m engine.strategy_lab             # rebuild report
 python3 -m engine.strategy_lab --check     # prove checked-in report matches source snapshot
 ```
 
-A scheduled GitHub Actions job reruns the reproducibility and test checks each week. The first two lab promotions are `STRAT_REST_TNF_005_v3` and `STRAT_DIV_TOTAL_040_v1`; both remain `FORWARD_TEST` strategies regardless of historical holdout results.
+A scheduled GitHub Actions job reruns the reproducibility and test checks each week. Lab candidate `STRAT_DIV_TOTAL_040_v1` remains `HOLDOUT_PASSED` (52.7% holdout win rate, +1.21% ROI) and is eligible for prospective paper trading, while `STRAT_REST_TNF_005_v3` is `HOLDOUT_FAILED` (48.75% win rate, -7.25% ROI) after correcting the `games.csv` away→home spread sign error; it stays archived without tuning.
 
 ---
 
@@ -40,10 +40,10 @@ A scheduled GitHub Actions job reruns the reproducibility and test checks each w
 - **Current Simulation Window:** 2026 NFL Regular Season, **Week 2** (As of September 20, 2026).
 - **Historical Backtesting Universe:** 7,293 completed NFL games (1999–2025) + 17 completed 2026 games (Week 1 + Thursday Night Football DET @ BUF 31-41).
 - **Active 2026 Forward Slate:** 255 upcoming games (15 active Week 2 Sunday/Monday matchups + Weeks 3–18).
-- **Strategy Universe:** **28 autonomous betting personas** across 14 research disciplines.
-- **Simulated Bet Ledger:** **55,974 verified wagers** ($10,000 starting bankroll per strategy).
-- **Total Competition Simulated PnL:** **+$2,434,194.80** net return across all personas.
-- **Top Performing Persona:** `@Elo_Model_Quant_v3` (+59.18% ROI, 52.8% win rate, +$501,358.73 PnL, Quarter-Kelly sizing on ≥3.5 pt Elo spread discrepancies).
+- **Strategy Universe:** **60 autonomous betting personas** across 14 research disciplines.
+- **Simulated Bet Ledger:** **134,255 verified wagers** ($10,000 starting bankroll per strategy).
+- **Total Competition Simulated PnL:** **-353,618.85** net return across all personas.
+- **Top Performing Persona:** `@AltSpread_Value_v2` (27.15% ROI, 59.8% win rate, +145,992.37 PnL, 5602 bets).
 
 ---
 
@@ -64,10 +64,10 @@ NFLComp/
 │   └── audit_verifier.py       # Automated mathematical audit checks & irregularity detector
 ├── data/                       # Permanent structured JSON data layer
 │   ├── summary.json            # Overall competition KPI metrics
-│   ├── leaderboard.json        # 28 strategy rankings, win rates, drawdowns, equity curves
+│   ├── leaderboard.json        # 60 strategy rankings, win rates, drawdowns, equity curves
 │   ├── strategies.json         # Strategy catalog with full methodology & parameters
-│   ├── upcoming_bets.json      # 105 active upcoming wagers for 2026 slate
-│   ├── open_positions.json     # 105 open positions for 2026 Week 2
+│   ├── upcoming_bets.json      # 288 active upcoming wagers for 2026 slate
+│   ├── open_positions.json     # 288 open positions for 2026 Week 2
 │   ├── bets_ledger.json        # Permanent immutable bet ledger
 │   ├── kalshi_trades.json      # Dedicated CFTC Kalshi prediction market trade prints
 │   ├── research_experiments.json# 4 empirical research dossiers & ablation studies
@@ -88,7 +88,7 @@ NFLComp/
 
 ## 3. Autonomous Strategy Roster & Lineages
 
-The platform maintains 28 strategy personas across 14 distinct quantitative disciplines:
+The platform maintains 60 strategy personas across 14 distinct quantitative disciplines:
 
 | Strategy ID | Persona Username | Category | Version | Win Rate | Total Bets | Total PnL ($) | ROI (%) | Max DD ($) |
 |---|---|---|---|---|---|---|---|---|
