@@ -1,0 +1,1286 @@
+{
+ "classification": "SOURCE_PROVENANCE",
+ "generated_by": "engine/source_sync.py",
+ "upstream_repo": "https://github.com/nflverse/nfldata",
+ "upstream_branch": "master",
+ "synced_at_utc": "2026-09-22T18:29:52Z",
+ "previous_synced_at_utc": "2026-09-22T18:10:22Z",
+ "fetch_attempts": [
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/35693dc818",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 2180005,
+   "seconds": 1.9
+  },
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/8f6d450a2f",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 942229,
+   "seconds": 0.5
+  },
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/7f30231aa6",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 45068,
+   "seconds": 0.35
+  },
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/8c3683d118",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 90927,
+   "seconds": 0.51
+  },
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/77d312fc96",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 56536,
+   "seconds": 0.36
+  },
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/716fb7c964",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 2058971,
+   "seconds": 0.75
+  },
+  {
+   "strategy": "github_git_blobs_api",
+   "endpoint": "api.github.com/git/blobs/b8c59f92a6",
+   "http_status": 200,
+   "result": "OK",
+   "bytes": 283460,
+   "seconds": 0.37
+  }
+ ],
+ "files": {
+  "games.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/35693dc818",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:54Z",
+    "bytes": 2180005,
+    "sha256": "c9038d5c927d9d6bd9d2e98cb76b57fccfd4f040b7ce4b9353cc0c7ad4a860d4",
+    "git_blob_sha": "35693dc818cb67ce92a4f34c5eb1b137349db4b4"
+   },
+   "previous_sha256": "48b3ddce5c77e69e3289dc1eb5142a6094d85ebad90ad5b088b96b4e9fc47374",
+   "changed": true,
+   "revision_summary": {
+    "old_rows": 7548,
+    "new_rows": 7548,
+    "rows_added": 0,
+    "rows_removed": 0,
+    "rows_with_field_changes": 11,
+    "field_changes": 79,
+    "posted_fields": 77,
+    "revised_fields": 2,
+    "by_type": {
+     "LINE_MOVED": 2,
+     "ODDS_POSTED": 77
+    },
+    "by_severity": {
+     "MEDIUM": 2,
+     "INFO": 77
+    },
+    "schema_changed": false
+   }
+  },
+  "closing_lines.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/8f6d450a2f",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:54Z",
+    "bytes": 942229,
+    "sha256": "3571e1c9fc8d7396f405fb7c17d43c15676d335ffc932fbb03ff18da691d1729",
+    "git_blob_sha": "8f6d450a2ffd5f92d988d4020678021d5cb831a9"
+   },
+   "previous_sha256": "3571e1c9fc8d7396f405fb7c17d43c15676d335ffc932fbb03ff18da691d1729",
+   "changed": false,
+   "revision_summary": {
+    "changed": false
+   }
+  },
+  "initial_lines.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/7f30231aa6",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:55Z",
+    "bytes": 45068,
+    "sha256": "654770173d11fdb2074537d520f6b1213d663e3bbf47689e5cc9994c1af255e5",
+    "git_blob_sha": "7f30231aa6d49f883b09ac0676c66d1ea33885ac"
+   },
+   "previous_sha256": "654770173d11fdb2074537d520f6b1213d663e3bbf47689e5cc9994c1af255e5",
+   "changed": false,
+   "revision_summary": {
+    "changed": false
+   }
+  },
+  "teams.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/teams.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/8c3683d118",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:55Z",
+    "bytes": 90927,
+    "sha256": "b7cfab98e6ac35c684432f6ace65d6065b0b89b90e3a2e91116a69ae38e04d42",
+    "git_blob_sha": "8c3683d118fa2362a7bcf61cbf95806639ae2d82"
+   },
+   "previous_sha256": "b7cfab98e6ac35c684432f6ace65d6065b0b89b90e3a2e91116a69ae38e04d42",
+   "changed": false,
+   "revision_summary": {
+    "changed": false
+   }
+  },
+  "standings.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/standings.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/77d312fc96",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:56Z",
+    "bytes": 56536,
+    "sha256": "2da26d179d6b9e6b54298ca0e8a5c06e119d9f59fa624690503ce1f23be5963f",
+    "git_blob_sha": "77d312fc9619afc59996588e4979a988903a5a56"
+   },
+   "previous_sha256": "2da26d179d6b9e6b54298ca0e8a5c06e119d9f59fa624690503ce1f23be5963f",
+   "changed": false,
+   "revision_summary": {
+    "changed": false
+   }
+  },
+  "officials.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/officials.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/716fb7c964",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:56Z",
+    "bytes": 2058971,
+    "sha256": "6a34c3208de583bf038fda224c7839c827cd74974f5a0ed5683e1c2838674a1a",
+    "git_blob_sha": "716fb7c964739d430fb2e17b785d2170b9d0a7f4"
+   },
+   "previous_sha256": "6a34c3208de583bf038fda224c7839c827cd74974f5a0ed5683e1c2838674a1a",
+   "changed": false,
+   "revision_summary": {
+    "changed": false
+   }
+  },
+  "trades.csv": {
+   "upstream_url": "https://github.com/nflverse/nfldata/blob/master/data/trades.csv",
+   "fetch": {
+    "endpoint": "api.github.com/git/blobs/b8c59f92a6",
+    "http_status": 200,
+    "retrieved_at_utc": "2026-09-22T18:29:57Z",
+    "bytes": 283460,
+    "sha256": "3180574aca356c5f89488ecce6babe88703967109f98775bce7c1620ef4c9f53",
+    "git_blob_sha": "b8c59f92a6fc2ee19d25b24eaf875c0b0879671e"
+   },
+   "previous_sha256": "3180574aca356c5f89488ecce6babe88703967109f98775bce7c1620ef4c9f53",
+   "changed": false,
+   "revision_summary": {
+    "changed": false
+   }
+  }
+ },
+ "revisions": [
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_03_LAC_BUF",
+   "field": "away_moneyline",
+   "old": "260",
+   "new": "270",
+   "severity": "MEDIUM",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_03_LAC_BUF",
+   "field": "home_moneyline",
+   "old": "-325",
+   "new": "-340",
+   "severity": "MEDIUM",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "116",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-136",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "spread_line",
+   "old": null,
+   "new": "2.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "total_line",
+   "old": null,
+   "new": "43.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "under_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ARI_NYG",
+   "field": "over_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "160",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-190",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "spread_line",
+   "old": null,
+   "new": "3.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "total_line",
+   "old": null,
+   "new": "45.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "under_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_ATL_NO",
+   "field": "over_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-138",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "spread_line",
+   "old": null,
+   "new": "2.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "total_line",
+   "old": null,
+   "new": "47.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "under_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DAL_HOU",
+   "field": "over_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "144",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-172",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "spread_line",
+   "old": null,
+   "new": "3",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-104",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "total_line",
+   "old": null,
+   "new": "46.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "under_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DEN_SF",
+   "field": "over_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "-138",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "spread_line",
+   "old": null,
+   "new": "-2.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-110",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "total_line",
+   "old": null,
+   "new": "49.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "under_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_DET_CAR",
+   "field": "over_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "-235",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "194",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "spread_line",
+   "old": null,
+   "new": "-5.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "total_line",
+   "old": null,
+   "new": "46.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "under_odds",
+   "old": null,
+   "new": "-118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_KC_LV",
+   "field": "over_odds",
+   "old": null,
+   "new": "-104",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LAC_SEA",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "275",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LAC_SEA",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-340",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LAC_SEA",
+   "field": "total_line",
+   "old": null,
+   "new": "43.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LAC_SEA",
+   "field": "under_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LAC_SEA",
+   "field": "over_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "-152",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "128",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "spread_line",
+   "old": null,
+   "new": "-3",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-104",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "total_line",
+   "old": null,
+   "new": "46.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "under_odds",
+   "old": null,
+   "new": "-118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_LA_PHI",
+   "field": "over_odds",
+   "old": null,
+   "new": "-104",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "420",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-560",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "spread_line",
+   "old": null,
+   "new": "10.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-120",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-102",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "total_line",
+   "old": null,
+   "new": "43.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "under_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_MIA_MIN",
+   "field": "over_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "away_moneyline",
+   "old": null,
+   "new": "215",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "home_moneyline",
+   "old": null,
+   "new": "-260",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "spread_line",
+   "old": null,
+   "new": "5.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "away_spread_odds",
+   "old": null,
+   "new": "-105",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "home_spread_odds",
+   "old": null,
+   "new": "-115",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "total_line",
+   "old": null,
+   "new": "50.5",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "under_odds",
+   "old": null,
+   "new": "-118",
+   "severity": "INFO",
+   "settled_at_revision": false
+  },
+  {
+   "file": "games.csv",
+   "type": "ODDS_POSTED",
+   "key": "2026_04_NE_BUF",
+   "field": "over_odds",
+   "old": null,
+   "new": "-104",
+   "severity": "INFO",
+   "settled_at_revision": false
+  }
+ ],
+ "revision_summary": {
+  "by_type": {
+   "LINE_MOVED": 2,
+   "ODDS_POSTED": 77
+  },
+  "by_severity": {
+   "MEDIUM": 2,
+   "INFO": 77
+  },
+  "changed_files": [
+   "games.csv"
+  ],
+  "unchanged_files": [
+   "closing_lines.csv",
+   "initial_lines.csv",
+   "teams.csv",
+   "standings.csv",
+   "officials.csv",
+   "trades.csv"
+  ],
+  "total_revisions": 79
+ },
+ "errors": [],
+ "revision_history": [
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_03_LAC_BUF",
+   "field": "away_moneyline",
+   "old": "260",
+   "new": "270",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "265150c6919a",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "migrated_from": "legacy_cycle_revisions"
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_03_LAC_BUF",
+   "field": "home_moneyline",
+   "old": "-325",
+   "new": "-340",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "9ada442ed5d3",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "migrated_from": "legacy_cycle_revisions"
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_MIA_SF",
+   "field": "away_moneyline",
+   "old": "625",
+   "new": "600",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "d02fc25d89f2",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_MIA_SF",
+   "field": "home_moneyline",
+   "old": "-950",
+   "new": "-900",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "437caaa27012",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_MIA_SF",
+   "field": "spread_line",
+   "old": "13.5",
+   "new": "12.5",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "55994270623a",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_MIA_SF",
+   "field": "away_spread_odds",
+   "old": "-110",
+   "new": "-105",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "48b8714e13eb",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_MIA_SF",
+   "field": "home_spread_odds",
+   "old": "-110",
+   "new": "-115",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "57b41c71bda4",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_NYG_LA",
+   "field": "away_moneyline",
+   "old": "230",
+   "new": "240",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "6ec86b23675c",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_NYG_LA",
+   "field": "home_moneyline",
+   "old": "-285",
+   "new": "-298",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "91b6e5119057",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_SEA_ARI",
+   "field": "total_line",
+   "old": "41.5",
+   "new": "40.5",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "9ab7cf7ea53a",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_SEA_ARI",
+   "field": "under_odds",
+   "old": "-115",
+   "new": "-105",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "1a163a12de26",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_SEA_ARI",
+   "field": "over_odds",
+   "old": "-105",
+   "new": "-115",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "c6e7c4be0438",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_WAS_DAL",
+   "field": "total_line",
+   "old": "50.5",
+   "new": "51.5",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "744190804ebf",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_WAS_DAL",
+   "field": "under_odds",
+   "old": "100",
+   "new": "-115",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "f980619c6b42",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "LINE_MOVED",
+   "key": "2026_02_WAS_DAL",
+   "field": "over_odds",
+   "old": "-120",
+   "new": "-105",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "c34dcb5c373f",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "QB_REASSIGNED",
+   "key": "2026_03_ATL_GB",
+   "field": "away_qb_name",
+   "old": "Tua Tagovailoa",
+   "new": "Michael Penix Jr.",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "9a2117eeebec",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "QB_REASSIGNED",
+   "key": "2026_03_ATL_GB",
+   "field": "away_qb_id",
+   "old": "00-0036212",
+   "new": "00-0039917",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "16d69a8cbceb",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "QB_REASSIGNED",
+   "key": "2026_03_PHI_CHI",
+   "field": "home_qb_name",
+   "old": "Caleb Williams",
+   "new": "Tyson Bagent",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "adb98f11a6e2",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  },
+  {
+   "file": "games.csv",
+   "type": "QB_REASSIGNED",
+   "key": "2026_03_PHI_CHI",
+   "field": "home_qb_id",
+   "old": "00-0039918",
+   "new": "00-0038416",
+   "severity": "MEDIUM",
+   "settled_at_revision": false,
+   "revision_id": "12d14d3f6e87",
+   "synced_at_utc": "2026-09-22T18:29:52Z",
+   "backfilled_from": "git_head_snapshot_diff",
+   "note": "First caught during the 2026-09-22T18:10:22Z sync; durably recorded when revision_history was introduced."
+  }
+ ],
+ "history_summary": {
+  "notable_revisions_retained": 19,
+  "by_type": {
+   "LINE_MOVED": 15,
+   "QB_REASSIGNED": 4
+  },
+  "notable_added_this_sync": 17
+ },
+ "acknowledged_reviews": []
+}

@@ -86,7 +86,7 @@
     "severity": "MEDIUM",
     "description": "Live win probability strategies require sub-second play-by-play; ESPN hidden API provides real-time but unofficial contract. Live strategies forward-test only until official live feed verified.",
     "source": "ESPN hidden API",
-    "resolution": "Live strategies marked FORWARD_TEST with WATCHING status for 2026 Week 2.",
+    "resolution": "Live strategies marked FORWARD_TEST with WATCHING status on the current live slate.",
     "status": "LOGGED_AND_RESOLVED"
   },
   {
@@ -97,6 +97,76 @@
     "description": "Stadium coordinates for travel fatigue model use approximate centroids; actual team travel may include layovers, not direct stadium-to-stadium.",
     "source": "NFL stadium coordinates",
     "resolution": "Haversine distance used as proxy; flagged as approximation, not exact travel.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-01-LINE_MOVED-2026_02_MIA_SF",
+    "title": "Upstream revision: Line Moved (2026_02_MIA_SF)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_02_MIA_SF across 5 tracked field(s): away_moneyline: '625' -> '600'; home_moneyline: '-950' -> '-900'; spread_line: '13.5' -> '12.5'; away_spread_odds: '-110' -> '-105'; home_spread_odds: '-110' -> '-115'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-02-LINE_MOVED-2026_02_NYG_LA",
+    "title": "Upstream revision: Line Moved (2026_02_NYG_LA)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_02_NYG_LA across 2 tracked field(s): away_moneyline: '230' -> '240'; home_moneyline: '-285' -> '-298'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-03-LINE_MOVED-2026_02_SEA_ARI",
+    "title": "Upstream revision: Line Moved (2026_02_SEA_ARI)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_02_SEA_ARI across 3 tracked field(s): total_line: '41.5' -> '40.5'; under_odds: '-115' -> '-105'; over_odds: '-105' -> '-115'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-04-LINE_MOVED-2026_02_WAS_DAL",
+    "title": "Upstream revision: Line Moved (2026_02_WAS_DAL)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_02_WAS_DAL across 3 tracked field(s): total_line: '50.5' -> '51.5'; under_odds: '100' -> '-115'; over_odds: '-120' -> '-105'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-05-LINE_MOVED-2026_03_LAC_BUF",
+    "title": "Upstream revision: Line Moved (2026_03_LAC_BUF)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_03_LAC_BUF across 2 tracked field(s): away_moneyline: '260' -> '270'; home_moneyline: '-325' -> '-340'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-06-QB_REASSIGNED-2026_03_ATL_GB",
+    "title": "Upstream revision: QB Reassigned (2026_03_ATL_GB)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_03_ATL_GB across 2 tracked field(s): away_qb_name: 'Tua Tagovailoa' -> 'Michael Penix Jr.'; away_qb_id: '00-0036212' -> '00-0039917'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
+    "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-SYNC-07-QB_REASSIGNED-2026_03_PHI_CHI",
+    "title": "Upstream revision: QB Reassigned (2026_03_PHI_CHI)",
+    "category": "UPSTREAM_REVISION",
+    "severity": "MEDIUM",
+    "description": "nflverse revised games.csv for 2026_03_PHI_CHI across 2 tracked field(s): home_qb_name: 'Caleb Williams' -> 'Tyson Bagent'; home_qb_id: '00-0039918' -> '00-0038416'. Caught 2026-09-22T18:29:52Z.",
+    "source": "https://github.com/nflverse/nfldata",
+    "resolution": "Revision occurred before the game was played, so no settled wager could have consumed the earlier value. Mutable upstream fields (projected starters, weather, schedule) are treated as point-in-time estimates until kickoff; the revision log is retained as the audit trail.",
     "status": "LOGGED_AND_RESOLVED"
   },
   {

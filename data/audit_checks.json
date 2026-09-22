@@ -24,34 +24,46 @@
     "details": "Games sorted chronologically: 1999-09-12 to 2027-01-10"
   },
   {
+    "name": "SOURCE_SYNC_PROVENANCE",
+    "category": "SOURCE_PROVENANCE",
+    "passed": true,
+    "details": "last sync 2026-09-22T18:29:52Z; 7 files hash-verified against fetched bytes; 79 upstream revisions this sync (by severity {'MEDIUM': 2, 'INFO': 77}); 19 notable revisions retained in history"
+  },
+  {
+    "name": "SOURCE_REVISION_REVIEW",
+    "category": "SOURCE_PROVENANCE",
+    "passed": true,
+    "details": "0 unacknowledged result corrections against already-settled games"
+  },
+  {
     "name": "LEDGER_POPULATED",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 31,252 bets in ledger (2020-2026 recent slice)"
+    "details": "Found 31,502 bets in ledger (2020-2026 recent slice)"
   },
   {
     "name": "BET_ID_UNIQUENESS",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 0 duplicate bet IDs out of 31,252"
+    "details": "Found 0 duplicate bet IDs out of 31,502"
   },
   {
     "name": "LEDGER_PRICE_IMPLIED_PROB_CONSISTENCY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Re-derived implied probability from the recorded price on 31,252 bets; 0 disagree with the price they quote"
+    "details": "Re-derived implied probability from the recorded price on 31,502 bets; 0 disagree with the price they quote"
   },
   {
     "name": "LEDGER_EDGE_CONSISTENCY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Re-derived edge = model_prob - implied_prob on 31,252 bets; 0 inconsistent"
+    "details": "Re-derived edge = model_prob - implied_prob on 31,502 bets; 0 inconsistent"
   },
   {
     "name": "PNL_CALCULATION_ACCURACY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Audited 31,252 bets; 0 math errors"
+    "details": "Audited 31,502 bets; 0 math errors"
   },
   {
     "name": "LEDGER_REQUIRED_FIELDS",
@@ -69,13 +81,13 @@
     "name": "LEDGER_HASH_CHAIN",
     "category": "AUDIT",
     "passed": true,
-    "details": "Re-derived 31,252 links; head a3e2f057edcf83b5\u2026"
+    "details": "Re-derived 31,502 links; head f8c974419a83c9b7\u2026"
   },
   {
     "name": "LEDGER_MANIFEST_RECONCILIATION",
     "category": "AUDIT",
     "passed": true,
-    "details": "window 2020\u20132026: 31,252 of 96,968 bets published (65,716 in earlier seasons, totals stated separately)"
+    "details": "window 2020\u20132026: 31,502 of 97,218 bets published (65,716 in earlier seasons, totals stated separately)"
   },
   {
     "name": "LEADERBOARD_INTEGRITY",
@@ -93,13 +105,13 @@
     "name": "LEADERBOARD_LEDGER_RECONCILIATION",
     "category": "AUDIT",
     "passed": true,
-    "details": "All 70 rows re-derived from 31,252 published records (published window PnL -215,434.73; all-time totals remain on the rows)"
+    "details": "All 70 rows re-derived from 31,502 published records (published window PnL -221,808.53; all-time totals remain on the rows)"
   },
   {
     "name": "KALSHI_TRADES_INTEGRITY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 1,432 simulated Kalshi trades with bid/ask/spread/liquidity/slippage"
+    "details": "Found 1,463 simulated Kalshi trades with bid/ask/spread/liquidity/slippage"
   },
   {
     "name": "KALSHI_FIELDS_COMPLETE",
@@ -171,7 +183,7 @@
     "name": "RISK_ANALYTICS_RECONCILIATION",
     "category": "PUBLICATION",
     "passed": true,
-    "details": "70 persona risk rows and the calibration curve re-derive from 31,252 published records (Brier 0.26077, ECE 9.592 pts, 44 seeded bootstraps)"
+    "details": "70 persona risk rows and the calibration curve re-derive from 31,502 published records (Brier 0.2609, ECE 9.655 pts, 44 seeded bootstraps)"
   },
   {
     "name": "PUBLISHED_PROSE_CLAIMS",

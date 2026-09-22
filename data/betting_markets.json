@@ -555,28 +555,28 @@
   "closing_line_value": {
     "clv_by_market": {
       "SPREAD": {
-        "count": 21971,
-        "avg_clv": 1.064,
+        "count": 22146,
+        "avg_clv": 1.059,
         "median_clv": 0.446,
         "pct_positive_clv": 87.9
       },
       "TOTAL": {
-        "count": 4905,
-        "avg_clv": 0.358,
+        "count": 4944,
+        "avg_clv": 0.36,
         "median_clv": 0.646,
-        "pct_positive_clv": 87.7
+        "pct_positive_clv": 87.8
       },
       "KALSHI_SPREAD": {
-        "count": 3859,
+        "count": 3890,
         "avg_clv": 0.774,
         "median_clv": 0.74,
         "pct_positive_clv": 97.5
       },
       "TEAM_TOTAL": {
-        "count": 517,
-        "avg_clv": 0.248,
+        "count": 522,
+        "avg_clv": 0.251,
         "median_clv": 0.61,
-        "pct_positive_clv": 89.7
+        "pct_positive_clv": 89.8
       }
     },
     "classification": "DERIVED_DATA",

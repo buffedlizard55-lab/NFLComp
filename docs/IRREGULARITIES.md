@@ -55,7 +55,7 @@ better.
 ## Machine-checked register export
 
 <!-- IRREGULARITIES_START -->
-_generated — do not edit by hand — the export the audit writes (11 entries). An irregularity the audit detects appears here automatically; the long-form notes above are the human-written record of the earliest discoveries and keep their original numbering._
+_generated — do not edit by hand — the export the audit writes (18 entries). An irregularity the audit detects appears here automatically; the long-form notes above are the human-written record of the earliest discoveries and keep their original numbering._
 
 | ID | Title | Category | Severity | Status |
 | --- | --- | --- | --- | --- |
@@ -69,5 +69,12 @@ _generated — do not edit by hand — the export the audit writes (11 entries).
 | `IRR-08-ALT-SPREAD-HISTORICAL` | Alternate Spreads Historical Archive Limited | DATA_LIMITATION | LOW | `LOGGED_AND_RESOLVED` |
 | `IRR-09-LIVE-PBP-LATENCY` | Live Play-by-Play Latency & Verification | EXECUTION_MODEL | MEDIUM | `LOGGED_AND_RESOLVED` |
 | `IRR-10-TRAVEL-COORD-MAPPING` | Travel Distance Coordinate Mapping Approximation | CALCULATION | LOW | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-01-LINE_MOVED-2026_02_MIA_SF` | Upstream revision: Line Moved (2026_02_MIA_SF) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-02-LINE_MOVED-2026_02_NYG_LA` | Upstream revision: Line Moved (2026_02_NYG_LA) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-03-LINE_MOVED-2026_02_SEA_ARI` | Upstream revision: Line Moved (2026_02_SEA_ARI) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-04-LINE_MOVED-2026_02_WAS_DAL` | Upstream revision: Line Moved (2026_02_WAS_DAL) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-05-LINE_MOVED-2026_03_LAC_BUF` | Upstream revision: Line Moved (2026_03_LAC_BUF) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-06-QB_REASSIGNED-2026_03_ATL_GB` | Upstream revision: QB Reassigned (2026_03_ATL_GB) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
+| `IRR-SYNC-07-QB_REASSIGNED-2026_03_PHI_CHI` | Upstream revision: QB Reassigned (2026_03_PHI_CHI) | UPSTREAM_REVISION | MEDIUM | `LOGGED_AND_RESOLVED` |
 | `IRR-11-EXP_004_TNF_SHORT_REST_TRAVEL-DISPUTED` | Dossier claim refuted by the snapshot: Home cover rate, Thursday with visitor on <=4 days rest | RESEARCH_CLAIM_DISCREPANCY | MEDIUM | `LOGGED_AND_RESOLVED` |
 <!-- IRREGULARITIES_END -->

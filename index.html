@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="header-badges">
-        <span class="status-pill live">2026 Season • Week 2 Active Slate</span>
-        <span class="status-pill verified">Zero-Lookahead Verified • <span id="claim-audit-checks">31</span> Audit Checks PASSED</span>
+        <span class="status-pill live" id="live-slate-label">2026 Season • Live Slate</span>
+        <span class="status-pill verified">Zero-Lookahead Verified • <span id="claim-audit-checks">33</span> Audit Checks PASSED</span>
       </div>
     </div>
 
@@ -56,7 +56,7 @@
       <div class="kpi-card">
         <span class="kpi-label">Tracked NFL Games</span>
         <span class="kpi-value" id="kpi-games">7,548</span>
-        <span class="kpi-sub">1999–2026 • <span id="claim-games-completed">7,293</span> Completed</span>
+        <span class="kpi-sub">1999–2026 • <span id="claim-games-completed">7,308</span> Completed</span>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Active Strategies</span>
@@ -76,7 +76,7 @@
       <div class="kpi-card">
         <span class="kpi-label">Upcoming Active Signals</span>
         <span class="kpi-value kpi-val-purple" id="kpi-upcoming">225</span>
-        <span class="kpi-sub">2026 Week 2 & Forward • Props/Alt/TeamTotal</span>
+        <span class="kpi-sub" id="forward-slate-label">2026 Live Week & Forward • Props/Alt/TeamTotal</span>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Top Strategy</span>
@@ -127,8 +127,8 @@
         <!-- Active 2026 Slate Pulse -->
         <div class="card">
           <div class="card-title">
-            <span>⚡ Week 2 Active Slate Pulse (<span id="claim-week-games">15</span> Games)</span>
-            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">330</span> Signals →</button>
+            <span>⚡ <span id="slate-week-label">Week 2</span> Active Slate Pulse (<span id="claim-week-games">16</span> Games)</span>
+            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">326</span> Signals →</button>
           </div>
           <div class="table-responsive" style="max-height: 260px;">
             <table id="dash-slate-table">
@@ -257,7 +257,7 @@
     <section id="view-upcoming" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">⚡ Upcoming Strategy Bets (Active 2026 Slate — <span id="claim-upcoming-title">330</span> Signals)</h2>
+          <h2 class="section-title">⚡ Upcoming Strategy Bets (Active 2026 Slate — <span id="claim-upcoming-title">646</span> Signals)</h2>
           <p class="section-desc">Prospective betting signals generated for the current 2026 NFL schedule. Covers 7 market types: SPREAD, TOTAL, TEAM_TOTAL, PLAYER_PROP, ALT_SPREAD, KALSHI_SPREAD, KALSHI_TOTAL, KALSHI_LIVE. Gated by point-in-time model probabilities, minimum edge thresholds, and verified injury/weather reports. Includes OL, Defensive, Props, Game Script, Travel, International.</p>
         </div>
         <div class="section-controls">
@@ -266,7 +266,7 @@
           </select>
           <select id="upcoming-status-filter" class="select-input">
             <option value="ALL">All Statuses</option>
-            <option value="READY_TO_BET">Ready to Bet (Week 2)</option>
+            <option value="READY_TO_BET">Ready to Bet (Live Week)</option>
             <option value="QUALIFIED">Qualified</option>
             <option value="WATCHING">Watching</option>
             <option value="READY">Ready</option>
@@ -324,7 +324,7 @@
     <section id="view-live-desk" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">📈 Live Paper Trading Desk (2026 Slate — <span id="claim-open-positions">330</span> Positions)</h2>
+          <h2 class="section-title">📈 Live Paper Trading Desk (2026 Slate — <span id="claim-open-positions">326</span> Positions)</h2>
           <p class="section-desc">Active open positions and real-time execution simulation for the 2026 NFL season. Simulates spreads, totals, team totals, player props, alt spreads, and Kalshi binary contracts under zero-lookahead rules. Includes Live WP strategies.</p>
         </div>
       </div>
@@ -333,7 +333,7 @@
         <!-- Open Positions Card -->
         <div class="card">
           <div class="card-title">
-            <span>📋 Active Open Positions (Week 2)</span>
+            <span>📋 Active Open Positions (Live Week)</span>
             <span class="badge badge-ready" id="open-pos-count">330 Positions</span>
           </div>
           <div class="table-responsive" style="max-height: 400px;">
@@ -400,7 +400,7 @@
     <section id="view-history" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">📜 Permanent Immutable Bet Ledger — <span id="claim-ledger-title">96,968</span> Simulated Bets All-Time</h2>
+          <h2 class="section-title">📜 Permanent Immutable Bet Ledger — <span id="claim-ledger-title">97,218</span> Simulated Bets All-Time</h2>
           <p class="section-desc">Audit trail of every simulated wager placed throughout the competition (2020-2026 slice shown). 7 market types, all with point-in-time timestamps, closing line CLV, liquidity bounds, and verification status. Filter by season, strategy, market, or outcome, and export raw audit datasets.</p>
         </div>
         <div class="section-controls">
@@ -588,8 +588,8 @@
         <p class="section-desc">
           A persona needs at least <span id="claim-risk-floor">100</span> settled published bets before any risk
           statistic is published for it; below that the row reports its sample size only. Portfolio-wide, the
-          published probabilities score a Brier of <span id="claim-risk-brier">0.2608</span> against a
-          0.4926 base win rate, and the decile curve below is off by <span id="claim-risk-ece">9.59</span>
+          published probabilities score a Brier of <span id="claim-risk-brier">0.2609</span> against a
+          0.4926 base win rate, and the decile curve below is off by <span id="claim-risk-ece">9.65</span>
           percentage points on average — the forecasts carry real information and are systematically
           over-confident at the top of the curve, which is why the raw ROI numbers are not treated as
           evidence of an edge.
@@ -679,7 +679,7 @@
     <section id="view-kalshi" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🏛️ Simulated Kalshi Prediction Markets Desk — <span id="claim-kalshi-title">16,312</span> Trades</h2>
+          <h2 class="section-title">🏛️ Simulated Kalshi Prediction Markets Desk — <span id="claim-kalshi-title">16,343</span> Trades</h2>
           <p class="section-desc">Simulating CFTC-regulated Kalshi binary YES/NO contracts on NFL point spreads, totals, and live win probability. Realistic orderbook depth, bid/ask spreads, execution slippage, and contract settlements. Includes KXNFL Spread, Total, Live contracts with MasterSite methodology.</p>
         </div>
       </div>
@@ -718,7 +718,7 @@
         <!-- Recent Kalshi Trades -->
         <div class="card">
           <div class="card-title">
-            <span>📜 Recent Kalshi Simulated Trades (<span id="claim-kalshi-card">16,312</span> Total)</span>
+            <span>📜 Recent Kalshi Simulated Trades (<span id="claim-kalshi-card">16,343</span> Total)</span>
           </div>
           <div class="table-responsive" style="max-height: 280px;">
             <table>
@@ -774,13 +774,13 @@
     <section id="view-verification" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🛡️ Verification, Audits & Irregularity Register — <span id="claim-audit-checks-view">31</span> Checks, <span id="claim-irregularities">11</span> Irregularities</h2>
+          <h2 class="section-title">🛡️ Verification, Audits & Irregularity Register — <span id="claim-audit-checks-view">33</span> Checks, <span id="claim-irregularities">18</span> Irregularities</h2>
           <p class="section-desc">Automated mathematical audit checks, lookahead-bias prevention tests, and documented data discrepancies across all official and third-party sources. Includes OL continuity tracking limit pre-2018, player prop historical archive limitation, alt spread archive limitation, live PBP latency, travel coordinate mapping approximation.</p>
         </div>
       </div>
 
       <div class="card" style="border-left: 4px solid var(--accent-green);">
-        <div class="card-title">✅ Automated Audit Verification Status — <span id="claim-audit-checks-card">31</span> Checks PASSED</div>
+        <div class="card-title">✅ Automated Audit Verification Status — <span id="claim-audit-checks-card">33</span> Checks PASSED</div>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">The complete codebase and simulation engine underwent automated integrity audits verifying game ID uniqueness, score margin math, PnL settlement precision, zero-lookahead boundary conditions, market types validity, required fields, MasterSite research coverage, category coverage, versioning, Kalshi fields, leaderboard integrity, registry entries, price-implied probability consistency, derived-vs-declared research labelling, risk/calibration reconciliation, published prose claims and dashboard view contracts. Every check below is read from <code>data/audit_checks.json</code>; totals are never typed into this page.</p>
         <div id="audit-checks-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;">
           <!-- Injected via JS -->
@@ -836,10 +836,10 @@
         </p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">4. Execution Modeling, Fees & Slippage — 14 Market Types</h3>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">330</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">646</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">5. Zero-Hallucination Mandate — 41 Sources, 10 Irregularities Logged</h3>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Every game, line, score, player injury status, and referee assignment is directly traceable to verified primary datasets (nflverse 7,276 games + 51,024 officials + 20,490 closing lines, FiveThirtyEight Elo, NFLInjuryReport 834 players, NOAA NWS hourly, PFR advanced, Kalshi API, Odds API, Pinnacle, Action Network, RotoWire, FTN, DraftKings/FanDuel props, MasterSite 44 directory). Reddit JSON API 403 blocked flagged, X/Twitter paid rejected flagged, NFL policy PDFs 404 flagged, TNF indoor weather attribution flagged, Kalshi orderbook re-anchoring flagged, OL continuity pre-2018 limited flagged, player prop historical archive flagged as FORWARD_TEST, alt spread historical limited flagged, live PBP latency flagged, travel coordinate mapping approximation flagged. No hypothetical games or fabricated odds are permitted. All <span id="claim-audit-checks-methodology">31</span> audit checks PASSED.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Every game, line, score, player injury status, and referee assignment is directly traceable to verified primary datasets (nflverse 7,276 games + 51,024 officials + 20,490 closing lines, FiveThirtyEight Elo, NFLInjuryReport 834 players, NOAA NWS hourly, PFR advanced, Kalshi API, Odds API, Pinnacle, Action Network, RotoWire, FTN, DraftKings/FanDuel props, MasterSite 44 directory). Reddit JSON API 403 blocked flagged, X/Twitter paid rejected flagged, NFL policy PDFs 404 flagged, TNF indoor weather attribution flagged, Kalshi orderbook re-anchoring flagged, OL continuity pre-2018 limited flagged, player prop historical archive flagged as FORWARD_TEST, alt spread historical limited flagged, live PBP latency flagged, travel coordinate mapping approximation flagged. No hypothetical games or fabricated odds are permitted. All <span id="claim-audit-checks-methodology">33</span> audit checks PASSED.</p>
       </div>
     </section>
 
@@ -861,15 +861,15 @@
       <a href="#dashboard" onclick="switchTab('dashboard')">Dashboard</a>
       <a href="#leaderboard" onclick="switchTab('leaderboard')">Leaderboard (58)</a>
       <a href="#strategies" onclick="switchTab('strategies')">Strategies (17 cats)</a>
-      <a href="#upcoming" onclick="switchTab('upcoming')">Upcoming (<span id="claim-upcoming-nav">330</span>)</a>
+      <a href="#upcoming" onclick="switchTab('upcoming')">Upcoming (<span id="claim-upcoming-nav">646</span>)</a>
       <a href="#live-desk" onclick="switchTab('live-desk')">Paper Trading</a>
-      <a href="#history" onclick="switchTab('history')">Trade History (<span id="claim-history">31k</span>)</a>
+      <a href="#history" onclick="switchTab('history')">Trade History (<span id="claim-history">32k</span>)</a>
       <a href="#research" onclick="switchTab('research')">Research Lab (8 exp)</a>
       <a href="#kalshi" onclick="switchTab('kalshi')">Kalshi Desk (16k)</a>
       <a href="#registry" onclick="switchTab('registry')">Data Registry (<span id="claim-footer-sources-link">56</span>)</a>
-      <a href="#verification" onclick="switchTab('verification')">Verification (<span id="claim-footer-checks">31</span> checks)</a>
+      <a href="#verification" onclick="switchTab('verification')">Verification (<span id="claim-footer-checks">33</span> checks)</a>
     </div>
-    <p>ARENA AI — NFL Autonomous Sports Betting Strategy Research & Competition Platform • <span id="claim-footer-personas">70</span> Strategies • <span id="claim-footer-sources">56</span> Sources • <span id="claim-footer-categories">17</span> Categories • <span id="claim-footer-markets">17</span> Market Types • <span id="claim-footer-bets">31,252</span> Published Bets • Educational Paper Trading Only • Never Place Real-Money Bets.</p>
+    <p>ARENA AI — NFL Autonomous Sports Betting Strategy Research & Competition Platform • <span id="claim-footer-personas">70</span> Strategies • <span id="claim-footer-sources">56</span> Sources • <span id="claim-footer-categories">17</span> Categories • <span id="claim-footer-markets">17</span> Market Types • <span id="claim-footer-bets">31,502</span> Published Bets • Educational Paper Trading Only • Never Place Real-Money Bets.</p>
   </footer>
 
   <script src="app.js"></script>
