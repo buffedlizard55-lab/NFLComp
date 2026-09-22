@@ -6,21 +6,21 @@
   "total_games_tracked": 7548,
   "completed_games": 7293,
   "upcoming_games": 255,
-  "total_strategies": 60,
-  "total_simulated_bets": 92814,
-  "total_simulated_pnl": -268772.62,
-  "total_upcoming_bets": 264,
-  "total_open_positions": 264,
+  "total_strategies": 70,
+  "total_simulated_bets": 97435,
+  "total_simulated_pnl": -552392.18,
+  "total_upcoming_bets": 340,
+  "total_open_positions": 340,
   "total_kalshi_trades": 16312,
   "kalshi_trades_published": 1432,
   "ledger_published_window": {
     "from_season": 2020,
     "to_season": 2026
   },
-  "ledger_published_bets": 29777,
-  "ledger_published_pnl": -126018.74,
-  "ledger_all_time_bets": 92814,
-  "ledger_all_time_pnl": -268772.62,
+  "ledger_published_bets": 31490,
+  "ledger_published_pnl": -225415.79,
+  "ledger_all_time_bets": 97435,
+  "ledger_all_time_pnl": -552392.18,
   "ledger_manifest": "data/ledger_manifest.json",
   "season_first": 1999,
   "season_last": 2026,
@@ -28,10 +28,10 @@
   "current_week_slice": {
     "season": 2026,
     "week": 2,
-    "signals": 264,
+    "signals": 340,
     "games": 15
   },
-  "top_performing_strategy": "@AltSpread_Value_v2",
-  "top_pnl": 105223.38,
-  "top_roi": 26.81
+  "top_performing_strategy": "@AnalyticsCoach_ATS_v1",
+  "top_pnl": 3952.36,
+  "top_roi": 4.29
 }
