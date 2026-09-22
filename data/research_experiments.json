@@ -25,7 +25,22 @@
     },
     "conclusion": "Wind >= 16.5 mph is an economically significant signal; underperformance driven by -28% deep pass completion rate and -3.2% field goal conversion above 40 yards.",
     "action_taken": "Updated @WindChill_Totals from v1 (15 mph) to v2 (16.5 mph floor) and v3 (18 mph severe gale Kelly).",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DERIVED_DATA",
+    "re_derived_by": "STUDY_WIND_TOTALS",
+    "snapshot_cross_check": [
+      {
+        "experiment_id": "EXP_001_WEATHER_WIND_THRESHOLD",
+        "study_id": "STUDY_WIND_TOTALS",
+        "metric": "Under rate, 15-19 mph outdoor wind",
+        "declared_in_dossier": 56.8,
+        "re_derived_from_snapshot": 56.34,
+        "difference_pct_points": -0.46,
+        "agrees": true,
+        "resolution": "difference retained; neither value is overwritten"
+      }
+    ],
+    "claim_status": "CORROBORATED_BY_SNAPSHOT"
   },
   {
     "experiment_id": "EXP_002_BACKUP_QB_SPREAD_SHOCK",
@@ -52,7 +67,9 @@
     },
     "conclusion": "Large line moves (>= 3.0 pts) create structural buy-back value because teams adjust game-plans with heavier rushing volume and quick-release screens.",
     "action_taken": "Created @BackupQB_Underdog_v2 requiring minimum 3.0 pt line move.",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DECLARED_ASSUMPTION",
+    "snapshot_support": "requires per-game starting-QB and open/close line history beyond the bundled columns"
   },
   {
     "experiment_id": "EXP_003_KALSHI_BINARY_VS_POISSON",
@@ -68,7 +85,9 @@
     },
     "conclusion": "Retail participants overpay for favorite YES contracts, creating persistent value on underdog and Under NO contracts on Kalshi.",
     "action_taken": "Deployed @Kalshi_SpreadBracket_v2 targeting high-edge NO contracts.",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DECLARED_ASSUMPTION",
+    "snapshot_support": "requires an archived Kalshi order book with timestamps"
   },
   {
     "experiment_id": "EXP_004_TNF_SHORT_REST_TRAVEL",
@@ -92,7 +111,22 @@
     },
     "conclusion": "Short turnaround plus travel severely impairs visiting execution, particularly in offensive red-zone conversion and 3rd down success.",
     "action_taken": "Deployed @RestAdvantage_Edge_v2 prioritizing TNF home teams.",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DERIVED_DATA",
+    "re_derived_by": "STUDY_TNF_REST_TRAVEL",
+    "snapshot_cross_check": [
+      {
+        "experiment_id": "EXP_004_TNF_SHORT_REST_TRAVEL",
+        "study_id": "STUDY_TNF_REST_TRAVEL",
+        "metric": "Home cover rate, Thursday with visitor on <=4 days rest",
+        "declared_in_dossier": 58.1,
+        "re_derived_from_snapshot": 51.24,
+        "difference_pct_points": -6.86,
+        "agrees": false,
+        "resolution": "difference retained; neither value is overwritten"
+      }
+    ],
+    "claim_status": "DISPUTED_BY_SNAPSHOT"
   },
   {
     "experiment_id": "EXP_005_OL_CONTINUITY",
@@ -120,7 +154,9 @@
     },
     "conclusion": "OL continuity is underpriced; market overweights skill-position injuries vs OL injuries.",
     "action_taken": "Deployed @OL_Continuity_Edge_v1 and v2 with mismatch weighting.",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DECLARED_ASSUMPTION",
+    "snapshot_support": "requires snap counts / offensive-line participation"
   },
   {
     "experiment_id": "EXP_006_DEF_PRESSURE",
@@ -144,7 +180,9 @@
     },
     "conclusion": "Pressure mismatch creates both spread and totals value, especially Under when both teams high pressure.",
     "action_taken": "Deployed @DefPressure_Sack_v1/v2 and @OL_Pressure_Under_v1.",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DECLARED_ASSUMPTION",
+    "snapshot_support": "requires play-by-play pressure and sack attribution"
   },
   {
     "experiment_id": "EXP_007_GAME_SCRIPT",
@@ -168,7 +206,9 @@
     },
     "conclusion": "Pace and pass rate are complementary signals for totals, especially indoors where weather not a factor.",
     "action_taken": "Deployed @GameScript_PassRate_v1 and @GameScript_PaceOver_v1.",
-    "status": "VALIDATED"
+    "status": "VALIDATED",
+    "evidence_class": "DECLARED_ASSUMPTION",
+    "snapshot_support": "requires play-by-play pace and pass-rate tracking"
   },
   {
     "experiment_id": "EXP_008_PLAYER_PROP_USAGE",
@@ -192,6 +232,8 @@
     },
     "conclusion": "Role-based prop models beat average-based market, especially for WR1 and red zone targets.",
     "action_taken": "Deployed @PropUsage_WR1_v1, @PropRZ_TD_v1, @PropRush_CarryShare_v1 as forward-test.",
-    "status": "FORWARD_TEST"
+    "status": "FORWARD_TEST",
+    "evidence_class": "DECLARED_ASSUMPTION",
+    "snapshot_support": "requires player-level target share and route participation"
   }
 ]

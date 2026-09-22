@@ -187,6 +187,154 @@ function runTests() {
   assert.ok(kalshi.length > 0, 'Must have simulated Kalshi trades');
   console.log(`✓ kalshi_trades.json validated (${kalshi.length} trades)`);
 
+  // 7. Check the empirical studies and risk views are data-backed
+  const studiesPath = path.join(__dirname, '..', 'data', 'empirical_studies.json');
+  const riskPath = path.join(__dirname, '..', 'data', 'risk_analytics.json');
+  assert.ok(fs.existsSync(studiesPath), 'data/empirical_studies.json must exist');
+  assert.ok(fs.existsSync(riskPath), 'data/risk_analytics.json must exist');
+  const studies = JSON.parse(fs.readFileSync(studiesPath, 'utf8'));
+  const risk = JSON.parse(fs.readFileSync(riskPath, 'utf8'));
+  assert.ok(studies.study_count >= 4, 'Snapshot must carry several re-derived studies');
+  for (const study of studies.studies) {
+    assert.strictEqual(study.evidence_class, 'DERIVED_DATA',
+      'A snapshot study must be measured from games.csv, not declared');
+    assert.ok(study.headline, 'A study must state its headline result');
+    for (const finding of Object.values(study.findings)) {
+      assert.ok(finding.sample > 0, 'A study finding must report its sample size');
+    }
+  }
+  const dossier = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'data', 'research_experiments.json'), 'utf8'));
+  for (const entry of studies.declared_assumptions) {
+    const source = dossier.find(e => e.experiment_id === entry.experiment_id);
+    assert.ok(source, `${entry.experiment_id} must exist in the dossier`);
+    assert.strictEqual(source.evidence_class, entry.evidence_class,
+      'A claim that cannot be re-derived must be labelled, not silently measured');
+  }
+  assert.ok(risk.policy.minimum_settled_bets >= 50, 'Risk table must declare a reporting floor');
+  assert.strictEqual(risk.personas.length, leaderboard.length,
+    'Every persona must receive a risk row, even the ones below the floor');
+  const settledLedger = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'data', 'bets_ledger.json'), 'utf8')).length;
+  assert.strictEqual(risk.source.published_records, settledLedger,
+    'Risk analytics must cover the whole published ledger');
+  assert.ok(risk.calibration.reliability_table.length === 10, 'Calibration must report ten deciles');
+  for (const row of risk.personas) {
+    if (row.bootstrap) {
+      assert.strictEqual(row.bootstrap.seed, risk.policy.bootstrap_seed,
+        'A resampled interval is only reproducible with its seed');
+      assert.ok(row.observed_roi_inside_bootstrap_ci,
+        `Observed ROI for ${row.username} must sit inside its own interval`);
+    }
+  }
+  assert.ok(risk.summary.personas_meeting_reporting_floor <= risk.summary.personas,
+    'The floor can never report more personas than exist');
+  console.log(`✓ empirical studies validated (${studies.study_count} studies, `
+    + `${studies.declared_assumptions.length} declared claims, `
+    + `${studies.cross_check_disagreements.length} cross-check disagreement(s))`);
+
+  // 8. Check the dashboard wires those views up
+  assert.ok(html.includes('data-tab="risk"'), 'Risk & Calibration must be reachable from the nav');
+  assert.ok(html.includes('id="view-risk"'), 'Risk & Calibration needs its own view section');
+  assert.ok(html.includes('id="risk-personas-body"'), 'Risk view must hold a persona table');
+  assert.ok(html.includes('id="calibration-body"'), 'Risk view must hold the reliability table');
+  assert.ok(html.includes('id="empirical-studies-body"'), 'Research view must list the re-derived studies');
+  assert.ok(html.includes('id="declared-assumptions-body"'),
+    'Research view must separate claims the snapshot cannot re-derive');
+  assert.ok(appJs.includes('function renderRiskAnalytics()'), 'Risk view needs a renderer');
+  assert.ok(appJs.includes('function renderEmpiricalStudies()'), 'Research view needs a renderer');
+  assert.ok(appJs.includes("fetch('data/risk_analytics.json')"), 'Risk view must read its data file');
+  assert.ok(appJs.includes("fetch('data/empirical_studies.json')"), 'Research view must read its data file');
+  assert.strictEqual(studies.cross_check_disagreements.length, studies.cross_checks.filter(c => !c.agrees).length,
+    'Every disagreement must be listed in cross_check_disagreements');
+  console.log('✓ risk and research view contracts validated');
+
+  // 9. Every data-bound span in index.html must be registered and current
+  const boundIds = [...htmlClaims.matchAll(/id="(claim-[a-z0-9-]+)"/g)].map(m => m[1]);
+  assert.ok(boundIds.length >= 30, `Expected the site to bind its published numbers (found ${boundIds.length})`);
+  for (const id of boundIds) {
+    assert.ok(claimValue(id) !== null, `${id} must carry a value in the static HTML`);
+  }
+  const claimsCheck = execFileSync('python3', ['scripts/render_claims.py', '--check'],
+    { cwd: path.join(__dirname, '..'), encoding: 'utf8' });
+  assert.ok(claimsCheck.includes('match the data files'),
+    `scripts/render_claims.py --check must pass: ${claimsCheck}`);
+  console.log(`✓ ${boundIds.length} bound site claims re-derive from the data files`);
+
+  // 10. Execute the new view renderers against the real data in a DOM stub.
+  // A renderer that throws or writes nothing leaves the user with an empty card,
+  // and neither the Python audit nor a static grep would notice.
+  const vm = require('vm');
+  const elements = new Map();
+  const element = (id) => {
+    if (!elements.has(id)) {
+      elements.set(id, {
+        id, innerHTML: '', textContent: '', style: {}, dataset: {},
+        classList: { add() {}, remove() {}, toggle() {} },
+        appendChild() {}, addEventListener() {}, setAttribute() {},
+        getAttribute() { return null; }, querySelectorAll() { return []; },
+      });
+    }
+    return elements.get(id);
+  };
+  const sandbox = {
+    console,
+    document: {
+      getElementById: element,
+      querySelectorAll: () => [],
+      addEventListener: () => {},
+      createElement: () => element('created'),
+      body: { appendChild() {}, removeChild() {} },
+    },
+    window: { location: { hash: '' }, addEventListener: () => {}, scrollTo() {} },
+    localStorage: { getItem: () => null, setItem: () => {} },
+    fetch: () => Promise.resolve({ json: () => Promise.resolve({}) }),
+    setTimeout, clearTimeout, setInterval, clearInterval,
+    requestAnimationFrame: () => 0,
+  };
+  sandbox.globalThis = sandbox;
+  const appSource = `${appJs}\n;globalThis.__api = { STATE, renderEmpiricalStudies, renderRiskAnalytics, renderPublishedClaims };`;
+  vm.runInNewContext(appSource, sandbox, { filename: 'app.js' });
+  const api = sandbox.__api;
+  api.STATE.empiricalStudies = studies;
+  api.STATE.riskAnalytics = risk;
+  api.STATE.auditChecks = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'data', 'audit_checks.json'), 'utf8'));
+  api.STATE.irregularities = irr;
+  api.STATE.ledger = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'data', 'bets_ledger.json'), 'utf8'));
+  api.renderEmpiricalStudies();
+  api.renderRiskAnalytics();
+  api.renderPublishedClaims();
+
+  const studiesList = element('empirical-studies-list').innerHTML;
+  assert.ok(studiesList.includes(studies.studies[0].id), 'Study cards must render from empirical_studies.json');
+  assert.ok(studiesList.includes('DERIVED DATA'), 'Study cards must show the derived evidence tag');
+  assert.ok(element('empirical-studies-body').innerHTML.includes('95% CI'),
+    'Study table must show the interval behind each rate');
+  assert.ok(element('declared-assumptions-body').innerHTML.length > 0,
+    'Declared assumptions must render');
+  assert.ok(element('calibration-body').innerHTML.includes('<td>10</td>'),
+    'Calibration table must render all ten deciles');
+  assert.ok(element('calibration-market-body').innerHTML.includes('SPREAD'),
+    'Per-market calibration must render');
+  assert.ok(element('risk-summary-cards').innerHTML.includes('Brier'),
+    'Risk summary cards must render');
+  const personasHtml = element('risk-personas-body').innerHTML;
+  assert.ok(personasHtml.includes(risk.personas[0].username),
+    'The risk table must render persona rows');
+  const aboveFloor = risk.personas.filter(p => p.settled_bets >= risk.policy.minimum_settled_bets).length;
+  assert.strictEqual((personasHtml.match(/<tr>/g) || []).length, Math.min(30, aboveFloor),
+    'The risk table must render exactly the personas the floor publishes');
+  assert.ok(element('declared-assumptions-body').innerHTML.includes('DISPUTED BY SNAPSHOT'),
+    'A cross-check disagreement must be visible on the page, not just in the JSON');
+  assert.ok(element('portfolio-concentration').innerHTML.includes('Herfindahl'),
+    'Portfolio concentration must render');
+  assert.ok(element('claim-studies-count').textContent === String(studies.studies.length),
+    'The rendered study count must match the data file');
+  console.log(`✓ risk and research renderers executed (${studies.studies.length} studies, `
+    + `${risk.personas.length} persona rows, ${risk.calibration.reliability_table.length} deciles)`);
+
   console.log('\nALL UI & DATA CONTRACT TESTS PASSED SUCCESSFULLY! ✅');
 }
 

@@ -6,10 +6,18 @@ This document outlines ongoing and scheduled enhancements for future NFL researc
 
 Every research cycle must add or explicitly reject pre-declared strategy candidates. The weekly automation verifies that `data/strategy_lab.json` is reproducible from the exact `games.csv` snapshot and runs both test suites. New source snapshots require a fresh report, but holdout thresholds must never be tuned after viewing holdout output.
 
-Current cycle:
-- `STRAT_REST_TNF_005_v3`: passed the declared historical gate; prospective paper test next.
-- `STRAT_DIV_TOTAL_040_v1`: passed the declared historical gate with a small holdout edge; prospective paper test next.
-- Next candidates must be based only on fields with retained source/provenance. Player props, live markets, and order-book rules stay blocked until timestamped prices and observable outcomes exist.
+Current cycle (statuses, windows and samples are shown in the generated table in
+`README.md`; `data/strategy_lab.json` is the source of truth and
+`python3 -m engine.strategy_lab --check` proves it re-derives from the snapshot):
+- `STRAT_DIV_TOTAL_040_v1` cleared the declared gate (100 development / 40 validation / 40 holdout bets
+  with positive ROI in all three) and is eligible for prospective paper testing only.
+- `STRAT_REST_TNF_005_v3` failed the untouched holdout window and stays archived with its rule unchanged,
+  so the failure is not re-tested or tuned away.
+- Next candidates must be based only on fields with retained source/provenance. Player props, live markets,
+  and order-book rules stay blocked until timestamped prices and observable outcomes exist.
+- A research claim the bundled snapshot cannot re-derive is labelled `DECLARED_ASSUMPTION` in
+  `data/research_experiments.json`; do not promote one to a measured result without a re-derivation study in
+  `engine/empirical_studies.py`.
 
 A candidate is valuable even when it fails: retain the fixed rule and failure result to prevent repeated testing and survivorship bias.
 

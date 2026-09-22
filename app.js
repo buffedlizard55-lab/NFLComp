@@ -24,6 +24,8 @@ const STATE = {
   executionReport: null,
   autonomousResearch: null,
   publicResearch: null,
+  empiricalStudies: null,
+  riskAnalytics: null,
   currentTab: 'research',
   historyPage: 1,
   historyPageSize: 50,
@@ -98,7 +100,9 @@ async function loadAllData() {
       ftRes,
       execRes,
       arRes,
-      pubRes
+      pubRes,
+      studiesRes,
+      riskRes
     ] = await Promise.all([
       fetch('data/summary.json').then(r => r.json()),
       fetch('data/leaderboard.json').then(r => r.json()),
@@ -117,7 +121,9 @@ async function loadAllData() {
       fetch('data/forward_testing.json').then(r => r.json()).catch(() => null),
       fetch('data/execution_report.json').then(r => r.json()).catch(() => null),
       fetch('data/autonomous_research.json').then(r => r.json()).catch(() => null),
-      fetch('data/public_strategy_research.json').then(r => r.json()).catch(() => null)
+      fetch('data/public_strategy_research.json').then(r => r.json()).catch(() => null),
+      fetch('data/empirical_studies.json').then(r => r.json()).catch(() => null),
+      fetch('data/risk_analytics.json').then(r => r.json()).catch(() => null)
     ]);
 
     STATE.summary = summaryRes;
@@ -138,6 +144,10 @@ async function loadAllData() {
     STATE.executionReport = execRes;
     STATE.autonomousResearch = arRes;
     STATE.publicResearch = pubRes;
+    STATE.empiricalStudies = studiesRes;
+    STATE.riskAnalytics = riskRes;
+    STATE.marketTypes = (STATE.bettingMarkets && Array.isArray(STATE.bettingMarkets.taxonomy))
+      ? STATE.bettingMarkets.taxonomy.length : null;
 
     populateStrategyBetFilters();
     renderKPIs();
@@ -153,6 +163,8 @@ async function loadAllData() {
     renderKalshiDesk();
     renderRegistry();
     renderVerification();
+    renderEmpiricalStudies();
+    renderRiskAnalytics();
     setupFilters();
 
   } catch (err) {
@@ -208,7 +220,39 @@ function renderPublishedClaims() {
     set('claim-week-signals', week.length.toLocaleString());
     set('claim-week-games', new Set(week.map(b => b.game_id)).size.toLocaleString());
   }
-  if (s.season_span) set('claim-season-span', s.season_span.replace('-', '\u2013'));
+  if (s.season_span) {
+    const span = s.season_span.replace('-', '\u2013');
+    set('claim-season-span', span);
+    set('claim-methodology-span', span);
+  }
+  if (Array.isArray(STATE.auditChecks) && STATE.auditChecks.length) {
+    const passed = STATE.auditChecks.filter(c => c.passed).length.toLocaleString();
+    ['claim-audit-checks', 'claim-audit-checks-methodology', 'claim-footer-checks'].forEach((id) => set(id, passed));
+  }
+  set('claim-games-completed', Number(s.completed_games).toLocaleString());
+  set('claim-ledger-title', Number(s.total_simulated_bets).toLocaleString());
+  set('claim-methodology-games', Number(s.total_games_tracked).toLocaleString());
+  set('claim-kalshi-title', Number(s.total_kalshi_trades).toLocaleString());
+  set('claim-kalshi-card', Number(s.total_kalshi_trades).toLocaleString());
+  set('claim-footer-personas', Number(s.total_strategies).toLocaleString());
+  set('claim-footer-bets', (Array.isArray(STATE.ledger) ? STATE.ledger.length : 0).toLocaleString());
+  set('claim-footer-sources-link', (Array.isArray(STATE.registry) ? STATE.registry.length : 0).toLocaleString());
+  if (Array.isArray(STATE.openPositions)) set('claim-open-positions', STATE.openPositions.length.toLocaleString());
+  if (STATE.marketTypes) set('claim-market-types', STATE.marketTypes.toLocaleString());
+  if (Array.isArray(STATE.researchExperiments)) {
+    set('claim-experiments-title', STATE.researchExperiments.length.toLocaleString());
+  }
+  const studies = STATE.empiricalStudies;
+  if (studies) set('claim-studies-count', (studies.studies || []).length.toLocaleString());
+  const risk = STATE.riskAnalytics;
+  if (risk) {
+    if (risk.policy) set('claim-risk-floor', Number(risk.policy.minimum_settled_bets).toLocaleString());
+    const calibration = risk.calibration || {};
+    if (calibration.brier_score !== undefined) set('claim-risk-brier', Number(calibration.brier_score).toFixed(4));
+    if (calibration.expected_calibration_error_pct_points !== undefined) {
+      set('claim-risk-ece', Number(calibration.expected_calibration_error_pct_points).toFixed(2));
+    }
+  }
 }
 
 function renderDashboard() {
@@ -1167,6 +1211,222 @@ function downloadFile(content, fileName, contentType) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+}
+
+// ================= EMPIRICAL STUDIES (derived vs declared) =================
+const fmtNum = (value, digits = 2) => (value === null || value === undefined
+  ? '—' : Number(value).toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits }));
+const fmtPct = (value, digits = 2) => (value === null || value === undefined
+  ? '—' : `${value >= 0 ? '+' : ''}${Number(value).toFixed(digits)}%`);
+const valueClass = (value) => (value === null || value === undefined
+  ? 'num-neutral' : (value > 0 ? 'num-positive' : (value < 0 ? 'num-negative' : 'num-neutral')));
+
+// Each finding reports whichever measurement the study actually took. Nothing is
+// inferred: a study without a rate column shows its means, and a bucket with no
+// settled market price shows "n/a" instead of a fabricated PnL.
+function studyMeasurement(finding) {
+  const rateKey = Object.keys(finding).find(key => /_rate_pct$/.test(key));
+  if (rateKey) {
+    const ciKey = Object.keys(finding).find(key => key.endsWith('_ci95_pct'));
+    const ci = ciKey ? finding[ciKey] : null;
+    const label = rateKey.replace(/_pct$/, '').replaceAll('_', ' ');
+    return `${label} ${fmtNum(finding[rateKey])}%` + (ci ? `<br><small class="muted">95% CI ${fmtNum(ci[0])}–${fmtNum(ci[1])}%</small>` : '');
+  }
+  if (finding.mean_total_points !== undefined) {
+    return `mean total ${fmtNum(finding.mean_total_points)} pts`;
+  }
+  return '—';
+}
+
+function studyBucketLabel(name, finding) {
+  const rangeKey = Object.keys(finding).find(key => /_range$/.test(key));
+  if (rangeKey) return `${finding[rangeKey]} mph`;
+  return name.replaceAll('_', ' ');
+}
+
+function renderEmpiricalStudies() {
+  const report = STATE.empiricalStudies;
+  const listEl = document.getElementById('empirical-studies-list');
+  const detailBody = document.getElementById('empirical-studies-body');
+  const declaredBody = document.getElementById('declared-assumptions-body');
+  const countEl = document.getElementById('claim-studies-count');
+  const studies = (report && report.studies) || [];
+
+  if (countEl && report) countEl.textContent = studies.length.toLocaleString();
+
+  if (listEl && report) {
+    listEl.innerHTML = studies.map(study => {
+      const findings = Object.entries(study.findings || {});
+      const totalSample = findings.reduce((sum, [, f]) => sum + (f.sample || 0), 0);
+      const strategies = (study.strategy_ids || []).map(id => `<code>${id}</code>`).join(' ');
+      return `
+        <article class="study-card">
+          <div class="candidate-heading">
+            <div>
+              <span class="eyebrow">${study.market} · ${study.id} · ${study.seasons}</span>
+              <h3>${study.title}</h3>
+            </div>
+            <span class="tag tag-derived">${study.evidence_class.replaceAll('_', ' ')}</span>
+          </div>
+          <p><strong>Result:</strong> ${study.headline}</p>
+          <p><strong>Method:</strong> ${study.method}</p>
+          <p class="muted"><strong>Snapshot columns used:</strong> ${(study.snapshot_columns || []).map(c => `<code>${c}</code>`).join(' ')}
+            · ${findings.length} bucket(s), ${totalSample.toLocaleString()} observations</p>
+          <p class="muted"><strong>Limitation:</strong> ${study.limitations}</p>
+          <p class="muted"><strong>Speaks to:</strong> ${strategies || 'no catalogued persona yet'}</p>
+        </article>`;
+    }).join('');
+  }
+
+  if (detailBody && report) {
+    detailBody.innerHTML = studies.map(study => Object.entries(study.findings || {}).map(([name, finding], index) => `
+      <tr>
+        <td>${index === 0 ? `<strong>${study.title}</strong><br><code>${study.id}</code>` : ''}</td>
+        <td>${studyBucketLabel(name, finding)}</td>
+        <td>${(finding.sample || 0).toLocaleString()}</td>
+        <td>${studyMeasurement(finding)}</td>
+        <td class="${valueClass(finding.flat_stake_pnl_usd)}">${finding.flat_stake_pnl_usd === undefined
+          ? 'n/a — no settled price in the snapshot' : fmtMoney(finding.flat_stake_pnl_usd)}</td>
+      </tr>`).join('')).join('');
+  }
+
+  if (declaredBody && report) {
+    const rows = (report.declared_assumptions || []).map(entry => `
+      <tr>
+        <td><code>${entry.experiment_id}</code></td>
+        <td>${entry.title || '—'}</td>
+        <td><span class="tag tag-declared">${entry.evidence_class.replaceAll('_', ' ')}</span></td>
+        <td>${entry.reason}</td>
+      </tr>`).join('');
+    const crossChecks = (report.cross_checks || []).map(check => `
+      <tr>
+        <td><code>${check.experiment_id}</code></td>
+        <td>${check.metric}</td>
+        <td><span class="tag ${check.agrees ? 'tag-derived' : 'tag-disputed'}">${check.agrees ? 'AGREES WITH SNAPSHOT' : 'DISPUTED BY SNAPSHOT'}</span></td>
+        <td>dossier ${check.declared_in_dossier} vs snapshot ${check.re_derived_from_snapshot}${check.difference_pct_points === null ? '' : ` (${check.difference_pct_points > 0 ? '+' : ''}${check.difference_pct_points} pts)`}<br><small class="muted">${check.resolution}</small></td>
+      </tr>`).join('');
+    declaredBody.innerHTML = rows + crossChecks;
+  }
+}
+
+// ================= RISK, CALIBRATION & CAPITAL SUFFICIENCY =================
+function fmtMoney(value) {
+  if (value === null || value === undefined) return '—';
+  const sign = value < 0 ? '-' : '+';
+  return `${sign}$${Math.abs(value).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+function stakeVersusQuarterKelly(persona) {
+  if (persona.history_implies_no_positive_stake) return 'no positive Kelly size';
+  const implied = persona.implied_quarter_kelly_stake_pct;
+  const actual = persona.actual_stake_pct_of_initial_bankroll;
+  if (implied === null || implied === undefined || !implied) return '—';
+  return `${(actual / implied).toFixed(2)}× ¼-Kelly (${fmtNum(implied)}% implied)`;
+}
+
+function renderRiskAnalytics() {
+  const report = STATE.riskAnalytics;
+  if (!report) return;
+  const policy = report.policy || {};
+  const calibration = report.calibration || {};
+  const summary = report.summary || {};
+  const portfolio = report.portfolio || {};
+
+  const cards = document.getElementById('risk-summary-cards');
+  if (cards) {
+    const cells = [
+      ['Brier score', fmtNum(calibration.brier_score, 4),
+        `${(calibration.settled_bets_with_model_probability || 0).toLocaleString()} settled bets carry a model probability; lower is better`],
+      ['Expected calibration error', `${fmtNum(calibration.expected_calibration_error_pct_points, 2)} pts`,
+        `Base win rate ${fmtNum((calibration.base_win_rate || 0) * 100)}% · log loss ${fmtNum(calibration.log_loss, 4)}`],
+      ['Personas above the reporting floor', `${summary.personas_meeting_reporting_floor}/${summary.personas}`,
+        `${policy.minimum_settled_bets} settled published bets minimum — below it no verdict is published`],
+      ['Best annualised Sharpe', fmtNum(summary.best_sharpe_value, 3),
+        `${summary.best_sharpe || '—'} (worst ${fmtNum(summary.worst_sharpe_value, 3)})`],
+      ['Staking above implied ¼-Kelly', String(summary.personas_betting_above_implied_quarter_kelly),
+        `${summary.personas_whose_history_implies_no_positive_stake} personas have a realised win rate consistent with no positive stake at all`],
+      ['Published PnL concentration', `${fmtNum(portfolio.largest_abs_pnl_share_of_gross_movement_pct)}%`,
+        `largest mover ${portfolio.largest_abs_pnl_persona || '—'} · Herfindahl ${fmtNum(portfolio.herfindahl_index_of_gross_pnl, 4)}`],
+    ];
+    cards.innerHTML = cells.map(([label, value, sub]) => `
+      <div class="metric-card">
+        <span class="metric-label">${label}</span>
+        <span class="metric-value">${value}</span>
+        <span class="metric-sub">${sub}</span>
+      </div>`).join('');
+  }
+
+  const calibrationBody = document.getElementById('calibration-body');
+  if (calibrationBody) {
+    calibrationBody.innerHTML = (calibration.reliability_table || []).map(row => `
+      <tr>
+        <td>${row.decile}</td>
+        <td>${row.range}</td>
+        <td>${row.bets.toLocaleString()}</td>
+        <td>${row.mean_model_prob === null ? '—' : `${(row.mean_model_prob * 100).toFixed(2)}%`}</td>
+        <td>${row.observed_win_rate === null ? '—' : `${(row.observed_win_rate * 100).toFixed(2)}%`}</td>
+        <td class="${valueClass(row.gap_pct_points)}">${row.gap_pct_points === null ? '—' : `${row.gap_pct_points > 0 ? '+' : ''}${row.gap_pct_points}`}</td>
+      </tr>`).join('');
+  }
+
+  const byMarketBody = document.getElementById('calibration-market-body');
+  if (byMarketBody) {
+    byMarketBody.innerHTML = Object.entries(calibration.by_market || {}).map(([market, row]) => `
+      <tr>
+        <td><code>${market}</code></td>
+        <td>${(row.settled_bets || 0).toLocaleString()}</td>
+        <td>${fmtNum(row.brier_score, 4)}</td>
+        <td>${fmtNum(row.log_loss, 4)}</td>
+        <td>${fmtNum(row.expected_calibration_error_pct_points, 2)}</td>
+        <td>${fmtNum((row.base_win_rate || 0) * 100)}%</td>
+      </tr>`).join('');
+  }
+
+  const personaBody = document.getElementById('risk-personas-body');
+  const personaNote = document.getElementById('risk-personas-note');
+  if (personaBody) {
+    const floor = policy.minimum_settled_bets || 0;
+    const above = (report.personas || [])
+      .filter(p => p.settled_bets >= floor)
+      .sort((a, b) => b.settled_bets - a.settled_bets);
+    const shown = above.slice(0, 30);
+    if (personaNote) {
+      personaNote.textContent = `Showing the ${shown.length} largest samples of ${above.length} personas at or above the `
+        + `${floor}-settled-bet floor (of ${(report.personas || []).length} catalogued). `
+        + 'A bootstrap interval that spans zero means the history is consistent with break-even.';
+    }
+    personaBody.innerHTML = shown.map(p => {
+      const bootstrap = p.bootstrap || {};
+      const ci = bootstrap.roi_pct_ci95 ? `${fmtNum(bootstrap.roi_pct_ci95[0])}% … ${fmtNum(bootstrap.roi_pct_ci95[1])}%` : '—';
+      const spansZero = bootstrap.roi_pct_ci95 ? (bootstrap.roi_pct_ci95[0] <= 0 && bootstrap.roi_pct_ci95[1] >= 0) : false;
+      return `
+        <tr>
+          <td><code>${p.username}</code><br><small class="muted">${p.strategy_id}</small></td>
+          <td>${p.settled_bets.toLocaleString()}</td>
+          <td>${p.win_rate === null ? '—' : `${(p.win_rate * 100).toFixed(1)}%`}</td>
+          <td class="${valueClass(p.sharpe_annualised)}">${fmtNum(p.sharpe_annualised, 3)}</td>
+          <td class="${valueClass(p.sortino_annualised)}">${fmtNum(p.sortino_annualised, 3)}</td>
+          <td>${fmtNum(p.profit_factor, 3)}</td>
+          <td>${fmtNum(p.max_drawdown_stake_units)} <small class="muted">(${p.longest_drawdown_bets} bets)</small></td>
+          <td>${p.longest_losing_streak}</td>
+          <td class="${valueClass(p.observed_roi_pct)}">${fmtPct(p.observed_roi_pct)}</td>
+          <td class="${spansZero ? 'num-neutral' : valueClass(bootstrap.roi_pct_median)}">${ci}${spansZero ? ' <small class="muted">(spans 0)</small>' : ''}</td>
+          <td>${bootstrap.probability_of_drawdown_pct === undefined ? '—' : `${bootstrap.probability_of_drawdown_pct}%`}</td>
+          <td>${stakeVersusQuarterKelly(p)}</td>
+        </tr>`;
+    }).join('');
+  }
+
+  const concentration = document.getElementById('portfolio-concentration');
+  if (concentration) {
+    const correlations = (portfolio.top5_season_pnl_correlations || []).map(c =>
+      `<li><code>${c.first}</code> vs <code>${c.second}</code>: r = ${fmtNum(c.pearson_r_by_season_pnl, 3)} over ${c.seasons} seasons</li>`).join('');
+    concentration.innerHTML = `
+      <p>${portfolio.personas_with_published_pnl} personas have published-window PnL — ${portfolio.personas_positive} positive, ${portfolio.personas_negative} negative — for ${fmtMoney(portfolio.published_pnl_total_usd)} net. Gross movement is ${fmtMoney(portfolio.pnl_magnitude_total_usd)}, of which the largest single persona explains ${fmtNum(portfolio.largest_abs_pnl_share_of_gross_movement_pct)}%; the Herfindahl index of gross PnL is ${fmtNum(portfolio.herfindahl_index_of_gross_pnl, 4)}.</p>
+      <p class="muted">Per-season PnL correlation between the five largest personas (a shared market factor would show up here as positive co-movement):</p>
+      <ul>${correlations || '<li>Not enough overlapping seasons to compute a correlation.</li>'}</ul>
+      <p class="muted">Policy warning: ${policy.warning || 'n/a'}</p>`;
+  }
 }
 
 // ================= FILTER HOOKS =================

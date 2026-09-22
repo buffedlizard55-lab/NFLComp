@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Render the generated "published state" block inside README.md.
+"""Render the generated blocks inside README.md (and any document using them).
 
-The block between ``<!-- CURRENT_STATE_START -->`` and
-``<!-- CURRENT_STATE_END -->`` is derived from ``data/`` by
-``engine.publication``.  Nothing in it is typed by hand, so the README cannot
-claim a bet count, PnL or window that the checked-in data does not support.
+Five blocks are derived from ``data/`` and must never be typed by hand:
+
+* ``CURRENT_STATE`` (``engine.publication``) — the published metrics and badges.
+* ``EXEC_SUMMARY``, ``ROSTER``, ``FINDINGS``, ``SOURCES``
+  (``engine.narrative``) — the narrative sections: summary bullets, the full
+  strategy roster, the key-results bullets and the data-source registry table.
+
+A block that has been hand-edited is a stale claim: ``--check`` fails, the audit
+fails, and re-running this script restores the data-derived text.
 
 Usage::
 
-    python3 scripts/render_readme.py            # write the block
-    python3 scripts/render_readme.py --check    # fail if the block is stale
+    python3 scripts/render_readme.py            # write the blocks
+    python3 scripts/render_readme.py --check    # fail if any block is stale
 """
 from __future__ import annotations
 
@@ -20,6 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from engine.narrative import BLOCK_ENDS, render_blocks  # noqa: E402
 from engine.publication import (  # noqa: E402
     BADGES_END,
     BADGES_START,
@@ -31,16 +37,8 @@ from engine.publication import (  # noqa: E402
 )
 
 
-def _block_bounds(readme: str) -> tuple[int, int] | None:
-    start = readme.find(STATUS_START)
-    end = readme.find(STATUS_END)
-    if start < 0 or end < 0 or end < start:
-        return None
-    return start, end + len(STATUS_END)
-
-
 def _insertion_point(readme: str) -> int:
-    """Insert the generated block before the first top-level section."""
+    """Insert a block that has no markers yet before the first section."""
     marker = readme.find("\n## ")
     return len(readme) if marker < 0 else marker + 1
 
@@ -57,37 +55,74 @@ def _replace(text: str, block: str, start_marker: str, end_marker: str) -> str:
     return f"{head}{separator}{block}\n\n{body}"
 
 
-def render(readme: str, block: str, badges: str | None = None) -> str:
-    """Insert or refresh the generated badges and published-state block."""
+def render(readme: str, block: str, badges: str | None = None, narrative=None) -> str:
+    """Insert or refresh every generated block in ``readme``."""
     rendered = readme
     if badges is not None:
         rendered = _replace(rendered, badges, BADGES_START, BADGES_END)
-    return _replace(rendered, block, STATUS_START, STATUS_END)
+    rendered = _replace(rendered, block, STATUS_START, STATUS_END)
+    for _name, (marker, text) in (narrative or {}).items():
+        end_marker = BLOCK_ENDS[marker]
+        rendered = _replace(rendered, text, marker, end_marker)
+    return rendered
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", default=str(ROOT / "data"))
     parser.add_argument("--readme", default=str(ROOT / "README.md"))
-    parser.add_argument("--check", action="store_true", help="exit 1 if the block on disk is stale")
+    parser.add_argument("--check", action="store_true", help="exit 1 if a block on disk is stale")
+    parser.add_argument("--blocks", default="all",
+                        help="comma-separated subset of "
+                             "status,executive_summary,roster,findings,sources")
     args = parser.parse_args(argv)
 
+    wanted = {name.strip() for name in args.blocks.split(",")}
+    include_all = "all" in wanted
     facts = published_facts(args.data_dir)
     block = render_status_block(facts)
     badges = render_badges(facts)
     path = Path(args.readme)
     current = path.read_text(encoding="utf-8")
-    expected = render(current, block, badges)
+
+    # Blocks belong to the document that owns their type: the README carries the
+    # narrative sections, docs/IRREGULARITIES.md carries the machine-checked
+    # register. With --blocks all a block is refreshed where its markers already
+    # live (or inserted when the document is meant to carry it), so one command
+    # can drive every document without duplicating a table into all of them.
+    required = {
+        "README.md": {"executive_summary", "roster", "findings", "sources", "strategy_lab"},
+    }.get(path.name, set())
+    extra = {}
+    for name, pair in render_blocks(facts, args.data_dir).items():
+        if not include_all and name not in wanted:
+            continue
+        if pair[0] not in current and not include_all and name not in required:
+            continue
+        if pair[0] not in current and include_all and name not in required:
+            continue
+        extra[name] = pair
+    expected = current
+    if include_all or "status" in wanted:
+        expected = _replace(expected, block, STATUS_START, STATUS_END)
+        expected = _replace(expected, badges, BADGES_START, BADGES_END)
+    for pair in extra.values():
+        marker, text = pair
+        end_marker = BLOCK_ENDS[marker]
+        expected = _replace(expected, text, marker, end_marker)
 
     if args.check:
         if expected != current:
-            print("README published-state block is stale; run scripts/render_readme.py")
+            print(f"{path.name} has stale generated blocks; run scripts/render_readme.py")
             return 1
-        print("README published-state block matches data/")
+        print(f"{path.name} generated blocks match data/")
         return 0
 
-    path.write_text(expected, encoding="utf-8")
-    print(f"Rendered published-state block into {path}")
+    if expected != current:
+        path.write_text(expected, encoding="utf-8")
+        print(f"Rendered {len(extra) + (1 if include_all or 'status' in wanted else 0)} block(s) into {path}")
+    else:
+        print(f"{path.name} generated blocks already match data/")
     return 0
 
 

@@ -9,6 +9,12 @@
 - `engine.backtest_engine.NFLBacktestRunner` walks games chronologically and suppresses historical signals when a timestamped side price is absent.
 - `engine.ledger` provides an append-only newline JSON hash chain for new paper bets.
 - `engine.settlement` settles spreads and totals from observed final scores only.
+- `engine.empirical_studies` re-derives each snapshot-supported research claim (sample, Wilson interval,
+  flat-stake result) and labels the rest `DECLARED_ASSUMPTION`.
+- `engine.risk_analytics` derives per-persona risk, implied-Kelly sizing and probability calibration from the
+  published ledger, suppressed below a 100-settled-bet floor.
+- `engine.narrative` renders the README narrative sections from `data/` and lints the remaining human prose
+  against the same facts.
 
 ## Evidence boundaries
 
@@ -43,6 +49,8 @@ python3 -m engine.ledger --verify data/bets_ledger.json
 python3 scripts/render_readme.py --check
 python3 scripts/render_verification.py --check
 python3 scripts/render_claims.py --check
+python3 -m engine.empirical_studies --check
+python3 -m engine.risk_analytics --check
 python3 test/engine.test.py
 node test/ui.test.js
 python3 -m py_compile engine/*.py

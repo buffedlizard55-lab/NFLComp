@@ -45,8 +45,13 @@ def published_facts(data_dir: str | Path) -> dict:
     kalshi = _read(root / "kalshi_trades.json", []) or []
     registry = _read(root / "registry.json", []) or []
     checks = _read(root / "audit_checks.json", []) or []
+    irregularities = _read(root / "irregularities.json", []) or []
     experiments = _read(root / "research_experiments.json", []) or []
     strategies = _read(root / "strategies.json", []) or []
+    markets = _read(root / "betting_markets.json", {}) or {}
+    open_positions = _read(root / "open_positions.json", []) or []
+    studies = _read(root / "empirical_studies.json", {}) or {}
+    risk = _read(root / "risk_analytics.json", {}) or {}
 
     published_pnl = sum(b.get("pnl", 0.0) or 0.0 for b in ledger)
     top = leaderboard[0] if leaderboard else {}
@@ -75,6 +80,13 @@ def published_facts(data_dir: str | Path) -> dict:
         "audit_checks_passed": len(decoded) if checks else None,
         "audit_checks_total": len(checks) or None,
         "research_experiments": len(experiments) or None,
+        "irregularities": len(irregularities) or None,
+        "market_types": len(markets.get("taxonomy") or []) or None,
+        "open_positions": len(open_positions) or None,
+        "empirical_studies": len(studies.get("studies") or []) or None,
+        "risk_reporting_floor": (risk.get("policy") or {}).get("minimum_settled_bets"),
+        "portfolio_brier_score": (risk.get("calibration") or {}).get("brier_score"),
+        "expected_calibration_error": (risk.get("calibration") or {}).get("expected_calibration_error_pct_points"),
         "top_strategy": top.get("username"),
         "top_pnl": top.get("total_pnl"),
         "top_roi": top.get("roi"),
@@ -88,6 +100,11 @@ def _money(value) -> str:
     if value is None:
         return "n/a"
     return f"{value:,.2f}"
+
+
+def _fixed(value, digits: int) -> str:
+    """Format a float claim to a fixed number of decimals, or ``n/a``."""
+    return "n/a" if value is None else f"{value:.{digits}f}"
 
 
 def _count(value) -> str:
@@ -264,6 +281,44 @@ CLAIM_PATTERNS = {
     "claim-week-games": (r'id="claim-week-games"[^>]*>([^<]+)<', "current-week game count"),
     "claim-week-signals": (r'id="claim-week-signals"[^>]*>([^<]+)<', "current-week signal count"),
     "claim-season-span": (r'id="claim-season-span"[^>]*>([^<]+)<', "simulation season span"),
+    "claim-audit-checks": (r'id="claim-audit-checks"[^>]*>([^<]+)<', "audit checks passed in the header pill"),
+    "claim-games-completed": (r'id="claim-games-completed"[^>]*>([^<]+)<', "completed-game count in the KPI sub-line"),
+    "claim-market-types": (r'id="claim-market-types"[^>]*>([^<]+)<', "market-type count in the KPI sub-line"),
+    "claim-upcoming-title": (r'id="claim-upcoming-title"[^>]*>([^<]+)<', "upcoming-signal count in the view title"),
+    "claim-upcoming-nav": (r'id="claim-upcoming-nav"[^>]*>([^<]+)<', "upcoming-signal count in the footer nav"),
+    "claim-open-positions": (r'id="claim-open-positions"[^>]*>([^<]+)<', "open position count badge"),
+    "claim-ledger-title": (r'id="claim-ledger-title"[^>]*>([^<]+)<', "all-time simulated wager count in the ledger title"),
+    "claim-kalshi-title": (r'id="claim-kalshi-title"[^>]*>([^<]+)<', "all-time Kalshi trade count in the desk title"),
+    "claim-kalshi-card": (r'id="claim-kalshi-card"[^>]*>([^<]+)<', "all-time Kalshi trade count in the trades card"),
+    "claim-registry-title": (r'id="claim-registry-title"[^>]*>([^<]+)<', "registered source count in the registry title"),
+    "claim-experiments-title": (r'id="claim-experiments-title"[^>]*>([^<]+)<', "research experiment count in the lab title"),
+    "claim-methodology-games": (r'id="claim-methodology-games"[^>]*>([^<]+)<', "game count in the methodology heading"),
+    "claim-methodology-span": (r'id="claim-methodology-span"[^>]*>([^<]+)<', "season span in the methodology heading"),
+    "claim-footer-personas": (r'id="claim-footer-personas"[^>]*>([^<]+)<', "persona count in the footer"),
+    "claim-footer-sources": (r'id="claim-footer-sources"[^>]*>([^<]+)<', "source count in the footer"),
+    "claim-footer-categories": (r'id="claim-footer-categories"[^>]*>([^<]+)<', "category count in the footer"),
+    "claim-footer-markets": (r'id="claim-footer-markets"[^>]*>([^<]+)<', "market-type count in the footer"),
+    "claim-footer-bets": (r'id="claim-footer-bets"[^>]*>([^<]+)<', "published wager count in the footer"),
+    "claim-audit-checks-methodology": (r'id="claim-audit-checks-methodology"[^>]*>([^<]+)<',
+                                       "audit check count in the methodology note"),
+    "claim-footer-sources-link": (r'id="claim-footer-sources-link"[^>]*>([^<]+)<',
+                                  "registered source count in the footer link"),
+    "claim-footer-checks": (r'id="claim-footer-checks"[^>]*>([^<]+)<',
+                            "audit check count in the footer link"),
+    "claim-studies-count": (r'id="claim-studies-count"[^>]*>([^<]+)<',
+                            "re-derived empirical study count"),
+    "claim-risk-floor": (r'id="claim-risk-floor"[^>]*>([^<]+)<',
+                         "settled-bet floor before a risk verdict is published"),
+    "claim-risk-brier": (r'id="claim-risk-brier"[^>]*>([^<]+)<',
+                         "portfolio Brier score over the published ledger"),
+    "claim-risk-ece": (r'id="claim-risk-ece"[^>]*>([^<]+)<',
+                       "expected calibration error in percentage points"),
+    "claim-audit-checks-view": (r'id="claim-audit-checks-view"[^>]*>([^<]+)<',
+                                "audit check count in the verification title"),
+    "claim-audit-checks-card": (r'id="claim-audit-checks-card"[^>]*>([^<]+)<',
+                                "audit check count in the verification card title"),
+    "claim-irregularities": (r'id="claim-irregularities"[^>]*>([^<]+)<',
+                             "tracked irregularity count in the verification title"),
 }
 
 
@@ -295,4 +350,32 @@ def expected_site_claims(facts: dict) -> dict[str, str]:
         "claim-week-games": _count(week.get("games")),
         "claim-week-signals": _count(week.get("signals")),
         "claim-season-span": span.replace("-", "\u2013") if span != "n/a" else span,
+        "claim-audit-checks": _count(facts["audit_checks_passed"]),
+        "claim-games-completed": _count(facts["games_completed"]),
+        "claim-market-types": _count(facts["market_types"]),
+        "claim-upcoming-title": _count(facts["upcoming_signals"]),
+        "claim-upcoming-nav": _count(facts["upcoming_signals"]),
+        "claim-open-positions": _count(facts["open_positions"]),
+        "claim-ledger-title": _count(facts["all_time_bets"]),
+        "claim-kalshi-title": _count(facts["kalshi_trades"]),
+        "claim-kalshi-card": _count(facts["kalshi_trades"]),
+        "claim-registry-title": _count(facts["registry_sources"]),
+        "claim-experiments-title": _count(facts["research_experiments"]),
+        "claim-methodology-games": _count(facts["games_tracked"]),
+        "claim-methodology-span": (facts["season_span"] or "n/a").replace("-", "\u2013"),
+        "claim-footer-personas": _count(facts["strategies"]),
+        "claim-footer-sources": _count(facts["registry_sources"]),
+        "claim-footer-categories": _count(facts["strategy_categories"]),
+        "claim-footer-markets": _count(facts["market_types"]),
+        "claim-footer-bets": _count(facts["published_bets"]),
+        "claim-audit-checks-methodology": _count(facts["audit_checks_passed"]),
+        "claim-footer-sources-link": _count(facts["registry_sources"]),
+        "claim-footer-checks": _count(facts["audit_checks_passed"]),
+        "claim-studies-count": _count(facts["empirical_studies"]),
+        "claim-risk-floor": _count(facts["risk_reporting_floor"]),
+        "claim-risk-brier": _fixed(facts["portfolio_brier_score"], 4),
+        "claim-risk-ece": _fixed(facts["expected_calibration_error"], 2),
+        "claim-audit-checks-view": _count(facts["audit_checks_passed"]),
+        "claim-audit-checks-card": _count(facts["audit_checks_passed"]),
+        "claim-irregularities": _count(facts["irregularities"]),
     }

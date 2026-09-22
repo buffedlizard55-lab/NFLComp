@@ -82,7 +82,7 @@ class QBEPAStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.50 + min(abs(edge_pts) * 0.018, 0.075)
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
         if edge < self.min_edge:
             return []
@@ -127,7 +127,7 @@ class BackupQBContrarianStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.548
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
         display_line = spread if bet_home else -spread
         return [{
@@ -166,9 +166,9 @@ class WeatherWindTotalsStrategy(NFLStrategy):
             return []
         extra_wind = wind - wind_thresh
         model_prob = 0.545 + min(extra_wind * 0.012, 0.065)
-        implied_p = 0.5238
-        edge = model_prob - implied_p
         odds = game.get("under_odds", -110.0)
+        implied_p = american_to_implied_prob(odds)
+        edge = model_prob - implied_p
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -210,9 +210,9 @@ class DomePaceOverStrategy(NFLStrategy):
             if h_proe < 0.01 or a_proe < 0.01:
                 return []
         model_prob = 0.550
-        implied_p = 0.5238
-        edge = model_prob - implied_p
         odds = game.get("over_odds", -110.0)
+        implied_p = american_to_implied_prob(odds)
+        edge = model_prob - implied_p
         return [{
             "strategy_id": self.id,
             "username": self.username,
@@ -348,7 +348,7 @@ class EloQuantStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.50 + min(abs(spread_edge) * 0.015, 0.075)
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
         if edge < self.min_edge:
             return []
@@ -398,7 +398,7 @@ class PoissonScoringStrategy(NFLStrategy):
         odds = game.get("under_odds", -110.0) if bet_under else game.get("over_odds", -110.0)
         raw_prob = poisson_model.eval_market_prob(grid, "TOTAL", total_line, side=side)
         model_prob = 0.50 + (raw_prob - 0.50) * 0.40
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
         if edge < self.min_edge:
             return []
@@ -439,7 +439,7 @@ class RLMStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.540 + min(abs(move) * 0.008, 0.04)
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
         display_line = spread if bet_home else -spread
         return [{
@@ -484,7 +484,7 @@ class InjuryValuationStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.542 + min(abs(net_inj_diff) * 0.008, 0.04)
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         edge = model_prob - implied_p
         display_line = spread if bet_home else -spread
         return [{
@@ -580,8 +580,8 @@ class RefereePenaltyTotalsStrategy(NFLStrategy):
                 "market_line": total_line,
                 "market_odds": odds,
                 "model_prob": round(model_prob, 4),
-                "implied_prob": 0.5238,
-                "edge": round(model_prob - 0.5238, 4),
+                "implied_prob": round(american_to_implied_prob(odds), 4),
+                "edge": round(model_prob - american_to_implied_prob(odds), 4),
                 "stake": round(self.base_stake, 2),
                 "status": "QUALIFIED",
                 "supporting_data": {
@@ -611,8 +611,8 @@ class ThursdayUnderTrendStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob, 4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob - 0.5238, 4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake, 2),
             "status": "QUALIFIED",
             "supporting_data": {
@@ -640,7 +640,7 @@ class Coaching4thDownStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
         model_prob = 0.545
-        implied_p = 0.5238
+        implied_p = american_to_implied_prob(odds)
         display_line = spread if bet_home else -spread
         return [{
             "strategy_id": self.id,
@@ -696,8 +696,8 @@ class OffensiveLineContinuityStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": breakdown
@@ -734,8 +734,8 @@ class OffensiveLinePressureStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"avg_pressure": round(avg_pressure,3), "def_break": def_break}
@@ -770,8 +770,8 @@ class DefensivePressureSackStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": breakdown
@@ -802,8 +802,8 @@ class DefensiveCoverageStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"home_man_pct": h_man, "away_man_pct": a_man}
@@ -840,8 +840,8 @@ class RedZoneEfficiencyStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"home_rz": h_rz, "away_rz": a_rz, "diff": round(diff,3)}
@@ -883,8 +883,8 @@ class PlayerPropUsageStrategy(NFLStrategy):
             "market_line": 62.5,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"team": team, "target_share": round(max(h_target,a_target),3)}
@@ -911,8 +911,8 @@ class PlayerPropTargetShareStrategy(NFLStrategy):
             "market_line": 0.5,
             "market_odds": 110.0,
             "model_prob": 0.52,
-            "implied_prob": 0.476,
-            "edge": 0.044,
+            "implied_prob": round(american_to_implied_prob(110.0), 4),
+            "edge": round(0.52 - american_to_implied_prob(110.0), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"team": team, "rz_share": round(max(h_rz_share,a_rz_share),3)}
@@ -946,8 +946,8 @@ class GameScriptPassRateStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": script
@@ -977,8 +977,8 @@ class GameScriptPaceStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"avg_pace_rank": avg_pace_rank, "thesis": "Fast pace both teams"}
@@ -1069,7 +1069,7 @@ class LogisticRegressionSpreadStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         model_prob = prob_home if bet_home else prob_away
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
-        edge = model_prob - 0.5238
+        edge = model_prob - american_to_implied_prob(odds)
         if edge < self.min_edge:
             return []
         return [{
@@ -1082,7 +1082,7 @@ class LogisticRegressionSpreadStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
+            "implied_prob": round(american_to_implied_prob(odds), 4),
             "edge": round(edge,4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
@@ -1119,7 +1119,7 @@ class GradientBoostingTotalsStrategy(NFLStrategy):
         side = "over" if bet_over else "under"
         odds = game.get("over_odds", -110.0) if bet_over else game.get("under_odds", -110.0)
         model_prob = 0.54 + min(abs(diff)*0.015, 0.06)
-        edge = model_prob - 0.5238
+        edge = model_prob - american_to_implied_prob(odds)
         if edge < self.min_edge:
             return []
         return [{
@@ -1132,7 +1132,7 @@ class GradientBoostingTotalsStrategy(NFLStrategy):
             "market_line": total_line,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
+            "implied_prob": round(american_to_implied_prob(odds), 4),
             "edge": round(edge,4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
@@ -1155,7 +1155,7 @@ class BayesianQBStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         model_prob = prob_home if bet_home else 1-prob_home
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
-        edge = model_prob - 0.5238
+        edge = model_prob - american_to_implied_prob(odds)
         if edge < self.min_edge:
             return []
         return [{
@@ -1168,7 +1168,7 @@ class BayesianQBStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
+            "implied_prob": round(american_to_implied_prob(odds), 4),
             "edge": round(edge,4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
@@ -1193,7 +1193,7 @@ class MonteCarloEnsembleStrategy(NFLStrategy):
         side = "home" if bet_home else "away"
         model_prob = prob if bet_home else 1-prob
         odds = game.get("home_spread_odds", -110.0) if bet_home else game.get("away_spread_odds", -110.0)
-        edge = model_prob - 0.5238
+        edge = model_prob - american_to_implied_prob(odds)
         if edge < self.min_edge:
             return []
         return [{
@@ -1206,7 +1206,7 @@ class MonteCarloEnsembleStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
+            "implied_prob": round(american_to_implied_prob(odds), 4),
             "edge": round(edge,4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
@@ -1242,8 +1242,8 @@ class PublicFadeStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"public_fade": True, "line_move": move}
@@ -1280,7 +1280,7 @@ class AlternateSpreadValueStrategy(NFLStrategy):
             "market_line": alt_line,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.45,
+            "implied_prob": round(american_to_implied_prob(odds), 4),
             "edge": round(model_prob-0.45,4),
             "stake": round(self.base_stake*0.8,2),
             "status": "QUALIFIED",
@@ -1324,8 +1324,8 @@ class TeamTotalEfficiencyStrategy(NFLStrategy):
             "market_line": home_tt,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"proj_home_tt": round(proj_home_tt,2), "market_home_tt": round(home_tt,2), "diff": round(diff,2), "away_tt": round(away_tt,2)}
@@ -1360,8 +1360,8 @@ class TravelTimeZoneStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"travel_miles": round(dist,0), "tz_crossed": tz, "penalty": round(penalty,2)}
@@ -1388,8 +1388,8 @@ class InternationalGameStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"stadium": stadium, "international": True}
@@ -1430,8 +1430,8 @@ class EPADifferentialStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"epa_diff": round(diff,3), "proj_margin": round(proj_margin,2), "edge_pts": round(edge_pts,2)}
@@ -1460,8 +1460,8 @@ class HomeUnderdogStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"home_underdog": True, "spread": spread, "thesis": "Home underdog 53.5% ATS 2002-2011"}
@@ -1499,8 +1499,8 @@ class NegativeBinomialTotalsStrategy(NFLStrategy):
             "market_line": total,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"proj_total": round(proj_total,2), "market_total": total, "nb_adjustment": "overdispersion 20%"}
@@ -1537,8 +1537,8 @@ class MarketTimingStrategy(NFLStrategy):
             "market_line": spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "QUALIFIED",
             "supporting_data": {"open_spread": open_spread, "close_spread": spread, "move": move, "thesis": "Favorites early, dogs late"}
@@ -1576,8 +1576,8 @@ class FirstHalfSpreadStrategy(NFLStrategy):
             "market_line": h1_spread,
             "market_odds": odds,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(odds), 4),
+            "edge": round(model_prob - american_to_implied_prob(odds), 4),
             "stake": round(self.base_stake,2),
             "status": "WATCHING",
             "supporting_data": {"full_spread": spread, "1h_spread": round(h1_spread,2), "thesis": "1H spread 55% of full"}
@@ -1605,8 +1605,8 @@ class QuarterMarketStrategy(NFLStrategy):
             "market_line": q1_total,
             "market_odds": -110.0,
             "model_prob": round(model_prob,4),
-            "implied_prob": 0.5238,
-            "edge": round(model_prob-0.5238,4),
+            "implied_prob": round(american_to_implied_prob(-110.0), 4),
+            "edge": round(model_prob - american_to_implied_prob(-110.0), 4),
             "stake": round(self.base_stake,2),
             "status": "WATCHING",
             "supporting_data": {"full_total": total, "q1_total": round(q1_total,1)}
@@ -1636,8 +1636,8 @@ class FuturesStrategy(NFLStrategy):
             "market_line": 10.5,
             "market_odds": -130.0,
             "model_prob": 0.58,
-            "implied_prob": 0.565,
-            "edge": 0.015,
+            "implied_prob": round(american_to_implied_prob(-130.0), 4),
+            "edge": round(0.58 - american_to_implied_prob(-130.0), 4),
             "stake": round(self.base_stake,2),
             "status": "WATCHING",
             "supporting_data": {"team": game["home_team"], "elo": round(home_elo,1), "thesis": "Elo >1550 => Over wins"}

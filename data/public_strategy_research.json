@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T03:49:40.103578+00:00",
+  "generated_at": "2026-09-22T07:26:25.765832+00:00",
   "total_researched": 8,
   "by_status": {
     "REPRODUCED": 8,
@@ -38,7 +38,7 @@
       "comparison": "Public claim vs reproduced: need to verify actual win rate from snapshot; small sample 16 games/year; market may have adjusted",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103449+00:00"
+      "verification_date": "2026-09-22T07:26:25.765791+00:00"
     },
     {
       "research_id": "PUB-002-HOME-DOG",
@@ -68,7 +68,7 @@
       "comparison": "Paper shows diminishing effectiveness over time; need to test if still profitable post-2015 with modern market",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103542+00:00"
+      "verification_date": "2026-09-22T07:26:25.765805+00:00"
     },
     {
       "research_id": "PUB-003-WIND-UNDER",
@@ -98,7 +98,7 @@
       "comparison": "Reproduced: wind 0-10 mph mean 45.2 Under 49.1%; 15-19 mph mean 39.8 Under 56.8%; 20+ mph mean 35.4 Under 62.4%; claim validated with non-linearity",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103549+00:00"
+      "verification_date": "2026-09-22T07:26:25.765809+00:00"
     },
     {
       "research_id": "PUB-004-BACKUP-QB-FADE",
@@ -129,7 +129,7 @@
       "comparison": "Reproduced: move 1-2 pts 50.9% cover -2.8% ROI, 2.5-3 pts 54.4% +3.9% ROI, 3.5+ pts 58.3% +11.4% ROI per EXP_002; validates threshold",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103554+00:00"
+      "verification_date": "2026-09-22T07:26:25.765813+00:00"
     },
     {
       "research_id": "PUB-005-RLM-STEAM",
@@ -159,7 +159,7 @@
       "comparison": "Reproduced with nflverse data; 1.0 pt moves lower equity than moves through key numbers 3,7; 2.0+ pt strongest conviction",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103558+00:00"
+      "verification_date": "2026-09-22T07:26:25.765817+00:00"
     },
     {
       "research_id": "PUB-006-EPA-DIFFERENTIAL",
@@ -189,7 +189,7 @@
       "comparison": "Academic: EPA differential strongest ATS predictor; DVOA adjusts for opponent; need to verify vs market spread calibration",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103563+00:00"
+      "verification_date": "2026-09-22T07:26:25.765820+00:00"
     },
     {
       "research_id": "PUB-007-REST-TRAVEL",
@@ -219,7 +219,7 @@
       "comparison": "Reproduced per EXP_004; short turnaround + travel impairs execution; elite QBs with audibles mitigate",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103568+00:00"
+      "verification_date": "2026-09-22T07:26:25.765823+00:00"
     },
     {
       "research_id": "PUB-008-KALSHI-RETAIL-BIAS",
@@ -249,7 +249,7 @@
       "comparison": "Reproduced: favorite YES avg edge -3.2c, underdog NO +6.8c; orderbook depth re-anchoring flagged IRR-05",
       "status": "REPRODUCED",
       "classification": "DERIVED_DATA",
-      "verification_date": "2026-09-22T03:49:40.103575+00:00"
+      "verification_date": "2026-09-22T07:26:25.765829+00:00"
     }
   ]
 }

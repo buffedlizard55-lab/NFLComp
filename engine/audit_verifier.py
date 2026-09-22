@@ -2,7 +2,8 @@
 NFLComp Audit Verifier and Irregularities System - Expanded Edition
 Enforces zero-hallucination policies, verifies point-in-time timestamp integrity,
 detects odds discrepancies, audits PnL calculations, and manages the Irregularity Register.
-Covers all 14+ strategy categories and 35+ data sources.
+Coverage is whatever the checked-in data supports: the strategy-category, source and
+check counts in this file are never typed here, they come from ``data/*.json``.
 """
 
 import json
@@ -32,6 +33,10 @@ class NFLAuditVerifier:
         self._audit_data_sources()
         self._audit_new_categories()
         self._audit_published_claims()
+        self._audit_empirical_studies()
+        self._audit_risk_analytics()
+        self._audit_published_prose()
+        self._audit_site_views()
         if write:
             self.export_irregularities()
         return {
@@ -211,6 +216,8 @@ class NFLAuditVerifier:
         seen_ids = set()
         missing_fields = 0
         invalid_markets = 0
+        price_mismatches = 0
+        edge_mismatches = 0
         valid_markets = {"SPREAD", "TOTAL", "MONEYLINE", "KALSHI_SPREAD", "KALSHI_TOTAL", "KALSHI_LIVE", "PLAYER_PROP", "TEAM_TOTAL", "ALT_SPREAD", "FIRST_HALF_SPREAD", "FIRST_HALF_TOTAL", "QUARTER_MARKET", "FUTURES", "EXCHANGE", "PREDICTION_MARKET", "GAME_PROP"}
 
         for b in bets:
@@ -252,7 +259,27 @@ class NFLAuditVerifier:
                 elif res == "LOSS" and pnl >= 0.0:
                     math_errors += 1
 
+            # The recorded implied probability and edge must follow from the
+            # recorded price.  A hand-typed -110 default here would let a bet
+            # claim an edge that its own price contradicts.
+            from engine.models import american_to_implied_prob
+
+            if b["odds_format"] == "American":
+                expected_implied = american_to_implied_prob(odds)
+            else:
+                expected_implied = odds / 100.0
+            if abs(expected_implied - b["implied_prob"]) > 0.001:
+                price_mismatches += 1
+            if abs((b["model_prob"] - b["implied_prob"]) - b["edge"]) > 0.001:
+                edge_mismatches += 1
+
         self._add_check("BET_ID_UNIQUENESS", "AUDIT", len(duplicate_bet_ids) == 0, f"Found {len(duplicate_bet_ids)} duplicate bet IDs out of {len(bets):,}")
+        self._add_check("LEDGER_PRICE_IMPLIED_PROB_CONSISTENCY", "AUDIT", price_mismatches == 0,
+                        f"Re-derived implied probability from the recorded price on {len(bets):,} bets; "
+                        f"{price_mismatches} disagree with the price they quote")
+        self._add_check("LEDGER_EDGE_CONSISTENCY", "AUDIT", edge_mismatches == 0,
+                        f"Re-derived edge = model_prob - implied_prob on {len(bets):,} bets; "
+                        f"{edge_mismatches} inconsistent")
         self._add_check("PNL_CALCULATION_ACCURACY", "AUDIT", math_errors == 0, f"Audited {len(bets):,} bets; {math_errors} math errors")
         self._add_check("LEDGER_REQUIRED_FIELDS", "AUDIT", missing_fields == 0, f"Checked required fields; {missing_fields} missing field instances")
         self._add_check("MARKET_TYPES_VALID", "AUDIT", invalid_markets == 0, f"Checked market types; {invalid_markets} invalid market types")
@@ -513,6 +540,246 @@ class NFLAuditVerifier:
         details = (f"{len(expected_claims)} embedded site claims match the data files"
                    if not problems else f"{len(problems)} stale claims: {problems[:3]}")
         self._add_check("PUBLISHED_SITE_CLAIMS", "PUBLICATION", not problems, details)
+
+    def _audit_empirical_studies(self):
+        """Research claims must be either re-derived here or labelled declared.
+
+        ``data/research_experiments.json`` is a research dossier, not a
+        measurement. This check proves that (a) the studies file re-derives from
+        the snapshot, (b) every dossier claim carries an ``evidence_class``, and
+        (c) where a snapshot study overlaps a dossier number, the disagreement is
+        preserved in both files rather than resolved by editing one of them.
+        """
+        studies_path = os.path.join(self.data_dir, "empirical_studies.json")
+        dossier_path = os.path.join(self.data_dir, "research_experiments.json")
+        if not os.path.exists(studies_path):
+            self._add_check("EMPIRICAL_STUDIES_REPRODUCIBLE", "PUBLICATION", False,
+                            "Missing empirical_studies.json; run python3 -m engine.empirical_studies")
+            return
+        from engine.empirical_studies import build_report
+
+        with open(studies_path, encoding="utf-8") as f:
+            checked_in = json.load(f)
+        regenerated = build_report(self.data_dir, declared_experiments=self._read_dossier(dossier_path))
+        stale = json.dumps(checked_in, sort_keys=True) != json.dumps(regenerated, sort_keys=True)
+        problems = []
+        if stale:
+            problems.append("empirical_studies.json does not re-derive from the snapshot")
+
+        dossier = self._read_dossier(dossier_path)
+        unlabelled = [e.get("experiment_id") for e in dossier if not e.get("evidence_class")]
+        if unlabelled:
+            problems.append(f"{len(unlabelled)} dossier claims carry no evidence_class: {unlabelled[:3]}")
+        disputed = [e.get("experiment_id") for e in dossier if e.get("claim_status") == "DISPUTED_BY_SNAPSHOT"]
+        assumptions = [e.get("experiment_id") for e in dossier
+                       if e.get("evidence_class") == "DECLARED_ASSUMPTION"]
+        self._add_check(
+            "EMPIRICAL_STUDIES_REPRODUCIBLE", "PUBLICATION", not problems,
+            f"{len(regenerated['studies'])} studies re-derived from the snapshot; "
+            f"{len(assumptions)} dossier claims labelled DECLARED_ASSUMPTION; "
+            f"{len(disputed)} disputed by the snapshot ({', '.join(disputed[:2]) if disputed else 'none'})"
+            + ("; " + "; ".join(problems) if problems else ""))
+        for experiment_id in disputed:
+            claim = next((c for c in regenerated.get("cross_checks") or []
+                          if c.get("experiment_id") == experiment_id), None)
+            if claim:
+                self._add_irregularity(
+                    f"IRR-11-{experiment_id}-DISPUTED",
+                    f"Dossier claim refuted by the snapshot: {claim.get('metric')}",
+                    "RESEARCH_CLAIM_DISCREPANCY",
+                    "MEDIUM",
+                    f"data/research_experiments.json declares {claim.get('declared_in_dossier')}; "
+                    f"recomputing from the games.csv snapshot gives {claim.get('re_derived_from_snapshot')} "
+                    f"across the stated sample.",
+                    "data/research_experiments.json vs data/source/games.csv",
+                    "Both values retained. The dossier entry is marked DISPUTED_BY_SNAPSHOT and its numbers are "
+                    "not quoted in published prose; no side is silently overwritten.",
+                )
+
+    @staticmethod
+    def _read_dossier(path):
+        if not os.path.exists(path):
+            return []
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+
+    def _audit_risk_analytics(self):
+        """Risk and calibration figures must re-derive from the published ledger."""
+        path = os.path.join(self.data_dir, "risk_analytics.json")
+        ledger_path = os.path.join(self.data_dir, "bets_ledger.json")
+        if not os.path.exists(path):
+            self._add_check("RISK_ANALYTICS_RECONCILIATION", "PUBLICATION", False,
+                            "Missing risk_analytics.json; run python3 -m engine.risk_analytics")
+            return
+        with open(path, encoding="utf-8") as f:
+            report = json.load(f)
+        with open(ledger_path, encoding="utf-8") as f:
+            ledger = json.load(f)
+
+        from engine.risk_analytics import calibration_section
+
+        problems = []
+        if report.get("source", {}).get("published_records") != len(ledger):
+            problems.append("risk report was built from a different ledger than the one published")
+        recalibrated = calibration_section(ledger)
+        if report.get("calibration", {}).get("brier_score") != recalibrated.get("brier_score"):
+            problems.append("Brier score does not re-derive from the ledger")
+        if (report.get("calibration", {}).get("expected_calibration_error_pct_points")
+                != recalibrated.get("expected_calibration_error_pct_points")):
+            problems.append("expected calibration error does not re-derive from the ledger")
+        by_persona = {}
+        for bet in ledger:
+            by_persona.setdefault(bet.get("strategy_id"), []).append(bet)
+        outside = 0
+        bootstrap_seeded = 0
+        for record in report.get("personas", []):
+            bets = by_persona.get(record.get("strategy_id"), [])
+            if len(bets) != record.get("published_bets"):
+                outside += 1
+            bootstrap = record.get("bootstrap") or {}
+            if bootstrap and bootstrap.get("seed") == report.get("policy", {}).get("bootstrap_seed"):
+                bootstrap_seeded += 1
+        if outside:
+            problems.append(f"{outside} persona rows disagree with the published ledger")
+        within = [r for r in report.get("personas", []) if r.get("observed_roi_inside_bootstrap_ci") is False]
+        if within:
+            problems.append(f"{len(within)} personas report an ROI outside their own bootstrap interval")
+        self._add_check(
+            "RISK_ANALYTICS_RECONCILIATION", "PUBLICATION", not problems,
+            f"{len(report.get('personas', []))} persona risk rows and the calibration curve re-derive from "
+            f"{len(ledger):,} published records "
+            f"(Brier {recalibrated.get('brier_score')}, ECE {recalibrated.get('expected_calibration_error_pct_points')} pts, "
+            f"{bootstrap_seeded} seeded bootstraps)"
+            + ("; " + "; ".join(problems) if problems else ""))
+
+    def _audit_published_prose(self):
+        """Narrative sections must be generated, and typed numbers must agree.
+
+        The generated blocks are verified by re-rendering them; the prose around
+        them is linted against the same facts, so a sentence like "60 autonomous
+        betting personas" fails the audit instead of shipping.
+        """
+        from engine.narrative import BLOCK_ENDS, prose_claim_violations, render_blocks
+
+        root = os.path.dirname(os.path.abspath(self.data_dir))
+        facts = published_facts(self.data_dir)
+        rendered = render_blocks(facts, self.data_dir)
+        ends = BLOCK_ENDS
+
+        documents = []
+        readme_path = os.path.join(root, "README.md")
+        if os.path.exists(readme_path):
+            documents.append(readme_path)
+        docs_dir = os.path.join(root, "docs")
+        if os.path.isdir(docs_dir):
+            documents += [os.path.join(docs_dir, name) for name in sorted(os.listdir(docs_dir))
+                          if name.endswith(".md")]
+
+        # Blocks belong to specific documents: README.md carries the narrative
+        # sections, docs/IRREGULARITIES.md carries the machine-checked register.
+        # A block may live in exactly one place, but every block must live somewhere.
+        placement = {
+            "executive_summary": "README.md",
+            "roster": "README.md",
+            "findings": "README.md",
+            "sources": "README.md",
+            "strategy_lab": "README.md",
+            "irregularities": "IRREGULARITIES.md",
+        }
+
+        missing, stale, violations = [], [], []
+        seen = set()
+        for document in documents:
+            with open(document, encoding="utf-8") as f:
+                text = f.read()
+            name = os.path.basename(document)
+            for block_name, (marker, block) in rendered.items():
+                if marker not in text:
+                    if placement.get(block_name) == name:
+                        missing.append(f"{name}:{block_name}")
+                    continue
+                seen.add(block_name)
+                end_marker = ends[marker]
+                start, end = text.find(marker), text.find(end_marker)
+                if start < 0 or end < start:
+                    missing.append(f"{name}:{block_name}")
+                elif text[start:end + len(end_marker)].strip() != block.strip():
+                    stale.append(f"{name}:{block_name}")
+            violations += prose_claim_violations(text, facts, self.data_dir, source=name)
+
+        unplaced = sorted(set(rendered) - seen)
+        problems = missing + stale + violations + [f"block not present in any document: {name}"
+                                                   for name in unplaced]
+        details = (f"{len(seen)} generated narrative blocks current across {len(documents)} documents; "
+                   f"no unbound numeric claim found")
+        if problems:
+            details = f"{len(missing)} missing, {len(stale)} stale, {len(violations)} unbound claim(s): " \
+                      f"{(missing + stale + violations)[:3]}"
+        self._add_check("PUBLISHED_PROSE_CLAIMS", "PUBLICATION", not problems, details)
+
+    def _audit_site_views(self):
+        """The dashboard must not advertise a view it cannot render.
+
+        Three contracts are checked together, because each one silently breaks
+        the others: a nav tab without a matching ``view-*`` section shows a blank
+        page, a JS render container without its element writes nothing, and a
+        ``claim-*`` span that is not registered in ``engine.publication`` is a
+        hand-typed number no verifier looks at.
+        """
+        import re
+
+        from engine.publication import CLAIM_PATTERNS
+
+        root = os.path.dirname(os.path.abspath(self.data_dir))
+        index_path = os.path.join(root, "index.html")
+        app_path = os.path.join(root, "app.js")
+        if not (os.path.exists(index_path) and os.path.exists(app_path)):
+            self._add_check("SITE_VIEW_CONTRACTS", "PUBLICATION", False,
+                            "index.html or app.js not found")
+            return
+
+        with open(index_path, encoding="utf-8") as f:
+            index = f.read()
+        with open(app_path, encoding="utf-8") as f:
+            script = f.read()
+
+        tabs = re.findall(r'data-tab="([a-z0-9-]+)"', index)
+        views = set(re.findall(r'<section id="view-([a-z0-9-]+)"', index))
+        missing_views = sorted({tab for tab in tabs if tab not in views})
+
+        registered = set(CLAIM_PATTERNS)
+        spans = set(re.findall(r'id="(claim-[a-z0-9-]+)"', index))
+        unregistered = sorted(spans - registered)
+        missing_spans = sorted(registered - spans)
+
+        # Every element the script writes into must exist, or the view is empty.
+        containers = set(re.findall(r"getElementById\('([a-z0-9-]+)'\)", script))
+        containers |= set(re.findall(r'getElementById\("([a-z0-9-]+)"\)', script))
+        container_ids = set(re.findall(r'id="([a-z0-9-]+)"', index))
+        absent = sorted(c for c in containers if c not in container_ids)
+
+        # Every render function called during startup must be defined.
+        called = set(re.findall(r"^\s*(render[A-Za-z0-9]+)\(\);", script, re.MULTILINE))
+        defined = set(re.findall(r"function (render[A-Za-z0-9]+)\(", script))
+        undefined = sorted(called - defined)
+
+        problems = []
+        if missing_views:
+            problems.append(f"{len(missing_views)} nav tab(s) without a view section: {missing_views[:3]}")
+        if unregistered:
+            problems.append(f"{len(unregistered)} claim span(s) not registered in CLAIM_PATTERNS: {unregistered[:3]}")
+        if missing_spans:
+            problems.append(f"{len(missing_spans)} registered claim(s) absent from index.html: {missing_spans[:3]}")
+        if absent:
+            problems.append(f"{len(absent)} JS render target(s) missing from the DOM: {absent[:3]}")
+        if undefined:
+            problems.append(f"{len(undefined)} render function(s) called but never defined: {undefined[:3]}")
+
+        self._add_check(
+            "SITE_VIEW_CONTRACTS", "PUBLICATION", not problems,
+            f"{len(tabs)} nav tabs map onto {len(views)} view sections; {len(spans)} data-bound claim spans "
+            f"registered and present; {len(containers)} JS render targets resolved"
+            + ("; " + "; ".join(problems) if problems else ""))
 
     def export_irregularities(self):
         out_path = os.path.join(self.data_dir, "irregularities.json")

@@ -555,16 +555,16 @@
   "closing_line_value": {
     "clv_by_market": {
       "SPREAD": {
-        "count": 22207,
-        "avg_clv": 1.018,
-        "median_clv": 0.41,
-        "pct_positive_clv": 88.1
+        "count": 21971,
+        "avg_clv": 1.064,
+        "median_clv": 0.446,
+        "pct_positive_clv": 87.9
       },
       "TOTAL": {
-        "count": 4907,
-        "avg_clv": 0.33,
-        "median_clv": 0.61,
-        "pct_positive_clv": 88.2
+        "count": 4905,
+        "avg_clv": 0.358,
+        "median_clv": 0.646,
+        "pct_positive_clv": 87.7
       },
       "KALSHI_SPREAD": {
         "count": 3859,
