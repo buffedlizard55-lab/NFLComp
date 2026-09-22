@@ -1,10 +1,10 @@
 # ARENA AI — NFL Autonomous Sports Betting Strategy Research, Testing & Competition (NFLComp)
 
 <!-- BADGES_START -->
-![Audit Checks](https://img.shields.io/badge/Audit%20Checks-25%2F25%20Passed-10b981)
+![Audit Checks](https://img.shields.io/badge/Audit%20Checks-31%2F31%20Passed-10b981)
 ![Strategy Personas](https://img.shields.io/badge/Personas-70-8b5cf6)
 ![Tracked Games](https://img.shields.io/badge/NFL%20Games-7548-3b82f6)
-![Paper Ledger](https://img.shields.io/badge/Ledger-31,490%20published%20%2F%2097,435%20all-time-06b6d4)
+![Paper Ledger](https://img.shields.io/badge/Ledger-31,252%20published%20%2F%2096,968%20all-time-06b6d4)
 <!-- BADGES_END -->
 
 A paper-trading research prototype for autonomous NFL strategy discovery, walk-forward testing, and audit-focused competition. It is not a production betting system, and checked-in JSON exports are fixtures unless accompanied by source snapshots and provenance.
@@ -28,18 +28,18 @@ The system autonomously investigates NFL data sources, extracts predictive varia
 | strategy_versions_catalogued | 70 |
 | strategy_categories | 17 |
 | strategies_with_lineage | 23 |
-| all_time_simulated_bets | 97,435 |
-| all_time_simulated_pnl_usd | -552,392.18 |
-| published_ledger_bets | 31,490 |
+| all_time_simulated_bets | 96,968 |
+| all_time_simulated_pnl_usd | -524,818.91 |
+| published_ledger_bets | 31,252 |
 | published_ledger_window | 2020–2026 |
-| published_ledger_pnl_usd | -225,415.79 |
-| upcoming_signals | 340 |
+| published_ledger_pnl_usd | -215,434.73 |
+| upcoming_signals | 330 |
 | kalshi_trades_all_time | 16,312 |
 | kalshi_trades_published | 1,432 |
 | registry_sources | 56 |
 | verified_primary_sources | 24 |
 | research_experiments | 8 |
-| audit_checks_passed | 25/25 |
+| audit_checks_passed | 31/31 |
 | top_strategy | @AnalyticsCoach_ATS_v1 |
 | top_strategy_pnl_usd | 3,952.36 |
 | top_strategy_roi_pct | 4.29% |
@@ -66,19 +66,49 @@ python3 -m engine.strategy_lab             # rebuild report
 python3 -m engine.strategy_lab --check     # prove checked-in report matches source snapshot
 ```
 
-A scheduled GitHub Actions job reruns the reproducibility and test checks each week. Lab candidate `STRAT_DIV_TOTAL_040_v1` remains `HOLDOUT_PASSED` (52.7% holdout win rate, +1.21% ROI) and is eligible for prospective paper trading, while `STRAT_REST_TNF_005_v3` is `HOLDOUT_FAILED` (48.75% win rate, -7.25% ROI) after correcting the `games.csv` away→home spread sign error; it stays archived without tuning.
+A scheduled GitHub Actions job reruns the reproducibility and test checks each week. The windows, samples and
+statuses of every candidate are rendered from `data/strategy_lab.json` below, so a candidate can never advertise
+a result the report does not contain.
+
+<!-- STRATEGY_LAB_START -->
+_generated — do not edit by hand — the source snapshot is `data/source/games.csv` (`sha256:2b9d942b56af9de9…`, 7,548 games, 7,293 completed, latest 2026-09-17)._
+
+Promotion gate: At least 100 development, 40 validation, and 40 holdout bets; positive ROI in all three windows. Stake: $100 flat per qualifying observation.
+
+| Candidate | Market | Windows | Bets | W-L-P | Win rate | Flat-stake PnL | ROI | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `STRAT_REST_TNF_005_v3` | SPREAD | development (2000-2019) | 417 | 213-193-11 | 52.5% | $1,083.60 | +2.60% |  |
+|  |  | validation (2020-2022) | 86 | 42-42-2 | 50.0% | -$256.79 | -2.99% |  |
+|  |  | holdout (2023-2025) | 81 | 39-41-1 | 48.8% | -$587.11 | -7.25% | `HOLDOUT_FAILED` |
+| | | **Next step** | Keep the rule archived; do not tune it on the holdout period. | | | | | |
+| `STRAT_DIV_TOTAL_040_v1` | TOTAL | development (2000-2019) | 335 | 187-144-4 | 56.5% | $3,567.07 | +10.65% |  |
+|  |  | validation (2020-2022) | 113 | 58-53-2 | 52.2% | $176.98 | +1.57% |  |
+|  |  | holdout (2023-2025) | 74 | 39-35-0 | 52.7% | $89.30 | +1.21% | `HOLDOUT_PASSED` |
+| | | **Next step** | Register for prospective paper trading; holdout results are not a profit guarantee. | | | | | |
+
+_Passing this historical gate authorizes prospective paper testing only. It is not evidence of guaranteed future profit._
+<!-- STRATEGY_LAB_END -->
 
 ---
 
 ## 1. Executive Summary & Active 2026 Competition State
 
-- **Current Simulation Window:** 2026 NFL Regular Season, **Week 2** (As of September 20, 2026).
-- **Historical Backtesting Universe:** 7,293 completed NFL games (1999–2025) + 17 completed 2026 games (Week 1 + Thursday Night Football DET @ BUF 31-41).
-- **Active 2026 Forward Slate:** 255 upcoming games (15 active Week 2 Sunday/Monday matchups + Weeks 3–18).
-- **Strategy Universe:** **60 autonomous betting personas** across 14 research disciplines.
-- **Simulated Bet Ledger:** **134,255 verified wagers** ($10,000 starting bankroll per strategy).
-- **Total Competition Simulated PnL:** **-353,618.85** net return across all personas.
-- **Top Performing Persona:** `@AltSpread_Value_v2` (27.15% ROI, 59.8% win rate, +145,992.37 PnL, 5602 bets).
+Every figure below is rendered from `data/` by `scripts/render_readme.py`. If a
+number here disagrees with the checked-in data files, the audit fails.
+
+<!-- EXEC_SUMMARY_START -->
+_generated — do not edit by hand — `scripts/render_readme.py --check` fails if this block and the data disagree._
+
+- **Current simulation window:** 2026 regular season, week 2, last completed game 2026-09-17.
+- **Historical universe:** 7,548 games in `data/source/games.csv` (1999-2026), 7,293 with a final score and 255 still open. The file is hashed into the ledger manifest (`sha256:2b9d942b56af9de9…`).
+- **Published ledger:** 31,252 hash-chained wagers inside the published window 2020–2026 netting -$215,434.73; 96,968 simulated wagers all-time netting -$524,818.91.
+- **Strategy universe:** 70 personas across 17 categories, 23 of them carrying a version lineage, every one flat-staking a $10,000 paper bankroll.
+- **Forward slate:** 330 queued paper signals over 255 games without a final score, of which 330 are open positions in the current week.
+- **Research:** 8 dossier experiments, 5 of them re-derived from the snapshot; claims the bundled data cannot re-derive are labelled `DECLARED_ASSUMPTION` instead of being quoted as results, and 1 cross-check disagreement is retained rather than overwritten.
+- **Audit:** 31/31 automated checks pass, 11 irregularities are tracked in `data/irregularities.json` (listed in `docs/IRREGULARITIES.md`), and no risk statistic is published for a persona below 100 settled bets.
+- **Strategy lab:** 2 pre-declared candidates scored on the untouched 2023-2025 holdout, 1 of them past the promotion gate; the rest stay archived untuned.
+- **No real orders:** every figure here is a simulation on historical and current-season prices. Nothing in this repository places, routes, or recommends a real wager.
+<!-- EXEC_SUMMARY_END -->
 
 ---
 
@@ -92,18 +122,21 @@ NFLComp/
 ├── engine/                     # Quantitative modeling & simulation engine (Python 3)
 │   ├── data_loader.py          # Data ingestion, schema normalization & cross-referencing
 │   ├── models.py               # Elo engine, Bivariate Poisson, weather curves, injury WAR, Kalshi sim
-│   ├── strategies.py           # Strategy signal evaluation rules across 14 categories
+│   ├── strategies.py           # Strategy signal evaluation rules, one class per catalogued persona
 │   ├── strategy_registry.py    # Strategy definitions, hypotheses, lineages (v1/v2/v3)
 │   ├── backtest_engine.py      # Chronological zero-lookahead backtesting & 2026 paper trading
 │   ├── data_registry.py        # Data source registry and verification metadata
 │   ├── provenance.py            # Source hashes, availability gates, observed-price helpers
 │   ├── ledger.py                # Append-only hash-chained ledger + chain verification
-│   ├── publication.py           # Single source of truth for every published number
+│   ├── publication.py          # Single source of truth for every published number
+│   ├── narrative.py            # Generated narrative blocks + the prose claim lint
+│   ├── empirical_studies.py    # Snapshot-re-derived research studies & declared-assumption audit
+│   ├── risk_analytics.py       # Per-persona risk, Kelly sizing, bootstrap and probability calibration
 │   ├── storage.py              # Normalized SQLite write-side store with append-only bets
 │   └── audit_verifier.py       # Automated mathematical audit checks & irregularity detector
 ├── data/                       # Permanent structured JSON data layer
 │   ├── summary.json            # Overall competition KPI metrics
-│   ├── leaderboard.json        # 60 strategy rankings, win rates, drawdowns, equity curves
+│   ├── leaderboard.json        # Strategy rankings, win rates, drawdowns, equity curves
 │   ├── strategies.json         # Strategy catalog with full methodology & parameters
 │   ├── upcoming_bets.json      # Active upcoming wagers for the 2026 slate
 │   ├── open_positions.json     # Open paper positions for the current 2026 week
@@ -114,11 +147,15 @@ NFLComp/
 │   ├── registry.json           # Permanent Data Source Registry
 │   ├── irregularities.json     # Documented irregularities & discrepancy resolutions
 │   ├── audit_checks.json       # Machine-checked audit results (count in published state)
+│   ├── empirical_studies.json  # Re-derived studies + declared assumptions that no snapshot supports
+│   ├── risk_analytics.json     # Risk table, calibration deciles, bootstrap intervals, policy floor
 ├── scripts/                    # Reproducible entry points
-│   ├── run_pipeline.py         # One command: simulate -> export -> audit -> render README
-│   └── render_readme.py        # Regenerate the published-state block (--check in CI)
+│   ├── run_pipeline.py         # One command: simulate -> export -> audit -> render (converges to a fixpoint)
+│   ├── render_readme.py        # Regenerate the generated blocks (--check in CI)
+│   ├── render_verification.py  # Regenerate the evidence ledger in docs/VERIFICATION.md
+│   └── render_claims.py        # Re-bind the numbers embedded in index.html
 ├── test/                       # Test suites
-│   ├── engine.test.py          # Python unit & integration tests (math, models, PnL)
+│   ├── engine.test.py          # Python unit & integration tests (math, models, PnL, analytics)
 │   └── ui.test.js              # Node.js data schema and contract test suite
 ├── docs/                       # Detailed documentation
 │   ├── VERIFICATION.md         # Evidence ledger & provenance checks
@@ -131,62 +168,175 @@ NFLComp/
 
 ## 3. Autonomous Strategy Roster & Lineages
 
-The platform maintains 60 strategy personas across 14 distinct quantitative disciplines:
+A persona with no settled bet shows `n/a` rather than a placeholder win rate: an
+unbacked percentage is a claim the ledger cannot support.
 
-| Strategy ID | Persona Username | Category | Version | Win Rate | Total Bets | Total PnL ($) | ROI (%) | Max DD ($) |
-|---|---|---|---|---|---|---|---|---|
-| `STRAT_ELO_QUANT_006_v3` | `@Elo_Model_Quant_v3` | Statistical & ML | `v3` | 52.8% | 1,436 | +$4,302.67 | +2.00% | $4,124.04 |
-| `STRAT_ELO_QUANT_006_v1` | `@Elo_Model_Quant_v1` | Statistical & ML | `v1` | 52.7% | 2,395 | +$4,772.74 | +1.99% | $2,818.18 |
-| `STRAT_ELO_QUANT_006_v2` | `@Elo_Model_Quant_v2` | Statistical & ML | `v2` | 52.6% | 2,050 | +$4,202.40 | +1.71% | $3,469.09 |
-| `STRAT_WEATHER_WIND_003_v3` | `@WindChill_Totals_v3` | Weather & Stadium | `v3` | 56.6% | 174 | +$2,517.18 | +9.64% | $954.99 |
-| `STRAT_WEATHER_WIND_003_v1` | `@WindChill_Totals_v1` | Weather & Stadium | `v1` | 55.4% | 508 | +$3,681.20 | +7.25% | $1,184.97 |
-| `STRAT_WEATHER_WIND_003_v2` | `@WindChill_Totals_v2` | Weather & Stadium | `v2` | 54.6% | 229 | +$1,661.93 | +5.81% | $826.98 |
-| `STRAT_COACH_4TH_013_v1` | `@AnalyticsCoach_ATS_v1` | Coaching Tendencies | `v1` | 53.0% | 658 | +$1,591.36 | +2.42% | $2,832.14 |
-| `STRAT_DOME_PACE_004_v2` | `@DomePace_Over_v2` | Weather & Stadium | `v2` | 51.9% | 1,393 | +$415.50 | +0.27% | $3,158.30 |
-| `STRAT_INJURY_WAR_009_v1` | `@InjuryEdge_WAR_v1` | Injury & WAR | `v1` | Forward | 9 (Open) | $0.00 | 0.00% | $0.00 |
-| `STRAT_INJURY_WAR_009_v2` | `@InjuryEdge_WAR_v2` | Injury & WAR | `v2` | Forward | 9 (Open) | $0.00 | 0.00% | $0.00 |
-| `STRAT_INJURY_WAR_009_v3` | `@InjuryEdge_WAR_v3` | Injury & WAR | `v3` | Forward | 9 (Open) | $0.00 | 0.00% | $0.00 |
-| `STRAT_REST_TNF_005_v2` | `@RestAdvantage_Edge_v2` | Rest & Scheduling | `v2` | 51.2% | 290 | -$227.89 | -0.60% | $2,048.71 |
-| `STRAT_BACKUP_QB_002_v2` | `@BackupQB_Underdog_v2` | Quarterback & Passing | `v2` | 51.1% | 233 | -$323.06 | -1.16% | $2,717.64 |
-| `STRAT_RLM_008_v2` | `@RLM_SharpTracker_v2` | Market Movement | `v2` | 49.8% | 253 | -$674.19 | -2.13% | $2,767.06 |
-| `STRAT_RLM_008_v3` | `@RLM_SharpTracker_v3` | Market Movement | `v3` | 49.8% | 249 | -$792.46 | -2.12% | $3,170.47 |
-| `STRAT_RLM_008_v1` | `@RLM_SharpTracker_v1` | Market Movement | `v1` | 49.0% | 261 | -$951.46 | -3.65% | $2,517.49 |
-| `STRAT_TNF_UNDER_012_v1` | `@ThursdayUnder_Trend_v1`| Public Replication | `v1` | 48.6% | 257 | -$1,333.40 | -5.19% | $1,961.57 |
-| `STRAT_REST_TNF_005_v1` | `@RestAdvantage_Edge_v1` | Rest & Scheduling | `v1` | 48.8% | 717 | -$3,794.39 | -5.29% | $4,153.54 |
-| `STRAT_QB_EPA_001_v1` | `@QBEPA_Alpha_v1` | Quarterback & Passing | `v1` | 51.4% | 4,944 | -$4,084.61 | -0.83% | $7,276.87 |
-| `STRAT_QB_EPA_001_v3` | `@QBEPA_Alpha_v3` | Quarterback & Passing | `v3` | 51.4% | 4,597 | -$5,355.80 | -0.78% | $11,184.18 |
-| `STRAT_QB_EPA_001_v2` | `@QBEPA_Alpha_v2` | Quarterback & Passing | `v2` | 51.1% | 4,378 | -$6,196.21 | -1.42% | $9,159.57 |
-| `STRAT_POISSON_007_v2` | `@Poisson_ScoringGrid_v2` | Statistical & ML | `v2` | 49.1% | 3,710 | -$22,683.82 | -4.89% | $25,988.50 |
-| `STRAT_POISSON_007_v1` | `@Poisson_ScoringGrid_v1` | Statistical & ML | `v1` | 48.8% | 4,684 | -$25,545.75 | -5.45% | $28,293.89 |
-| `STRAT_KALSHI_SPREAD_010_v1` | `@Kalshi_SpreadBracket_v1`| Kalshi Prediction | `v1` | 50.7% | 5,715 | -$40,449.36 | -7.08% | $42,211.36 |
-| `STRAT_KALSHI_SPREAD_010_v2` | `@Kalshi_SpreadBracket_v2`| Kalshi Prediction | `v2` | 50.9% | 4,882 | -$60,747.34 | -8.30% | $63,169.04 |
+<!-- ROSTER_START -->
+_generated — do not edit by hand — one row per `data/leaderboard.json` entry (70 rows).
+
+| Strategy ID | Persona | Category | Version | Win Rate | Bets | PnL (all-time) | ROI | Max DD | Published | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `STRAT_COACH_4TH_013_v1` | `@AnalyticsCoach_ATS_v1` | Coaching & Decision Tendencies | `v1` | 53.7% | 921 | $3,952.36 | +4.29% | $1,635.55 | 471 bets / $3,526.30 | ACTIVE |
+| `STRAT_GB_TOTALS_019_v1` | `@GB_Totals_Boost_v1` | Statistical & Machine Learning Models | `v1` | 51.8% | 2,971 | $3,353.50 | +0.87% | $4,458.48 | 953 bets / -$2,553.66 | ACTIVE |
+| `STRAT_DOME_PACE_004_v2` | `@DomePace_Over_v2` | Weather & Stadium Conditions | `v2` | 52.6% | 1,062 | $2,465.50 | +2.11% | $3,069.76 | 381 bets / $176.61 | ACTIVE |
+| `STRAT_WEATHER_WIND_003_v1` | `@WindChill_Totals_v1` | Weather & Stadium Conditions | `v1` | 54.3% | 375 | $2,181.20 | +5.82% | $1,184.97 | 105 bets / -$174.30 | BACKTESTED |
+| `STRAT_WEATHER_WIND_003_v3` | `@WindChill_Totals_v3` | Weather & Stadium Conditions | `v3` | 55.1% | 128 | $1,399.00 | +7.29% | $954.99 | 41 bets / -$403.56 | ACTIVE |
+| `STRAT_WEATHER_WIND_003_v2` | `@WindChill_Totals_v2` | Weather & Stadium Conditions | `v2` | 54.6% | 175 | $1,366.47 | +6.25% | $826.98 | 60 bets / -$68.77 | BACKTESTED |
+| `STRAT_OL_CONT_024_v1` | `@OL_Continuity_Edge_v1` | Offensive Line & Protection | `v1` | 53.2% | 228 | $897.40 | +3.58% | $1,396.16 | 75 bets / $542.48 | ACTIVE |
+| `STRAT_RLM_008_v1` | `@RLM_SharpTracker_v1` | Market Movement & CLV Strategies | `v1` | 53.6% | 228 | $806.90 | +3.54% | $1,137.27 | 228 bets / $806.94 | BACKTESTED |
+| `STRAT_MARKET_TIMING_044_v1` | `@MarketTiming_EarlyLate_v1` | Market Movement & CLV Strategies | `v1` | 53.6% | 228 | $806.90 | +3.54% | $1,137.27 | 228 bets / $806.94 | ACTIVE |
+| `STRAT_RLM_008_v2` | `@RLM_SharpTracker_v2` | Market Movement & CLV Strategies | `v2` | 52.6% | 193 | $378.73 | +1.57% | $1,699.76 | 193 bets / $378.79 | BACKTESTED |
+| `STRAT_DOME_PACE_004_v1` | `@DomePace_Over_v1` | Weather & Stadium Conditions | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | BACKTESTED |
+| `STRAT_ALT_SPREAD_023_v1` | `@AltSpread_Value_v1` | Market Movement & CLV Strategies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_OL_CONT_024_v2` | `@OL_Continuity_Edge_v2` | Offensive Line & Protection | `v2` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_OL_PRESSURE_025_v1` | `@OL_Pressure_Under_v1` | Offensive Line & Protection | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_DEF_PRESSURE_026_v1` | `@DefPressure_Sack_v1` | Defensive Matchups & Scheme | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_DEF_PRESSURE_026_v2` | `@DefPressure_Sack_v2` | Defensive Matchups & Scheme | `v2` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_DEF_COVERAGE_027_v1` | `@DefCoverage_ManUnder_v1` | Defensive Matchups & Scheme | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_DEF_RZ_028_v1` | `@RedZone_D_Eff_v1` | Defensive Matchups & Scheme | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_COACH_PACE_030_v1` | `@CoachPace_Tempo_v1` | Coaching & Decision Tendencies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_PROP_USAGE_031_v1` | `@PropUsage_WR1_v1` | Player Prop Strategies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_PROP_RZ_032_v1` | `@PropRZ_TD_v1` | Player Prop Strategies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_PROP_RUSH_033_v1` | `@PropRush_CarryShare_v1` | Player Prop Strategies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_GAMESCRIPT_PASS_034_v1` | `@GameScript_PassRate_v1` | Game Script & Situational | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_GAMESCRIPT_PACE_035_v1` | `@GameScript_PaceOver_v1` | Game Script & Situational | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_LIVE_WP_036_v1` | `@Live_WP_Value_v1` | Live & In-Game Strategies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_LIVE_MOM_037_v1` | `@Live_Momentum_Over_v1` | Live & In-Game Strategies | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_RZ_EFF_039_v1` | `@RedZone_Eff_Spread_v1` | Team Totals & Efficiency | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | ACTIVE |
+| `STRAT_ALT_SPREAD_023_v2` | `@AltSpread_Value_v2` | Alternate Markets & Futures | `v2` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_DIV_TOTAL_040_v1` | `@DivisionHighTotal_Under_v1` | Game Script & Situational | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_1H_SPREAD_045_v1` | `@FirstHalf_Spread_v1` | Alternate Markets & Futures | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_QUARTER_046_v1` | `@QuarterMarket_Q1_v1` | Alternate Markets & Futures | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_FUTURES_047_v1` | `@Futures_WinTotal_v1` | Alternate Markets & Futures | `v1` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_PROP_USAGE_031_v2` | `@PropUsage_WR1_v2` | Player Prop Strategies | `v2` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_LIVE_WP_036_v2` | `@Live_WP_Value_v2` | Live & In-Game Strategies | `v2` | n/a (open) | 0 | n/a | n/a | n/a | 0 bets | FORWARD_TEST |
+| `STRAT_REF_PENALTIES_011_v1` | `@RefCrew_PenaltyTotals_v1` | Referee & Officiating Tendencies | `v1` | 50.0% | 4 | -$6.72 | -1.68% | $200.00 | 0 bets | ACTIVE |
+| `STRAT_INTL_017_v1` | `@International_Under_v1` | Rest & Scheduling Asymmetries | `v1` | 50.0% | 36 | -$121.96 | -3.39% | $813.85 | 11 bets / $52.63 | ACTIVE |
+| `STRAT_BAYES_QB_020_v1` | `@Bayesian_QB_Tier_v1` | Statistical & Machine Learning Models | `v1` | 25.0% | 4 | -$233.35 | -50.73% | $345.00 | 0 bets | ACTIVE |
+| `STRAT_RLM_008_v3` | `@RLM_SharpTracker_v3` | Market Movement & CLV Strategies | `v3` | 51.2% | 171 | -$273.02 | -1.06% | $1,678.81 | 171 bets / -$273.06 | ACTIVE |
+| `STRAT_REST_TNF_005_v3` | `@RestDifferential_ATS_v3` | Rest & Scheduling Asymmetries | `v3` | 50.9% | 651 | -$554.87 | -0.85% | $2,283.36 | 179 bets / -$1,082.12 | HOLDOUT_FAILED |
+| `STRAT_BACKUP_QB_002_v1` | `@BackupQB_Underdog_v1` | Quarterback & Passing Efficiency | `v1` | 48.8% | 171 | -$736.23 | -4.31% | $1,658.74 | 171 bets / -$736.20 | BACKTESTED |
+| `STRAT_BACKUP_QB_002_v2` | `@BackupQB_Underdog_v2` | Quarterback & Passing Efficiency | `v2` | 48.5% | 139 | -$814.88 | -4.89% | $1,702.07 | 139 bets / -$814.88 | ACTIVE |
+| `STRAT_TNF_UNDER_012_v1` | `@ThursdayUnder_Trend_v1` | Public Strategy Research & Replication | `v1` | 48.1% | 244 | -$1,469.76 | -6.02% | $1,952.48 | 96 bets / -$129.54 | ACTIVE |
+| `STRAT_REST_TNF_005_v2` | `@RestAdvantage_Edge_v2` | Rest & Scheduling Asymmetries | `v2` | 47.9% | 222 | -$1,608.92 | -5.57% | $2,793.45 | 78 bets / -$1,500.62 | ACTIVE |
+| `STRAT_INJURY_WAR_009_v3` | `@InjuryEdge_WAR_v3` | Injury & Player Availability | `v3` | 50.9% | 2,139 | -$2,090.78 | -0.65% | $5,044.21 | 706 bets / -$1,328.22 | ACTIVE |
+| `STRAT_PUBLIC_FADE_022_v1` | `@PublicFade_Contrarian_v1` | Market Movement & CLV Strategies | `v1` | 46.4% | 228 | -$2,160.85 | -8.62% | $2,649.92 | 228 bets / -$2,160.86 | ACTIVE |
+| `STRAT_PUBLIC_FADE_022_v2` | `@PublicFade_Contrarian_v2` | Public Strategy Research & Replication | `v2` | 46.4% | 228 | -$2,455.51 | -8.62% | $3,011.27 | 228 bets / -$2,455.46 | ACTIVE |
+| `STRAT_REST_TNF_005_v1` | `@RestAdvantage_Edge_v1` | Rest & Scheduling Asymmetries | `v1` | 47.8% | 434 | -$2,456.84 | -5.66% | $3,340.77 | 130 bets / -$1,491.23 | BACKTESTED |
+| `STRAT_TRAVEL_TZ_016_v1` | `@TravelFatigue_Fade_v1` | Rest & Scheduling Asymmetries | `v1` | 49.4% | 1,111 | -$4,319.26 | -3.53% | $7,618.36 | 367 bets / -$2,160.61 | ACTIVE |
+| `STRAT_INJURY_WAR_009_v2` | `@InjuryEdge_WAR_v2` | Injury & Player Availability | `v2` | 50.5% | 2,832 | -$4,975.48 | -1.41% | $7,205.87 | 925 bets / -$2,882.60 | BACKTESTED |
+| `STRAT_INJURY_WAR_009_v1` | `@InjuryEdge_WAR_v1` | Injury & Player Availability | `v1` | 50.4% | 3,557 | -$5,758.78 | -1.62% | $7,235.59 | 1,156 bets / -$2,952.15 | BACKTESTED |
+| `STRAT_HOME_DOG_042_v1` | `@HomeDog_Academic_v1` | Public Strategy Research & Replication | `v1` | 49.4% | 1,683 | -$6,091.97 | -3.62% | $7,967.60 | 595 bets / -$1,730.96 | ACTIVE |
+| `STRAT_TEAM_TOTAL_038_v1` | `@TeamTotal_Eff_v1` | Team Totals & Efficiency | `v1` | 48.2% | 1,292 | -$10,318.18 | -7.99% | $12,636.36 | 517 bets / -$1,372.49 | ACTIVE |
+| `STRAT_LOGISTIC_018_v1` | `@Logistic_Spread_v1` | Statistical & Machine Learning Models | `v1` | 49.5% | 3,415 | -$13,476.10 | -3.29% | $18,480.26 | 1,076 bets / -$3,063.74 | ACTIVE |
+| `STRAT_POISSON_007_v2` | `@Poisson_ScoringGrid_v2` | Statistical & Machine Learning Models | `v2` | 49.0% | 2,754 | -$16,252.01 | -4.72% | $20,655.82 | 979 bets / -$4,888.44 | ACTIVE |
+| `STRAT_NB_TOTALS_043_v1` | `@NegBin_Totals_v1` | Statistical & Machine Learning Models | `v1` | 48.7% | 3,132 | -$17,893.45 | -5.19% | $21,078.26 | 1,089 bets / -$5,089.77 | ACTIVE |
+| `STRAT_POISSON_007_v1` | `@Poisson_ScoringGrid_v1` | Statistical & Machine Learning Models | `v1` | 48.6% | 3,446 | -$18,917.66 | -5.49% | $21,329.44 | 1,190 bets / -$6,057.91 | BACKTESTED |
+| `STRAT_ELO_QUANT_006_v1` | `@Elo_Model_Quant_v1` | Statistical & Machine Learning Models | `v1` | 48.6% | 4,477 | -$20,547.71 | -4.59% | $22,002.57 | 1,444 bets / -$9,350.02 | BACKTESTED |
+| `STRAT_QB_CPOE_015_v1` | `@QB_CPOE_DeepBall_v1` | Quarterback & Passing Efficiency | `v1` | 48.3% | 4,292 | -$21,630.28 | -5.04% | $23,048.16 | 1,350 bets / -$10,131.57 | ACTIVE |
+| `STRAT_QB_EPA_001_v1` | `@QBEPA_Alpha_v1` | Quarterback & Passing Efficiency | `v1` | 48.3% | 4,322 | -$22,094.21 | -5.11% | $23,604.68 | 1,359 bets / -$10,279.99 | BACKTESTED |
+| `STRAT_QB_EPA_001_v2` | `@QBEPA_Alpha_v2` | Quarterback & Passing Efficiency | `v2` | 48.2% | 4,202 | -$22,245.53 | -5.29% | $23,572.05 | 1,326 bets / -$10,546.82 | BACKTESTED |
+| `STRAT_ELO_QUANT_006_v2` | `@Elo_Model_Quant_v2` | Statistical & Machine Learning Models | `v2` | 48.6% | 4,289 | -$23,035.67 | -4.48% | $24,417.29 | 1,382 bets / -$10,593.28 | BACKTESTED |
+| `STRAT_QB_PRESSURE_014_v1` | `@QB_PressureResponse_v1` | Quarterback & Passing Efficiency | `v1` | 48.3% | 4,242 | -$23,353.82 | -5.00% | $24,719.29 | 1,338 bets / -$11,080.29 | ACTIVE |
+| `STRAT_ENSEMBLE_021_v1` | `@Ensemble_5Model_v1` | Statistical & Machine Learning Models | `v1` | 48.9% | 4,371 | -$24,312.85 | -3.97% | $26,704.17 | 1,400 bets / -$10,821.25 | ACTIVE |
+| `STRAT_ELO_QUANT_006_v3` | `@Elo_Model_Quant_v3` | Statistical & Machine Learning Models | `v3` | 48.5% | 3,945 | -$26,518.01 | -4.48% | $29,120.65 | 1,212 bets / -$10,653.02 | ACTIVE |
+| `STRAT_EPA_DIFF_041_v1` | `@EPA_Diff_Edge_v1` | Statistical & Machine Learning Models | `v1` | 48.2% | 4,371 | -$29,567.80 | -5.41% | $31,300.13 | 1,377 bets / -$13,054.75 | ACTIVE |
+| `STRAT_QB_EPA_001_v3` | `@QBEPA_Alpha_v3` | Quarterback & Passing Efficiency | `v3` | 48.2% | 3,825 | -$30,300.66 | -5.28% | $32,059.29 | 1,202 bets / -$12,170.42 | ACTIVE |
+| `STRAT_EPA_DIFF_041_v2` | `@EPA_Diff_Edge_v2` | Statistical & Machine Learning Models | `v2` | 48.0% | 3,918 | -$33,671.10 | -5.73% | $34,948.06 | 1,237 bets / -$15,812.47 | ACTIVE |
+| `STRAT_KALSHI_SPREAD_010_v1` | `@Kalshi_SpreadBracket_v1` | Kalshi Prediction Markets | `v1` | 50.7% | 5,715 | -$40,449.36 | -7.08% | $42,211.36 | 1,351 bets / -$13,736.08 | BACKTESTED |
+| `STRAT_KALSHI_TOTAL_029_v1` | `@Kalshi_TotalBracket_v1` | Kalshi Prediction Markets | `v1` | 50.7% | 5,715 | -$50,967.86 | -7.43% | $52,970.80 | 1,351 bets / -$17,049.32 | ACTIVE |
+| `STRAT_KALSHI_SPREAD_010_v2` | `@Kalshi_SpreadBracket_v2` | Kalshi Prediction Markets | `v2` | 50.9% | 4,882 | -$60,747.34 | -8.30% | $63,169.04 | 1,157 bets / -$21,074.99 | ACTIVE |
+<!-- ROSTER_END -->
 
 ---
 
 ## 4. Key Empirical Research Findings
 
-1. **Wind Friction Non-Linearity:** Outdoor games in sustained winds $\ge 16.5$ mph hit the Under at **56.6%** over 26 seasons due to a -28% drop in deep-ball completion rate and a -3.2% drop per mph in field goals beyond 40 yards.
-2. **FiveThirtyEight Calibrated Elo Spread Discrepancies:** Exploiting large discrepancies ($\ge 3.5$ pts) between market spread and margin-of-victory adjusted Elo ratings delivers a steady **+2.00% ROI** across 1,436 bets with quarter-Kelly bankroll growth.
-3. **Coaching 4th-Down Optimization:** Head coaches in the top quartile of 4th-down aggressiveness (e.g. Campbell, Shanahan, Sirianni) generate hidden win equity (+2.5 pts of expected scoring margin) that sportsbooks fail to price against conservative punting coaches (**+2.42% ROI**, 53.0% cover rate).
-4. **Kalshi Favorite Retail Bias:** Naive retail market makers overpay for favorite YES spread contracts, creating persistent +6.8¢ value on Underdog / Under NO contracts after accounting for CFTC transaction fees.
+Measured results are separated from declared design assumptions. A hypothesis the
+bundled game-level snapshot cannot re-derive is labelled `DECLARED_ASSUMPTION`
+here and carries the same label in `data/research_experiments.json`; it is never
+presented as an empirical finding.
+
+<!-- FINDINGS_START -->
+_generated — do not edit by hand — quoted from `data/strategies.json`, measured in `data/leaderboard.json`._
+
+- **`@AnalyticsCoach_ATS_v1`** (Coaching & Decision Tendencies, all markets) — Head coaches who make mathematically optimal 4th-down decisions (+WP) gain +2.5 to +3.5 pts hidden expected margin that books fail to price vs conservative punters. Measured all-time over 921 simulated wagers (896 decided): 53.7% win rate, $3,952.36 net, +4.29% ROI, max drawdown $1,635.55, 471 of those wagers inside the published window ($3,526.30). Evidence: `DECLARED_ASSUMPTION` — this hypothesis is a design input carried in `data/strategies.json`; the bundled snapshot cannot re-derive it, so the figures quoted here describe the simulated paper window only.
+- **`@GB_Totals_Boost_v1`** (Statistical & Machine Learning Models, all markets) — Ensemble of weak learners (wind, temp, pace, Elo total, injury) via gradient boosting predicts totals with non-linear thresholds. Measured all-time over 2,971 simulated wagers (2,932 decided): 51.8% win rate, $3,353.50 net, +0.87% ROI, max drawdown $4,458.48, 953 of those wagers inside the published window (-$2,553.66). Evidence: `DECLARED_ASSUMPTION` — this hypothesis is a design input carried in `data/strategies.json`; the bundled snapshot cannot re-derive it, so the figures quoted here describe the simulated paper window only.
+- **`@DomePace_Over_v2`** (Weather & Stadium Conditions, all markets) — Adding PROE >0 ensures both teams actively seek passing efficiency indoors. Measured all-time over 1,062 simulated wagers (1,051 decided): 52.6% win rate, $2,465.50 net, +2.11% ROI, max drawdown $3,069.76, 381 of those wagers inside the published window ($176.61). Evidence: hypothesis re-derived from the snapshot by `STUDY_DOME_TOTALS`: mean total 46.8 indoors against 43.22 outdoors; Under rate 48.78% against 51.08%.
+- **`@WindChill_Totals_v1`** (Weather & Stadium Conditions, all markets) — Outdoor games in sustained winds >=15 mph experience severe passing degradation and missed FGs, systematically finishing Under. Measured all-time over 375 simulated wagers (370 decided): 54.3% win rate, $2,181.20 net, +5.82% ROI, max drawdown $1,184.97, 105 of those wagers inside the published window (-$174.30). Evidence: hypothesis re-derived from the snapshot by `STUDY_WIND_TOTALS`: 56.34% Under rate (95% CI 51.8-60.78%) on 470 outdoor games at 15-19 mph, mean total 40.64.
+- **`@WindChill_Totals_v3`** (Weather & Stadium Conditions, all markets) — Extreme gale >=18 mph creates insurmountable barrier to vertical passing, hitting Under at 59.4% over 20 seasons. Measured all-time over 128 simulated wagers (127 decided): 55.1% win rate, $1,399.00 net, +7.29% ROI, max drawdown $954.99, 41 of those wagers inside the published window (-$403.56). Evidence: hypothesis re-derived from the snapshot by `STUDY_WIND_TOTALS`: 56.34% Under rate (95% CI 51.8-60.78%) on 470 outdoor games at 15-19 mph, mean total 40.64.
+- **`@WindChill_Totals_v2`** (Weather & Stadium Conditions, all markets) — Filtering to >=16.5 mph and total >=40.5 avoids low-total traps and captures higher variance. Measured all-time over 175 simulated wagers (174 decided): 54.6% win rate, $1,366.47 net, +6.25% ROI, max drawdown $826.98, 60 of those wagers inside the published window (-$68.77). Evidence: hypothesis re-derived from the snapshot by `STUDY_WIND_TOTALS`: 56.34% Under rate (95% CI 51.8-60.78%) on 470 outdoor games at 15-19 mph, mean total 40.64.
+<!-- FINDINGS_END -->
 
 ---
 
 ## 5. Verified Data Source Registry
 
-| Source ID | Source Name | Historical Depth | Update Cadence | Cost / Auth | Reliability | Verification Status |
-|---|---|---|---|---|---|---|
-| `SRC_NFLVERSE_GAMES` | nflverse `games.csv` | 1999–2026 (7,548 games) | Nightly | Free / Open (MIT) | 5/5 | `VERIFIED_PRIMARY` |
-| `SRC_NFLVERSE_CLOSING`| nflverse `closing_lines.csv` | 2006–2025 (20,490 lines) | Post-settlement | Free / Open | 5/5 | `VERIFIED_PRIMARY` |
-| `SRC_NFL_INJURY` | NFL.com Official Injury Report | 1965–2026 Live | Wed/Thu/Fri 4 PM ET | Free / Public | 5/5 | `VERIFIED_PRIMARY` |
-| `SRC_ESPN_NFL` | ESPN Hidden Scoreboard API | 2000–2026 Live | Real-time JSON (100ms) | Free / Keyless | 4.5/5 | `VERIFIED_PRIMARY` |
-| `SRC_FIVE38_ELO` | FiveThirtyEight Elo Database | 1920–2023 (16,810 games) | Archival benchmark | Free (MIT) | 5/5 | `VERIFIED_PRIMARY` |
-| `SRC_KALSHI_API` | Kalshi Prediction Markets | 2023–2026 Live | Real-time WebSockets | Free Read / CFTC Fees | 4.5/5 | `VERIFIED_PRIMARY` |
-| `SRC_NOAA_NWS` | NOAA National Weather Service | 50+ Years Climatology | Hourly gridded | Free / Public Domain | 5/5 | `VERIFIED_PRIMARY` |
-| `SRC_PFR_ADVSTATS` | PFR Advanced Pressure Mirror | 2018–2026 Week 1 | Weekly Tuesday | Free / nflverse mirror | 4.8/5 | `VERIFIED_PRIMARY` |
-| `SRC_ROTOWIRE` | RotoWire Lineups & Inactive Wire| Current Season | Continuous gameday | Freemium (Web HTML) | 4.0/5 | `SECONDARY` |
-| `SRC_TWITTER_X` | X / Twitter API v2 | 2006–2026 | Real-time (Paywall) | Paid (~$0.005/read) | 2.5/5 | `REJECTED_PAID` |
-| `SRC_REDDIT_JSON` | Reddit NFL Analytics JSON | Archival | Blocked (HTTP 403) | Commercial agreement | 2.0/5 | `DISCOVERY_ONLY` |
+The registry records what was probed, when, and with what result — including the
+providers that refused or blocked a request.
+
+<!-- SOURCES_START -->
+_generated — do not edit by hand — one row per `data/registry.json` entry (56 sources). Reliability, depth and status are the registry's own recorded strings._
+
+| # | Source | Data Type | Cost | Reliability | Depth | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | nflverse / nfldata Game Schedules & Lines | Historical & Future Schedules, Spreads, Totals, Moneylines, Weather, Referees, QBs | Genuinely Free (Open Source MIT License). | 5/5 (Gold Standard for Sports Analytics) | 27 Seasons (1999-2026). | `VERIFIED_PRIMARY` |
+| 2 | nflverse Sportsbook Closing Lines Archive | Point Spreads, Totals, Moneylines with Exact Odds & Outright Settlement | Genuinely Free. | 5/5 | 20 Seasons (2006-2025). | `VERIFIED_PRIMARY` |
+| 3 | nflverse Initial / Opening Lines | Opening Spreads, Totals, Moneylines for RLM and Steam Detection | Genuinely Free. | 4.8/5 | 20 Seasons. | `VERIFIED_PRIMARY` |
+| 4 | NFL.com Official League Injury & Game Status Report | Official NFL Game Status Designations (OUT, DOUBTFUL, QUESTIONABLE), Practice Participation | Genuinely Free. | 5/5 (Authoritative Ground Truth) | 60+ years official records. | `VERIFIED_PRIMARY` |
+| 5 | NFL.com Official Player & Team Statistics | Official Player Stats, Team Stats, Passing, Rushing, Receiving, Defense | Free public view; API requires key but nflverse mirror is free. | 5/5 | 90+ years. | `VERIFIED_PRIMARY` |
+| 6 | NFL Next Gen Stats (NGS) Tracking System | Player Tracking, Route Participation, Separation, Pressure, Time to Throw, Completion Probability, CPOE | Free via nflverse community mirror; direct NGS requires partnership. | 5/5 | 10 Seasons (2016-2026). | `VERIFIED_PRIMARY` |
+| 7 | nflverse nflfastR Play-by-Play with EPA & CPOE | Play-by-Play, EPA, EPA/play, Success Rate, CPOE, Win Probability, Air Yards, Pressure | Genuinely Free MIT. | 5/5 | 27 Seasons. | `VERIFIED_PRIMARY` |
+| 8 | ESPN Public NFL Hidden Endpoints & Scoreboard Feed | Live Play-by-Play, In-Game Scores, Minute-by-Minute Injury Timestamps, Team Rosters | Free public endpoints (unsupported/undocumented by ESPN). | 4.5/5 | 25+ Seasons. | `VERIFIED_PRIMARY` |
+| 9 | FiveThirtyEight NFL Elo Rating Database | Pre-game Elo Ratings, QB Value Adjustments, Win Probabilities, Margin Multipliers | Genuinely Free (MIT License). | 5/5 | 100+ Years (1920-2023). | `VERIFIED_PRIMARY` |
+| 10 | Kalshi Prediction Markets API & Historical Archive | Binary YES/NO Event Contracts, Point Spread & Total Point Brackets, Bid/Ask Orderbooks | Free API access; trading fees apply to live fills ($0.01 per contract taker fee). | 4.5/5 | 3 Seasons (2023-2026). | `VERIFIED_PRIMARY` |
+| 11 | NOAA National Weather Service Gridded Forecasts | Point-in-Time Stadium Temperature, Wind Speed, Gusts, Precipitation Probability | Genuinely Free (US Federal Public Domain). | 5/5 | Climatology 50+ years. | `VERIFIED_PRIMARY` |
+| 12 | Pro-Football-Reference Advanced Statistics Mirror | Pass Pressure Rates, Hurries, Knockdowns, Blitz Rates, Coverage Splits, Broken Tackles | Genuinely Free via nflverse pipeline. | 4.8/5 | 8 Seasons (2018-2026). | `VERIFIED_PRIMARY` |
+| 13 | Pro-Football-Reference Team Statistics | Team Offensive & Defensive Stats, Red Zone, 3rd Down, 4th Down, Pace | Free public view; mirror free. | 4.8/5 | 100+ years. | `VERIFIED_PRIMARY` |
+| 14 | nflverse Rosters & Depth Charts | Weekly Rosters, Depth Charts, Snap Counts, Personnel Packages | Genuinely Free MIT. | 5/5 | 27 Seasons. | `VERIFIED_PRIMARY` |
+| 15 | nflverse Snap Counts & Participation | Snap Counts, Target Shares, Route Participation, Personnel Usage, Carry Share | Genuinely Free. | 5/5 | 14 Seasons. | `VERIFIED_PRIMARY` |
+| 16 | The Odds API - Historical & Current Betting Prices | Moneylines, Point Spreads, Totals, Alternate Spreads, Team Totals, Player Props, Live/In-Game | Freemium: 500 free requests/month, then paid tiers $29-$500/month. | 4.5/5 | 6 Seasons (2020-2026). | `SECONDARY` |
+| 17 | Pinnacle Sportsbook API | Sharp Closing Lines, Market Depth, Low-Vig Odds | Free API with funded Pinnacle account; no fee for read. | 5/5 | 20 Seasons via mirror. | `SECONDARY` |
+| 18 | Action Network Public Betting Data | Public Betting Percentages, Sharp/Public Disagreement, Line Movement | Freemium: public % free, detailed splits paywalled (Action Pro $49/month). | 4.0/5 | 8 Seasons. | `SECONDARY` |
+| 19 | RotoWire NFL Lineups & Inactive Wire | Projected and Confirmed Starters, Inactive Lists 90 Minutes Before Kickoff | Free public web view for starters; detailed injury report is paywalled. | 4.0/5 | Current season. | `SECONDARY` |
+| 20 | FTN Data & BetLabs Historical Betting Database | Historical Betting Prices, System Builder, Trends, Player Props History | Paid: $29.99/month FTN Data subscription. | 4.2/5 | 23 Seasons. | `DISCOVERY_ONLY` |
+| 21 | nflverse Officials / Referee Assignments | Referee Assignments, Crew Penalties, Home/Away Tendencies | Genuinely Free. | 5/5 | 26 Seasons. | `VERIFIED_PRIMARY` |
+| 22 | DraftKings Sportsbook Player Props | Player Props: Passing Yards, Rushing Yards, Receiving Yards, Receptions, Anytime TD, Sacks, Tackles | Free public view; API unofficial. | 4.5/5 | 6 Seasons. | `SECONDARY` |
+| 23 | FanDuel Sportsbook Player Props & Game Props | Player Props, Game Props, Team Props, Same-Game Parlay Components | Free public view. | 4.5/5 | 6 Seasons. | `SECONDARY` |
+| 24 | NFLWeather.com Historical Weather Database | Historical Weather: Wind, Temperature, Precipitation, Field Conditions | Free public view; API not official. | 4.0/5 | 60+ years. | `SECONDARY` |
+| 25 | MasterSite CEO / Executive Index (Mapping Review) | Directory of 44 Verified Projects, Including CEO, Weather, Insider Trades, TheLeap | Genuinely Free. | 4.5/5 | 44 sites. | `DISCOVERY_ONLY` |
+| 26 | MasterSite SFWeather - NOAA NWS Pipeline | NOAA NWS Gridded Forecasts, Climatology, Wind, Precipitation | Genuinely Free (US Public Domain NOAA). | 5/5 | 30+ years climatology. | `VERIFIED_PRIMARY` |
+| 27 | MasterSite NFL Injury Report (buffedlizard55-lab/NFLInjuryReport) | Structured NFL Injury Reports, Alerts, Health Scores, Scorecards, Practice Participation | Genuinely Free MIT. | 4.8/5 | Current season with 30-day ledger. | `VERIFIED_PRIMARY` |
+| 28 | MasterSite NBA Injury Report (buffedlizard55-lab/NBAInjuryReport) | NBA Injury Monitoring, Rotation Impact, Lineup Impact | Genuinely Free. | 4.5/5 | Current season. | `SECONDARY` |
+| 29 | MasterSite NFL Scoreboard (ESPN Hidden API) | Live NFL Scores, Play-by-Play, Box Scores, Team Stats | Free (unsupported). | 4.5/5 | 25+ seasons. | `VERIFIED_PRIMARY` |
+| 30 | MasterSite NCAA Scoreboard (ESPN CFB) | NCAA Football Scores, Team Stats, Betting Lines | Free. | 4.5/5 | 25+ seasons. | `SECONDARY` |
+| 31 | MasterSite MLB Scoreboard | MLB Scores, Pitching, Hitting Stats | Free. | 4.5/5 | 25+ seasons. | `DISCOVERY_ONLY` |
+| 32 | MasterSite Sports Pred / SportsLine | Computer Model Picks, Expert Picks, Consensus Picks | Freemium: some picks free, premium $9.99/month. | 3.5/5 | 11 Seasons. | `DISCOVERY_ONLY` |
+| 33 | MasterSite TheLeap (TradingView Breakout / Index Momentum) | Index Momentum, Breakout Rankings, Technical Indicators | Freemium: free tier limited, Pro $14.95/month. | 4.0/5 | 20+ years market data. | `DISCOVERY_ONLY` |
+| 34 | MasterSite FDA Decisions / Drug Analysis | FDA Drug Approvals, PDUFA Dates, Clinical Trial Results | Genuinely Free (US Public Domain). | 5/5 | 80+ years. | `DISCOVERY_ONLY` |
+| 35 | MasterSite Gold / Commodities | Gold Prices, Futures, Spot, Market Data | Free via FRED (GOLDAMGBD228NLBM). | 5/5 | 50+ years. | `DISCOVERY_ONLY` |
+| 36 | MasterSite PinePilot / Pine Script Strategies | Pine Script Technical Indicators, EMA Cross, RSI, Momentum | Free docs; Pro for backtesting. | 4.0/5 | 12 years docs. | `DISCOVERY_ONLY` |
+| 37 | Reddit NFL Communities (r/nfl, r/sportsbook, r/nfl_draft) | Public Betting Trends, Community Strategies, Crowd Sentiment, Strategy Claims | Commercial API agreement required (free tier discontinued 2023). | 2/5 | 18 years via third-party academic archives. | `DISCOVERY_ONLY` |
+| 38 | X / Twitter API v2 - Beat Writers & Breaking News | Beat Writer Tweets, Breaking Injury News, Lineup Alerts | Paid / Commercial Only (Discontinued free tier for developers in 2023-2026). | 2.5/5 (High Noise, Verification Required) | Requires Enterprise Archive. | `REJECTED_PAID` |
+| 39 | YouTube NFL Analysis Channels | Video Analysis, Strategy Breakdowns, Film Study, Betting Education | Free tier limited; paid for high volume. | 3.0/5 | 21 years. | `DISCOVERY_ONLY` |
+| 40 | GitHub Public Sports Analytics Communities | Open Source NFL Models, EPA Models, Betting Models, Research Code | Genuinely Free (various open source licenses). | 4.5/5 | 18 years. | `SECONDARY` |
+| 41 | Academic Sports Analytics Research (MIT Sloan, JQAS, etc.) | Academic Papers on NFL Betting, Market Efficiency, EPA, Win Probability, 4th Down | Free (arXiv, open access) + paid journal access. | 5/5 | 25+ years. | `SECONDARY` |
+| 42 | nflverse-data GitHub Releases - Parquet Archive | All nflverse datasets as Parquet: games, pbp, rosters, snap_counts, officials, injuries, contracts, combine, draft_picks, ftN charting | Genuinely Free MIT. | 5/5 | 27 Seasons. | `VERIFIED_PRIMARY` |
+| 43 | nflreadpy Python Loader (Polars-based) | Python wrapper for nflverse-data: load_pbp, load_schedules, load_rosters, load_snap_counts, load_teams, load_officials, load_combine | Genuinely Free MIT. | 5/5 | 27 Seasons. | `VERIFIED_PRIMARY` |
+| 44 | nflfastR Play-by-Play 2026+ via nflverse-data | 2026+ Play-by-Play Parquet, EPA, CPOE, WP, xPass, Pass Location, Air Yards, Pressure | Genuinely Free MIT. | 5/5 | 27+ Seasons. | `VERIFIED_PRIMARY` |
+| 45 | Kalshi Trade Tape & Orderbook Depth Archive | Tick-by-tick trades: GET /trade-api/v2/markets/trades, orderbook ladders yes_bid/yes_ask/no_bid/no_ask, volume, open_interest, last_price | Free API; trading fees $0.01/contract. | 4.5/5 | 3 Seasons. | `VERIFIED_PRIMARY` |
+| 46 | Polymarket Prediction Markets API | Binary YES/NO event contracts, orderbook depth, last trade price, volume, liquidity, UMA resolution | Free API; 2% fee on winnings. | 4.5/5 | 6 Seasons. | `SECONDARY` |
+| 47 | Betfair Exchange API - Back/Lay Orderbook | Exchange back/lay prices, matched volume, orderbook depth, commission 2-5%, implied prob without vig | Free API with funded account; historical data £199/month. | 5/5 | 20 Seasons via paid. | `SECONDARY` |
+| 48 | SportsDataIO NFL API - Official Stats & Odds | Official NFL stats, live scores, play-by-play, injuries, odds, projections, DFS, props | Paid: $149-$599/month tiers. | 5/5 | 27 Seasons. | `SECONDARY` |
+| 49 | Sportradar NFL API - Official League Data | Official NFL PBP, tracking, injuries, odds, player tracking, Next Gen integration | Enterprise Paid (custom pricing, typically $10k+/year). | 5/5 | 27 Seasons. | `DISCOVERY_ONLY` |
+| 50 | Sharp Football Analysis & Warren Sharp EPA Metrics | EPA/play, explosive play rate, success rate, pace, personnel tendencies, situational EPA | Freemium: some stats free, full $199/year Sharp subscription. | 4.8/5 | 14 Seasons. | `SECONDARY` |
+| 51 | FTN Data Charting & Advanced Stats | Charting: coverage types, personnel, motion, play action, blitz, pressure, alignment, route participation | Paid: $29.99/month FTN Data + $99/month FTN Charting. | 4.8/5 | 8 Seasons. | `DISCOVERY_ONLY` |
+| 52 | SumerSports Scheme & Advanced Analytics | Scheme analysis, coverage, personnel, motion, play action, EPA by scheme, defensive front | Freemium: some free, enterprise custom. | 4.8/5 | 8 Seasons. | `SECONDARY` |
+| 53 | Pro Football Focus (PFF) Grades & Charting | PFF grades: overall, pass, run, coverage, OL pass block, DL pass rush, pressure, missed tackles | Paid: PFF Elite $199/year, PFF API enterprise $10k+/year. | 4.8/5 | 20 Seasons. | `DISCOVERY_ONLY` |
+| 54 | DVOA - Defense-adjusted Value Over Average (FTN) | DVOA team and player efficiency adjusted for opponent, situation, and leverage | Freemium: DVOA free delayed 1 week, current week $29.99/month. | 4.8/5 | 43 Seasons. | `SECONDARY` |
+| 55 | COVID-19 Crowd & Injury Impact Archive (2020-2021) | Crowd attendance 2020-2021 (no crowd, limited crowd), injury rates, rest, home field impact without crowd | Genuinely Free. | 5/5 | 2 Seasons natural experiment. | `VERIFIED_PRIMARY` |
+| 56 | KalshiSportsData.com NFL Aggregator | Kalshi KXNFL historical prices, volume, open interest, market count, liquidity tracking | Free public view. | 4.0/5 | 3 Seasons. | `SECONDARY` |
+<!-- SOURCES_END -->
 
 ---
 
@@ -201,11 +351,15 @@ python3 scripts/run_pipeline.py
 python3 scripts/run_pipeline.py --check-only
 python3 -m engine.audit_verifier --check
 python3 scripts/render_readme.py --check
+python3 scripts/render_verification.py --check
+python3 scripts/render_claims.py --check
+python3 -m engine.empirical_studies --check
+python3 -m engine.risk_analytics --check
 ```
 
 ### Run Test Suites
 ```bash
-# Python Engine & Math tests (9 test cases)
+# Python engine, model, ledger and analytics tests
 python3 test/engine.test.py
 
 # Node.js Data Contract & UI tests
@@ -223,8 +377,10 @@ python3 -m http.server 8080 --bind 0.0.0.0
 ## 7. Audit & No-Hallucination Guarantees
 
 All results adhere strictly to the **Zero-Lookahead and Zero-Hallucination Standard**:
-1. **No Invented Games:** All 7,548 games matched against NFL official schedules.
-2. **No Invented Odds:** All closing spreads and totals directly loaded from `nflverse/nfldata` archives.
+1. **No Invented Games:** the game universe is the hashed `data/source/games.csv` snapshot (see `games_tracked` above); no fixture is authored in code.
+2. **No Invented Odds:** every recorded price comes from the snapshot columns, and `LEDGER_PRICE_IMPLIED_PROB_CONSISTENCY` re-derives each bet's implied probability from the price it quotes.
 3. **No Retrospective Leakage:** Contextual states at kickoff $t$ only contain data from prior timestamps $< t$.
 4. **Permanent Immutable Ledger:** Every wager carries an immutable ID, timestamp, model probability, estimated edge, settlement score, and net PnL.
 5. **Irregularities Register:** Any missing data, provider conflict, or API limitation is recorded in `IRREGULARITIES.md` rather than silently hidden.
+6. **Derived vs Declared:** A research claim that the bundled snapshot can re-derive is measured and labelled `DERIVED_DATA`; one it cannot is labelled `DECLARED_ASSUMPTION` and never quoted as a result. Where the two disagree, both numbers are published and the disagreement is logged.
+7. **Prose Is Linted:** `PUBLISHED_PROSE_CLAIMS` fails the audit when a hand-typed sentence contradicts the data files, and `SITE_VIEW_CONTRACTS` fails when the dashboard advertises a view, container or bound number it does not have.

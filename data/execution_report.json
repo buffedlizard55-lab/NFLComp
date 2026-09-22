@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-22T03:49:39.776923+00:00",
+  "generated_at": "2026-09-22T07:26:25.482755+00:00",
   "classification": "DERIVED_DATA",
   "total_quotes": 50,
   "total_fills": 50,
   "quotes_sample": [
     {
-      "timestamp": "2026-09-22T03:49:39.776765+00:00",
+      "timestamp": "2026-09-22T07:26:25.482615+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -19,7 +19,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776774+00:00",
+      "timestamp": "2026-09-22T07:26:25.482621+00:00",
       "market": "TOTAL",
       "selection": "over 44.0",
       "bid": 43.85,
@@ -33,7 +33,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776783+00:00",
+      "timestamp": "2026-09-22T07:26:25.482628+00:00",
       "market": "FIRST_HALF_SPREAD",
       "selection": "home 44.0",
       "bid": 43.9,
@@ -47,7 +47,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776793+00:00",
+      "timestamp": "2026-09-22T07:26:25.482635+00:00",
       "market": "QUARTER_MARKET",
       "selection": "over 44.0",
       "bid": 43.9,
@@ -61,7 +61,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776802+00:00",
+      "timestamp": "2026-09-22T07:26:25.482642+00:00",
       "market": "KALSHI_SPREAD",
       "selection": "YES @ 0.32",
       "bid": 30.0,
@@ -75,7 +75,7 @@
       "source": "Kalshi API KXNFL orderbook (simulated with realistic depth)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776815+00:00",
+      "timestamp": "2026-09-22T07:26:25.482653+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -89,7 +89,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776823+00:00",
+      "timestamp": "2026-09-22T07:26:25.482659+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -103,7 +103,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776830+00:00",
+      "timestamp": "2026-09-22T07:26:25.482665+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -117,7 +117,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776837+00:00",
+      "timestamp": "2026-09-22T07:26:25.482672+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -131,7 +131,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776845+00:00",
+      "timestamp": "2026-09-22T07:26:25.482680+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -145,7 +145,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776852+00:00",
+      "timestamp": "2026-09-22T07:26:25.482686+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -159,7 +159,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776859+00:00",
+      "timestamp": "2026-09-22T07:26:25.482694+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -173,7 +173,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776866+00:00",
+      "timestamp": "2026-09-22T07:26:25.482700+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -187,7 +187,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776873+00:00",
+      "timestamp": "2026-09-22T07:26:25.482707+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -201,7 +201,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776880+00:00",
+      "timestamp": "2026-09-22T07:26:25.482714+00:00",
       "market": "TOTAL",
       "selection": "under 44.0",
       "bid": 43.85,
@@ -215,7 +215,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776887+00:00",
+      "timestamp": "2026-09-22T07:26:25.482721+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -229,7 +229,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776894+00:00",
+      "timestamp": "2026-09-22T07:26:25.482728+00:00",
       "market": "ALT_SPREAD",
       "selection": "home 44.0",
       "bid": 43.9,
@@ -243,7 +243,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776901+00:00",
+      "timestamp": "2026-09-22T07:26:25.482734+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -257,7 +257,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776908+00:00",
+      "timestamp": "2026-09-22T07:26:25.482741+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -271,7 +271,7 @@
       "source": "Pinnacle/Market Consensus (simulated with realistic spread)"
     },
     {
-      "timestamp": "2026-09-22T03:49:39.776915+00:00",
+      "timestamp": "2026-09-22T07:26:25.482747+00:00",
       "market": "SPREAD",
       "selection": "home -3.0",
       "bid": -3.1,
@@ -287,9 +287,9 @@
   ],
   "fills_sample": [
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_EPA_DIFF_041_v2-115125-031",
-      "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115125",
-      "timestamp": "2026-09-22T03:49:39.776768+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_EPA_DIFF_041_v2-114658-031",
+      "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114658",
+      "timestamp": "2026-09-22T07:26:25.482617+00:00",
       "requested_price": "-105",
       "requested_size": 150.0,
       "filled_price": "-2.9 (-110)",
@@ -302,9 +302,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_NB_TOTALS_043_v1-115126-032",
-      "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115126",
-      "timestamp": "2026-09-22T03:49:39.776777+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_NB_TOTALS_043_v1-114659-032",
+      "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114659",
+      "timestamp": "2026-09-22T07:26:25.482624+00:00",
       "requested_price": "-105",
       "requested_size": 110.0,
       "filled_price": "+44.1 (-110)",
@@ -317,9 +317,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_1H_SPREAD_045_v1-115127-033",
-      "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115127",
-      "timestamp": "2026-09-22T03:49:39.776787+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_1H_SPREAD_045_v1-114660-033",
+      "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114660",
+      "timestamp": "2026-09-22T07:26:25.482631+00:00",
       "requested_price": "-110",
       "requested_size": 90.0,
       "filled_price": "+44.1 (-110)",
@@ -332,9 +332,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_QUARTER_046_v1-115128-034",
-      "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115128",
-      "timestamp": "2026-09-22T03:49:39.776796+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_QUARTER_046_v1-114661-034",
+      "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114661",
+      "timestamp": "2026-09-22T07:26:25.482638+00:00",
       "requested_price": "-110",
       "requested_size": 80.0,
       "filled_price": "+44.1 (-110)",
@@ -347,9 +347,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_LIVE_WP_036_v2-115129-035",
-      "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115129",
-      "timestamp": "2026-09-22T03:49:39.776809+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_LIVE_WP_036_v2-114662-035",
+      "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114662",
+      "timestamp": "2026-09-22T07:26:25.482647+00:00",
       "requested_price": "25.0\u00a2",
       "requested_size": 110.0,
       "filled_price": "34.0\u00a2",
@@ -362,9 +362,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_QB_EPA_001_v1-115130-036",
-      "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115130",
-      "timestamp": "2026-09-22T03:49:39.776819+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_QB_EPA_001_v1-114663-036",
+      "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114663",
+      "timestamp": "2026-09-22T07:26:25.482656+00:00",
       "requested_price": "-112",
       "requested_size": 100.0,
       "filled_price": "-2.9 (-110)",
@@ -377,9 +377,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_QB_EPA_001_v2-115131-037",
-      "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115131",
-      "timestamp": "2026-09-22T03:49:39.776826+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_QB_EPA_001_v2-114664-037",
+      "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114664",
+      "timestamp": "2026-09-22T07:26:25.482662+00:00",
       "requested_price": "-112",
       "requested_size": 100.0,
       "filled_price": "-2.9 (-110)",
@@ -392,9 +392,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_QB_EPA_001_v3-115132-038",
-      "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115132",
-      "timestamp": "2026-09-22T03:49:39.776833+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_QB_EPA_001_v3-114665-038",
+      "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114665",
+      "timestamp": "2026-09-22T07:26:25.482668+00:00",
       "requested_price": "-112",
       "requested_size": 150.0,
       "filled_price": "-2.9 (-110)",
@@ -407,9 +407,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115133-039",
-      "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115133",
-      "timestamp": "2026-09-22T03:49:39.776840+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114666-039",
+      "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114666",
+      "timestamp": "2026-09-22T07:26:25.482676+00:00",
       "requested_price": "-112",
       "requested_size": 110.0,
       "filled_price": "-2.9 (-110)",
@@ -422,9 +422,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_QB_CPOE_015_v1-115134-040",
-      "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115134",
-      "timestamp": "2026-09-22T03:49:39.776847+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_QB_CPOE_015_v1-114667-040",
+      "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114667",
+      "timestamp": "2026-09-22T07:26:25.482682+00:00",
       "requested_price": "-112",
       "requested_size": 100.0,
       "filled_price": "-2.9 (-110)",
@@ -437,9 +437,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_ELO_QUANT_006_v1-115135-041",
-      "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115135",
-      "timestamp": "2026-09-22T03:49:39.776855+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_ELO_QUANT_006_v1-114668-041",
+      "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114668",
+      "timestamp": "2026-09-22T07:26:25.482689+00:00",
       "requested_price": "-112",
       "requested_size": 100.0,
       "filled_price": "-2.9 (-110)",
@@ -452,9 +452,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_ELO_QUANT_006_v2-115136-042",
-      "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115136",
-      "timestamp": "2026-09-22T03:49:39.776862+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_ELO_QUANT_006_v2-114669-042",
+      "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114669",
+      "timestamp": "2026-09-22T07:26:25.482696+00:00",
       "requested_price": "-112",
       "requested_size": 120.0,
       "filled_price": "-2.9 (-110)",
@@ -467,9 +467,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_ELO_QUANT_006_v3-115137-043",
-      "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115137",
-      "timestamp": "2026-09-22T03:49:39.776869+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_ELO_QUANT_006_v3-114670-043",
+      "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114670",
+      "timestamp": "2026-09-22T07:26:25.482702+00:00",
       "requested_price": "-112",
       "requested_size": 150.0,
       "filled_price": "-2.9 (-110)",
@@ -482,9 +482,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_LOGISTIC_018_v1-115138-044",
-      "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115138",
-      "timestamp": "2026-09-22T03:49:39.776876+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_LOGISTIC_018_v1-114671-044",
+      "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114671",
+      "timestamp": "2026-09-22T07:26:25.482710+00:00",
       "requested_price": "-112",
       "requested_size": 120.0,
       "filled_price": "-2.9 (-110)",
@@ -497,9 +497,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_GB_TOTALS_019_v1-115139-045",
-      "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-115139",
-      "timestamp": "2026-09-22T03:49:39.776883+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_GB_TOTALS_019_v1-114672-045",
+      "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-114672",
+      "timestamp": "2026-09-22T07:26:25.482717+00:00",
       "requested_price": "-105",
       "requested_size": 130.0,
       "filled_price": "+44.1 (-110)",
@@ -512,9 +512,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_ENSEMBLE_021_v1-115140-046",
-      "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115140",
-      "timestamp": "2026-09-22T03:49:39.776890+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_ENSEMBLE_021_v1-114673-046",
+      "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114673",
+      "timestamp": "2026-09-22T07:26:25.482724+00:00",
       "requested_price": "-112",
       "requested_size": 140.0,
       "filled_price": "-2.9 (-110)",
@@ -527,9 +527,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115141-047",
-      "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115141",
-      "timestamp": "2026-09-22T03:49:39.776897+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114674-047",
+      "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114674",
+      "timestamp": "2026-09-22T07:26:25.482730+00:00",
       "requested_price": "+130",
       "requested_size": 80.0,
       "filled_price": "+44.1 (-110)",
@@ -542,9 +542,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_INJURY_WAR_009_v1-115142-048",
-      "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115142",
-      "timestamp": "2026-09-22T03:49:39.776904+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_INJURY_WAR_009_v1-114675-048",
+      "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114675",
+      "timestamp": "2026-09-22T07:26:25.482737+00:00",
       "requested_price": "-112",
       "requested_size": 100.0,
       "filled_price": "-2.9 (-110)",
@@ -557,9 +557,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_INJURY_WAR_009_v2-115143-049",
-      "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-115143",
-      "timestamp": "2026-09-22T03:49:39.776911+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_INJURY_WAR_009_v2-114676-049",
+      "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-114676",
+      "timestamp": "2026-09-22T07:26:25.482743+00:00",
       "requested_price": "-112",
       "requested_size": 125.0,
       "filled_price": "-2.9 (-110)",
@@ -572,9 +572,9 @@
       "execution_status": "FILLED"
     },
     {
-      "fill_id": "FILL-BET-2026-W02-STRAT_INJURY_WAR_009_v3-115144-050",
-      "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-115144",
-      "timestamp": "2026-09-22T03:49:39.776918+00:00",
+      "fill_id": "FILL-BET-2026-W02-STRAT_INJURY_WAR_009_v3-114677-050",
+      "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-114677",
+      "timestamp": "2026-09-22T07:26:25.482750+00:00",
       "requested_price": "-112",
       "requested_size": 150.0,
       "filled_price": "-2.9 (-110)",

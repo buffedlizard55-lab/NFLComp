@@ -340,6 +340,87 @@ main {
   gap: 20px;
 }
 
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.muted { color: var(--text-secondary); }
+.num-positive { color: var(--accent-green); font-variant-numeric: tabular-nums; }
+.num-negative { color: var(--accent-red); font-variant-numeric: tabular-nums; }
+.num-neutral { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+.tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.tag-derived { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
+.tag-declared { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.tag-disputed { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+
+.study-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.study-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 6px 0;
+}
+
+.study-card code {
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+}
+
+#empirical-studies-list:empty::after {
+  content: 'Loading re-derived studies…';
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 /* ================= TABLES ================= */
 
 .table-responsive {

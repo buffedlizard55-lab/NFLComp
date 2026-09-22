@@ -74,34 +74,40 @@ local snapshot, not a claim about an upstream release asset.
 | 2 | `GAME_ID_UNIQUENESS` | DATA_INTEGRITY | PASS | Found 0 duplicate game IDs across 7548 games |
 | 3 | `SCORE_MARGIN_ARITHMETIC` | CALCULATION | PASS | Score margin checked on 7548 games; 0 mismatches |
 | 4 | `GAMES_CHRONOLOGICAL_ORDER` | DATA_INTEGRITY | PASS | Games sorted chronologically: 1999-09-12 to 2027-01-10 |
-| 5 | `LEDGER_POPULATED` | AUDIT | PASS | Found 31,490 bets in ledger (2020-2026 recent slice) |
-| 6 | `BET_ID_UNIQUENESS` | AUDIT | PASS | Found 0 duplicate bet IDs out of 31,490 |
-| 7 | `PNL_CALCULATION_ACCURACY` | AUDIT | PASS | Audited 31,490 bets; 0 math errors |
-| 8 | `LEDGER_REQUIRED_FIELDS` | AUDIT | PASS | Checked required fields; 0 missing field instances |
-| 9 | `MARKET_TYPES_VALID` | AUDIT | PASS | Checked market types; 0 invalid market types |
-| 10 | `LEDGER_HASH_CHAIN` | AUDIT | PASS | Re-derived 31,490 links; head fbeb92319707c423… |
-| 11 | `LEDGER_MANIFEST_RECONCILIATION` | AUDIT | PASS | window 2020–2026: 31,490 of 97,435 bets published (65,945 in earlier seasons, totals stated separately) |
-| 12 | `LEADERBOARD_INTEGRITY` | AUDIT | PASS | Leaderboard contains 70 verified strategies (target >=40) |
-| 13 | `CATEGORY_COVERAGE` | AUDIT | PASS | Leaderboard covers 17 categories: Alternate Markets & Futures, Coaching & Decision Tendencies, Defensive Matchups & Scheme, Game Script & Situational, Injury & Player Availability... |
-| 14 | `LEADERBOARD_LEDGER_RECONCILIATION` | AUDIT | PASS | All 70 rows re-derived from 31,490 published records (published window PnL -225,415.79; all-time totals remain on the rows) |
-| 15 | `KALSHI_TRADES_INTEGRITY` | AUDIT | PASS | Found 1,432 simulated Kalshi trades with bid/ask/spread/liquidity/slippage |
-| 16 | `KALSHI_FIELDS_COMPLETE` | AUDIT | PASS | Kalshi trade fields complete: True |
-| 17 | `REGISTRY_ENTRIES` | AUDIT | PASS | Registry contains 56 probed sources (target >=30) |
-| 18 | `VERIFIED_PRIMARY_COUNT` | AUDIT | PASS | Found 24 VERIFIED_PRIMARY sources |
-| 19 | `REQUIRED_CATEGORY_COVERAGE` | AUDIT | PASS | Covered 12/12 required categories: ['Alternate Markets & Futures', 'Coaching & Decision Tendencies', 'Defensive Matchups & Scheme', 'Game Script & Situational', 'Injury & Player Availability', 'Kalshi Prediction Markets', 'Live & In-Game Strategies', 'Market Movement & CLV Strategies', 'Offensive Line & Protection', 'Player Prop Strategies', 'Public Strategy Research & Replication', 'Quarterback & Passing Efficiency', 'Referee & Officiating Tendencies', 'Rest & Scheduling Asymmetries', 'Statistical & Machine Learning Models', 'Team Totals & Efficiency', 'Weather & Stadium Conditions'] |
-| 20 | `STRATEGY_VERSIONING` | AUDIT | PASS | Found 23 strategies with parent_version (versioning) |
-| 21 | `MASTERSITE_RESEARCH` | AUDIT | PASS | MasterSite projects mapped: 12 sources covering CEO, Weather, Insider, TheLeap, NFL/NBA Injury, FDA, NCAA/NFL/MLB Scoreboard, Sports Pred, Gold, PinePilot |
-| 22 | `PUBLISHED_README_BLOCK` | PUBLICATION | PASS | 25 published metrics and badges match the data files |
-| 23 | `PUBLISHED_REPORT_BLOCK` | PUBLICATION | PASS | 25 report metrics match the data files |
-| 24 | `PUBLISHED_VERIFICATION_BLOCK` | PUBLICATION | PASS | evidence ledger matches the snapshot hashes and audit results |
-| 25 | `PUBLISHED_SITE_CLAIMS` | PUBLICATION | PASS | 10 embedded site claims match the data files |
+| 5 | `LEDGER_POPULATED` | AUDIT | PASS | Found 31,252 bets in ledger (2020-2026 recent slice) |
+| 6 | `BET_ID_UNIQUENESS` | AUDIT | PASS | Found 0 duplicate bet IDs out of 31,252 |
+| 7 | `LEDGER_PRICE_IMPLIED_PROB_CONSISTENCY` | AUDIT | PASS | Re-derived implied probability from the recorded price on 31,252 bets; 0 disagree with the price they quote |
+| 8 | `LEDGER_EDGE_CONSISTENCY` | AUDIT | PASS | Re-derived edge = model_prob - implied_prob on 31,252 bets; 0 inconsistent |
+| 9 | `PNL_CALCULATION_ACCURACY` | AUDIT | PASS | Audited 31,252 bets; 0 math errors |
+| 10 | `LEDGER_REQUIRED_FIELDS` | AUDIT | PASS | Checked required fields; 0 missing field instances |
+| 11 | `MARKET_TYPES_VALID` | AUDIT | PASS | Checked market types; 0 invalid market types |
+| 12 | `LEDGER_HASH_CHAIN` | AUDIT | PASS | Re-derived 31,252 links; head a3e2f057edcf83b5… |
+| 13 | `LEDGER_MANIFEST_RECONCILIATION` | AUDIT | PASS | window 2020–2026: 31,252 of 96,968 bets published (65,716 in earlier seasons, totals stated separately) |
+| 14 | `LEADERBOARD_INTEGRITY` | AUDIT | PASS | Leaderboard contains 70 verified strategies (target >=40) |
+| 15 | `CATEGORY_COVERAGE` | AUDIT | PASS | Leaderboard covers 17 categories: Alternate Markets & Futures, Coaching & Decision Tendencies, Defensive Matchups & Scheme, Game Script & Situational, Injury & Player Availability... |
+| 16 | `LEADERBOARD_LEDGER_RECONCILIATION` | AUDIT | PASS | All 70 rows re-derived from 31,252 published records (published window PnL -215,434.73; all-time totals remain on the rows) |
+| 17 | `KALSHI_TRADES_INTEGRITY` | AUDIT | PASS | Found 1,432 simulated Kalshi trades with bid/ask/spread/liquidity/slippage |
+| 18 | `KALSHI_FIELDS_COMPLETE` | AUDIT | PASS | Kalshi trade fields complete: True |
+| 19 | `REGISTRY_ENTRIES` | AUDIT | PASS | Registry contains 56 probed sources (target >=30) |
+| 20 | `VERIFIED_PRIMARY_COUNT` | AUDIT | PASS | Found 24 VERIFIED_PRIMARY sources |
+| 21 | `REQUIRED_CATEGORY_COVERAGE` | AUDIT | PASS | Covered 12/12 required categories: ['Alternate Markets & Futures', 'Coaching & Decision Tendencies', 'Defensive Matchups & Scheme', 'Game Script & Situational', 'Injury & Player Availability', 'Kalshi Prediction Markets', 'Live & In-Game Strategies', 'Market Movement & CLV Strategies', 'Offensive Line & Protection', 'Player Prop Strategies', 'Public Strategy Research & Replication', 'Quarterback & Passing Efficiency', 'Referee & Officiating Tendencies', 'Rest & Scheduling Asymmetries', 'Statistical & Machine Learning Models', 'Team Totals & Efficiency', 'Weather & Stadium Conditions'] |
+| 22 | `STRATEGY_VERSIONING` | AUDIT | PASS | Found 23 strategies with parent_version (versioning) |
+| 23 | `MASTERSITE_RESEARCH` | AUDIT | PASS | MasterSite projects mapped: 12 sources covering CEO, Weather, Insider, TheLeap, NFL/NBA Injury, FDA, NCAA/NFL/MLB Scoreboard, Sports Pred, Gold, PinePilot |
+| 24 | `PUBLISHED_README_BLOCK` | PUBLICATION | PASS | 25 published metrics and badges match the data files |
+| 25 | `PUBLISHED_REPORT_BLOCK` | PUBLICATION | PASS | 25 report metrics match the data files |
+| 26 | `PUBLISHED_VERIFICATION_BLOCK` | PUBLICATION | PASS | evidence ledger matches the snapshot hashes and audit results |
+| 27 | `PUBLISHED_SITE_CLAIMS` | PUBLICATION | PASS | 38 embedded site claims match the data files |
+| 28 | `EMPIRICAL_STUDIES_REPRODUCIBLE` | PUBLICATION | PASS | 5 studies re-derived from the snapshot; 6 dossier claims labelled DECLARED_ASSUMPTION; 1 disputed by the snapshot (EXP_004_TNF_SHORT_REST_TRAVEL) |
+| 29 | `RISK_ANALYTICS_RECONCILIATION` | PUBLICATION | PASS | 70 persona risk rows and the calibration curve re-derive from 31,252 published records (Brier 0.26077, ECE 9.592 pts, 44 seeded bootstraps) |
+| 30 | `PUBLISHED_PROSE_CLAIMS` | PUBLICATION | PASS | 6 generated narrative blocks current across 10 documents; no unbound numeric claim found |
+| 31 | `SITE_VIEW_CONTRACTS` | PUBLICATION | PASS | 13 nav tabs map onto 13 view sections; 38 data-bound claim spans registered and present; 55 JS render targets resolved |
 
 ### Ledger chain
 
 - Hash rule: `sha256(previous_hash + compact_json(record_without_chain_fields))`
-- State: 31,490 published of 97,435 simulated records; head `fbeb92319707c423…`; published window 2020–2026
+- State: 31,252 published of 96,968 simulated records; head `a3e2f057edcf83b5…`; published window 2020–2026
 - The published chain starts mid-history: yes (earlier seasons are aggregated, not published).
-- Published-state totals: 31,490 bets / -225,415.79 USD inside the window, 97,435 bets / -552,392.18 USD all time.
+- Published-state totals: 31,252 bets / -215,434.73 USD inside the window, 96,968 bets / -524,818.91 USD all time.
 
 <!-- VERIFICATION_END -->
 

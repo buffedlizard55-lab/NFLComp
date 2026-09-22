@@ -742,6 +742,45 @@ class NFLBacktestRunner:
                 "status": "FORWARD_TEST"
             }
         ]
+        self._classify_research_evidence()
+
+    def _classify_research_evidence(self):
+        """Label every dossier claim as snapshot-derived or declared.
+
+        A dossier number that reads like a measurement but cannot be recomputed
+        from the bundled snapshot must not be published as one. Each experiment
+        gets an ``evidence_class`` from :mod:`engine.empirical_studies`, and where
+        a snapshot study overlaps the claim, both numbers are attached with the
+        disagreement recorded rather than the dossier value being quietly kept
+        or quietly overwritten.
+        """
+        from engine.empirical_studies import (  # local import: study module imports nothing from here
+            RE_DERIVED_BY,
+            UNSUPPORTED_EXPERIMENTS,
+            build_report,
+        )
+
+        loader_dir = getattr(self.loader, "data_dir", "data/source")
+        data_dir = os.path.dirname(os.path.abspath(loader_dir)) or "data"
+        report = build_report(data_dir, declared_experiments=self.research_experiments)
+        cross_checks = report.get("cross_checks", [])
+
+        for experiment in self.research_experiments:
+            experiment_id = experiment.get("experiment_id")
+            if experiment_id in RE_DERIVED_BY:
+                experiment["evidence_class"] = "DERIVED_DATA"
+                experiment["re_derived_by"] = RE_DERIVED_BY[experiment_id]
+            else:
+                experiment["evidence_class"] = "DECLARED_ASSUMPTION"
+                experiment["snapshot_support"] = UNSUPPORTED_EXPERIMENTS.get(
+                    experiment_id, "no snapshot study covers this claim")
+            related = [check for check in cross_checks if check.get("experiment_id") == experiment_id]
+            if related:
+                experiment["snapshot_cross_check"] = related
+                if any(not check.get("agrees") for check in related):
+                    experiment["claim_status"] = "DISPUTED_BY_SNAPSHOT"
+                else:
+                    experiment["claim_status"] = "CORROBORATED_BY_SNAPSHOT"
 
     def export_all_data(self, out_dir="data"):
         """Exports all processed data to clean JSON files."""

@@ -27,19 +27,31 @@
     "name": "LEDGER_POPULATED",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 31,490 bets in ledger (2020-2026 recent slice)"
+    "details": "Found 31,252 bets in ledger (2020-2026 recent slice)"
   },
   {
     "name": "BET_ID_UNIQUENESS",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 0 duplicate bet IDs out of 31,490"
+    "details": "Found 0 duplicate bet IDs out of 31,252"
+  },
+  {
+    "name": "LEDGER_PRICE_IMPLIED_PROB_CONSISTENCY",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Re-derived implied probability from the recorded price on 31,252 bets; 0 disagree with the price they quote"
+  },
+  {
+    "name": "LEDGER_EDGE_CONSISTENCY",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Re-derived edge = model_prob - implied_prob on 31,252 bets; 0 inconsistent"
   },
   {
     "name": "PNL_CALCULATION_ACCURACY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Audited 31,490 bets; 0 math errors"
+    "details": "Audited 31,252 bets; 0 math errors"
   },
   {
     "name": "LEDGER_REQUIRED_FIELDS",
@@ -57,13 +69,13 @@
     "name": "LEDGER_HASH_CHAIN",
     "category": "AUDIT",
     "passed": true,
-    "details": "Re-derived 31,490 links; head fbeb92319707c423\u2026"
+    "details": "Re-derived 31,252 links; head a3e2f057edcf83b5\u2026"
   },
   {
     "name": "LEDGER_MANIFEST_RECONCILIATION",
     "category": "AUDIT",
     "passed": true,
-    "details": "window 2020\u20132026: 31,490 of 97,435 bets published (65,945 in earlier seasons, totals stated separately)"
+    "details": "window 2020\u20132026: 31,252 of 96,968 bets published (65,716 in earlier seasons, totals stated separately)"
   },
   {
     "name": "LEADERBOARD_INTEGRITY",
@@ -81,7 +93,7 @@
     "name": "LEADERBOARD_LEDGER_RECONCILIATION",
     "category": "AUDIT",
     "passed": true,
-    "details": "All 70 rows re-derived from 31,490 published records (published window PnL -225,415.79; all-time totals remain on the rows)"
+    "details": "All 70 rows re-derived from 31,252 published records (published window PnL -215,434.73; all-time totals remain on the rows)"
   },
   {
     "name": "KALSHI_TRADES_INTEGRITY",
@@ -147,6 +159,30 @@
     "name": "PUBLISHED_SITE_CLAIMS",
     "category": "PUBLICATION",
     "passed": true,
-    "details": "10 embedded site claims match the data files"
+    "details": "38 embedded site claims match the data files"
+  },
+  {
+    "name": "EMPIRICAL_STUDIES_REPRODUCIBLE",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "5 studies re-derived from the snapshot; 6 dossier claims labelled DECLARED_ASSUMPTION; 1 disputed by the snapshot (EXP_004_TNF_SHORT_REST_TRAVEL)"
+  },
+  {
+    "name": "RISK_ANALYTICS_RECONCILIATION",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "70 persona risk rows and the calibration curve re-derive from 31,252 published records (Brier 0.26077, ECE 9.592 pts, 44 seeded bootstraps)"
+  },
+  {
+    "name": "PUBLISHED_PROSE_CLAIMS",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "6 generated narrative blocks current across 10 documents; no unbound numeric claim found"
+  },
+  {
+    "name": "SITE_VIEW_CONTRACTS",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "13 nav tabs map onto 13 view sections; 38 data-bound claim spans registered and present; 55 JS render targets resolved"
   }
 ]

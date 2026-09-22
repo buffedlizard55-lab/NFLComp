@@ -1,6 +1,6 @@
 [
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115095",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114628",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -32,7 +32,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115096",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114629",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -64,7 +64,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115097",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114630",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -82,8 +82,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.576,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0522,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0305,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -98,7 +98,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115098",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114631",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -116,8 +116,8 @@
     "current_price": "+100",
     "required_price": "+100",
     "model_prob": 0.6582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1344,
+    "implied_prob": 0.5,
+    "estimated_edge": 0.1582,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -131,7 +131,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115099",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114632",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -149,8 +149,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0365,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -169,7 +169,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-115100",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-114633",
     "strategy_id": "STRAT_INJURY_WAR_009_v2",
     "username": "@InjuryEdge_WAR_v2",
     "strategy_name": "Injury WAR with Practice Participation Weights (2.2 pt diff)",
@@ -187,8 +187,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0365,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -207,7 +207,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-115101",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-114634",
     "strategy_id": "STRAT_INJURY_WAR_009_v3",
     "username": "@InjuryEdge_WAR_v3",
     "strategy_name": "High-Impact Injury Cluster Advantage (>= 3.0 pts)",
@@ -225,8 +225,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0365,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -245,7 +245,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115102",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114635",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -277,7 +277,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115103",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114636",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -309,7 +309,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115104",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114637",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -341,7 +341,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115105",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114638",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -373,7 +373,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-115106",
+    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-114639",
     "strategy_id": "STRAT_TEAM_TOTAL_038_v1",
     "username": "@TeamTotal_Eff_v1",
     "strategy_name": "Team Total Efficiency Differential",
@@ -405,7 +405,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-115107",
+    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-114640",
     "strategy_id": "STRAT_HOME_DOG_042_v1",
     "username": "@HomeDog_Academic_v1",
     "strategy_name": "Home Underdog Academic (53.5% ATS 2002-2011)",
@@ -423,8 +423,8 @@
     "current_price": "+100",
     "required_price": "+100",
     "model_prob": 0.535,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0112,
+    "implied_prob": 0.5,
+    "estimated_edge": 0.035,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -436,7 +436,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115108",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114641",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -467,7 +467,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115109",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114642",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -499,7 +499,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115110",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114643",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -517,8 +517,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -533,7 +533,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115111",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114644",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -551,8 +551,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -567,7 +567,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115112",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114645",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -585,8 +585,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -601,7 +601,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115113",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114646",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -619,8 +619,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -635,7 +635,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115114",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114647",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -653,8 +653,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -669,7 +669,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115115",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114648",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -687,8 +687,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -702,7 +702,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115116",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114649",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -720,8 +720,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -735,7 +735,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115117",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114650",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -753,8 +753,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -768,7 +768,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115118",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114651",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -786,8 +786,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.5645,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0407,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0523,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -800,7 +800,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115119",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114652",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -818,8 +818,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.5707,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0469,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0585,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -834,7 +834,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115120",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114653",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -852,8 +852,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.753,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.2292,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.2408,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -867,7 +867,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115121",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114654",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -885,7 +885,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -897,7 +897,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115122",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114655",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -929,7 +929,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115123",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114656",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -947,7 +947,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -959,7 +959,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115124",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114657",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -977,8 +977,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0678,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -990,7 +990,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115125",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114658",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -1008,8 +1008,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0678,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1021,7 +1021,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115126",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114659",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -1039,8 +1039,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.5814,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0576,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0692,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1052,7 +1052,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115127",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114660",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -1083,7 +1083,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115128",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114661",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -1113,7 +1113,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115129",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114662",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -1145,7 +1145,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115130",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114663",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -1163,8 +1163,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1179,7 +1179,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115131",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114664",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -1197,8 +1197,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1213,7 +1213,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115132",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114665",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -1231,8 +1231,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1247,7 +1247,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115133",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114666",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -1265,8 +1265,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1281,7 +1281,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115134",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114667",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -1299,8 +1299,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1315,7 +1315,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115135",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114668",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -1333,8 +1333,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1348,7 +1348,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115136",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114669",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -1366,8 +1366,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1381,7 +1381,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115137",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114670",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -1399,8 +1399,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0467,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1414,7 +1414,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115138",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114671",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -1432,8 +1432,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.664,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1402,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.1357,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1448,7 +1448,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-115139",
+    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-114672",
     "strategy_id": "STRAT_GB_TOTALS_019_v1",
     "username": "@GB_Totals_Boost_v1",
     "strategy_name": "Gradient Boosting Totals Model",
@@ -1466,8 +1466,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.576,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0522,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0638,
     "stake": 130.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1485,7 +1485,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115140",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114673",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -1503,8 +1503,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.5621,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0383,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0338,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1518,7 +1518,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115141",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114674",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -1536,7 +1536,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.5644,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.1144,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -1548,7 +1548,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115142",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114675",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -1566,8 +1566,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0537,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1587,7 +1587,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-115143",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-114676",
     "strategy_id": "STRAT_INJURY_WAR_009_v2",
     "username": "@InjuryEdge_WAR_v2",
     "strategy_name": "Injury WAR with Practice Participation Weights (2.2 pt diff)",
@@ -1605,8 +1605,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0537,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1626,7 +1626,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-115144",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-114677",
     "strategy_id": "STRAT_INJURY_WAR_009_v3",
     "username": "@InjuryEdge_WAR_v3",
     "strategy_name": "High-Impact Injury Cluster Advantage (>= 3.0 pts)",
@@ -1644,8 +1644,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0537,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1665,7 +1665,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115145",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114678",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -1697,7 +1697,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115146",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114679",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -1729,7 +1729,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115147",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114680",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -1761,7 +1761,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115148",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114681",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -1793,7 +1793,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115149",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114682",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -1811,7 +1811,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.5644,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.1144,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -1823,7 +1823,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115150",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114683",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -1841,8 +1841,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0517,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1854,7 +1854,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115151",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114684",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -1872,8 +1872,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0517,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -1885,7 +1885,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115152",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114685",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -1916,7 +1916,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115153",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114686",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -1946,7 +1946,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115154",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114687",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -1978,7 +1978,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115155",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114688",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -1996,8 +1996,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2012,7 +2012,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115156",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114689",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -2030,8 +2030,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2046,7 +2046,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115157",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114690",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -2064,8 +2064,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2080,7 +2080,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115158",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114691",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -2098,8 +2098,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2114,7 +2114,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115159",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114692",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -2132,8 +2132,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2148,7 +2148,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115160",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114693",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -2166,8 +2166,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2181,7 +2181,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115161",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114694",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -2199,8 +2199,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2214,7 +2214,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115162",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114695",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -2232,8 +2232,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.07,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2247,7 +2247,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115163",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114696",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -2279,7 +2279,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115164",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114697",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -2311,7 +2311,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115165",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114698",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -2329,8 +2329,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.5508,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.027,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.0459,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2345,7 +2345,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115166",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114699",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -2363,8 +2363,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.719,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1952,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.2141,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2378,7 +2378,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115167",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114700",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -2396,7 +2396,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -2408,7 +2408,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115168",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114701",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -2426,8 +2426,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.554,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0302,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0127,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2447,7 +2447,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115169",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114702",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -2479,7 +2479,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115170",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114703",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -2511,7 +2511,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115171",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114704",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -2543,7 +2543,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115172",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114705",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -2575,7 +2575,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-115173",
+    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-114706",
     "strategy_id": "STRAT_TEAM_TOTAL_038_v1",
     "username": "@TeamTotal_Eff_v1",
     "strategy_name": "Team Total Efficiency Differential",
@@ -2607,7 +2607,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115174",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114707",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -2625,7 +2625,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -2637,7 +2637,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115175",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114708",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -2655,8 +2655,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.5676,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0438,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.0626,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2668,7 +2668,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115176",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114709",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -2686,8 +2686,8 @@
     "current_price": "-102",
     "required_price": "-102",
     "model_prob": 0.5676,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0438,
+    "implied_prob": 0.505,
+    "estimated_edge": 0.0626,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2699,7 +2699,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115177",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114710",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -2730,7 +2730,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115178",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114711",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -2761,7 +2761,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115179",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114712",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -2791,7 +2791,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115180",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114713",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -2823,7 +2823,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115181",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114714",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -2841,8 +2841,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2857,7 +2857,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115182",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114715",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -2875,8 +2875,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2891,7 +2891,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115183",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114716",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -2909,8 +2909,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2925,7 +2925,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115184",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114717",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -2943,8 +2943,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2959,7 +2959,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115185",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114718",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -2977,8 +2977,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -2993,7 +2993,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115186",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114719",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -3011,8 +3011,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3026,7 +3026,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115187",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114720",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -3044,8 +3044,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0337,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3059,40 +3059,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115188",
-    "strategy_id": "STRAT_ELO_QUANT_006_v3",
-    "username": "@Elo_Model_Quant_v3",
-    "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_PIT_NE",
-    "gameday": "2026-09-20",
-    "gametime": "13:00",
-    "matchup": "PIT @ NE",
-    "away_team": "PIT",
-    "home_team": "NE",
-    "market": "SPREAD",
-    "selection": "NE -4.5",
-    "side": "home",
-    "current_price": "-118",
-    "required_price": "-118",
-    "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "elo_proj_margin": 3.99,
-      "market_spread": -4.5,
-      "spread_edge_pts": 8.49,
-      "elo_home": 1577.2,
-      "elo_away": 1525.4
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115189",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114721",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -3110,8 +3077,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5981,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0743,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0632,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3124,7 +3091,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115190",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114722",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -3142,8 +3109,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5981,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0743,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0632,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3156,7 +3123,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115191",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114723",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -3174,8 +3141,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.6747,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1509,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.1334,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3190,7 +3157,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115192",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114724",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -3208,8 +3175,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.7469,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.2231,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.2056,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3223,7 +3190,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115193",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114725",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -3241,7 +3208,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -3253,7 +3220,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115194",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114726",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -3271,8 +3238,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.5752,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0514,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0339,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3292,7 +3259,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-115195",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-114727",
     "strategy_id": "STRAT_INJURY_WAR_009_v2",
     "username": "@InjuryEdge_WAR_v2",
     "strategy_name": "Injury WAR with Practice Participation Weights (2.2 pt diff)",
@@ -3310,8 +3277,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.5752,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0514,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0339,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3331,7 +3298,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-115196",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-114728",
     "strategy_id": "STRAT_INJURY_WAR_009_v3",
     "username": "@InjuryEdge_WAR_v3",
     "strategy_name": "High-Impact Injury Cluster Advantage (>= 3.0 pts)",
@@ -3349,8 +3316,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.5752,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0514,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0339,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3370,7 +3337,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115197",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114729",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -3402,7 +3369,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115198",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114730",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -3434,7 +3401,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115199",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114731",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -3466,7 +3433,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115200",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114732",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -3498,7 +3465,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115201",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114733",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -3516,7 +3483,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -3528,7 +3495,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_REST_TNF_005_v3-115202",
+    "bet_id": "BET-2026-W02-STRAT_REST_TNF_005_v3-114734",
     "strategy_id": "STRAT_REST_TNF_005_v3",
     "username": "@RestDifferential_ATS_v3",
     "strategy_name": "Four-Day Rest Differential ATS",
@@ -3560,7 +3527,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115203",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114735",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -3578,8 +3545,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0387,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3591,7 +3558,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115204",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114736",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -3609,8 +3576,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0387,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3622,7 +3589,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115205",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114737",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -3640,8 +3607,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5923,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0685,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0574,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3653,7 +3620,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115206",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114738",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -3684,7 +3651,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115207",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114739",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -3716,7 +3683,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115208",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114740",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -3734,8 +3701,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.5538,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.03,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0346,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3750,7 +3717,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115209",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114741",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -3768,8 +3735,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.5577,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0339,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0385,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3784,7 +3751,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115210",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114742",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -3802,8 +3769,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.5538,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.03,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0346,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3818,7 +3785,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115211",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114743",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -3836,8 +3803,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.5538,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.03,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0346,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3852,7 +3819,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115212",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114744",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -3870,8 +3837,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3885,7 +3852,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115213",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114745",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -3903,8 +3870,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3918,7 +3885,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115214",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114746",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -3936,8 +3903,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -3951,7 +3918,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115215",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114747",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -3983,7 +3950,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115216",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114748",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -4001,8 +3968,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.5587,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0349,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0304,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4017,7 +3984,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115217",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114749",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -4035,8 +4002,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.65,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1262,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.1308,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4050,7 +4017,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115218",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114750",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -4068,7 +4035,7 @@
     "current_price": "-130",
     "required_price": "-130",
     "model_prob": 0.5789,
-    "implied_prob": 0.45,
+    "implied_prob": 0.5652,
     "estimated_edge": 0.1289,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -4080,7 +4047,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115219",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114751",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -4112,7 +4079,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115220",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114752",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -4144,7 +4111,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115221",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114753",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -4176,7 +4143,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115222",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114754",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -4208,7 +4175,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115223",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114755",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -4226,7 +4193,7 @@
     "current_price": "-130",
     "required_price": "-130",
     "model_prob": 0.5789,
-    "implied_prob": 0.45,
+    "implied_prob": 0.5652,
     "estimated_edge": 0.1289,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -4238,7 +4205,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115224",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114756",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -4256,8 +4223,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.562,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0382,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0428,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4269,7 +4236,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115225",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114757",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -4287,8 +4254,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.562,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0382,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0428,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4300,7 +4267,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-115226",
+    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-114758",
     "strategy_id": "STRAT_HOME_DOG_042_v1",
     "username": "@HomeDog_Academic_v1",
     "strategy_name": "Home Underdog Academic (53.5% ATS 2002-2011)",
@@ -4318,8 +4285,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.535,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0112,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0067,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4331,7 +4298,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115227",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114759",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -4362,7 +4329,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115228",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114760",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -4393,7 +4360,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115229",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114761",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -4425,7 +4392,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115230",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114762",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -4443,8 +4410,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4459,7 +4426,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115231",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114763",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -4477,8 +4444,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4493,7 +4460,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115232",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114764",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -4511,8 +4478,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4527,7 +4494,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115233",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114765",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -4545,8 +4512,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4561,7 +4528,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115234",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114766",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -4579,8 +4546,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4595,7 +4562,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115235",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114767",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -4613,8 +4580,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4628,7 +4595,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115236",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114768",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -4646,8 +4613,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4661,7 +4628,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115237",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114769",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -4679,8 +4646,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0628,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4694,7 +4661,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115238",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114770",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -4712,8 +4679,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.5984,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0746,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0862,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4728,7 +4695,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115239",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114771",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -4746,8 +4713,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.7078,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.184,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.1956,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4761,7 +4728,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115240",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114772",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -4779,7 +4746,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -4791,7 +4758,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_OL_CONT_024_v1-115241",
+    "bet_id": "BET-2026-W02-STRAT_OL_CONT_024_v1-114773",
     "strategy_id": "STRAT_OL_CONT_024_v1",
     "username": "@OL_Continuity_Edge_v1",
     "strategy_name": "Offensive Line Continuity Advantage",
@@ -4809,8 +4776,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.5665,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0426,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0543,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4823,7 +4790,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115242",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114774",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -4855,7 +4822,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115243",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114775",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -4887,7 +4854,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115244",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114776",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -4919,7 +4886,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115245",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114777",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -4937,7 +4904,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -4949,7 +4916,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115246",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114778",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -4967,8 +4934,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0678,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -4980,7 +4947,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115247",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114779",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -4998,8 +4965,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0678,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5011,7 +4978,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115248",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114780",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -5042,7 +5009,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115249",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114781",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -5074,7 +5041,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115250",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114782",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -5092,8 +5059,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5108,7 +5075,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115251",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114783",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -5126,8 +5093,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5142,7 +5109,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115252",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114784",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -5160,8 +5127,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5176,7 +5143,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115253",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114785",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -5194,8 +5161,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5210,7 +5177,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115254",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114786",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -5228,8 +5195,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5244,7 +5211,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115255",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114787",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -5262,8 +5229,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5277,7 +5244,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115256",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114788",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -5295,8 +5262,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5310,7 +5277,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115257",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114789",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -5328,8 +5295,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5343,7 +5310,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115258",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114790",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -5361,8 +5328,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.6586,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1348,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.1464,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5377,7 +5344,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-115259",
+    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-114791",
     "strategy_id": "STRAT_GB_TOTALS_019_v1",
     "username": "@GB_Totals_Boost_v1",
     "strategy_name": "Gradient Boosting Totals Model",
@@ -5395,8 +5362,8 @@
     "current_price": "-112",
     "required_price": "-112",
     "model_prob": 0.5895,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0657,
+    "implied_prob": 0.5283,
+    "estimated_edge": 0.0612,
     "stake": 130.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5414,7 +5381,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115260",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114792",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -5432,8 +5399,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.7441,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.2203,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.2092,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5447,7 +5414,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115261",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114793",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -5465,7 +5432,7 @@
     "current_price": "-130",
     "required_price": "-130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.5652,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -5477,7 +5444,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115262",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114794",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -5495,8 +5462,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0698,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5516,7 +5483,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-115263",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v2-114795",
     "strategy_id": "STRAT_INJURY_WAR_009_v2",
     "username": "@InjuryEdge_WAR_v2",
     "strategy_name": "Injury WAR with Practice Participation Weights (2.2 pt diff)",
@@ -5534,8 +5501,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0698,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5555,7 +5522,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-115264",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v3-114796",
     "strategy_id": "STRAT_INJURY_WAR_009_v3",
     "username": "@InjuryEdge_WAR_v3",
     "strategy_name": "High-Impact Injury Cluster Advantage (>= 3.0 pts)",
@@ -5573,8 +5540,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.582,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0582,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0698,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5594,7 +5561,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115265",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114797",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -5626,7 +5593,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115266",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114798",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -5658,7 +5625,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115267",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114799",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -5690,7 +5657,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_COACH_4TH_013_v1-115268",
+    "bet_id": "BET-2026-W02-STRAT_COACH_4TH_013_v1-114800",
     "strategy_id": "STRAT_COACH_4TH_013_v1",
     "username": "@AnalyticsCoach_ATS_v1",
     "strategy_name": "Analytical 4th-Down Aggressive Coach ATS Advantage",
@@ -5708,8 +5675,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.545,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0212,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0101,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5722,7 +5689,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115269",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114801",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -5754,7 +5721,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115270",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114802",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -5772,7 +5739,7 @@
     "current_price": "-130",
     "required_price": "-130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.5652,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -5784,7 +5751,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115271",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114803",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -5802,8 +5769,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0451,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5815,7 +5782,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115272",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114804",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -5833,8 +5800,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0451,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5846,7 +5813,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-115273",
+    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-114805",
     "strategy_id": "STRAT_HOME_DOG_042_v1",
     "username": "@HomeDog_Academic_v1",
     "strategy_name": "Home Underdog Academic (53.5% ATS 2002-2011)",
@@ -5864,8 +5831,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.535,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0112,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0228,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5877,7 +5844,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115274",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114806",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -5908,7 +5875,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115275",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114807",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -5940,7 +5907,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115276",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114808",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -5958,8 +5925,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5663,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0425,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0314,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -5973,7 +5940,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115277",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114809",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -5991,8 +5958,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5663,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0425,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0314,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6006,40 +5973,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115278",
-    "strategy_id": "STRAT_ELO_QUANT_006_v3",
-    "username": "@Elo_Model_Quant_v3",
-    "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_JAX_DEN",
-    "gameday": "2026-09-20",
-    "gametime": "16:05",
-    "matchup": "JAX @ DEN",
-    "away_team": "JAX",
-    "home_team": "DEN",
-    "market": "SPREAD",
-    "selection": "DEN -2.5",
-    "side": "home",
-    "current_price": "-115",
-    "required_price": "-115",
-    "model_prob": 0.5663,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0425,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "elo_proj_margin": 1.92,
-      "market_spread": -2.5,
-      "spread_edge_pts": 4.42,
-      "elo_home": 1573.8,
-      "elo_away": 1573.8
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115279",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114810",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -6057,8 +5991,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.6019,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0781,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0897,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6072,7 +6006,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115280",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114811",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -6090,7 +6024,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.553,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.103,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -6102,7 +6036,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115281",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114812",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -6120,8 +6054,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.5574,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0336,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0452,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6141,7 +6075,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115282",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114813",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -6173,7 +6107,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115283",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114814",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -6205,7 +6139,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115284",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114815",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -6237,7 +6171,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115285",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114816",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -6269,7 +6203,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-115286",
+    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-114817",
     "strategy_id": "STRAT_TEAM_TOTAL_038_v1",
     "username": "@TeamTotal_Eff_v1",
     "strategy_name": "Team Total Efficiency Differential",
@@ -6301,7 +6235,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115287",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114818",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -6319,7 +6253,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.553,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.103,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -6331,7 +6265,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115288",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114819",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -6362,7 +6296,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115289",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114820",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -6392,7 +6326,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115290",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114821",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -6424,7 +6358,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115291",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114822",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -6442,8 +6376,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0255,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6458,7 +6392,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115292",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114823",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -6476,8 +6410,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0255,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6492,41 +6426,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115293",
-    "strategy_id": "STRAT_QB_EPA_001_v3",
-    "username": "@QBEPA_Alpha_v3",
-    "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_LV_LAC",
-    "gameday": "2026-09-20",
-    "gametime": "16:05",
-    "matchup": "LV @ LAC",
-    "away_team": "LV",
-    "home_team": "LAC",
-    "market": "SPREAD",
-    "selection": "LAC -6.5",
-    "side": "home",
-    "current_price": "-122",
-    "required_price": "-122",
-    "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "model_margin": 2.09,
-      "market_spread": -6.5,
-      "spread_edge_pts": 8.59,
-      "home_pass_epa": -0.06,
-      "away_pass_epa": -0.078,
-      "version": "v3"
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115294",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114824",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -6544,8 +6444,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0255,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6560,7 +6460,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115295",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114825",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -6578,8 +6478,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0255,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6594,7 +6494,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_DOME_PACE_004_v2-115296",
+    "bet_id": "BET-2026-W02-STRAT_DOME_PACE_004_v2-114826",
     "strategy_id": "STRAT_DOME_PACE_004_v2",
     "username": "@DomePace_Over_v2",
     "strategy_name": "Dome High Pass Rate Over Expected (PROE)",
@@ -6626,7 +6526,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115297",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114827",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -6644,8 +6544,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0255,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6659,7 +6559,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115298",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114828",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -6677,8 +6577,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0255,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6692,40 +6592,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115299",
-    "strategy_id": "STRAT_ELO_QUANT_006_v3",
-    "username": "@Elo_Model_Quant_v3",
-    "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_LV_LAC",
-    "gameday": "2026-09-20",
-    "gametime": "16:05",
-    "matchup": "LV @ LAC",
-    "away_team": "LV",
-    "home_team": "LAC",
-    "market": "SPREAD",
-    "selection": "LAC -6.5",
-    "side": "home",
-    "current_price": "-122",
-    "required_price": "-122",
-    "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "elo_proj_margin": 6.51,
-      "market_spread": -6.5,
-      "spread_edge_pts": 13.01,
-      "elo_home": 1490.5,
-      "elo_away": 1375.9
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115300",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114829",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -6757,7 +6624,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115301",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114830",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -6789,7 +6656,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115302",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114831",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -6807,8 +6674,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.5964,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0726,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0469,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6823,7 +6690,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115303",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114832",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -6841,8 +6708,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.7397,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.2159,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.1902,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6856,7 +6723,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115304",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114833",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -6874,7 +6741,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -6886,7 +6753,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115305",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114834",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -6904,8 +6771,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.557,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0332,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0075,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6925,7 +6792,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_COACH_4TH_013_v1-115306",
+    "bet_id": "BET-2026-W02-STRAT_COACH_4TH_013_v1-114835",
     "strategy_id": "STRAT_COACH_4TH_013_v1",
     "username": "@AnalyticsCoach_ATS_v1",
     "strategy_name": "Analytical 4th-Down Aggressive Coach ATS Advantage",
@@ -6943,8 +6810,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.545,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0212,
+    "implied_prob": 0.5495,
+    "estimated_edge": -0.0045,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -6957,7 +6824,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115307",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114836",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -6989,7 +6856,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-115308",
+    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-114837",
     "strategy_id": "STRAT_TEAM_TOTAL_038_v1",
     "username": "@TeamTotal_Eff_v1",
     "strategy_name": "Team Total Efficiency Differential",
@@ -7021,7 +6888,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115309",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114838",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -7039,7 +6906,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -7051,7 +6918,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115310",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114839",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -7069,8 +6936,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0305,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7082,7 +6949,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115311",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114840",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -7100,8 +6967,8 @@
     "current_price": "-122",
     "required_price": "-122",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5495,
+    "estimated_edge": 0.0305,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7113,7 +6980,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115312",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114841",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -7144,7 +7011,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115313",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114842",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -7175,7 +7042,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115314",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114843",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -7207,41 +7074,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115315",
-    "strategy_id": "STRAT_QB_EPA_001_v1",
-    "username": "@QBEPA_Alpha_v1",
-    "strategy_name": "QB Rolling EPA Differential (Basic)",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_SEA_ARI",
-    "gameday": "2026-09-20",
-    "gametime": "16:25",
-    "matchup": "SEA @ ARI",
-    "away_team": "SEA",
-    "home_team": "ARI",
-    "market": "SPREAD",
-    "selection": "SEA -3.5",
-    "side": "away",
-    "current_price": "-120",
-    "required_price": "-120",
-    "model_prob": 0.5544,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0306,
-    "stake": 100.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "model_margin": 0.48,
-      "market_spread": 3.5,
-      "spread_edge_pts": 3.02,
-      "home_pass_epa": -0.002,
-      "away_pass_epa": 0.081,
-      "version": "v1"
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115316",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114844",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -7259,8 +7092,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7275,75 +7108,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115317",
-    "strategy_id": "STRAT_QB_PRESSURE_014_v1",
-    "username": "@QB_PressureResponse_v1",
-    "strategy_name": "QB Pressure Response & Sack Avoidance",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_SEA_ARI",
-    "gameday": "2026-09-20",
-    "gametime": "16:25",
-    "matchup": "SEA @ ARI",
-    "away_team": "SEA",
-    "home_team": "ARI",
-    "market": "SPREAD",
-    "selection": "SEA -3.5",
-    "side": "away",
-    "current_price": "-120",
-    "required_price": "-120",
-    "model_prob": 0.5544,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0306,
-    "stake": 110.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "model_margin": 0.48,
-      "market_spread": 3.5,
-      "spread_edge_pts": 3.02,
-      "home_pass_epa": -0.002,
-      "away_pass_epa": 0.081,
-      "version": "v1"
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115318",
-    "strategy_id": "STRAT_QB_CPOE_015_v1",
-    "username": "@QB_CPOE_DeepBall_v1",
-    "strategy_name": "QB CPOE & Deep Passing Efficiency",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_SEA_ARI",
-    "gameday": "2026-09-20",
-    "gametime": "16:25",
-    "matchup": "SEA @ ARI",
-    "away_team": "SEA",
-    "home_team": "ARI",
-    "market": "SPREAD",
-    "selection": "SEA -3.5",
-    "side": "away",
-    "current_price": "-120",
-    "required_price": "-120",
-    "model_prob": 0.5544,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0306,
-    "stake": 100.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "model_margin": 0.48,
-      "market_spread": 3.5,
-      "spread_edge_pts": 3.02,
-      "home_pass_epa": -0.002,
-      "away_pass_epa": 0.081,
-      "version": "v1"
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115319",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114845",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -7361,8 +7126,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7376,7 +7141,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115320",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114846",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -7394,8 +7159,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7409,40 +7174,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115321",
-    "strategy_id": "STRAT_ELO_QUANT_006_v3",
-    "username": "@Elo_Model_Quant_v3",
-    "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_SEA_ARI",
-    "gameday": "2026-09-20",
-    "gametime": "16:25",
-    "matchup": "SEA @ ARI",
-    "away_team": "SEA",
-    "home_team": "ARI",
-    "market": "SPREAD",
-    "selection": "SEA -3.5",
-    "side": "away",
-    "current_price": "-120",
-    "required_price": "-120",
-    "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "elo_proj_margin": -8.39,
-      "market_spread": 3.5,
-      "spread_edge_pts": 11.89,
-      "elo_home": 1424.1,
-      "elo_away": 1681.7
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115322",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114847",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -7460,8 +7192,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.6509,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1271,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.1387,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7474,7 +7206,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115323",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114848",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -7492,8 +7224,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.6509,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1271,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.1387,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7506,7 +7238,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115324",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114849",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -7524,8 +7256,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.7946,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.2708,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.2491,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7539,7 +7271,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115325",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114850",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -7557,7 +7289,7 @@
     "current_price": "-130",
     "required_price": "-130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.5652,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -7569,7 +7301,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-115326",
+    "bet_id": "BET-2026-W02-STRAT_INJURY_WAR_009_v1-114851",
     "strategy_id": "STRAT_INJURY_WAR_009_v1",
     "username": "@InjuryEdge_WAR_v1",
     "strategy_name": "Positional Injury WAR Delta (1.5 pt diff)",
@@ -7587,8 +7319,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.5586,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0348,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0131,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7608,7 +7340,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115327",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114852",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -7640,7 +7372,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115328",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114853",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -7672,7 +7404,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115329",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114854",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -7704,7 +7436,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115330",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114855",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -7736,7 +7468,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-115331",
+    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-114856",
     "strategy_id": "STRAT_TEAM_TOTAL_038_v1",
     "username": "@TeamTotal_Eff_v1",
     "strategy_name": "Team Total Efficiency Differential",
@@ -7768,7 +7500,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115332",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114857",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -7786,7 +7518,7 @@
     "current_price": "-130",
     "required_price": "-130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.5652,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -7798,7 +7530,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_REST_TNF_005_v3-115333",
+    "bet_id": "BET-2026-W02-STRAT_REST_TNF_005_v3-114858",
     "strategy_id": "STRAT_REST_TNF_005_v3",
     "username": "@RestDifferential_ATS_v3",
     "strategy_name": "Four-Day Rest Differential ATS",
@@ -7830,7 +7562,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115334",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114859",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -7848,8 +7580,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.5628,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.039,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0174,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7861,7 +7593,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115335",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114860",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -7879,8 +7611,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.5628,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.039,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0174,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7892,7 +7624,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-115336",
+    "bet_id": "BET-2026-W02-STRAT_HOME_DOG_042_v1-114861",
     "strategy_id": "STRAT_HOME_DOG_042_v1",
     "username": "@HomeDog_Academic_v1",
     "strategy_name": "Home Underdog Academic (53.5% ATS 2002-2011)",
@@ -7910,8 +7642,8 @@
     "current_price": "+100",
     "required_price": "+100",
     "model_prob": 0.535,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0112,
+    "implied_prob": 0.5,
+    "estimated_edge": 0.035,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7923,7 +7655,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115337",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114862",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -7941,8 +7673,8 @@
     "current_price": "-105",
     "required_price": "-105",
     "model_prob": 0.605,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0812,
+    "implied_prob": 0.5122,
+    "estimated_edge": 0.0928,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -7954,7 +7686,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115338",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114863",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -7985,7 +7717,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115339",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114864",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -8017,7 +7749,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115340",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114865",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -8035,8 +7767,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8051,7 +7783,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115341",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114866",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -8069,8 +7801,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8085,41 +7817,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115342",
-    "strategy_id": "STRAT_QB_EPA_001_v3",
-    "username": "@QBEPA_Alpha_v3",
-    "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_WAS_DAL",
-    "gameday": "2026-09-20",
-    "gametime": "16:25",
-    "matchup": "WAS @ DAL",
-    "away_team": "WAS",
-    "home_team": "DAL",
-    "market": "SPREAD",
-    "selection": "DAL -3.5",
-    "side": "home",
-    "current_price": "-120",
-    "required_price": "-120",
-    "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "model_margin": 2.43,
-      "market_spread": -3.5,
-      "spread_edge_pts": 5.93,
-      "home_pass_epa": 0.05,
-      "away_pass_epa": -0.001,
-      "version": "v3"
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115343",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114867",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -8137,8 +7835,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8153,7 +7851,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115344",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114868",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -8171,8 +7869,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0295,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8187,7 +7885,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115345",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114869",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -8205,8 +7903,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.5725,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0487,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0271,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8220,7 +7918,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115346",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114870",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -8238,8 +7936,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.5725,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0487,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0271,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8253,40 +7951,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115347",
-    "strategy_id": "STRAT_ELO_QUANT_006_v3",
-    "username": "@Elo_Model_Quant_v3",
-    "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
-    "season": 2026,
-    "week": 2,
-    "game_id": "2026_02_WAS_DAL",
-    "gameday": "2026-09-20",
-    "gametime": "16:25",
-    "matchup": "WAS @ DAL",
-    "away_team": "WAS",
-    "home_team": "DAL",
-    "market": "SPREAD",
-    "selection": "DAL -3.5",
-    "side": "home",
-    "current_price": "-120",
-    "required_price": "-120",
-    "model_prob": 0.5725,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0487,
-    "stake": 150.0,
-    "decision_time": "2026-09-20T14:00:00Z",
-    "supporting_data": {
-      "elo_proj_margin": 1.34,
-      "market_spread": -3.5,
-      "spread_edge_pts": 4.84,
-      "elo_home": 1434.0,
-      "elo_away": 1448.6
-    },
-    "market_source": "NFL Official Market Consensus / WSGT",
-    "status": "READY_TO_BET"
-  },
-  {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115348",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114871",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -8304,8 +7969,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.6466,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1228,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.1011,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8318,7 +7983,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115349",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114872",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -8336,8 +8001,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.6466,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1228,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.1011,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8350,7 +8015,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115350",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114873",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -8368,8 +8033,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.5805,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0567,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0351,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8384,7 +8049,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-115351",
+    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-114874",
     "strategy_id": "STRAT_GB_TOTALS_019_v1",
     "username": "@GB_Totals_Boost_v1",
     "strategy_name": "Gradient Boosting Totals Model",
@@ -8402,8 +8067,8 @@
     "current_price": "+100",
     "required_price": "+100",
     "model_prob": 0.6,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0762,
+    "implied_prob": 0.5,
+    "estimated_edge": 0.1,
     "stake": 130.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8421,7 +8086,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115352",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114875",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -8439,8 +8104,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.6254,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1016,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.08,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8454,7 +8119,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115353",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114876",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -8472,7 +8137,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.558,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.108,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -8484,7 +8149,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115354",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114877",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -8516,7 +8181,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115355",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114878",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -8548,7 +8213,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115356",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114879",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -8580,7 +8245,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-115357",
+    "bet_id": "BET-2026-W02-STRAT_TEAM_TOTAL_038_v1-114880",
     "strategy_id": "STRAT_TEAM_TOTAL_038_v1",
     "username": "@TeamTotal_Eff_v1",
     "strategy_name": "Team Total Efficiency Differential",
@@ -8612,7 +8277,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115358",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114881",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -8630,7 +8295,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.558,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.108,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -8642,7 +8307,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_DIV_TOTAL_040_v1-115359",
+    "bet_id": "BET-2026-W02-STRAT_DIV_TOTAL_040_v1-114882",
     "strategy_id": "STRAT_DIV_TOTAL_040_v1",
     "username": "@DivisionHighTotal_Under_v1",
     "strategy_name": "Divisional High-Total Under",
@@ -8674,7 +8339,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115360",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114883",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -8692,8 +8357,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0345,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8705,7 +8370,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115361",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114884",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -8723,8 +8388,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0345,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8736,7 +8401,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115362",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114885",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -8754,8 +8419,8 @@
     "current_price": "-120",
     "required_price": "-120",
     "model_prob": 0.605,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0812,
+    "implied_prob": 0.5455,
+    "estimated_edge": 0.0595,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -8767,7 +8432,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115363",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114886",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -8798,7 +8463,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115364",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114887",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -8828,7 +8493,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115365",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114888",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -8860,7 +8525,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115366",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114889",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -8894,7 +8559,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115367",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114890",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -8928,7 +8593,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115368",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114891",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -8962,7 +8627,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115369",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114892",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -8996,7 +8661,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115370",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114893",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -9030,7 +8695,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_REST_TNF_005_v1-115371",
+    "bet_id": "BET-2026-W02-STRAT_REST_TNF_005_v1-114894",
     "strategy_id": "STRAT_REST_TNF_005_v1",
     "username": "@RestAdvantage_Edge_v1",
     "strategy_name": "Home Rest Advantage (>= +3 Days)",
@@ -9062,7 +8727,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TRAVEL_TZ_016_v1-115372",
+    "bet_id": "BET-2026-W02-STRAT_TRAVEL_TZ_016_v1-114895",
     "strategy_id": "STRAT_TRAVEL_TZ_016_v1",
     "username": "@TravelFatigue_Fade_v1",
     "strategy_name": "Cross-Country Travel & Time Zone Fatigue",
@@ -9093,7 +8758,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115373",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114896",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -9126,7 +8791,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115374",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114897",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -9159,7 +8824,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115375",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114898",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -9192,7 +8857,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115376",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114899",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -9210,8 +8875,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5865,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0627,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0516,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9224,7 +8889,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115377",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114900",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -9242,8 +8907,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5865,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0627,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0516,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9256,7 +8921,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115378",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114901",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -9290,7 +8955,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115379",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114902",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -9323,7 +8988,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115380",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114903",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -9341,7 +9006,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -9353,7 +9018,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_COACH_4TH_013_v1-115381",
+    "bet_id": "BET-2026-W02-STRAT_COACH_4TH_013_v1-114904",
     "strategy_id": "STRAT_COACH_4TH_013_v1",
     "username": "@AnalyticsCoach_ATS_v1",
     "strategy_name": "Analytical 4th-Down Aggressive Coach ATS Advantage",
@@ -9385,7 +9050,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115382",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114905",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -9417,7 +9082,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115383",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114906",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -9435,7 +9100,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -9447,7 +9112,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115384",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114907",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -9478,7 +9143,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115385",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114908",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -9509,7 +9174,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115386",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114909",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -9527,8 +9192,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5941,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0703,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0592,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9540,7 +9205,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115387",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114910",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -9571,7 +9236,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115388",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114911",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -9603,7 +9268,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115389",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114912",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -9621,8 +9286,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9637,7 +9302,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115390",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114913",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -9655,8 +9320,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9671,7 +9336,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115391",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114914",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -9689,8 +9354,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9705,7 +9370,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115392",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114915",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -9723,8 +9388,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9739,7 +9404,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115393",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114916",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -9757,8 +9422,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9773,7 +9438,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115394",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114917",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -9791,8 +9456,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9806,7 +9471,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115395",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114918",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -9824,8 +9489,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9839,7 +9504,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115396",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114919",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -9857,8 +9522,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0558,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9872,7 +9537,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115397",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114920",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -9890,8 +9555,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.5898,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.066,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0705,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9906,7 +9571,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-115398",
+    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-114921",
     "strategy_id": "STRAT_GB_TOTALS_019_v1",
     "username": "@GB_Totals_Boost_v1",
     "strategy_name": "Gradient Boosting Totals Model",
@@ -9924,8 +9589,8 @@
     "current_price": "-118",
     "required_price": "-118",
     "model_prob": 0.576,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0522,
+    "implied_prob": 0.5413,
+    "estimated_edge": 0.0347,
     "stake": 130.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9943,7 +9608,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115399",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114922",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -9961,8 +9626,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.7475,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.2237,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.2283,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -9976,7 +9641,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115400",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114923",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -9994,7 +9659,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -10006,7 +9671,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-115401",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v1-114924",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v1",
     "username": "@Kalshi_SpreadBracket_v1",
     "strategy_name": "Kalshi Spread YES/NO Binary Contract Arbitrage (5c Edge)",
@@ -10038,7 +9703,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-115402",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_SPREAD_010_v2-114925",
     "strategy_id": "STRAT_KALSHI_SPREAD_010_v2",
     "username": "@Kalshi_SpreadBracket_v2",
     "strategy_name": "Kalshi Spread Bracket High-Edge (8c Edge)",
@@ -10070,7 +9735,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-115403",
+    "bet_id": "BET-2026-W02-STRAT_KALSHI_TOTAL_029_v1-114926",
     "strategy_id": "STRAT_KALSHI_TOTAL_029_v1",
     "username": "@Kalshi_TotalBracket_v1",
     "strategy_name": "Kalshi Totals YES/NO Bracket Arbitrage",
@@ -10102,7 +9767,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115404",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114927",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -10134,7 +9799,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115405",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114928",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -10152,7 +9817,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -10164,7 +9829,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115406",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114929",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -10182,8 +9847,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0608,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10195,7 +9860,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115407",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114930",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -10213,8 +9878,8 @@
     "current_price": "-108",
     "required_price": "-108",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5192,
+    "estimated_edge": 0.0608,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10226,7 +9891,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115408",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114931",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -10257,7 +9922,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115409",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114932",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -10287,7 +9952,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115410",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114933",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",
@@ -10319,7 +9984,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-115411",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v1-114934",
     "strategy_id": "STRAT_QB_EPA_001_v1",
     "username": "@QBEPA_Alpha_v1",
     "strategy_name": "QB Rolling EPA Differential (Basic)",
@@ -10337,8 +10002,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10353,7 +10018,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-115412",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v2-114935",
     "strategy_id": "STRAT_QB_EPA_001_v2",
     "username": "@QBEPA_Alpha_v2",
     "strategy_name": "QB Net EPA Adjusted for Opponent Defense",
@@ -10371,8 +10036,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10387,7 +10052,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-115413",
+    "bet_id": "BET-2026-W02-STRAT_QB_EPA_001_v3-114936",
     "strategy_id": "STRAT_QB_EPA_001_v3",
     "username": "@QBEPA_Alpha_v3",
     "strategy_name": "QB EPA Composite with CPOE & Pressure Filter",
@@ -10405,8 +10070,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10421,7 +10086,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-115414",
+    "bet_id": "BET-2026-W02-STRAT_QB_PRESSURE_014_v1-114937",
     "strategy_id": "STRAT_QB_PRESSURE_014_v1",
     "username": "@QB_PressureResponse_v1",
     "strategy_name": "QB Pressure Response & Sack Avoidance",
@@ -10439,8 +10104,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10455,7 +10120,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-115415",
+    "bet_id": "BET-2026-W02-STRAT_QB_CPOE_015_v1-114938",
     "strategy_id": "STRAT_QB_CPOE_015_v1",
     "username": "@QB_CPOE_DeepBall_v1",
     "strategy_name": "QB CPOE & Deep Passing Efficiency",
@@ -10473,8 +10138,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10489,7 +10154,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_DOME_PACE_004_v2-115416",
+    "bet_id": "BET-2026-W02-STRAT_DOME_PACE_004_v2-114939",
     "strategy_id": "STRAT_DOME_PACE_004_v2",
     "username": "@DomePace_Over_v2",
     "strategy_name": "Dome High Pass Rate Over Expected (PROE)",
@@ -10521,7 +10186,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_TRAVEL_TZ_016_v1-115417",
+    "bet_id": "BET-2026-W02-STRAT_TRAVEL_TZ_016_v1-114940",
     "strategy_id": "STRAT_TRAVEL_TZ_016_v1",
     "username": "@TravelFatigue_Fade_v1",
     "strategy_name": "Cross-Country Travel & Time Zone Fatigue",
@@ -10539,8 +10204,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.5705,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0467,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0356,
     "stake": 110.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10552,7 +10217,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-115418",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v1-114941",
     "strategy_id": "STRAT_ELO_QUANT_006_v1",
     "username": "@Elo_Model_Quant_v1",
     "strategy_name": "Calibrated Elo Spread Edge (>= 2.0 pts)",
@@ -10570,8 +10235,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 100.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10585,7 +10250,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-115419",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v2-114942",
     "strategy_id": "STRAT_ELO_QUANT_006_v2",
     "username": "@Elo_Model_Quant_v2",
     "strategy_name": "Elo Spread Edge (>= 2.8 pts Threshold)",
@@ -10603,8 +10268,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10618,7 +10283,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-115420",
+    "bet_id": "BET-2026-W02-STRAT_ELO_QUANT_006_v3-114943",
     "strategy_id": "STRAT_ELO_QUANT_006_v3",
     "username": "@Elo_Model_Quant_v3",
     "strategy_name": "Elo High-Discrepancy Kelly Sizer (>= 3.5 pts)",
@@ -10636,8 +10301,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.575,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0512,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0401,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10651,7 +10316,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-115421",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v1-114944",
     "strategy_id": "STRAT_POISSON_007_v1",
     "username": "@Poisson_ScoringGrid_v1",
     "strategy_name": "Bivariate Poisson Totals Arbitrage (2.5 pt diff)",
@@ -10683,7 +10348,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-115422",
+    "bet_id": "BET-2026-W02-STRAT_POISSON_007_v2-114945",
     "strategy_id": "STRAT_POISSON_007_v2",
     "username": "@Poisson_ScoringGrid_v2",
     "strategy_name": "Bivariate Poisson Totals (3.5 pt Filter)",
@@ -10715,7 +10380,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-115423",
+    "bet_id": "BET-2026-W02-STRAT_LOGISTIC_018_v1-114946",
     "strategy_id": "STRAT_LOGISTIC_018_v1",
     "username": "@Logistic_Spread_v1",
     "strategy_name": "Logistic Regression Spread Model (5 Features)",
@@ -10733,8 +10398,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.6009,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0771,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.066,
     "stake": 120.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10749,7 +10414,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-115424",
+    "bet_id": "BET-2026-W02-STRAT_GB_TOTALS_019_v1-114947",
     "strategy_id": "STRAT_GB_TOTALS_019_v1",
     "username": "@GB_Totals_Boost_v1",
     "strategy_name": "Gradient Boosting Totals Model",
@@ -10786,7 +10451,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-115425",
+    "bet_id": "BET-2026-W02-STRAT_ENSEMBLE_021_v1-114948",
     "strategy_id": "STRAT_ENSEMBLE_021_v1",
     "username": "@Ensemble_5Model_v1",
     "strategy_name": "5-Model Ensemble (Elo+Poisson+Logistic+Bayes+MC)",
@@ -10804,8 +10469,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.717,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.1932,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.1821,
     "stake": 140.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10819,7 +10484,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-115426",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v1-114949",
     "strategy_id": "STRAT_ALT_SPREAD_023_v1",
     "username": "@AltSpread_Value_v1",
     "strategy_name": "Alternate Spread Value Extractor",
@@ -10837,7 +10502,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 80.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -10849,7 +10514,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-115427",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v1-114950",
     "strategy_id": "STRAT_LIVE_WP_036_v1",
     "username": "@Live_WP_Value_v1",
     "strategy_name": "Live Win Probability Market Inefficiency",
@@ -10881,7 +10546,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-115428",
+    "bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-114951",
     "strategy_id": "STRAT_ALT_SPREAD_023_v2",
     "username": "@AltSpread_Value_v2",
     "strategy_name": "Alternate Spread Value with Poisson (2nd Version)",
@@ -10899,7 +10564,7 @@
     "current_price": "+130",
     "required_price": "+130",
     "model_prob": 0.6,
-    "implied_prob": 0.45,
+    "implied_prob": 0.4348,
     "estimated_edge": 0.15,
     "stake": 96.0,
     "decision_time": "2026-09-20T14:00:00Z",
@@ -10911,7 +10576,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-115429",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v1-114952",
     "strategy_id": "STRAT_EPA_DIFF_041_v1",
     "username": "@EPA_Diff_Edge_v1",
     "strategy_name": "EPA Differential Spread Edge (2.7:1 Ratio)",
@@ -10929,8 +10594,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0451,
     "stake": 125.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10942,7 +10607,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-115430",
+    "bet_id": "BET-2026-W02-STRAT_EPA_DIFF_041_v2-114953",
     "strategy_id": "STRAT_EPA_DIFF_041_v2",
     "username": "@EPA_Diff_Edge_v2",
     "strategy_name": "EPA Differential High Conviction (>=3.5 pts)",
@@ -10960,8 +10625,8 @@
     "current_price": "-115",
     "required_price": "-115",
     "model_prob": 0.58,
-    "implied_prob": 0.5238,
-    "estimated_edge": 0.0562,
+    "implied_prob": 0.5349,
+    "estimated_edge": 0.0451,
     "stake": 150.0,
     "decision_time": "2026-09-20T14:00:00Z",
     "supporting_data": {
@@ -10973,7 +10638,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-115431",
+    "bet_id": "BET-2026-W02-STRAT_NB_TOTALS_043_v1-114954",
     "strategy_id": "STRAT_NB_TOTALS_043_v1",
     "username": "@NegBin_Totals_v1",
     "strategy_name": "Negative Binomial Totals (Overdispersion)",
@@ -11004,7 +10669,7 @@
     "status": "READY_TO_BET"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-115432",
+    "bet_id": "BET-2026-W02-STRAT_1H_SPREAD_045_v1-114955",
     "strategy_id": "STRAT_1H_SPREAD_045_v1",
     "username": "@FirstHalf_Spread_v1",
     "strategy_name": "First Half Spread Value (55% of Full)",
@@ -11035,7 +10700,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-115433",
+    "bet_id": "BET-2026-W02-STRAT_QUARTER_046_v1-114956",
     "strategy_id": "STRAT_QUARTER_046_v1",
     "username": "@QuarterMarket_Q1_v1",
     "strategy_name": "Quarter Market Q1 Over Value",
@@ -11065,7 +10730,7 @@
     "status": "WATCHING"
   },
   {
-    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-115434",
+    "bet_id": "BET-2026-W02-STRAT_LIVE_WP_036_v2-114957",
     "strategy_id": "STRAT_LIVE_WP_036_v2",
     "username": "@Live_WP_Value_v2",
     "strategy_name": "Live WP v2 with Down/Distance & Timeouts",

@@ -18,9 +18,10 @@ prices recorded in the source snapshots.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import sys
 import time
-import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +36,8 @@ from engine.forward_testing import ForwardTestingEngine  # noqa: E402
 from engine.execution_engine import PaperExecutionEngine  # noqa: E402
 from engine.autonomous_research import AutonomousResearchEngine  # noqa: E402
 from engine.public_strategy_research import PublicStrategyResearchEngine  # noqa: E402
+from engine.empirical_studies import build_report as build_empirical_studies  # noqa: E402
+from engine.risk_analytics import build_report as build_risk_analytics  # noqa: E402
 
 
 def _audit(data_dir: str, write: bool) -> tuple[dict, list[str]]:
@@ -133,35 +136,90 @@ def main(argv=None) -> int:
         ps_report = ps_engine.export_report(f"{args.data_dir}/public_strategy_research.json")
         print(f"  Public strategies: {ps_report['total_researched']} researched")
 
+        print("Re-deriving research claims from the snapshot...")
+        study_report = build_empirical_studies(args.data_dir)
+        Path(args.data_dir, "empirical_studies.json").write_text(
+            json.dumps(study_report, indent=2) + "\n", encoding="utf-8")
+        print(f"  Empirical studies: {study_report['study_count']} studies, "
+              f"{len(study_report['declared_assumptions'])} classified dossier claims, "
+              f"{len(study_report['cross_check_disagreements'])} cross-check disagreement(s)")
+
+        print("Building risk, calibration and capital-sufficiency analytics...")
+        risk_report = build_risk_analytics(args.data_dir)
+        Path(args.data_dir, "risk_analytics.json").write_text(
+            json.dumps(risk_report, indent=2) + "\n", encoding="utf-8")
+        risk_summary = risk_report["summary"]
+        print(f"  Risk analytics: {risk_summary['personas']} personas "
+              f"({risk_summary['personas_meeting_reporting_floor']} above the reporting floor), "
+              f"Brier {risk_summary['portfolio_brier_score']}, "
+              f"ECE {risk_summary['expected_calibration_error_pct_points']} pts")
+
         print(f"Simulation and export finished in {time.time() - started:.1f}s")
 
-    # Pass 1: produce the audit results the docs quote.
-    first_result, first_failed = _audit(args.data_dir, write=True)
-    print(f"Audit pass 1: {first_result['passed_checks']}/{first_result['total_checks']} checks passed")
+    # Audit and documentation are mutually dependent: the docs quote the audit
+    # results, and the audit re-derives the numbers the docs publish (including
+    # the count of passing checks).  Rendering once leaves the published
+    # `audit_checks.json` describing the pre-render state, so iterate to a
+    # fixpoint: publish the results, re-render, verify, and repeat until a round
+    # changes no document and the read-only audit passes.  Only then is the
+    # written check file the one the published docs actually quote.
+    doc_paths = [
+        ROOT / "README.md",
+        ROOT / "docs" / "FINAL_REPORT.md",
+        ROOT / "docs" / "VERIFICATION.md",
+        ROOT / "index.html",
+    ]
 
-    doc_status = 0
-    if not args.skip_docs:
+    def _docs_digest() -> str:
+        digest = hashlib.sha256()
+        for path in doc_paths:
+            if path.exists():
+                digest.update(path.read_bytes())
+        return digest.hexdigest()
+
+    def _render_docs() -> int:
+        if args.skip_docs:
+            return 0
         from scripts.render_claims import main as render_claims  # noqa: E402
         from scripts.render_readme import main as render_readme  # noqa: E402
         from scripts.render_verification import main as render_verification  # noqa: E402
 
-        doc_status = render_readme(["--data-dir", args.data_dir])
+        status = render_readme(["--data-dir", args.data_dir])
         report_path = ROOT / "docs" / "FINAL_REPORT.md"
         if report_path.exists() and report_path.read_text(encoding="utf-8").find("<!-- CURRENT_STATE_START -->") >= 0:
-            doc_status |= render_readme(["--data-dir", args.data_dir, "--readme", str(report_path)])
-        doc_status |= render_verification(["--data-dir", args.data_dir])
-        doc_status |= render_claims(["--data-dir", args.data_dir])
+            # The report quotes the summary and the key results; the full roster
+            # and registry tables live in the README.
+            status |= render_readme(["--data-dir", args.data_dir, "--readme", str(report_path),
+                                     "--blocks", "status,executive_summary,findings"])
+        status |= render_verification(["--data-dir", args.data_dir])
+        status |= render_claims(["--data-dir", args.data_dir])
+        return status
+
+    max_rounds = 5
+    failures: list[str] = []
+    for round_number in range(1, max_rounds + 1):
+        # Publish this round's audit results, then bring the docs up to date.
+        published, _ = _audit(args.data_dir, write=True)
+        before = _docs_digest()
+        doc_status = _render_docs()
+        docs_changed = _docs_digest() != before
+
+        # Verify without rewriting: are the published bytes now self-consistent?
+        result, failed = _audit(args.data_dir, write=False)
+        print(f"Audit round {round_number}: {result['passed_checks']}/{result['total_checks']} checks passed"
+              f"{' (documents rewritten)' if docs_changed else ''}")
         if doc_status:
             print("a generated documentation block could not be rendered")
+        if not failed and not docs_changed and not doc_status:
+            failures = []
+            break
+        failures = list(failed)
+        if doc_status:
+            failures.append("GENERATED_DOCS")
+        if round_number == max_rounds:
+            print(f"audit and generated docs did not converge after {max_rounds} rounds")
 
-    # Pass 2: verify the artifacts exactly as they now stand, without rewriting.
-    result, failed = _audit(args.data_dir, write=False)
-    print(f"Audit pass 2 (published artifacts): {result['passed_checks']}/{result['total_checks']} checks passed")
-
-    failures = list(failed)
-    if doc_status:
-        failures.append("GENERATED_DOCS")
-    for name in failures:
+    for name in dict.fromkeys(failures):
         print(f"  FAILED: {name}")
     return 1 if failures else 0
 

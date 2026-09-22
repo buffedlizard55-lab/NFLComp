@@ -1,0 +1,405 @@
+{
+  "generated_by": "engine/empirical_studies.py::build_report",
+  "classification": "DERIVED_DATA",
+  "source": {
+    "path": "data/source/games.csv",
+    "games_loaded": 7239,
+    "regular_season_games": 7239,
+    "seasons": "1999-2026"
+  },
+  "policy": {
+    "stake": "$100 flat per qualifying observation",
+    "interval": "Wilson score interval, 95%, two-sided",
+    "cross_check_tolerance_pct_points": 1.0,
+    "warning": "A cover rate or Under rate inside its confidence interval is not evidence of a durable edge; these studies measure the snapshot, they do not forecast it."
+  },
+  "studies": [
+    {
+      "id": "STUDY_WIND_TOTALS",
+      "title": "Recorded wind speed against closing totals, outdoor games",
+      "hypothesis": "Outdoor totals fall as recorded wind rises, so Under tickets win more often above ~15 mph.",
+      "method": "Bucket regular-season outdoor games by the snapshot's game-time wind column; compare the final combined score against the closing total_line; flat $100 Under at the recorded under price (conventional -110 when the snapshot records no price).",
+      "snapshot_columns": [
+        "season",
+        "week",
+        "roof",
+        "wind",
+        "total_line",
+        "under_odds",
+        "home_score",
+        "away_score"
+      ],
+      "seasons": "1999-2026",
+      "market": "TOTAL",
+      "findings": {
+        "wind_0_to_10_mph": {
+          "wind_mph_range": "0-10",
+          "sample": 3605,
+          "mean_total_points": 43.93,
+          "under_count": 1738,
+          "push_count": 60,
+          "decided_count": 3545,
+          "under_rate_pct": 49.03,
+          "under_rate_ci95_pct": [
+            47.38,
+            50.67
+          ],
+          "flat_stake_pnl_usd": -17726.92,
+          "games_with_recorded_under_price": 2529
+        },
+        "wind_11_to_14_mph": {
+          "wind_mph_range": "11-14",
+          "sample": 736,
+          "mean_total_points": 42.46,
+          "under_count": 397,
+          "push_count": 11,
+          "decided_count": 725,
+          "under_rate_pct": 54.76,
+          "under_rate_ci95_pct": [
+            51.12,
+            58.35
+          ],
+          "flat_stake_pnl_usd": 4406.59,
+          "games_with_recorded_under_price": 532
+        },
+        "wind_15_to_19_mph": {
+          "wind_mph_range": "15-19",
+          "sample": 470,
+          "mean_total_points": 40.64,
+          "under_count": 262,
+          "push_count": 5,
+          "decided_count": 465,
+          "under_rate_pct": 56.34,
+          "under_rate_ci95_pct": [
+            51.8,
+            60.78
+          ],
+          "flat_stake_pnl_usd": 4210.72,
+          "games_with_recorded_under_price": 322
+        },
+        "wind_20_plus_mph": {
+          "wind_mph_range": "20+",
+          "sample": 179,
+          "mean_total_points": 39.84,
+          "under_count": 99,
+          "push_count": 2,
+          "decided_count": 177,
+          "under_rate_pct": 55.93,
+          "under_rate_ci95_pct": [
+            48.57,
+            63.04
+          ],
+          "flat_stake_pnl_usd": 1406.11,
+          "games_with_recorded_under_price": 108
+        }
+      },
+      "limitations": "The wind column is a single game-time observation, not a stadium sensor series; the price column is missing for most seasons before 2020, so the flat-stake figure is only partly observed and the under rate is the primary measurement.",
+      "headline": "56.34% Under rate (95% CI 51.8-60.78%) on 470 outdoor games at 15-19 mph, mean total 40.64",
+      "strategy_id": "STRAT_WEATHER_WIND_003_v1",
+      "strategy_ids": [
+        "STRAT_WEATHER_WIND_003_v1",
+        "STRAT_WEATHER_WIND_003_v2",
+        "STRAT_WEATHER_WIND_003_v3"
+      ],
+      "evidence_class": "DERIVED_DATA"
+    },
+    {
+      "id": "STUDY_TNF_REST_TRAVEL",
+      "title": "Thursday games: home cover rate by travelling team rest",
+      "hypothesis": "A Thursday home team beats the spread more often when the visitor had four days or fewer.",
+      "method": "Regular-season Thursday games; settle the home side against the closing spread_line; compare visitors on <=4 days rest with the rest of the Thursday sample.",
+      "snapshot_columns": [
+        "weekday",
+        "away_rest",
+        "home_rest",
+        "spread_line",
+        "home_spread_odds",
+        "home_score",
+        "away_score"
+      ],
+      "seasons": "1999-2026",
+      "market": "SPREAD",
+      "findings": {
+        "all_thursday_games": {
+          "sample": 331,
+          "home_cover_count": 164,
+          "push_count": 11,
+          "decided_count": 320,
+          "home_cover_rate_pct": 51.25,
+          "home_cover_ci95_pct": [
+            45.79,
+            56.68
+          ],
+          "flat_stake_pnl_usd": -168.56
+        },
+        "visitor_on_four_days_or_less": {
+          "sample": 290,
+          "home_cover_count": 145,
+          "push_count": 7,
+          "decided_count": 283,
+          "home_cover_rate_pct": 51.24,
+          "home_cover_ci95_pct": [
+            45.44,
+            57.0
+          ],
+          "flat_stake_pnl_usd": -175.3
+        },
+        "visitor_rested_five_days_or_more": {
+          "sample": 41,
+          "home_cover_count": 19,
+          "push_count": 4,
+          "decided_count": 37,
+          "home_cover_rate_pct": 51.35,
+          "home_cover_ci95_pct": [
+            35.89,
+            66.55
+          ],
+          "flat_stake_pnl_usd": 6.74
+        }
+      },
+      "limitations": "Travel distance is not in the snapshot, so the cross-country split the research dossier claims cannot be re-derived here; the reported split is rest only.",
+      "headline": "51.24% home cover rate on 290 Thursday games with a visitor on four days or fewer",
+      "strategy_id": "STRAT_REST_TNF_005_v1",
+      "strategy_ids": [
+        "STRAT_REST_TNF_005_v1",
+        "STRAT_REST_TNF_005_v2",
+        "STRAT_REST_TNF_005_v3",
+        "STRAT_TNF_UNDER_012_v1"
+      ],
+      "evidence_class": "DERIVED_DATA"
+    },
+    {
+      "id": "STUDY_DIVISIONAL_HIGH_TOTAL_UNDER",
+      "title": "Divisional games with a total of 47 or higher, Under rate",
+      "hypothesis": "The strategy lab's declared rule - divisional games priced at 47.0 or above go Under more often than the price implies.",
+      "method": "Compare the final combined score with the closing total_line across all regular-season divisional games at 47.0 or above, using the whole snapshot rather than only the lab windows.",
+      "snapshot_columns": [
+        "div_game",
+        "total_line",
+        "under_odds",
+        "home_score",
+        "away_score"
+      ],
+      "seasons": "1999-2026",
+      "market": "TOTAL",
+      "findings": {
+        "all_divisional_high_totals": {
+          "sample": 631,
+          "under_count": 335,
+          "push_count": 8,
+          "under_rate_pct": 53.77,
+          "under_rate_ci95_pct": [
+            49.85,
+            57.65
+          ],
+          "flat_stake_pnl_usd": 2874.04
+        }
+      },
+      "limitations": "This is the full-history rate, not the strategy lab's walk-forward holdout; a rate inside the confidence interval is not a claim of profitability.",
+      "headline": "53.77% Under rate across 631 divisional games at 47.0 or above, flat-stake +2,874.04 USD",
+      "strategy_id": "STRAT_DIV_TOTAL_040_v1",
+      "strategy_ids": [
+        "STRAT_DIV_TOTAL_040_v1"
+      ],
+      "evidence_class": "DERIVED_DATA"
+    },
+    {
+      "id": "STUDY_HOME_UNDERDOG_ATS",
+      "title": "Home underdogs covering the closing spread",
+      "hypothesis": "Home underdogs cover the spread at a rate above the price implied by the market.",
+      "method": "Home spread conventions in the snapshot are home handicaps, so a positive spread_line is a home underdog; settle home_team - away_team + spread_line and report cover rates for the published 2002-2011 window and for the whole snapshot.",
+      "snapshot_columns": [
+        "spread_line",
+        "home_spread_odds",
+        "home_score",
+        "away_score",
+        "season"
+      ],
+      "seasons": "1999-2026",
+      "market": "SPREAD",
+      "findings": {
+        "published_2002_2011_window": {
+          "sample": 840,
+          "cover_count": 401,
+          "push_count": 24,
+          "decided_count": 816,
+          "cover_rate_pct": 49.14,
+          "cover_rate_ci95_pct": [
+            45.72,
+            52.57
+          ],
+          "flat_stake_pnl_usd": -3982.32
+        },
+        "whole_snapshot": {
+          "sample": 2460,
+          "cover_count": 1199,
+          "push_count": 65,
+          "decided_count": 2395,
+          "cover_rate_pct": 50.06,
+          "cover_rate_ci95_pct": [
+            48.06,
+            52.06
+          ],
+          "flat_stake_pnl_usd": -7472.74
+        }
+      },
+      "limitations": "Cover rate alone is not a tradable edge: the price paid for the spread is not part of the claim, and flat-stake PnL here assumes a conventional -110 where the snapshot has no price.",
+      "headline": "49.14% cover rate in 2002-2011 (840 games) and 50.06% across the whole snapshot (2460 games)",
+      "strategy_id": "STRAT_HOME_DOG_042_v1",
+      "strategy_ids": [
+        "STRAT_HOME_DOG_042_v1"
+      ],
+      "evidence_class": "DERIVED_DATA"
+    },
+    {
+      "id": "STUDY_DOME_TOTALS",
+      "title": "Closing totals in climate-controlled venues against outdoor venues",
+      "hypothesis": "Climate-controlled venues score closer to the closing total than outdoor venues.",
+      "method": "Group regular-season games by the snapshot's roof column and compare realised combined points with the closing total_line.",
+      "snapshot_columns": [
+        "roof",
+        "temp",
+        "wind",
+        "total_line",
+        "home_score",
+        "away_score"
+      ],
+      "seasons": "1999-2026",
+      "market": "TOTAL",
+      "findings": {
+        "climate_controlled": {
+          "sample": 1741,
+          "under_count": 839,
+          "push_count": 21,
+          "decided_count": 1720,
+          "mean_total_points": 46.8,
+          "under_rate_pct": 48.78,
+          "under_rate_ci95_pct": [
+            46.42,
+            51.14
+          ]
+        },
+        "outdoors": {
+          "sample": 5115,
+          "under_count": 2573,
+          "push_count": 78,
+          "decided_count": 5037,
+          "mean_total_points": 43.22,
+          "under_rate_pct": 51.08,
+          "under_rate_ci95_pct": [
+            49.7,
+            52.46
+          ]
+        }
+      },
+      "limitations": "Roof values are recorded as dome/closed/open/outdoors by the provider; a retractable roof left open is not distinguishable from one closed at kickoff beyond this column.",
+      "headline": "mean total 46.8 indoors against 43.22 outdoors; Under rate 48.78% against 51.08%",
+      "strategy_id": "STRAT_DOME_PACE_004_v1",
+      "strategy_ids": [
+        "STRAT_DOME_PACE_004_v1",
+        "STRAT_DOME_PACE_004_v2"
+      ],
+      "evidence_class": "DERIVED_DATA"
+    }
+  ],
+  "study_count": 5,
+  "snapshot_supported_hypotheses": [
+    "STUDY_WIND_TOTALS",
+    "STUDY_TNF_REST_TRAVEL",
+    "STUDY_DIVISIONAL_HIGH_TOTAL_UNDER",
+    "STUDY_HOME_UNDERDOG_ATS",
+    "STUDY_DOME_TOTALS"
+  ],
+  "declared_assumptions": [
+    {
+      "experiment_id": "EXP_001_WEATHER_WIND_THRESHOLD",
+      "title": "Empirical Wind Speed Degradation Threshold on Game Totals",
+      "evidence_class": "DERIVED_DATA",
+      "reason": "re-derived by STUDY_WIND_TOTALS from the checked-in snapshot",
+      "snapshot_supported": true
+    },
+    {
+      "experiment_id": "EXP_002_BACKUP_QB_SPREAD_SHOCK",
+      "title": "Public Overreaction to Backup Quarterback Announcements",
+      "evidence_class": "DECLARED_ASSUMPTION",
+      "reason": "requires per-game starting-QB and open/close line history beyond the bundled columns",
+      "snapshot_supported": false
+    },
+    {
+      "experiment_id": "EXP_003_KALSHI_BINARY_VS_POISSON",
+      "title": "Kalshi Event Contract Pricing vs Bivariate Poisson Scoring Grid",
+      "evidence_class": "DECLARED_ASSUMPTION",
+      "reason": "requires an archived Kalshi order book with timestamps",
+      "snapshot_supported": false
+    },
+    {
+      "experiment_id": "EXP_004_TNF_SHORT_REST_TRAVEL",
+      "title": "Thursday Night Football Rest & Travel Fatigue Interaction",
+      "evidence_class": "DERIVED_DATA",
+      "reason": "re-derived by STUDY_TNF_REST_TRAVEL from the checked-in snapshot",
+      "snapshot_supported": true
+    },
+    {
+      "experiment_id": "EXP_005_OL_CONTINUITY",
+      "title": "Offensive Line Continuity Impact on ATS",
+      "evidence_class": "DECLARED_ASSUMPTION",
+      "reason": "requires snap counts / offensive-line participation",
+      "snapshot_supported": false
+    },
+    {
+      "experiment_id": "EXP_006_DEF_PRESSURE",
+      "title": "Defensive Pressure Rate vs Spread Cover",
+      "evidence_class": "DECLARED_ASSUMPTION",
+      "reason": "requires play-by-play pressure and sack attribution",
+      "snapshot_supported": false
+    },
+    {
+      "experiment_id": "EXP_007_GAME_SCRIPT",
+      "title": "Game Script Pass Rate & Pace vs Totals",
+      "evidence_class": "DECLARED_ASSUMPTION",
+      "reason": "requires play-by-play pace and pass-rate tracking",
+      "snapshot_supported": false
+    },
+    {
+      "experiment_id": "EXP_008_PLAYER_PROP_USAGE",
+      "title": "Player Prop Usage: Target Share & Route Participation",
+      "evidence_class": "DECLARED_ASSUMPTION",
+      "reason": "requires player-level target share and route participation",
+      "snapshot_supported": false
+    }
+  ],
+  "cross_checks": [
+    {
+      "experiment_id": "EXP_001_WEATHER_WIND_THRESHOLD",
+      "study_id": "STUDY_WIND_TOTALS",
+      "metric": "Under rate, 15-19 mph outdoor wind",
+      "declared_in_dossier": 56.8,
+      "re_derived_from_snapshot": 56.34,
+      "difference_pct_points": -0.46,
+      "agrees": true,
+      "resolution": "difference retained; neither value is overwritten"
+    },
+    {
+      "experiment_id": "EXP_004_TNF_SHORT_REST_TRAVEL",
+      "study_id": "STUDY_TNF_REST_TRAVEL",
+      "metric": "Home cover rate, Thursday with visitor on <=4 days rest",
+      "declared_in_dossier": 58.1,
+      "re_derived_from_snapshot": 51.24,
+      "difference_pct_points": -6.86,
+      "agrees": false,
+      "resolution": "difference retained; neither value is overwritten"
+    }
+  ],
+  "cross_check_disagreements": [
+    {
+      "experiment_id": "EXP_004_TNF_SHORT_REST_TRAVEL",
+      "study_id": "STUDY_TNF_REST_TRAVEL",
+      "metric": "Home cover rate, Thursday with visitor on <=4 days rest",
+      "declared_in_dossier": 58.1,
+      "re_derived_from_snapshot": 51.24,
+      "difference_pct_points": -6.86,
+      "agrees": false,
+      "resolution": "difference retained; neither value is overwritten"
+    }
+  ]
+}

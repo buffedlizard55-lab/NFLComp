@@ -13,6 +13,7 @@ Tests:
 
 import unittest
 import os
+import re
 import sys
 import json
 import random
@@ -56,6 +57,22 @@ from engine.models import (
 )
 from engine.strategy_registry import ALL_STRATEGY_DEFINITIONS, get_strategy_instances
 from engine.audit_verifier import NFLAuditVerifier
+from engine import empirical_studies, narrative, risk_analytics
+from engine.empirical_studies import (
+    build_report as build_study_report,
+    load_games as load_study_games,
+    wilson_interval,
+)
+from engine.risk_analytics import (
+    bootstrap_roi,
+    brier_score,
+    calibration_bins,
+    kelly_fraction,
+    kelly_full_fraction,
+    log_loss,
+    sharpe_ratio,
+    sortino_ratio,
+)
 
 class TestNFLCompExpanded(unittest.TestCase):
     def setUp(self):
@@ -314,6 +331,318 @@ class TestNFLCompExpanded(unittest.TestCase):
         self.assertEqual(failed, [], f"audit failures: {failed}")
         self.assertGreaterEqual(audit_res["total_checks"], 20)
         self.assertEqual(audit_res["failed_checks"], 0)
+
+
+class TestEmpiricalStudies(unittest.TestCase):
+    """Studies must be real measurements, and claims must be labelled."""
+
+    def setUp(self):
+        self.root = Path(__file__).resolve().parents[1]
+        self.data = self.root / "data"
+        self.report = json.loads((self.data / "empirical_studies.json").read_text(encoding="utf-8"))
+
+    def test_wilson_interval_brackets_the_point_estimate(self):
+        low, high = wilson_interval(56, 100)
+        self.assertLess(low, 56.0)
+        self.assertGreater(high, 56.0)
+        self.assertLess(low, high)
+        self.assertIsNone(wilson_interval(0, 0))
+
+    def test_sample_spread_is_read_as_a_home_handicap(self):
+        """A positive raw spread_line means the home team is favoured.
+
+        Reading the column with the opposite sign inverts every ATS result, so
+        the study loader negates it and home covers must land near 50%.
+        """
+        games = load_study_games(self.data / "source")
+        rows = [g for g in games if g["spread_line"] is not None and g["home_score"] is not None]
+        decided = [g for g in rows if (g["home_score"] - g["away_score"] + g["spread_line"]) != 0]
+        covers = sum(1 for g in decided if (g["home_score"] - g["away_score"] + g["spread_line"]) > 0)
+        rate = 100.0 * covers / len(decided)
+        self.assertGreater(rate, 45.0, "home cover rate below 45% suggests an inverted sign convention")
+        self.assertLess(rate, 55.0, "home cover rate above 55% suggests an inverted sign convention")
+        favourites = [g for g in rows if g["spread_line"] < 0]
+        wins = sum(1 for g in favourites if g["home_score"] > g["away_score"])
+        self.assertGreater(wins / len(favourites), 0.5,
+                           "a negative home handicap must be the favoured side")
+
+    def test_every_study_reports_a_sample_and_a_measurement(self):
+        self.assertGreaterEqual(self.report["study_count"], 4)
+        for study in self.report["studies"]:
+            self.assertEqual(study["evidence_class"], "DERIVED_DATA")
+            self.assertTrue(study.get("snapshot_columns"), study["id"] + " must name its columns")
+            self.assertIn("headline", study)
+            for name, finding in study["findings"].items():
+                self.assertGreater(finding["sample"], 0, study["id"] + "." + name + " has no sample")
+                self.assertTrue(
+                    any(key.endswith("_pct") or key.startswith("mean_") for key in finding),
+                    study["id"] + "." + name + " reports no measurement")
+
+    def test_declared_dossier_claims_are_not_presented_as_measurements(self):
+        """Unsupported claims must be labelled, and disagreements preserved."""
+        dossier = json.loads((self.data / "research_experiments.json").read_text(encoding="utf-8"))
+        by_id = {e["experiment_id"]: e for e in dossier}
+        for entry in self.report["declared_assumptions"]:
+            self.assertEqual(entry["evidence_class"], by_id[entry["experiment_id"]]["evidence_class"])
+        for check in self.report["cross_checks"]:
+            experiment = by_id[check["experiment_id"]]
+            self.assertIn("snapshot_cross_check", experiment)
+            recorded = experiment["snapshot_cross_check"][0]
+            self.assertEqual(recorded["declared_in_dossier"], check["declared_in_dossier"])
+            self.assertEqual(recorded["re_derived_from_snapshot"], check["re_derived_from_snapshot"])
+            if not check["agrees"]:
+                self.assertEqual(experiment["claim_status"], "DISPUTED_BY_SNAPSHOT")
+                self.assertIn("retained", check["resolution"])
+
+    def test_report_re_derives_from_the_snapshot(self):
+        """Recomputing from games.csv must reproduce the checked-in report.
+
+        The report is written as JSON, so tuples become lists on the round trip;
+        normalise before comparing.
+        """
+        rebuilt = json.loads(json.dumps(build_study_report(str(self.data))))
+        self.assertEqual(rebuilt["studies"], self.report["studies"])
+        self.assertEqual(rebuilt["cross_checks"], self.report["cross_checks"])
+        self.assertEqual(rebuilt["declared_assumptions"], self.report["declared_assumptions"])
+        # The report must be reproducible, so it may not carry a wall-clock stamp.
+        self.assertNotIn("generated_at", self.report)
+        self.assertEqual(self.report["generated_by"], "engine/empirical_studies.py::build_report")
+
+
+    def test_reported_rates_re_derive_from_their_own_counts(self):
+        """A study percentage must equal its own successes over decided games.
+
+        This is what keeps a bucket from quoting a rate while its counts describe
+        a different sample: pushes are excluded from the denominator, exactly as
+        the settlement rule excludes them.
+        """
+        checked = 0
+        for study in self.report["studies"]:
+            for name, finding in study["findings"].items():
+                decided = finding.get("decided_count", finding["sample"] - finding.get("push_count", 0))
+                if "push_count" in finding:
+                    self.assertEqual(finding["sample"] - finding["push_count"], decided,
+                                     study["id"] + "." + name + " reports inconsistent push counts")
+                for key in ("under_rate_pct", "home_cover_rate_pct", "cover_rate_pct"):
+                    if key not in finding:
+                        continue
+                    count_key = key.replace("_rate_pct", "_count")
+                    success_key = {"under_rate_pct": "under_count",
+                                   "home_cover_rate_pct": "home_cover_count",
+                                   "cover_rate_pct": "cover_count"}[key]
+                    if success_key not in finding:
+                        continue
+                    self.assertGreater(decided, 0, study["id"] + "." + name + " has no decided games")
+                    expected = round(100.0 * finding[success_key] / decided, 2)
+                    self.assertAlmostEqual(finding[key], expected, places=1,
+                                           msg=study["id"] + "." + name + " quotes a rate its counts do not support")
+                    checked += 1
+        self.assertGreater(checked, 0, "no rate was checked; the study format changed")
+
+    def test_wilson_interval_matches_a_hand_computation(self):
+        low, high = wilson_interval(56, 100)
+        self.assertAlmostEqual(low, 46.24, places=1)
+        self.assertAlmostEqual(high, 65.34, places=1)
+        # A thin sample must widen the interval, never narrow it.
+        thin_low, thin_high = wilson_interval(6, 10)
+        self.assertLess(thin_low, low)
+        self.assertGreater(thin_high, high)
+
+    def test_flat_stake_result_is_absent_when_the_snapshot_has_no_price(self):
+        """No recorded price means no PnL line, rather than a defaulted one."""
+        dome = next(s for s in self.report["studies"] if s["id"] == "STUDY_DOME_TOTALS")
+        for finding in dome["findings"].values():
+            self.assertNotIn("flat_stake_pnl_usd", finding)
+            self.assertIn("mean_total_points", finding)
+        wind = next(s for s in self.report["studies"] if s["id"] == "STUDY_WIND_TOTALS")
+        for finding in wind["findings"].values():
+            self.assertLessEqual(finding["games_with_recorded_under_price"], finding["sample"])
+
+    def test_disputed_claim_is_recorded_as_an_irregularity(self):
+        register = json.loads((self.data / "irregularities.json").read_text(encoding="utf-8"))
+        disputed = [c for c in self.report["cross_checks"] if not c["agrees"]]
+        self.assertTrue(disputed, "the snapshot's own disagreement must stay visible")
+        for check in disputed:
+            matches = [r for r in register if check["experiment_id"] in r["id"]]
+            self.assertTrue(matches, check["experiment_id"] + " must be logged in the irregularity register")
+            self.assertEqual(matches[0]["status"], "LOGGED_AND_RESOLVED")
+
+
+class TestRiskAnalytics(unittest.TestCase):
+    """Risk statistics must be correct arithmetic, not plausible-looking text."""
+
+    def setUp(self):
+        self.root = Path(__file__).resolve().parents[1]
+        self.data = self.root / "data"
+        self.report = json.loads((self.data / "risk_analytics.json").read_text(encoding="utf-8"))
+
+    def test_sharpe_and_sortino_penalise_downside_only(self):
+        steady = [1.0, 1.0, 1.0, 1.0]
+        volatile = [2.0, -1.0, 2.0, -1.0]
+        self.assertIsNone(sharpe_ratio(steady, 1.0), "zero variance has no Sharpe")
+        self.assertGreater(sharpe_ratio(volatile, 1.0), 0)
+        self.assertGreater(sortino_ratio(volatile, 1.0), sharpe_ratio(volatile, 1.0))
+        self.assertIsNone(sortino_ratio([1.0, 2.0], 1.0), "no downside means no Sortino denominator")
+
+    def test_brier_log_loss_and_calibration_error(self):
+        perfect = [(1.0, 1.0), (0.0, 0.0)]
+        uninformative = [(0.5, 1.0), (0.5, 0.0)]
+        self.assertEqual(brier_score(perfect), 0.0)
+        self.assertGreater(brier_score(uninformative), brier_score(perfect))
+        self.assertLess(log_loss(perfect), log_loss(uninformative))
+        table, ece = calibration_bins([(0.55, 1.0)] * 10 + [(0.55, 0.0)] * 10)
+        buckets = [row for row in table if row["bets"]]
+        self.assertEqual(len(buckets), 1)
+        self.assertEqual(buckets[0]["bets"], 20)
+        self.assertAlmostEqual(buckets[0]["mean_model_prob"], 0.55, places=4)
+        self.assertAlmostEqual(buckets[0]["observed_win_rate"], 0.5, places=4)
+        self.assertAlmostEqual(ece, 5.0, places=1, msg="50% observed against a 55% forecast is a 5 point gap")
+
+    def test_kelly_is_negative_when_the_price_beats_the_forecast(self):
+        self.assertLess(kelly_full_fraction(0.50, 1.9091), 0.0)
+        self.assertIsNone(kelly_fraction(0.50, 1.0), "decimal odds of 1.0 cannot be priced")
+        self.assertAlmostEqual(kelly_fraction(0.60, 2.0), 0.25 * 0.20, places=6)
+
+    def test_bootstrap_is_seeded_and_brackets_the_observed_mean(self):
+        returns = [0.9, -1.0] * 200
+        first = bootstrap_roi(returns, 100.0)
+        second = bootstrap_roi(returns, 100.0)
+        self.assertEqual(first, second, "a seeded bootstrap must reproduce exactly")
+        self.assertLessEqual(first["roi_pct_ci95"][0], first["roi_pct_ci95"][1])
+        observed = 100.0 * sum(returns) / len(returns)
+        self.assertLessEqual(first["roi_pct_ci95"][0], observed)
+        self.assertGreaterEqual(first["roi_pct_ci95"][1], observed)
+        self.assertLessEqual(first["roi_pct_ci95"][0], first["roi_pct_median"])
+        self.assertLessEqual(first["roi_pct_median"], first["roi_pct_ci95"][1])
+        # A losing series can still resample positive sometimes, but it must not
+        # look like a winning system most of the time.
+        self.assertLess(first["probability_roi_positive_pct"], 50.0)
+        winners = bootstrap_roi([1.0] * 400, 100.0)
+        self.assertEqual(winners["probability_roi_positive_pct"], 100.0)
+        self.assertEqual(winners["roi_pct_ci95"], [100.0, 100.0])
+
+    def test_published_risk_report_reconciles_with_the_ledger(self):
+        ledger = json.loads((self.data / "bets_ledger.json").read_text(encoding="utf-8"))
+        self.assertEqual(self.report["source"]["published_records"], len(ledger))
+        recalibrated = risk_analytics.calibration_section(ledger)
+        self.assertEqual(self.report["calibration"]["brier_score"], recalibrated["brier_score"])
+        self.assertEqual(self.report["calibration"]["expected_calibration_error_pct_points"],
+                         recalibrated["expected_calibration_error_pct_points"])
+        by_persona = {}
+        for bet in ledger:
+            by_persona[bet["strategy_id"]] = by_persona.get(bet["strategy_id"], 0) + 1
+        for record in self.report["personas"]:
+            self.assertEqual(record["published_bets"], by_persona.get(record["strategy_id"], 0))
+            if record["insufficient_sample"]:
+                self.assertLess(record["settled_bets"], self.report["policy"]["minimum_settled_bets"])
+
+    def test_bootstrap_interval_is_reported_against_the_observed_roi(self):
+        for record in self.report["personas"]:
+            bootstrap = record.get("bootstrap")
+            if not bootstrap:
+                continue
+            self.assertEqual(bootstrap["seed"], self.report["policy"]["bootstrap_seed"])
+            self.assertLessEqual(bootstrap["roi_pct_ci95"][0], record["observed_roi_pct"])
+            self.assertGreaterEqual(bootstrap["roi_pct_ci95"][1], record["observed_roi_pct"])
+
+
+class TestProseClaimsAreBound(unittest.TestCase):
+    """Hand-typed quantities must fail the lint instead of shipping."""
+
+    def setUp(self):
+        self.root = Path(__file__).resolve().parents[1]
+        self.data = self.root / "data"
+        self.facts = published_facts(str(self.data))
+
+    def test_lint_catches_a_stale_persona_count(self):
+        violations = narrative.prose_claim_violations(
+            "- **Strategy Universe:** **60 autonomous betting personas** across 14 disciplines.",
+            self.facts, str(self.data), source="synthetic.md")
+        self.assertTrue(any("personas" in v for v in violations), violations)
+        self.assertTrue(any("disciplines" in v for v in violations), violations)
+
+    def test_lint_accepts_a_correct_claim_and_ignores_generated_blocks(self):
+        personas = self.facts["strategies"]
+        clean = "The platform maintains %s strategy personas today." % personas
+        self.assertEqual(narrative.prose_claim_violations(clean, self.facts, str(self.data)), [])
+        generated = "%s\n- 60 autonomous betting personas\n%s" % (
+            narrative.EXEC_SUMMARY_START, narrative.EXEC_SUMMARY_END)
+        self.assertEqual(narrative.prose_claim_violations(generated, self.facts, str(self.data)), [])
+
+    def test_published_documents_pass_the_lint(self):
+        documents = [self.root / "README.md"] + sorted((self.root / "docs").glob("*.md"))
+        violations = []
+        for document in documents:
+            violations += narrative.prose_claim_violations(
+                document.read_text(encoding="utf-8"), self.facts, str(self.data), source=document.name)
+        self.assertEqual(violations, [], "hand-typed claims disagree with the data files")
+
+    def test_generated_blocks_match_their_renderers(self):
+        """Each generated block lives in the document that owns it, and is current."""
+        placement = {
+            "executive_summary": "README.md",
+            "roster": "README.md",
+            "findings": "README.md",
+            "sources": "README.md",
+            "strategy_lab": "README.md",
+            "irregularities": "docs/IRREGULARITIES.md",
+        }
+        blocks = narrative.render_blocks(self.facts, str(self.data))
+        for name, (marker, block) in blocks.items():
+            document = self.root / placement[name]
+            text = document.read_text(encoding="utf-8")
+            self.assertIn(marker, text, name + " block missing from " + placement[name])
+            self.assertIn(block.strip(), text, name + " block is stale in " + placement[name])
+        self.assertEqual(set(placement), set(blocks),
+                         "every generated block must be placed in a document")
+
+    def test_roster_block_covers_every_leaderboard_persona(self):
+        leaderboard = json.loads((self.data / "leaderboard.json").read_text(encoding="utf-8"))
+        block = narrative.render_roster_table(str(self.data))
+        for row in leaderboard:
+            self.assertIn("`%s`" % row["id"], block)
+        silent = [row for row in leaderboard if not (row.get("total_bets") or 0)]
+        if silent:
+            self.assertIn("| n/a |", block)
+
+
+    def test_roster_never_publishes_a_rate_without_settled_bets(self):
+        block = narrative.render_roster_table(str(self.data))
+        leaderboard = json.loads((self.data / "leaderboard.json").read_text(encoding="utf-8"))
+        open_rows = [row for row in leaderboard if not (row.get("total_bets") or 0)]
+        self.assertTrue(open_rows, "the roster is expected to carry personas without settled bets")
+        for row in open_rows:
+            line = next(l for l in block.splitlines() if "`%s`" % row["id"] in l)
+            self.assertIn("n/a (open)", line)
+            self.assertIn("| n/a |", line)
+
+    def test_executive_summary_quotes_the_data_files(self):
+        block = narrative.render_executive_summary(self.facts, str(self.data))
+        for value in (f"{self.facts['games_tracked']:,} games",
+                      f"{self.facts['published_bets']:,} hash-chained wagers",
+                      f"{self.facts['strategies']} personas",
+                      f"{self.facts['audit_checks_passed']}/{self.facts['audit_checks_total']}"):
+            self.assertIn(value, block)
+        for stale in ("60 autonomous betting personas", "134,255", "@AltSpread_Value_v2"):
+            self.assertNotIn(stale, block)
+
+    def test_irregularity_block_lists_every_logged_entry(self):
+        register = json.loads((self.data / "irregularities.json").read_text(encoding="utf-8"))
+        block = narrative.render_irregularity_table(str(self.data))
+        self.assertEqual(block.count("| `IRR-"), len(register))
+        for entry in register:
+            self.assertIn(entry["id"], block)
+
+    def test_site_registers_every_claim_and_every_view(self):
+        """A number shown on the dashboard must be one the checker knows about."""
+        html = (self.root / "index.html").read_text(encoding="utf-8")
+        spans = set(re.findall(r'id="(claim-[a-z0-9-]+)"', html))
+        self.assertTrue(spans, "the dashboard binds no claims")
+        self.assertLessEqual(spans, set(CLAIM_PATTERNS),
+                             "index.html carries a bound number the checker does not know about")
+        tabs = set(re.findall(r'data-tab="([a-z0-9-]+)"', html))
+        views = set(re.findall(r'<section id="view-([a-z0-9-]+)"', html))
+        self.assertEqual(tabs - views, set(), "a nav tab points at a view that does not exist")
 
 
 class TestPublishedArtifactsReconcile(unittest.TestCase):

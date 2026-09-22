@@ -98,5 +98,15 @@
     "source": "NFL stadium coordinates",
     "resolution": "Haversine distance used as proxy; flagged as approximation, not exact travel.",
     "status": "LOGGED_AND_RESOLVED"
+  },
+  {
+    "id": "IRR-11-EXP_004_TNF_SHORT_REST_TRAVEL-DISPUTED",
+    "title": "Dossier claim refuted by the snapshot: Home cover rate, Thursday with visitor on <=4 days rest",
+    "category": "RESEARCH_CLAIM_DISCREPANCY",
+    "severity": "MEDIUM",
+    "description": "data/research_experiments.json declares 58.1; recomputing from the games.csv snapshot gives 51.24 across the stated sample.",
+    "source": "data/research_experiments.json vs data/source/games.csv",
+    "resolution": "Both values retained. The dossier entry is marked DISPUTED_BY_SNAPSHOT and its numbers are not quoted in published prose; no side is silently overwritten.",
+    "status": "LOGGED_AND_RESOLVED"
   }
 ]
