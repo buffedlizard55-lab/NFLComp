@@ -38,6 +38,14 @@ from engine.models import (
 )
 from engine.strategy_registry import ALL_STRATEGY_DEFINITIONS, get_strategy_instances
 from engine.settlement import settle_spread, settle_total
+from engine.ledger import GENESIS_HASH, chain_hash
+from engine.provenance import sha256_file
+
+#: Seasons published in the GitHub Pages ledger export.  The full ledger stays
+#: in memory for aggregation; the published slice keeps the repo small, and the
+#: window plus the all-time totals are written to ``ledger_manifest.json`` so the
+#: published numbers can always be reconciled with the complete simulation.
+LEDGER_PUBLISH_FROM_SEASON = 2020
 
 class NFLBacktestRunner:
     def __init__(self, data_loader=None):
@@ -510,16 +518,14 @@ class NFLBacktestRunner:
                             "source_url": "https://github.com/nflverse/nfldata",
                             "verification_status": "VERIFIED_PRIMARY"
                         }
-                        # hash-chained immutability: chain each ledger entry
-                        try:
-                            import json as _js, hashlib as _hl
-                            _prev = self.ledger[-1].get("hash") if self.ledger else "0"*64
-                            _payload = _js.dumps({k: ledger_item[k] for k in sorted(ledger_item)}, sort_keys=True)
-                            ledger_item["previous_hash"] = _prev
-                            ledger_item["hash"] = _hl.sha256((_prev + _payload).encode()).hexdigest()
-                        except Exception:
-                            ledger_item["hash"] = "0"*64
-                            ledger_item["previous_hash"] = "0"*64
+                        # Hash-chained immutability: each published record commits
+                        # to the record before it.  The chain is built with the
+                        # shared helper so an audit can re-derive it; a failure
+                        # here is fatal rather than being papered over with a
+                        # placeholder hash that would fake continuity.
+                        _prev = self.ledger[-1]["hash"] if self.ledger else GENESIS_HASH
+                        ledger_item["previous_hash"] = _prev
+                        ledger_item["hash"] = chain_hash(ledger_item, _prev)
                         self.ledger.append(ledger_item)
 
                     else:
@@ -729,9 +735,9 @@ class NFLBacktestRunner:
         """Exports all processed data to clean JSON files."""
         os.makedirs(out_dir, exist_ok=True)
         
-        recent_ledger = [b for b in self.ledger if b["season"] >= 2020]
+        published_ledger = [b for b in self.ledger if b["season"] >= LEDGER_PUBLISH_FROM_SEASON]
         with open(os.path.join(out_dir, "bets_ledger.json"), "w") as f:
-            json.dump(recent_ledger, f, indent=1)
+            json.dump(published_ledger, f, indent=1)
             
         with open(os.path.join(out_dir, "upcoming_bets.json"), "w") as f:
             json.dump(self.upcoming_bets, f, indent=2)
@@ -744,6 +750,7 @@ class NFLBacktestRunner:
             json.dump(recent_kalshi, f, indent=1)
             
         leaderboard_list = sorted(list(self.strategy_performance.values()), key=lambda x: x["total_pnl"], reverse=True)
+        self._attach_published_ledger_aggregates(leaderboard_list, published_ledger)
         with open(os.path.join(out_dir, "leaderboard.json"), "w") as f:
             json.dump(leaderboard_list, f, indent=2)
             
@@ -757,10 +764,12 @@ class NFLBacktestRunner:
         total_pnl = sum(b["pnl"] for b in self.ledger)
         completed_games_count = len([g for g in self.games if g["completed"]])
         upcoming_games_count = len([g for g in self.games if not g["completed"]])
+        published_pnl = sum(b["pnl"] for b in published_ledger)
+        as_of_date = max((g["gameday"] for g in self.games if g["completed"]), default=None)
         
         summary = {
             "competition_name": "ARENA AI — NFL Autonomous Betting Strategy Competition",
-            "as_of_date": "2026-09-20",
+            "as_of_date": as_of_date,
             "current_season": 2026,
             "current_week": 2,
             "total_games_tracked": len(self.games),
@@ -772,6 +781,16 @@ class NFLBacktestRunner:
             "total_upcoming_bets": len(self.upcoming_bets),
             "total_open_positions": len(self.open_positions),
             "total_kalshi_trades": len(self.kalshi_trades),
+            "kalshi_trades_published": len(recent_kalshi),
+            "ledger_published_window": {
+                "from_season": LEDGER_PUBLISH_FROM_SEASON,
+                "to_season": max((b["season"] for b in published_ledger), default=None),
+            },
+            "ledger_published_bets": len(published_ledger),
+            "ledger_published_pnl": round(published_pnl, 2),
+            "ledger_all_time_bets": total_bets,
+            "ledger_all_time_pnl": round(total_pnl, 2),
+            "ledger_manifest": "data/ledger_manifest.json",
             "top_performing_strategy": leaderboard_list[0]["username"] if leaderboard_list else None,
             "top_pnl": leaderboard_list[0]["total_pnl"] if leaderboard_list else 0.0,
             "top_roi": leaderboard_list[0]["roi"] if leaderboard_list else 0.0
@@ -779,4 +798,59 @@ class NFLBacktestRunner:
         with open(os.path.join(out_dir, "summary.json"), "w") as f:
             json.dump(summary, f, indent=2)
 
+        self._write_ledger_manifest(out_dir, published_ledger, summary, total_bets, round(total_pnl, 2))
+
         print(f"Exported all datasets to {out_dir}/ successfully!")
+
+    def _attach_published_ledger_aggregates(self, leaderboard_list, published_ledger):
+        """Give every leaderboard row the part of its record it can be re-derived from.
+
+        The site ships the 2020+ ledger slice, so a reader can only re-derive the
+        published window locally.  Recording that split per strategy keeps the
+        all-time leaderboard honest: the difference is stated, not hidden.
+        """
+        published: dict[str, dict] = defaultdict(lambda: {"bets": 0, "pnl": 0.0})
+        for bet in published_ledger:
+            bucket = published[bet["strategy_id"]]
+            bucket["bets"] += 1
+            bucket["pnl"] += bet["pnl"]
+        for row in leaderboard_list:
+            bucket = published.get(row["id"], {"bets": 0, "pnl": 0.0})
+            row["published_ledger_bets"] = bucket["bets"]
+            row["published_ledger_pnl"] = round(bucket["pnl"], 2)
+            row["all_time_bets"] = row["total_bets"]
+            row["all_time_pnl"] = row["total_pnl"]
+            row["pnl_outside_published_window"] = round(row["total_pnl"] - bucket["pnl"], 2)
+
+    def _write_ledger_manifest(self, out_dir, published_ledger, summary, total_bets, total_pnl):
+        """Write the ledger's provenance: window, totals, chain head, source hashes."""
+        source_dir = os.path.join(out_dir, "source")
+        sources = {}
+        for name in ("games.csv", "closing_lines.csv", "initial_lines.csv", "teams.csv"):
+            path = os.path.join(source_dir, name)
+            if os.path.exists(path):
+                sources[name] = sha256_file(path)
+        head = published_ledger[-1] if published_ledger else None
+        first = published_ledger[0] if published_ledger else None
+        manifest = {
+            "generated_by": "engine/backtest_engine.py::export_all_data",
+            "as_of_date": summary["as_of_date"],
+            "classification": "DERIVED_DATA",
+            "hash_algorithm": "sha256(previous_hash + compact_json(record_without_chain_fields))",
+            "genesis_hash": GENESIS_HASH,
+            "published_window": summary["ledger_published_window"],
+            "published_bets": len(published_ledger),
+            "published_pnl": summary["ledger_published_pnl"],
+            "all_time_bets": total_bets,
+            "all_time_pnl": total_pnl,
+            "bets_outside_published_window": total_bets - len(published_ledger),
+            "pnl_outside_published_window": round(total_pnl - summary["ledger_published_pnl"], 2),
+            "published_head_hash": first["hash"] if first else None,
+            "published_head_previous_hash": first["previous_hash"] if first else None,
+            "chain_head_hash": head["hash"] if head else None,
+            "chain_head_bet_id": head["bet_id"] if head else None,
+            "published_head_is_mid_chain": bool(first and first["previous_hash"] != GENESIS_HASH),
+            "source_files": sources,
+        }
+        with open(os.path.join(out_dir, "ledger_manifest.json"), "w") as f:
+            json.dump(manifest, f, indent=2)

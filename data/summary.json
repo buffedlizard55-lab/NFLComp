@@ -1,18 +1,28 @@
 {
   "competition_name": "ARENA AI \u2014 NFL Autonomous Betting Strategy Competition",
-  "as_of_date": "2026-09-20",
+  "as_of_date": "2026-09-17",
   "current_season": 2026,
   "current_week": 2,
   "total_games_tracked": 7548,
   "completed_games": 7293,
   "upcoming_games": 255,
   "total_strategies": 60,
-  "total_simulated_bets": 134255,
-  "total_simulated_pnl": -353618.85,
-  "total_upcoming_bets": 288,
-  "total_open_positions": 288,
+  "total_simulated_bets": 92814,
+  "total_simulated_pnl": -268772.62,
+  "total_upcoming_bets": 264,
+  "total_open_positions": 264,
   "total_kalshi_trades": 16312,
+  "kalshi_trades_published": 1432,
+  "ledger_published_window": {
+    "from_season": 2020,
+    "to_season": 2026
+  },
+  "ledger_published_bets": 29777,
+  "ledger_published_pnl": -126018.74,
+  "ledger_all_time_bets": 92814,
+  "ledger_all_time_pnl": -268772.62,
+  "ledger_manifest": "data/ledger_manifest.json",
   "top_performing_strategy": "@AltSpread_Value_v2",
-  "top_pnl": 145992.37,
-  "top_roi": 27.15
+  "top_pnl": 105223.38,
+  "top_roi": 26.81
 }

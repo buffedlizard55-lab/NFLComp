@@ -8,20 +8,32 @@ Covers all 14+ strategy categories and 35+ data sources.
 import json
 import os
 
+from engine.ledger import verify_chain
+from engine.publication import (
+    CLAIM_PATTERNS,
+    expected_site_claims,
+    parse_status_block,
+    published_facts,
+    render_status_block,
+    site_claims,
+)
+
 class NFLAuditVerifier:
     def __init__(self, data_dir="data"):
         self.data_dir = data_dir
         self.irregularities = []
         self.audit_checks = []
 
-    def run_full_audit(self):
+    def run_full_audit(self, write=True):
         self._audit_games()
         self._audit_bets_ledger()
         self._audit_leaderboard()
         self._audit_kalshi_trades()
         self._audit_data_sources()
         self._audit_new_categories()
-        self.export_irregularities()
+        self._audit_published_claims()
+        if write:
+            self.export_irregularities()
         return {
             "total_checks": len(self.audit_checks),
             "passed_checks": len([c for c in self.audit_checks if c["passed"]]),
@@ -244,6 +256,56 @@ class NFLAuditVerifier:
         self._add_check("PNL_CALCULATION_ACCURACY", "AUDIT", math_errors == 0, f"Audited {len(bets):,} bets; {math_errors} math errors")
         self._add_check("LEDGER_REQUIRED_FIELDS", "AUDIT", missing_fields == 0, f"Checked required fields; {missing_fields} missing field instances")
         self._add_check("MARKET_TYPES_VALID", "AUDIT", invalid_markets == 0, f"Checked market types; {invalid_markets} invalid market types")
+        self._audit_ledger_chain(bets)
+        self._audit_ledger_manifest(bets)
+
+    def _audit_ledger_chain(self, bets):
+        """Re-derive the hash chain of the published ledger from its contents."""
+        ok, errors, head = verify_chain(bets)
+        details = f"Re-derived {len(bets):,} links; head {head[:16]}…" if ok else f"{len(errors)} chain errors: {errors[:3]}"
+        self._add_check("LEDGER_HASH_CHAIN", "AUDIT", ok, details)
+
+    def _audit_ledger_manifest(self, bets):
+        """Reconcile the published ledger with the manifest and summary claims."""
+        manifest_path = os.path.join(self.data_dir, "ledger_manifest.json")
+        summary_path = os.path.join(self.data_dir, "summary.json")
+        if not os.path.exists(manifest_path):
+            self._add_check("LEDGER_MANIFEST_RECONCILIATION", "AUDIT", False, "Missing ledger_manifest.json")
+            return
+        with open(manifest_path) as f:
+            manifest = json.load(f)
+        summary = {}
+        if os.path.exists(summary_path):
+            with open(summary_path) as f:
+                summary = json.load(f)
+
+        published_pnl = round(sum(b["pnl"] for b in bets), 2)
+        tolerance = 0.011 * len(bets) + 0.01
+        problems = []
+        if manifest.get("published_bets") != len(bets):
+            problems.append(f"manifest published_bets {manifest.get('published_bets')} != file {len(bets)}")
+        if manifest.get("all_time_bets") != summary.get("total_simulated_bets"):
+            problems.append(f"manifest all_time_bets {manifest.get('all_time_bets')} != summary {summary.get('total_simulated_bets')}")
+        if abs((manifest.get("published_pnl") or 0.0) - published_pnl) > tolerance:
+            problems.append(f"manifest published_pnl {manifest.get('published_pnl')} != ledger sum {published_pnl}")
+        if abs((manifest.get("all_time_pnl") or 0.0) - (summary.get("total_simulated_pnl") or 0.0)) > tolerance:
+            problems.append("manifest all_time_pnl disagrees with summary")
+        if manifest.get("chain_head_hash") != (bets[-1]["hash"] if bets else None):
+            problems.append("manifest chain head does not match the last published record")
+        if (manifest.get("published_bets") or 0) + (manifest.get("bets_outside_published_window") or 0) != manifest.get("all_time_bets"):
+            problems.append("published + outside-window bets do not add up to all_time_bets")
+        if summary and summary.get("ledger_published_bets") != len(bets):
+            problems.append("summary ledger_published_bets disagrees with the ledger file")
+        ordered = [b["season"] for b in bets] == sorted(b["season"] for b in bets)
+        if not ordered:
+            problems.append("published ledger is not in chronological season order")
+        window = manifest.get("published_window") or {}
+        details = (f"window {window.get('from_season')}–{window.get('to_season')}: "
+                   f"{len(bets):,} of {manifest.get('all_time_bets'):,} bets published "
+                   f"({manifest.get('bets_outside_published_window'):,} in earlier seasons, totals stated separately)")
+        if problems:
+            details = "; ".join(problems)
+        self._add_check("LEDGER_MANIFEST_RECONCILIATION", "AUDIT", not problems, details)
 
     def _audit_leaderboard(self):
         leaderboard_path = os.path.join(self.data_dir, "leaderboard.json")
@@ -254,8 +316,48 @@ class NFLAuditVerifier:
             leaders = json.load(f)
         self._add_check("LEADERBOARD_INTEGRITY", "AUDIT", len(leaders) >= 40, f"Leaderboard contains {len(leaders)} verified strategies (target >=40)")
         # Check categories coverage
-        cats = set(l["category"] for l in leaders)
-        self._add_check("CATEGORY_COVERAGE", "AUDIT", len(cats) >= 10, f"Leaderboard covers {len(cats)} categories: {', '.join(list(cats)[:5])}...")
+        cats = sorted({l["category"] for l in leaders})
+        self._add_check("CATEGORY_COVERAGE", "AUDIT", len(cats) >= 10,
+                        f"Leaderboard covers {len(cats)} categories: {', '.join(cats[:5])}...")
+        self._audit_leaderboard_reconciliation(leaders)
+
+    def _audit_leaderboard_reconciliation(self, leaders):
+        """Every published leaderboard row must re-derive from the published ledger."""
+        ledger_path = os.path.join(self.data_dir, "bets_ledger.json")
+        if not os.path.exists(ledger_path):
+            self._add_check("LEADERBOARD_LEDGER_RECONCILIATION", "AUDIT", False, "Missing bets_ledger.json")
+            return
+        with open(ledger_path) as f:
+            bets = json.load(f)
+        published: dict[str, dict] = {}
+        for bet in bets:
+            bucket = published.setdefault(bet["strategy_id"], {"bets": 0, "pnl": 0.0})
+            bucket["bets"] += 1
+            bucket["pnl"] += bet["pnl"]
+        mismatches = []
+        missing_fields = 0
+        for row in leaders:
+            if "published_ledger_bets" not in row:
+                missing_fields += 1
+                continue
+            bucket = published.get(row["id"], {"bets": 0, "pnl": 0.0})
+            if row["published_ledger_bets"] != bucket["bets"]:
+                mismatches.append(f"{row['id']} bets {row['published_ledger_bets']} != {bucket['bets']}")
+                continue
+            tolerance = 0.011 * bucket["bets"] + 0.01
+            if abs(row["published_ledger_pnl"] - bucket["pnl"]) > tolerance:
+                mismatches.append(f"{row['id']} pnl {row['published_ledger_pnl']} != {round(bucket['pnl'], 2)}")
+        ledger_total = round(sum(b["pnl"] for b in bets), 2)
+        leaderboard_total = round(sum(r["published_ledger_pnl"] for r in leaders if "published_ledger_pnl" in r), 2)
+        if abs(ledger_total - leaderboard_total) > 0.011 * len(bets) + 0.01:
+            mismatches.append(f"leaderboard published total {leaderboard_total} != ledger {ledger_total}")
+        passed = not mismatches and missing_fields == 0
+        details = (f"All {len(leaders)} rows re-derived from {len(bets):,} published records "
+                   f"(published window PnL {ledger_total:,.2f}; all-time totals remain on the rows)"
+                   if passed else
+                   f"{missing_fields} rows lack published aggregates; {len(mismatches)} mismatches: {mismatches[:3]}")
+        self._add_check("LEADERBOARD_LEDGER_RECONCILIATION", "AUDIT", passed, details)
+
 
     def _audit_kalshi_trades(self):
         kalshi_path = os.path.join(self.data_dir, "kalshi_trades.json")
@@ -309,7 +411,8 @@ class NFLAuditVerifier:
             "Live & In-Game Strategies"
         ]
         covered = sum(1 for rc in required_cats if rc in cats)
-        self._add_check("REQUIRED_CATEGORY_COVERAGE", "AUDIT", covered >= 10, f"Covered {covered}/{len(required_cats)} required categories: {list(cats.keys())}")
+        self._add_check("REQUIRED_CATEGORY_COVERAGE", "AUDIT", covered >= 10,
+                        f"Covered {covered}/{len(required_cats)} required categories: {sorted(cats)}")
 
         # Check for versioning
         versioned = len([s for s in strats if s.get("parent_version")])
@@ -322,6 +425,95 @@ class NFLAuditVerifier:
         mastersite_ids = [r["id"] for r in reg if "MASTERSITE" in r["id"]]
         self._add_check("MASTERSITE_RESEARCH", "AUDIT", len(mastersite_ids) >= 10, f"MasterSite projects mapped: {len(mastersite_ids)} sources covering CEO, Weather, Insider, TheLeap, NFL/NBA Injury, FDA, NCAA/NFL/MLB Scoreboard, Sports Pred, Gold, PinePilot")
 
+    def _audit_published_claims(self):
+        """The README block and the site's embedded numbers must match the data.
+
+        Published prose is a claim like any other: if the checked-in numbers drift
+        from the data files, this check fails instead of the site quietly
+        overstating the simulation.
+        """
+        facts = published_facts(self.data_dir)
+
+        readme_path = os.path.join(os.path.dirname(os.path.abspath(self.data_dir)), "README.md")
+        readme = None
+        if os.path.exists(readme_path):
+            with open(readme_path, encoding="utf-8") as f:
+                readme = f.read()
+        if readme is None:
+            self._add_check("PUBLISHED_README_BLOCK", "PUBLICATION", False, "README.md not found")
+        else:
+            embedded = parse_status_block(readme)
+            expected = render_status_block(facts)
+            if embedded is None:
+                self._add_check("PUBLISHED_README_BLOCK", "PUBLICATION", False,
+                                "README.md has no CURRENT_STATE block; run scripts/render_readme.py")
+            else:
+                differences = []
+                expected_map = parse_status_block(expected) or {}
+                for metric, value in expected_map.items():
+                    if embedded.get(metric) != value:
+                        differences.append(f"{metric}: readme {embedded.get(metric)!r} != data {value!r}")
+                from engine.publication import BADGES_END, BADGES_START, render_badges
+
+                start, end = readme.find(BADGES_START), readme.find(BADGES_END)
+                if start >= 0 and end > start:
+                    embedded_badges = readme[start:end + len(BADGES_END)].strip()
+                    if embedded_badges != render_badges(facts).strip():
+                        differences.append("badges no longer reflect the published state")
+                details = (f"{len(expected_map)} published metrics and badges match the data files"
+                           if not differences else f"{len(differences)} stale claims: {differences[:3]}")
+                self._add_check("PUBLISHED_README_BLOCK", "PUBLICATION", not differences, details)
+
+        report_path = os.path.join(os.path.dirname(os.path.abspath(self.data_dir)), "docs", "FINAL_REPORT.md")
+        if os.path.exists(report_path):
+            with open(report_path, encoding="utf-8") as f:
+                report = f.read()
+            embedded_report = parse_status_block(report)
+            if embedded_report is not None:
+                expected_map = parse_status_block(render_status_block(facts)) or {}
+                differences = [f"{metric}: report {embedded_report.get(metric)!r} != data {value!r}"
+                               for metric, value in expected_map.items()
+                               if embedded_report.get(metric) != value]
+                self._add_check("PUBLISHED_REPORT_BLOCK", "PUBLICATION", not differences,
+                                f"{len(expected_map)} report metrics match the data files"
+                                if not differences else f"{len(differences)} stale claims: {differences[:3]}")
+
+        doc_path = os.path.join(os.path.dirname(os.path.abspath(self.data_dir)), "docs", "VERIFICATION.md")
+        if not os.path.exists(doc_path):
+            self._add_check("PUBLISHED_VERIFICATION_BLOCK", "PUBLICATION", False, "docs/VERIFICATION.md not found")
+        else:
+            from engine.publication import parse_verification_block, render_verification_block
+
+            with open(doc_path, encoding="utf-8") as f:
+                doc = f.read()
+            embedded = parse_verification_block(doc)
+            expected_block = render_verification_block(self.data_dir)
+            if embedded is None:
+                self._add_check("PUBLISHED_VERIFICATION_BLOCK", "PUBLICATION", False,
+                                "docs/VERIFICATION.md has no machine-verified block; run scripts/render_verification.py")
+            else:
+                current = embedded.strip() != expected_block.strip()
+                self._add_check("PUBLISHED_VERIFICATION_BLOCK", "PUBLICATION", not current,
+                                "evidence ledger matches the snapshot hashes and audit results"
+                                if not current else
+                                "evidence ledger is stale; run scripts/render_verification.py")
+
+        site_path = os.path.join(os.path.dirname(os.path.abspath(self.data_dir)), "index.html")
+        if not os.path.exists(site_path):
+            self._add_check("PUBLISHED_SITE_CLAIMS", "PUBLICATION", False, "index.html not found")
+            return
+        with open(site_path, encoding="utf-8") as f:
+            html = f.read()
+        found = site_claims(html)
+        expected_claims = expected_site_claims(facts)
+        problems = [f"{claim} not bound in index.html" for claim in CLAIM_PATTERNS if claim not in found]
+        for claim, value in expected_claims.items():
+            if claim in found and found[claim] != value:
+                problems.append(f"{claim}: site {found[claim]!r} != data {value!r}")
+        details = (f"{len(expected_claims)} embedded site claims match the data files"
+                   if not problems else f"{len(problems)} stale claims: {problems[:3]}")
+        self._add_check("PUBLISHED_SITE_CLAIMS", "PUBLICATION", not problems, details)
+
     def export_irregularities(self):
         out_path = os.path.join(self.data_dir, "irregularities.json")
         audit_path = os.path.join(self.data_dir, "audit_checks.json")
@@ -333,3 +525,35 @@ class NFLAuditVerifier:
             json.dump(self.audit_checks, f, indent=2)
             
         print(f"Exported {len(self.irregularities)} irregularities and {len(self.audit_checks)} audit checks.")
+
+
+def main(argv=None):
+    """Run the audit suite.
+
+    ``python3 -m engine.audit_verifier``            re-runs and rewrites the
+                                                    published check results.
+    ``python3 -m engine.audit_verifier --check``    re-runs without writing and
+                                                    exits non-zero on any failure
+                                                    (used by CI and the PR gate).
+    """
+    import sys
+
+    args = list(sys.argv[1:] if argv is None else argv)
+    check_only = "--check" in args
+    data_dir = "data"
+    for index, arg in enumerate(args):
+        if arg == "--data-dir" and index + 1 < len(args):
+            data_dir = args[index + 1]
+
+    verifier = NFLAuditVerifier(data_dir)
+    result = verifier.run_full_audit(write=not check_only)
+    failed = [c["name"] for c in verifier.audit_checks if not c["passed"]]
+    print(f"Audit: {result['passed_checks']}/{result['total_checks']} checks passed, "
+          f"{result['total_irregularities']} irregularities tracked")
+    for name in failed:
+        print(f"  FAILED: {name}")
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

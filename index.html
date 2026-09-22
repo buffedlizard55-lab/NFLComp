@@ -165,7 +165,7 @@
       <div class="section-header">
         <div>
           <h2 class="section-title">🏆 Strategy Leaderboard — 58 Autonomous Personas</h2>
-          <p class="section-desc">Performance rankings across all 58 registered quantitative personas. Covers 17 categories: QB, OL, Defensive, Weather, Injury WAR, Rest/Travel/International, Statistical ML (9 models), Market Movement & CLV, Kalshi, Referee, Public Research, Coaching, Player Props, Game Script, Live, Team Totals, Alt Markets. Sort by multi-factor metrics or click any strategy for full methodology, version history, and bet ledger.</p>
+          <p class="section-desc">Performance rankings across all <span id="claim-personas">60</span> registered quantitative personas. Covers 17 categories: QB, OL, Defensive, Weather, Injury WAR, Rest/Travel/International, Statistical ML (9 models), Market Movement & CLV, Kalshi, Referee, Public Research, Coaching, Player Props, Game Script, Live, Team Totals, Alt Markets. Sort by multi-factor metrics or click any strategy for full methodology, version history, and bet ledger.</p>
         </div>
         <div class="section-controls">
           <input type="text" id="leader-search" class="search-input" placeholder="Search strategy or username...">
@@ -671,7 +671,7 @@
       <div class="section-header">
         <div>
           <h2 class="section-title">📂 Permanent Data Source Registry — 41 Sources Verified</h2>
-          <p class="section-desc">Comprehensive catalog of all primary, secondary, and discovery data sources probed during development, including licensing, accuracy, update cadence, and API access. Covers Official NFL, QB/RB/WR/TE/OL/DL/LB/Secondary, Player Tracking/Route/Separation/Pressure/Time to Throw/CPOE, Starting Lineups/Coaches/Refs/Weather, Public Betting, Sportsbook Prices including Player Props/Team Props/Alt Spreads, Market Depth (Kalshi/Pinnacle), MasterSite 44 Directory (CEO, SFWeather NOAA pipeline, NFL/NBA/NCAA/MLB scoreboards, NFL injury, Sports Pred, TheLeap, FDA, Gold flagged Irregularity #33, PinePilot EMA/RSI), Reddit (403 blocked), X/Twitter (paid rejected), YouTube, GitHub sports analytics, Academic research. Each with 20+ fields, cost, auth, reliability, status.</p>
+          <p class="section-desc">Comprehensive catalog of <span id="claim-registry">41</span> primary, secondary, and discovery data sources probed during development, including licensing, accuracy, update cadence, and API access. Covers Official NFL, QB/RB/WR/TE/OL/DL/LB/Secondary, Player Tracking/Route/Separation/Pressure/Time to Throw/CPOE, Starting Lineups/Coaches/Refs/Weather, Public Betting, Sportsbook Prices including Player Props/Team Props/Alt Spreads, Market Depth (Kalshi/Pinnacle), MasterSite 44 Directory (CEO, SFWeather NOAA pipeline, NFL/NBA/NCAA/MLB scoreboards, NFL injury, Sports Pred, TheLeap, FDA, Gold flagged Irregularity #33, PinePilot EMA/RSI), Reddit (403 blocked), X/Twitter (paid rejected), YouTube, GitHub sports analytics, Academic research. Each with 20+ fields, cost, auth, reliability, status.</p>
         </div>
       </div>
 
@@ -761,7 +761,7 @@
         </p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">4. Execution Modeling, Fees & Slippage — 7 Market Types</h3>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes 225 signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">264</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">5. Zero-Hallucination Mandate — 41 Sources, 10 Irregularities Logged</h3>
         <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Every game, line, score, player injury status, and referee assignment is directly traceable to verified primary datasets (nflverse 7,276 games + 51,024 officials + 20,490 closing lines, FiveThirtyEight Elo, NFLInjuryReport 834 players, NOAA NWS hourly, PFR advanced, Kalshi API, Odds API, Pinnacle, Action Network, RotoWire, FTN, DraftKings/FanDuel props, MasterSite 44 directory). Reddit JSON API 403 blocked flagged, X/Twitter paid rejected flagged, NFL policy PDFs 404 flagged, TNF indoor weather attribution flagged, Kalshi orderbook re-anchoring flagged, OL continuity pre-2018 limited flagged, player prop historical archive flagged as FORWARD_TEST, alt spread historical limited flagged, live PBP latency flagged, travel coordinate mapping approximation flagged. No hypothetical games or fabricated odds are permitted. All 18 audit checks PASSED.</p>
@@ -788,7 +788,7 @@
       <a href="#strategies" onclick="switchTab('strategies')">Strategies (17 cats)</a>
       <a href="#upcoming" onclick="switchTab('upcoming')">Upcoming (225)</a>
       <a href="#live-desk" onclick="switchTab('live-desk')">Paper Trading</a>
-      <a href="#history" onclick="switchTab('history')">Trade History (107k)</a>
+      <a href="#history" onclick="switchTab('history')">Trade History (<span id="claim-history">30k</span>)</a>
       <a href="#research" onclick="switchTab('research')">Research Lab (8 exp)</a>
       <a href="#kalshi" onclick="switchTab('kalshi')">Kalshi Desk (16k)</a>
       <a href="#registry" onclick="switchTab('registry')">Data Registry (41)</a>

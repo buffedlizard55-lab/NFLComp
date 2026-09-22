@@ -1,0 +1,37 @@
+name: Research loop checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python version
+        run: python3 --version
+
+      - name: Engine and data-integrity tests
+        run: python3 test/engine.test.py
+
+      - name: UI and data contract tests
+        run: node test/ui.test.js
+
+      - name: Audit check (no writes)
+        run: python3 -m engine.audit_verifier --check
+
+      - name: Generated documentation and site claims are current
+        run: |
+          python3 scripts/render_readme.py --check
+          python3 scripts/render_verification.py --check
+          python3 scripts/render_claims.py --check
+
+      - name: Strategy lab report is reproducible
+        run: python3 -m engine.strategy_lab --check

@@ -1,0 +1,28 @@
+{
+  "generated_by": "engine/backtest_engine.py::export_all_data",
+  "as_of_date": "2026-09-17",
+  "classification": "DERIVED_DATA",
+  "hash_algorithm": "sha256(previous_hash + compact_json(record_without_chain_fields))",
+  "genesis_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "published_window": {
+    "from_season": 2020,
+    "to_season": 2026
+  },
+  "published_bets": 29777,
+  "published_pnl": -126018.74,
+  "all_time_bets": 92814,
+  "all_time_pnl": -268772.62,
+  "bets_outside_published_window": 63037,
+  "pnl_outside_published_window": -142753.88,
+  "published_head_hash": "d5b6001d6f0776b4a9469a40b599611bc4eb9d0fe5cb57a3bacb2d6ddf49d773",
+  "published_head_previous_hash": "ed411768de591028728666c521b7f0c435701414dbc52aa4c953ba0ad5646c5e",
+  "chain_head_hash": "dacc6d5ac8202f4b9c61c28cca82018f4cd34348cf3427de1065a1de8f18288e",
+  "chain_head_bet_id": "BET-2026-W02-STRAT_ALT_SPREAD_023_v2-92814",
+  "published_head_is_mid_chain": true,
+  "source_files": {
+    "games.csv": "2b9d942b56af9de9382dc9519cb59025a82117447eea05eda1e9c7f78d840547",
+    "closing_lines.csv": "3571e1c9fc8d7396f405fb7c17d43c15676d335ffc932fbb03ff18da691d1729",
+    "initial_lines.csv": "654770173d11fdb2074537d520f6b1213d663e3bbf47689e5cc9994c1af255e5",
+    "teams.csv": "b7cfab98e6ac35c684432f6ace65d6065b0b89b90e3a2e91116a69ae38e04d42"
+  }
+}

@@ -117,6 +117,7 @@ async function loadAllData() {
 
     populateStrategyBetFilters();
     renderKPIs();
+    renderPublishedClaims();
     renderDashboard();
     renderLeaderboard();
     renderStrategies();
@@ -153,6 +154,29 @@ function renderKPIs() {
     document.getElementById('kpi-top-strat').textContent = s.top_performing_strategy;
     document.getElementById('kpi-top-roi').textContent = `ROI: +${s.top_roi}% (+$${s.top_pnl.toLocaleString()})`;
   }
+}
+
+/**
+ * Bind the numbers written in prose to the loaded data.
+ *
+ * The static HTML carries the value that was true when the data was exported
+ * (the audit fails if it drifts), and this keeps a live page correct even if it
+ * is served against a newer data directory.
+ */
+function renderPublishedClaims() {
+  const s = STATE.summary;
+  if (!s) return;
+  const set = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+  set('claim-personas', s.total_strategies.toLocaleString());
+  set('claim-upcoming', s.total_upcoming_bets.toLocaleString());
+  if (Array.isArray(STATE.ledger) && STATE.ledger.length) {
+    const published = STATE.ledger.length;
+    set('claim-history', published >= 1000 ? `${Math.round(published / 1000)}k` : published.toLocaleString());
+  }
+  if (Array.isArray(STATE.registry)) set('claim-registry', STATE.registry.length.toLocaleString());
 }
 
 function renderDashboard() {
