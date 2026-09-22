@@ -321,6 +321,18 @@ class NFLBacktestRunner:
                             pass
                     
                     if game["completed"]:
+                        # Forward-test markets and statuses: never settle historically, only forward test
+                        FORWARD_TEST_MARKETS = {"PLAYER_PROP", "FIRST_HALF_SPREAD", "FIRST_HALF_TOTAL", "QUARTER_MARKET", "FUTURES", "EXCHANGE", "GAME_PROP", "PREDICTION_MARKET"}
+                        if market in FORWARD_TEST_MARKETS or strat.meta.get("status") == "FORWARD_TEST":
+                            self.irregularities.append({
+                                "type": "FORWARD_TEST_MARKET",
+                                "game_id": game["game_id"],
+                                "strategy_id": strat.id,
+                                "market": market,
+                                "detail": f"Market {market} classified as FORWARD_TEST; historical price archive unavailable; signal excluded from settlement and preserved for forward test.",
+                                "status": "FLAGGED"
+                            })
+                            continue
                         # A result may only be settled when the source contains the
                         # observable statistic for this market.  Player props do not
                         # exist in the bundled historical feed; never manufacture a

@@ -18,6 +18,12 @@ const STATE = {
   registry: [],
   irregularities: [],
   auditChecks: [],
+  crossValidation: null,
+  bettingMarkets: null,
+  forwardTesting: null,
+  executionReport: null,
+  autonomousResearch: null,
+  publicResearch: null,
   currentTab: 'research',
   historyPage: 1,
   historyPageSize: 50,
@@ -86,7 +92,13 @@ async function loadAllData() {
       strategyLabRes,
       regRes,
       irrRes,
-      auditRes
+      auditRes,
+      cvRes,
+      bmRes,
+      ftRes,
+      execRes,
+      arRes,
+      pubRes
     ] = await Promise.all([
       fetch('data/summary.json').then(r => r.json()),
       fetch('data/leaderboard.json').then(r => r.json()),
@@ -99,7 +111,13 @@ async function loadAllData() {
       fetch('data/strategy_lab.json').then(r => r.json()),
       fetch('data/registry.json').then(r => r.json()),
       fetch('data/irregularities.json').then(r => r.json()),
-      fetch('data/audit_checks.json').then(r => r.json())
+      fetch('data/audit_checks.json').then(r => r.json()),
+      fetch('data/cross_validation.json').then(r => r.json()).catch(() => null),
+      fetch('data/betting_markets.json').then(r => r.json()).catch(() => null),
+      fetch('data/forward_testing.json').then(r => r.json()).catch(() => null),
+      fetch('data/execution_report.json').then(r => r.json()).catch(() => null),
+      fetch('data/autonomous_research.json').then(r => r.json()).catch(() => null),
+      fetch('data/public_strategy_research.json').then(r => r.json()).catch(() => null)
     ]);
 
     STATE.summary = summaryRes;
@@ -114,6 +132,12 @@ async function loadAllData() {
     STATE.registry = regRes;
     STATE.irregularities = irrRes;
     STATE.auditChecks = auditRes;
+    STATE.crossValidation = cvRes;
+    STATE.bettingMarkets = bmRes;
+    STATE.forwardTesting = ftRes;
+    STATE.executionReport = execRes;
+    STATE.autonomousResearch = arRes;
+    STATE.publicResearch = pubRes;
 
     populateStrategyBetFilters();
     renderKPIs();
@@ -411,6 +435,21 @@ function formatBetDate(bet, upcoming = false) {
 }
 
 // ================= UPCOMING BETS =================
+function getStatusBadgeClass(status) {
+  const map = {
+    'WATCHING': 'badge-watching',
+    'QUALIFIED': 'badge-qualified',
+    'READY': 'badge-ready',
+    'READY_TO_BET': 'badge-ready',
+    'PRICE_TOO_HIGH': 'badge-loss',
+    'WAITING': 'badge-waiting',
+    'EXECUTED': 'badge-win',
+    'CANCELLED': 'badge-loss',
+    'EXPIRED': 'badge-loss'
+  };
+  return map[status] || 'badge-watching';
+}
+
 function renderUpcomingBets() {
   const tbody = document.getElementById('upcoming-bets-body');
   if (!tbody) return;
@@ -444,9 +483,9 @@ function renderUpcomingBets() {
     tr.className = 'clickable-row';
     tr.title = 'Open this strategy';
     tr.onclick = () => openStrategyModal(bet.strategy_id);
-    const badgeClass = bet.status === 'READY_TO_BET' ? 'badge-ready' : (bet.status === 'QUALIFIED' ? 'badge-qualified' : 'badge-watching');
+    const badgeClass = getStatusBadgeClass(bet.status);
     tr.innerHTML = `
-      <td><span class="badge ${badgeClass}">${bet.status.replace('_', ' ')}</span></td>
+      <td><span class="badge ${badgeClass}">${bet.status.replaceAll('_', ' ')}</span></td>
       <td><span style="color:var(--accent-cyan); font-weight:700; font-family:var(--font-mono);">${bet.username}</span></td>
       <td>Week ${bet.week} (${bet.gameday})</td>
       <td><strong>${bet.matchup}</strong></td>

@@ -74,22 +74,22 @@ local snapshot, not a claim about an upstream release asset.
 | 2 | `GAME_ID_UNIQUENESS` | DATA_INTEGRITY | PASS | Found 0 duplicate game IDs across 7548 games |
 | 3 | `SCORE_MARGIN_ARITHMETIC` | CALCULATION | PASS | Score margin checked on 7548 games; 0 mismatches |
 | 4 | `GAMES_CHRONOLOGICAL_ORDER` | DATA_INTEGRITY | PASS | Games sorted chronologically: 1999-09-12 to 2027-01-10 |
-| 5 | `LEDGER_POPULATED` | AUDIT | PASS | Found 29,777 bets in ledger (2020-2026 recent slice) |
-| 6 | `BET_ID_UNIQUENESS` | AUDIT | PASS | Found 0 duplicate bet IDs out of 29,777 |
-| 7 | `PNL_CALCULATION_ACCURACY` | AUDIT | PASS | Audited 29,777 bets; 0 math errors |
+| 5 | `LEDGER_POPULATED` | AUDIT | PASS | Found 31,490 bets in ledger (2020-2026 recent slice) |
+| 6 | `BET_ID_UNIQUENESS` | AUDIT | PASS | Found 0 duplicate bet IDs out of 31,490 |
+| 7 | `PNL_CALCULATION_ACCURACY` | AUDIT | PASS | Audited 31,490 bets; 0 math errors |
 | 8 | `LEDGER_REQUIRED_FIELDS` | AUDIT | PASS | Checked required fields; 0 missing field instances |
 | 9 | `MARKET_TYPES_VALID` | AUDIT | PASS | Checked market types; 0 invalid market types |
-| 10 | `LEDGER_HASH_CHAIN` | AUDIT | PASS | Re-derived 29,777 links; head dacc6d5ac8202f4b… |
-| 11 | `LEDGER_MANIFEST_RECONCILIATION` | AUDIT | PASS | window 2020–2026: 29,777 of 92,814 bets published (63,037 in earlier seasons, totals stated separately) |
-| 12 | `LEADERBOARD_INTEGRITY` | AUDIT | PASS | Leaderboard contains 60 verified strategies (target >=40) |
+| 10 | `LEDGER_HASH_CHAIN` | AUDIT | PASS | Re-derived 31,490 links; head fbeb92319707c423… |
+| 11 | `LEDGER_MANIFEST_RECONCILIATION` | AUDIT | PASS | window 2020–2026: 31,490 of 97,435 bets published (65,945 in earlier seasons, totals stated separately) |
+| 12 | `LEADERBOARD_INTEGRITY` | AUDIT | PASS | Leaderboard contains 70 verified strategies (target >=40) |
 | 13 | `CATEGORY_COVERAGE` | AUDIT | PASS | Leaderboard covers 17 categories: Alternate Markets & Futures, Coaching & Decision Tendencies, Defensive Matchups & Scheme, Game Script & Situational, Injury & Player Availability... |
-| 14 | `LEADERBOARD_LEDGER_RECONCILIATION` | AUDIT | PASS | All 60 rows re-derived from 29,777 published records (published window PnL -126,018.74; all-time totals remain on the rows) |
+| 14 | `LEADERBOARD_LEDGER_RECONCILIATION` | AUDIT | PASS | All 70 rows re-derived from 31,490 published records (published window PnL -225,415.79; all-time totals remain on the rows) |
 | 15 | `KALSHI_TRADES_INTEGRITY` | AUDIT | PASS | Found 1,432 simulated Kalshi trades with bid/ask/spread/liquidity/slippage |
 | 16 | `KALSHI_FIELDS_COMPLETE` | AUDIT | PASS | Kalshi trade fields complete: True |
-| 17 | `REGISTRY_ENTRIES` | AUDIT | PASS | Registry contains 41 probed sources (target >=30) |
-| 18 | `VERIFIED_PRIMARY_COUNT` | AUDIT | PASS | Found 19 VERIFIED_PRIMARY sources |
+| 17 | `REGISTRY_ENTRIES` | AUDIT | PASS | Registry contains 56 probed sources (target >=30) |
+| 18 | `VERIFIED_PRIMARY_COUNT` | AUDIT | PASS | Found 24 VERIFIED_PRIMARY sources |
 | 19 | `REQUIRED_CATEGORY_COVERAGE` | AUDIT | PASS | Covered 12/12 required categories: ['Alternate Markets & Futures', 'Coaching & Decision Tendencies', 'Defensive Matchups & Scheme', 'Game Script & Situational', 'Injury & Player Availability', 'Kalshi Prediction Markets', 'Live & In-Game Strategies', 'Market Movement & CLV Strategies', 'Offensive Line & Protection', 'Player Prop Strategies', 'Public Strategy Research & Replication', 'Quarterback & Passing Efficiency', 'Referee & Officiating Tendencies', 'Rest & Scheduling Asymmetries', 'Statistical & Machine Learning Models', 'Team Totals & Efficiency', 'Weather & Stadium Conditions'] |
-| 20 | `STRATEGY_VERSIONING` | AUDIT | PASS | Found 20 strategies with parent_version (versioning) |
+| 20 | `STRATEGY_VERSIONING` | AUDIT | PASS | Found 23 strategies with parent_version (versioning) |
 | 21 | `MASTERSITE_RESEARCH` | AUDIT | PASS | MasterSite projects mapped: 12 sources covering CEO, Weather, Insider, TheLeap, NFL/NBA Injury, FDA, NCAA/NFL/MLB Scoreboard, Sports Pred, Gold, PinePilot |
 | 22 | `PUBLISHED_README_BLOCK` | PUBLICATION | PASS | 25 published metrics and badges match the data files |
 | 23 | `PUBLISHED_REPORT_BLOCK` | PUBLICATION | PASS | 25 report metrics match the data files |
@@ -99,9 +99,9 @@ local snapshot, not a claim about an upstream release asset.
 ### Ledger chain
 
 - Hash rule: `sha256(previous_hash + compact_json(record_without_chain_fields))`
-- State: 29,777 published of 92,814 simulated records; head `dacc6d5ac8202f4b…`; published window 2020–2026
+- State: 31,490 published of 97,435 simulated records; head `fbeb92319707c423…`; published window 2020–2026
 - The published chain starts mid-history: yes (earlier seasons are aggregated, not published).
-- Published-state totals: 29,777 bets / -126,018.74 USD inside the window, 92,814 bets / -268,772.62 USD all time.
+- Published-state totals: 31,490 bets / -225,415.79 USD inside the window, 97,435 bets / -552,392.18 USD all time.
 
 <!-- VERIFICATION_END -->
 

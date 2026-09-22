@@ -211,7 +211,7 @@ class NFLAuditVerifier:
         seen_ids = set()
         missing_fields = 0
         invalid_markets = 0
-        valid_markets = {"SPREAD", "TOTAL", "MONEYLINE", "KALSHI_SPREAD", "KALSHI_TOTAL", "KALSHI_LIVE", "PLAYER_PROP", "TEAM_TOTAL", "ALT_SPREAD"}
+        valid_markets = {"SPREAD", "TOTAL", "MONEYLINE", "KALSHI_SPREAD", "KALSHI_TOTAL", "KALSHI_LIVE", "PLAYER_PROP", "TEAM_TOTAL", "ALT_SPREAD", "FIRST_HALF_SPREAD", "FIRST_HALF_TOTAL", "QUARTER_MARKET", "FUTURES", "EXCHANGE", "PREDICTION_MARKET", "GAME_PROP"}
 
         for b in bets:
             bid = b["bet_id"]

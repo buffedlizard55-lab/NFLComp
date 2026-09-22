@@ -15,12 +15,12 @@
         <div class="logo-badge">NFLCOMP</div>
         <div>
           <h1 class="brand-title">ARENA AI — NFL Strategy Competition</h1>
-          <p class="brand-sub">Continuous Strategy Research & Paper Testing — 58 Published Strategies • 2 New Lab Candidates • 41 Data Sources</p>
+          <p class="brand-sub">Continuous Strategy Research & Paper Testing — 70 Published Strategies • 2 New Lab Candidates • 56 Data Sources</p>
         </div>
       </div>
       <div class="header-badges">
         <span class="status-pill live">2026 Season • Week 2 Active Slate</span>
-        <span class="status-pill verified">Zero-Lookahead Verified • 18 Audit Checks PASSED</span>
+        <span class="status-pill verified">Zero-Lookahead Verified • 25 Audit Checks PASSED</span>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
       <div class="kpi-card">
         <span class="kpi-label">Historical Wagers</span>
         <span class="kpi-value" id="kpi-bets">107,808</span>
-        <span class="kpi-sub">100% Immutable Ledger • 7 Market Types</span>
+        <span class="kpi-sub">100% Immutable Ledger • 14 Market Types</span>
       </div>
       <div class="kpi-card">
         <span class="kpi-label">Total Simulated PnL</span>
@@ -93,7 +93,7 @@
       <div class="section-header">
         <div>
           <h2 class="section-title">📊 NFL Competition Dashboard</h2>
-          <p class="section-desc">Year-long autonomous sports betting strategy competition across <span id="claim-personas-dash">60</span> quantitative personas covering QB, OL, Defensive, Weather, Rest, Coaching, Props, Game Script, Live, Statistical ML (Elo, Poisson, Logistic, Bayesian, GBM, Ensemble, Monte Carlo), Market Movement, Kalshi, Referee, Public Research. Zero lookahead bias, strict point-in-time pricing, and continuous empirical research.</p>
+          <p class="section-desc">Year-long autonomous sports betting strategy competition across <span id="claim-personas-dash">70</span> quantitative personas covering QB, OL, Defensive, Weather, Rest, Coaching, Props, Game Script, Live, Statistical ML (Elo, Poisson, Logistic, Bayesian, GBM, Ensemble, Monte Carlo), Market Movement, Kalshi, Referee, Public Research. Zero lookahead bias, strict point-in-time pricing, and continuous empirical research.</p>
         </div>
       </div>
 
@@ -102,7 +102,7 @@
         <div class="card">
           <div class="card-title">
             <span>🏆 Current Leaderboard (Top 5)</span>
-            <button class="btn btn-sm" onclick="switchTab('leaderboard')">View All <span id="claim-personas-cta">60</span> →</button>
+            <button class="btn btn-sm" onclick="switchTab('leaderboard')">View All <span id="claim-personas-cta">70</span> →</button>
           </div>
           <div class="table-responsive">
             <table id="dash-leader-table">
@@ -127,7 +127,7 @@
         <div class="card">
           <div class="card-title">
             <span>⚡ Week 2 Active Slate Pulse (<span id="claim-week-games">15</span> Games)</span>
-            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">264</span> Signals →</button>
+            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">340</span> Signals →</button>
           </div>
           <div class="table-responsive" style="max-height: 260px;">
             <table id="dash-slate-table">
@@ -164,13 +164,13 @@
     <section id="view-leaderboard" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🏆 Strategy Leaderboard — <span id="claim-personas-heading">60</span> Autonomous Personas</h2>
-          <p class="section-desc">Performance rankings across all <span id="claim-personas">60</span> registered quantitative personas. Covers 17 categories: QB, OL, Defensive, Weather, Injury WAR, Rest/Travel/International, Statistical ML (9 models), Market Movement & CLV, Kalshi, Referee, Public Research, Coaching, Player Props, Game Script, Live, Team Totals, Alt Markets. Sort by multi-factor metrics or click any strategy for full methodology, version history, and bet ledger.</p>
+          <h2 class="section-title">🏆 Strategy Leaderboard — <span id="claim-personas-heading">70</span> Autonomous Personas</h2>
+          <p class="section-desc">Performance rankings across all <span id="claim-personas">70</span> registered quantitative personas. Covers 17 categories: QB, OL, Defensive, Weather, Injury WAR, Rest/Travel/International, Statistical ML (9 models), Market Movement & CLV, Kalshi, Referee, Public Research, Coaching, Player Props, Game Script, Live, Team Totals, Alt Markets. Sort by multi-factor metrics or click any strategy for full methodology, version history, and bet ledger.</p>
         </div>
         <div class="section-controls">
           <input type="text" id="leader-search" class="search-input" placeholder="Search strategy or username...">
           <select id="leader-cat-filter" class="select-input">
-            <option value="ALL">All 17 Categories</option>
+            <option value="ALL">All 18 Categories</option>
             <option value="Quarterback & Passing Efficiency">Quarterback & Passing (7)</option>
             <option value="Offensive Line & Protection">Offensive Line & Protection (3)</option>
             <option value="Defensive Matchups & Scheme">Defensive Matchups & Scheme (4)</option>
@@ -220,13 +220,13 @@
     <section id="view-strategies" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🧠 Strategy Catalog & Lineage Trees — 58 Personas</h2>
+          <h2 class="section-title">🧠 Strategy Catalog & Lineage Trees — 70 Personas</h2>
           <p class="section-desc">Explore the complete research methodology, parameter specifications, version lineages (v1 → v2 → v3), failure analyses, and limitations for each autonomous betting persona. Includes Offensive Line continuity, Defensive pressure/blitz/coverage, Player Props (usage, target share, carry share, red zone), Game Script (pass rate, pace), Live WP, Logistic Regression, Bayesian, Gradient Boosting, Ensemble, Travel Fatigue, International Under.</p>
         </div>
         <div class="section-controls">
           <input type="text" id="strat-search" class="search-input" placeholder="Search hypothesis, rules, keywords...">
           <select id="strat-cat-filter" class="select-input">
-            <option value="ALL">All 17 Categories</option>
+            <option value="ALL">All 18 Categories</option>
             <option value="Quarterback & Passing Efficiency">Quarterback & Passing</option>
             <option value="Offensive Line & Protection">OL & Protection</option>
             <option value="Defensive Matchups & Scheme">Defensive Scheme</option>
@@ -268,9 +268,15 @@
             <option value="READY_TO_BET">Ready to Bet (Week 2)</option>
             <option value="QUALIFIED">Qualified</option>
             <option value="WATCHING">Watching</option>
+            <option value="READY">Ready</option>
+            <option value="PRICE_TOO_HIGH">Price Too High</option>
+            <option value="WAITING">Waiting</option>
+            <option value="EXECUTED">Executed</option>
+            <option value="CANCELLED">Cancelled</option>
+            <option value="EXPIRED">Expired</option>
           </select>
           <select id="upcoming-market-filter" class="select-input">
-            <option value="ALL">All 7 Markets</option>
+            <option value="ALL">All 14 Markets</option>
             <option value="SPREAD">Point Spread</option>
             <option value="TOTAL">Totals (Over/Under)</option>
             <option value="TEAM_TOTAL">Team Total</option>
@@ -279,6 +285,12 @@
             <option value="KALSHI_SPREAD">Kalshi Binary Spread</option>
             <option value="KALSHI_TOTAL">Kalshi Total</option>
             <option value="KALSHI_LIVE">Kalshi Live</option>
+            <option value="FIRST_HALF_SPREAD">First Half Spread</option>
+            <option value="FIRST_HALF_TOTAL">First Half Total</option>
+            <option value="QUARTER_MARKET">Quarter Market</option>
+            <option value="FUTURES">Futures</option>
+            <option value="EXCHANGE">Exchange</option>
+            <option value="PREDICTION_MARKET">Prediction Market</option>
           </select>
         </div>
       </div>
@@ -345,7 +357,7 @@
         <!-- Interactive Execution Simulator -->
         <div class="card">
           <div class="card-title">
-            <span>⚙️ Live Paper Order Execution Sandbox (7 Market Types)</span>
+            <span>⚙️ Live Paper Order Execution Sandbox (14 Market Types)</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <p style="font-size: 0.82rem; color: var(--text-secondary);">Test hypothetical simulated wagers with realistic market friction, slippage, and Kelly sizing across all market types including player props and Kalshi.</p>
@@ -453,7 +465,7 @@
     <section id="view-performance" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">📉 Performance Analytics & Multi-Factor Visualizations — 17 Categories</h2>
+          <h2 class="section-title">📉 Performance Analytics & Multi-Factor Visualizations — 18 Categories</h2>
           <p class="section-desc">Visualizations of cumulative equity trajectories, maximum drawdown dynamics, profit factor decompositions by market type (SPREAD, TOTAL, TEAM_TOTAL, PLAYER_PROP, ALT_SPREAD, KALSHI), and weekly return distributions across 58 strategies.</p>
         </div>
       </div>
@@ -518,7 +530,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">📊 Predictive Variable Feature Importance Matrix — 17 Categories</div>
+        <div class="card-title">📊 Predictive Variable Feature Importance Matrix — 18 Categories</div>
         <div class="table-responsive">
           <table>
             <thead>
@@ -670,8 +682,8 @@
     <section id="view-registry" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">📂 Permanent Data Source Registry — 41 Sources Verified</h2>
-          <p class="section-desc">Comprehensive catalog of <span id="claim-registry">41</span> primary, secondary, and discovery data sources probed during development, including licensing, accuracy, update cadence, and API access. Covers Official NFL, QB/RB/WR/TE/OL/DL/LB/Secondary, Player Tracking/Route/Separation/Pressure/Time to Throw/CPOE, Starting Lineups/Coaches/Refs/Weather, Public Betting, Sportsbook Prices including Player Props/Team Props/Alt Spreads, Market Depth (Kalshi/Pinnacle), MasterSite 44 Directory (CEO, SFWeather NOAA pipeline, NFL/NBA/NCAA/MLB scoreboards, NFL injury, Sports Pred, TheLeap, FDA, Gold flagged Irregularity #33, PinePilot EMA/RSI), Reddit (403 blocked), X/Twitter (paid rejected), YouTube, GitHub sports analytics, Academic research. Each with 20+ fields, cost, auth, reliability, status.</p>
+          <h2 class="section-title">📂 Permanent Data Source Registry — 56 Sources Verified</h2>
+          <p class="section-desc">Comprehensive catalog of <span id="claim-registry">56</span> primary, secondary, and discovery data sources probed during development, including licensing, accuracy, update cadence, and API access. Covers Official NFL, QB/RB/WR/TE/OL/DL/LB/Secondary, Player Tracking/Route/Separation/Pressure/Time to Throw/CPOE, Starting Lineups/Coaches/Refs/Weather, Public Betting, Sportsbook Prices including Player Props/Team Props/Alt Spreads, Market Depth (Kalshi/Pinnacle), MasterSite 44 Directory (CEO, SFWeather NOAA pipeline, NFL/NBA/NCAA/MLB scoreboards, NFL injury, Sports Pred, TheLeap, FDA, Gold flagged Irregularity #33, PinePilot EMA/RSI), Reddit (403 blocked), X/Twitter (paid rejected), YouTube, GitHub sports analytics, Academic research. Each with 20+ fields, cost, auth, reliability, status.</p>
         </div>
       </div>
 
@@ -699,13 +711,13 @@
     <section id="view-verification" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🛡️ Verification, Audits & Irregularity Register — 18 Checks, 10 Irregularities</h2>
+          <h2 class="section-title">🛡️ Verification, Audits & Irregularity Register — 25 Checks, 10 Irregularities</h2>
           <p class="section-desc">Automated mathematical audit checks, lookahead-bias prevention tests, and documented data discrepancies across all official and third-party sources. Includes OL continuity tracking limit pre-2018, player prop historical archive limitation, alt spread archive limitation, live PBP latency, travel coordinate mapping approximation.</p>
         </div>
       </div>
 
       <div class="card" style="border-left: 4px solid var(--accent-green);">
-        <div class="card-title">✅ Automated Audit Verification Status — 18 Checks PASSED</div>
+        <div class="card-title">✅ Automated Audit Verification Status — 25 Checks PASSED</div>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">The complete codebase and simulation engine underwent automated integrity audits verifying game ID uniqueness, score margin math, PnL settlement precision, zero-lookahead boundary conditions, market types validity, required fields, MasterSite research coverage (10+ sources), category coverage (12+ required categories), versioning, Kalshi fields, leaderboard integrity, registry entries.</p>
         <div id="audit-checks-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;">
           <!-- Injected via JS -->
@@ -713,7 +725,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">🚩 Documented Irregularity Register — 10 Logged & Resolved</div>
+        <div class="card-title">🚩 Documented Irregularity Register — 10 Logged & Preserved</div>
         <div class="table-responsive">
           <table>
             <thead>
@@ -760,8 +772,8 @@
           <br><br>Team totals derived as: home_tt = total/2 + spread/2, away_tt = total/2 - spread/2. Player prop outcomes simulated via deterministic hash-seeded pseudo-random (SHA256 of game_id+strategy+selection) to ensure reproducibility without hallucination. Prop strategies classified as FORWARD_TEST due to historical archive limitations (DraftKings/FanDuel paid, Odds API key).
         </p>
 
-        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">4. Execution Modeling, Fees & Slippage — 7 Market Types</h3>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">264</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
+        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">4. Execution Modeling, Fees & Slippage — 14 Market Types</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">340</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">5. Zero-Hallucination Mandate — 41 Sources, 10 Irregularities Logged</h3>
         <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Every game, line, score, player injury status, and referee assignment is directly traceable to verified primary datasets (nflverse 7,276 games + 51,024 officials + 20,490 closing lines, FiveThirtyEight Elo, NFLInjuryReport 834 players, NOAA NWS hourly, PFR advanced, Kalshi API, Odds API, Pinnacle, Action Network, RotoWire, FTN, DraftKings/FanDuel props, MasterSite 44 directory). Reddit JSON API 403 blocked flagged, X/Twitter paid rejected flagged, NFL policy PDFs 404 flagged, TNF indoor weather attribution flagged, Kalshi orderbook re-anchoring flagged, OL continuity pre-2018 limited flagged, player prop historical archive flagged as FORWARD_TEST, alt spread historical limited flagged, live PBP latency flagged, travel coordinate mapping approximation flagged. No hypothetical games or fabricated odds are permitted. All 18 audit checks PASSED.</p>
@@ -788,13 +800,13 @@
       <a href="#strategies" onclick="switchTab('strategies')">Strategies (17 cats)</a>
       <a href="#upcoming" onclick="switchTab('upcoming')">Upcoming (225)</a>
       <a href="#live-desk" onclick="switchTab('live-desk')">Paper Trading</a>
-      <a href="#history" onclick="switchTab('history')">Trade History (<span id="claim-history">30k</span>)</a>
+      <a href="#history" onclick="switchTab('history')">Trade History (<span id="claim-history">31k</span>)</a>
       <a href="#research" onclick="switchTab('research')">Research Lab (8 exp)</a>
       <a href="#kalshi" onclick="switchTab('kalshi')">Kalshi Desk (16k)</a>
       <a href="#registry" onclick="switchTab('registry')">Data Registry (41)</a>
       <a href="#verification" onclick="switchTab('verification')">Verification (18 checks)</a>
     </div>
-    <p>ARENA AI — NFL Autonomous Sports Betting Strategy Research & Competition Platform • 58 Strategies • 41 Sources • 17 Categories • 7 Market Types • 107,808 Bets • Educational Paper Trading Only • Never Place Real-Money Bets.</p>
+    <p>ARENA AI — NFL Autonomous Sports Betting Strategy Research & Competition Platform • 70 Strategies • 56 Sources • 18 Categories • 14 Market Types • 29,777 Bets (2020+ slice) • Educational Paper Trading Only • Never Place Real-Money Bets.</p>
   </footer>
 
   <script src="app.js"></script>
