@@ -16,11 +16,20 @@ import os
 import sys
 import json
 import random
+from pathlib import Path
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from engine.data_loader import NFLDataLoader
-from engine.ledger import append_bet, verify_ledger
+from engine.ledger import append_bet, chain_hash, verify_chain, verify_ledger
+from engine.publication import (
+    CLAIM_PATTERNS,
+    expected_site_claims,
+    published_facts,
+    render_badges,
+    render_status_block,
+    site_claims,
+)
 from engine.research_discovery import discover_candidates, compare_versions
 from engine.strategy_lab import build_report
 from engine.settlement import settle_spread, settle_total
@@ -298,17 +307,84 @@ class TestNFLCompExpanded(unittest.TestCase):
             self.assertTrue(any("hash mismatch" in error for error in errors))
 
     def test_audit_verifier_expanded(self):
-        # First need to ensure data files exist - run simulation if needed
-        # We'll just check verifier structure
+        """The published data must satisfy every audit check, not merely most."""
         verifier = NFLAuditVerifier("data")
-        # Run audit - should pass after simulation
-        try:
-            audit_res = verifier.run_full_audit()
-            self.assertGreaterEqual(audit_res["total_checks"], 12)
-            self.assertGreaterEqual(audit_res["passed_checks"], 10)
-        except Exception as e:
-            # If data files missing, check at least verifier initializes
-            self.assertIsInstance(verifier.irregularities, list)
+        audit_res = verifier.run_full_audit()
+        failed = [c["name"] for c in verifier.audit_checks if not c["passed"]]
+        self.assertEqual(failed, [], f"audit failures: {failed}")
+        self.assertGreaterEqual(audit_res["total_checks"], 20)
+        self.assertEqual(audit_res["failed_checks"], 0)
+
+
+class TestPublishedArtifactsReconcile(unittest.TestCase):
+    """Every published number, hash and claim must re-derive from the data files."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.root = Path(__file__).resolve().parents[1]
+        cls.data = cls.root / "data"
+        cls.ledger = json.loads((cls.data / "bets_ledger.json").read_text(encoding="utf-8"))
+        cls.manifest = json.loads((cls.data / "ledger_manifest.json").read_text(encoding="utf-8"))
+        cls.summary = json.loads((cls.data / "summary.json").read_text(encoding="utf-8"))
+        cls.leaderboard = json.loads((cls.data / "leaderboard.json").read_text(encoding="utf-8"))
+        cls.facts = published_facts(cls.data)
+
+    def test_published_ledger_hash_chain_re_derives(self):
+        ok, errors, head = verify_chain(self.ledger)
+        self.assertTrue(ok, f"published ledger chain does not verify: {errors[:3]}")
+        self.assertEqual(head, self.manifest["chain_head_hash"])
+        self.assertEqual(self.ledger[-1]["hash"], self.manifest["chain_head_hash"])
+
+    def test_a_tampered_record_breaks_the_chain(self):
+        """Changing a settled record must be detectable without the generator."""
+        tampered = [dict(record) for record in self.ledger[:5]]
+        tampered[2]["pnl"] = tampered[2]["pnl"] + 1000.0
+        self.assertNotEqual(tampered[2]["hash"], chain_hash(tampered[2], tampered[2]["previous_hash"]))
+        ok, errors, _ = verify_chain(tampered)
+        self.assertFalse(ok)
+        self.assertTrue(any("does not match its contents" in error for error in errors))
+
+    def test_ledger_manifest_reconciles_with_summary_and_leaderboard(self):
+        self.assertEqual(self.manifest["published_bets"], len(self.ledger))
+        self.assertEqual(self.manifest["all_time_bets"], self.summary["total_simulated_bets"])
+        self.assertEqual(self.manifest["bets_outside_published_window"],
+                         self.manifest["all_time_bets"] - len(self.ledger))
+        published_pnl = round(sum(b["pnl"] for b in self.ledger), 2)
+        tolerance = 0.011 * len(self.ledger) + 0.01
+        self.assertLess(abs(self.manifest["published_pnl"] - published_pnl), tolerance)
+        self.assertLess(abs(self.summary["ledger_published_pnl"] - published_pnl), tolerance)
+        per_strategy: dict[str, float] = {}
+        for bet in self.ledger:
+            per_strategy[bet["strategy_id"]] = per_strategy.get(bet["strategy_id"], 0.0) + bet["pnl"]
+        for row in self.leaderboard:
+            expected = round(per_strategy.get(row["id"], 0.0), 2)
+            slack = 0.011 * row["published_ledger_bets"] + 0.01
+            self.assertLess(abs(row["published_ledger_pnl"] - expected), slack,
+                            f"{row['id']} published PnL does not re-derive from the ledger")
+            self.assertAlmostEqual(row["all_time_pnl"], row["total_pnl"], places=6)
+
+    def test_readme_published_block_is_current(self):
+        from scripts.render_readme import render
+
+        readme_path = self.root / "README.md"
+        current = readme_path.read_text(encoding="utf-8")
+        expected = render(current, render_status_block(self.facts), render_badges(self.facts))
+        self.assertEqual(current, expected, "README claims are stale; run scripts/render_readme.py")
+
+    def test_site_claims_match_data(self):
+        html = (self.root / "index.html").read_text(encoding="utf-8")
+        found = site_claims(html)
+        for claim in CLAIM_PATTERNS:
+            self.assertIn(claim, found, f"{claim} must be bound in index.html")
+        self.assertEqual(found, expected_site_claims(self.facts),
+                         "index.html advertises numbers the data does not support")
+
+    def test_published_state_is_dated_from_the_data(self):
+        """as_of_date must come from the played games, never a hand-typed date."""
+        loader = NFLDataLoader(str(self.data / "source"))
+        games = loader.load_all()
+        latest = max(g["gameday"] for g in games if g["completed"])
+        self.assertEqual(self.summary["as_of_date"], latest)
 
 if __name__ == "__main__":
     unittest.main()

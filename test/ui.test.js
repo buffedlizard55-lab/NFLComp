@@ -71,6 +71,46 @@ function runTests() {
   }
   console.log(`✓ bets_ledger.json validated (${ledger.length} placed bets linked to strategies)`);
 
+  // 4b. Ledger hash chain + manifest reconciliation
+  const manifestPath = path.join(__dirname, '..', 'data', 'ledger_manifest.json');
+  assert.ok(fs.existsSync(manifestPath), 'data/ledger_manifest.json must exist');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  // Link continuity is checked here; the record hashes are re-derived by the
+  // same implementation that wrote them, so no second serialiser can drift.
+  let chainHead = null;
+  let broken = 0;
+  for (const bet of ledger) {
+    assert.ok(bet.hash && bet.previous_hash, 'every published record must carry its chain fields');
+    if (chainHead !== null && bet.previous_hash !== chainHead) broken += 1;
+    chainHead = bet.hash;
+  }
+  assert.strictEqual(broken, 0, 'published ledger links must be continuous');
+  assert.strictEqual(manifest.published_bets, ledger.length);
+  assert.strictEqual(manifest.chain_head_hash, chainHead);
+  assert.strictEqual(manifest.bets_outside_published_window, manifest.all_time_bets - ledger.length);
+  assert.ok(Object.keys(manifest.source_files || {}).length > 0, 'manifest must cite source snapshots');
+  const ledgerPnl = Math.round(ledger.reduce((sum, b) => sum + b.pnl, 0) * 100) / 100;
+  assert.ok(Math.abs(manifest.published_pnl - ledgerPnl) <= 0.011 * ledger.length + 0.01,
+    'manifest published PnL must re-derive from the published ledger');
+  const { execFileSync } = require('child_process');
+  const verify = execFileSync('python3', ['-m', 'engine.ledger', '--verify', ledgerPath],
+    { cwd: path.join(__dirname, '..'), encoding: 'utf8' });
+  assert.ok(verify.includes('chain OK'), `engine.ledger must re-derive the published chain: ${verify}`);
+  console.log(`✓ ledger hash chain verified (${ledger.length} linked records, head ${chainHead.slice(0, 12)}…)`);
+
+  // 4c. Published site claims must match the data
+  const htmlClaims = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const claimValue = (id) => {
+    const match = htmlClaims.match(new RegExp(`id="${id}"[^>]*>([^<]+)<`));
+    return match ? match[1].trim() : null;
+  };
+  assert.strictEqual(claimValue('claim-personas'), String(summary.total_strategies));
+  assert.strictEqual(claimValue('claim-upcoming'), String(summary.total_upcoming_bets));
+  assert.strictEqual(claimValue('claim-history'), `${Math.round(ledger.length / 1000)}k`);
+  assert.strictEqual(claimValue('claim-registry'), String(
+    JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'registry.json'), 'utf8')).length));
+  console.log('✓ index.html prose claims match the published data');
+
   // 5. Check strategy review UI contracts
   const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   const appJs = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');

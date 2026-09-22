@@ -16,12 +16,38 @@ The checked-in dashboard JSON files are read-model fixtures. Their presence is n
 
 Model projections are labelled `MODEL_OUTPUT`; they must not be used as observed prices, fills, results, or settlement outcomes. Missing, conflicting, or late data belongs in `data/irregularities.json` and is not silently imputed.
 
+## Published window versus complete simulation
+
+`data/bets_ledger.json` publishes a recent-season window so that the repository
+and the GitHub Pages artefact stay small. The complete simulation totals, the
+window boundaries, the chain head and the snapshot hashes live in
+`data/ledger_manifest.json`; each leaderboard row carries both its published-window
+and all-time figures plus the difference. Nothing outside the window is deleted:
+it is aggregated and labelled. A published record is append-only — any edit
+breaks the hash chain, which `engine.ledger.verify_chain` detects from the
+published bytes alone.
+
+## Reproducibility
+
+A full run is deterministic: two consecutive `python3 scripts/run_pipeline.py`
+executions produced identical summary figures and an identical SHA-256 digest of
+the published ledger. Model randomness comes from a seeded local generator
+(`MonteCarloModel`), never from process-global RNG state.
+
 ## Verification commands
 
 ```bash
+python3 scripts/run_pipeline.py --check-only     # data + generated docs + audit
+python3 -m engine.audit_verifier --check         # audit only, exits non-zero on failure
+python3 -m engine.ledger --verify data/bets_ledger.json
+python3 scripts/render_readme.py --check
+python3 scripts/render_verification.py --check
+python3 scripts/render_claims.py --check
 python3 test/engine.test.py
 node test/ui.test.js
 python3 -m py_compile engine/*.py
 ```
 
-Passing tests validate software contracts and arithmetic. They do not establish a profitable betting edge.
+Passing tests validate software contracts, arithmetic and that the published
+numbers re-derive from the checked-in data. They do not establish a profitable
+betting edge.

@@ -27,19 +27,19 @@
     "name": "LEDGER_POPULATED",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 33,458 bets in ledger (2020-2026 recent slice)"
+    "details": "Found 29,777 bets in ledger (2020-2026 recent slice)"
   },
   {
     "name": "BET_ID_UNIQUENESS",
     "category": "AUDIT",
     "passed": true,
-    "details": "Found 0 duplicate bet IDs out of 33,458"
+    "details": "Found 0 duplicate bet IDs out of 29,777"
   },
   {
     "name": "PNL_CALCULATION_ACCURACY",
     "category": "AUDIT",
     "passed": true,
-    "details": "Audited 33,458 bets; 0 math errors"
+    "details": "Audited 29,777 bets; 0 math errors"
   },
   {
     "name": "LEDGER_REQUIRED_FIELDS",
@@ -54,6 +54,18 @@
     "details": "Checked market types; 0 invalid market types"
   },
   {
+    "name": "LEDGER_HASH_CHAIN",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "Re-derived 29,777 links; head dacc6d5ac8202f4b\u2026"
+  },
+  {
+    "name": "LEDGER_MANIFEST_RECONCILIATION",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "window 2020\u20132026: 29,777 of 92,814 bets published (63,037 in earlier seasons, totals stated separately)"
+  },
+  {
     "name": "LEADERBOARD_INTEGRITY",
     "category": "AUDIT",
     "passed": true,
@@ -63,7 +75,13 @@
     "name": "CATEGORY_COVERAGE",
     "category": "AUDIT",
     "passed": true,
-    "details": "Leaderboard covers 17 categories: Offensive Line & Protection, Alternate Markets & Futures, Weather & Stadium Conditions, Referee & Officiating Tendencies, Injury & Player Availability..."
+    "details": "Leaderboard covers 17 categories: Alternate Markets & Futures, Coaching & Decision Tendencies, Defensive Matchups & Scheme, Game Script & Situational, Injury & Player Availability..."
+  },
+  {
+    "name": "LEADERBOARD_LEDGER_RECONCILIATION",
+    "category": "AUDIT",
+    "passed": true,
+    "details": "All 60 rows re-derived from 29,777 published records (published window PnL -126,018.74; all-time totals remain on the rows)"
   },
   {
     "name": "KALSHI_TRADES_INTEGRITY",
@@ -93,7 +111,7 @@
     "name": "REQUIRED_CATEGORY_COVERAGE",
     "category": "AUDIT",
     "passed": true,
-    "details": "Covered 12/12 required categories: ['Quarterback & Passing Efficiency', 'Weather & Stadium Conditions', 'Rest & Scheduling Asymmetries', 'Statistical & Machine Learning Models', 'Market Movement & CLV Strategies', 'Injury & Player Availability', 'Offensive Line & Protection', 'Defensive Matchups & Scheme', 'Kalshi Prediction Markets', 'Referee & Officiating Tendencies', 'Public Strategy Research & Replication', 'Coaching & Decision Tendencies', 'Player Prop Strategies', 'Game Script & Situational', 'Live & In-Game Strategies', 'Team Totals & Efficiency', 'Alternate Markets & Futures']"
+    "details": "Covered 12/12 required categories: ['Alternate Markets & Futures', 'Coaching & Decision Tendencies', 'Defensive Matchups & Scheme', 'Game Script & Situational', 'Injury & Player Availability', 'Kalshi Prediction Markets', 'Live & In-Game Strategies', 'Market Movement & CLV Strategies', 'Offensive Line & Protection', 'Player Prop Strategies', 'Public Strategy Research & Replication', 'Quarterback & Passing Efficiency', 'Referee & Officiating Tendencies', 'Rest & Scheduling Asymmetries', 'Statistical & Machine Learning Models', 'Team Totals & Efficiency', 'Weather & Stadium Conditions']"
   },
   {
     "name": "STRATEGY_VERSIONING",
@@ -106,5 +124,29 @@
     "category": "AUDIT",
     "passed": true,
     "details": "MasterSite projects mapped: 12 sources covering CEO, Weather, Insider, TheLeap, NFL/NBA Injury, FDA, NCAA/NFL/MLB Scoreboard, Sports Pred, Gold, PinePilot"
+  },
+  {
+    "name": "PUBLISHED_README_BLOCK",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "25 published metrics and badges match the data files"
+  },
+  {
+    "name": "PUBLISHED_REPORT_BLOCK",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "25 report metrics match the data files"
+  },
+  {
+    "name": "PUBLISHED_VERIFICATION_BLOCK",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "evidence ledger matches the snapshot hashes and audit results"
+  },
+  {
+    "name": "PUBLISHED_SITE_CLAIMS",
+    "category": "PUBLICATION",
+    "passed": true,
+    "details": "4 embedded site claims match the data files"
   }
 ]
