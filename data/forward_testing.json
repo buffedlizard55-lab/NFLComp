@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T18:41:00.609574+00:00",
+  "generated_at": "2026-09-22T18:48:13.718416+00:00",
   "classification": "DERIVED_DATA",
   "total_records": 14,
   "by_status": {
@@ -13,9 +13,9 @@
     "EXPIRED": 0
   },
   "by_market": {
-    "QUARTER_MARKET": 2,
     "KALSHI_LIVE": 9,
-    "FIRST_HALF_SPREAD": 3
+    "FIRST_HALF_SPREAD": 3,
+    "QUARTER_MARKET": 2
   },
   "by_classification": {
     "BACKTEST": 0,
@@ -33,7 +33,7 @@
       "game_id": "2026_03_ATL_GB",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-GB-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609329+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718162+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -79,7 +79,7 @@
       "game_id": "2026_03_ATL_GB",
       "market": "FIRST_HALF_SPREAD",
       "selection": "GB 1H -3.3",
-      "decision_timestamp": "2026-09-22T18:41:00.609392+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718229+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -124,7 +124,7 @@
       "game_id": "2026_03_ATL_GB",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-GB-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609403+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718240+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -170,7 +170,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-BUF-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609413+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718250+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -216,7 +216,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "FIRST_HALF_SPREAD",
       "selection": "BUF 1H -3.9",
-      "decision_timestamp": "2026-09-22T18:41:00.609420+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718257+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -261,7 +261,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "QUARTER_MARKET",
       "selection": "Q1 Over 10.1",
-      "decision_timestamp": "2026-09-22T18:41:00.609427+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718265+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -305,7 +305,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-BUF-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609434+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718272+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -351,7 +351,7 @@
       "game_id": "2026_03_CAR_CLE",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-CLE-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609516+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718359+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -397,7 +397,7 @@
       "game_id": "2026_03_CAR_CLE",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-CLE-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609527+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718370+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -443,7 +443,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-DET-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609536+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718379+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -489,7 +489,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "FIRST_HALF_SPREAD",
       "selection": "DET 1H -3.6",
-      "decision_timestamp": "2026-09-22T18:41:00.609543+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718387+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -534,7 +534,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "QUARTER_MARKET",
       "selection": "Q1 Over 9.7",
-      "decision_timestamp": "2026-09-22T18:41:00.609550+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718394+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -578,7 +578,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-DET-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609557+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718400+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -624,7 +624,7 @@
       "game_id": "2026_03_HOU_IND",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-IND-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:41:00.609565+00:00",
+      "decision_timestamp": "2026-09-22T18:48:13.718408+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",

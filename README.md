@@ -71,7 +71,7 @@ statuses of every candidate are rendered from `data/strategy_lab.json` below, so
 a result the report does not contain.
 
 <!-- STRATEGY_LAB_START -->
-_generated — do not edit by hand — the source snapshot is `data/source/games.csv` (`sha256:2b9d942b56af9de9…`, 7,548 games, 7,293 completed, latest 2026-09-17)._
+_generated — do not edit by hand — the source snapshot is `data/source/games.csv` (`sha256:c9038d5c927d9d6b…`, 7,548 games, 7,308 completed, latest 2026-09-21)._
 
 Promotion gate: At least 100 development, 40 validation, and 40 holdout bets; positive ROI in all three windows. Stake: $100 flat per qualifying observation.
 
@@ -100,7 +100,7 @@ number here disagrees with the checked-in data files, the audit fails.
 _generated — do not edit by hand — `scripts/render_readme.py --check` fails if this block and the data disagree._
 
 - **Current simulation window:** 2026 regular season, week 3, last completed game 2026-09-21.
-- **Historical universe:** 7,548 games in `data/source/games.csv` (1999-2026), 7,308 with a final score and 240 still open. The file is hashed into the ledger manifest (`sha256:2b9d942b56af9de9…`).
+- **Historical universe:** 7,548 games in `data/source/games.csv` (1999-2026), 7,308 with a final score and 240 still open. The file is hashed into the ledger manifest (`sha256:c9038d5c927d9d6b…`).
 - **Published ledger:** 31,502 hash-chained wagers inside the published window 2020–2026 netting -$221,808.53; 97,218 simulated wagers all-time netting -$531,192.71.
 - **Strategy universe:** 70 personas across 17 categories, 23 of them carrying a version lineage, every one flat-staking a $10,000 paper bankroll.
 - **Forward slate:** 646 queued paper signals over 240 games without a final score, of which 326 are open positions in the current week.

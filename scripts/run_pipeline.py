@@ -162,6 +162,16 @@ def main(argv=None) -> int:
               f"{len(study_report['declared_assumptions'])} classified dossier claims, "
               f"{len(study_report['cross_check_disagreements'])} cross-check disagreement(s)")
 
+        print("Re-evaluating pre-declared strategy-lab candidates...")
+        from engine.strategy_lab import build_report as build_strategy_lab  # noqa: E402
+        # build_report stores its source path verbatim; keep it repo-relative
+        # (matching `python3 -m engine.strategy_lab`) or --check will never match.
+        lab_report = build_strategy_lab(os.path.relpath(os.path.join(args.data_dir, "source"), ROOT))
+        Path(args.data_dir, "strategy_lab.json").write_text(
+            json.dumps(lab_report, indent=2) + "\n", encoding="utf-8")
+        lab_states = [f"{c['strategy_id']}:{c.get('status', '?')}" for c in lab_report.get("candidates", [])]
+        print(f"  Strategy lab: {len(lab_states)} candidates re-evaluated against the snapshot ({', '.join(lab_states)})")
+
         print("Building risk, calibration and capital-sufficiency analytics...")
         risk_report = build_risk_analytics(args.data_dir)
         Path(args.data_dir, "risk_analytics.json").write_text(
