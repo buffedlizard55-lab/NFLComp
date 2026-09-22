@@ -379,6 +379,17 @@ class TestPublishedArtifactsReconcile(unittest.TestCase):
         self.assertEqual(found, expected_site_claims(self.facts),
                          "index.html advertises numbers the data does not support")
 
+    def test_week_slice_counts_follow_the_signal_queue(self):
+        """The dashboard's 'week 2 slate' numbers must come from the queue itself."""
+        upcoming = json.loads((self.data / "upcoming_bets.json").read_text(encoding="utf-8"))
+        slice_facts = self.facts["current_week_slice"]
+        week = [b for b in upcoming
+                if b.get("season") == slice_facts["season"] and b.get("week") == slice_facts["week"]]
+        self.assertEqual(slice_facts["signals"], len(week))
+        self.assertEqual(slice_facts["games"], len({b["game_id"] for b in week}))
+        self.assertEqual(self.facts["season_span"],
+                         f"{self.summary['season_first']}-{self.summary['season_last']}")
+
     def test_published_state_is_dated_from_the_data(self):
         """as_of_date must come from the played games, never a hand-typed date."""
         loader = NFLDataLoader(str(self.data / "source"))

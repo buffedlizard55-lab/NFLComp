@@ -104,12 +104,25 @@ function runTests() {
     const match = htmlClaims.match(new RegExp(`id="${id}"[^>]*>([^<]+)<`));
     return match ? match[1].trim() : null;
   };
-  assert.strictEqual(claimValue('claim-personas'), String(summary.total_strategies));
+  const personas = String(summary.total_strategies);
+  for (const id of ['claim-personas', 'claim-personas-dash', 'claim-personas-cta', 'claim-personas-heading']) {
+    assert.strictEqual(claimValue(id), personas, `${id} must match summary.total_strategies`);
+  }
   assert.strictEqual(claimValue('claim-upcoming'), String(summary.total_upcoming_bets));
   assert.strictEqual(claimValue('claim-history'), `${Math.round(ledger.length / 1000)}k`);
   assert.strictEqual(claimValue('claim-registry'), String(
     JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'registry.json'), 'utf8')).length));
-  console.log('✓ index.html prose claims match the published data');
+  const weekSlice = summary.current_week_slice;
+  const weekSignals = upcoming.filter(b => b.season === weekSlice.season && b.week === weekSlice.week);
+  assert.strictEqual(Number(claimValue('claim-week-games').replace(/,/g, '')),
+    new Set(weekSignals.map(b => b.game_id)).size, 'current-week game count must match the signals');
+  assert.strictEqual(Number(claimValue('claim-week-signals').replace(/,/g, '')), weekSignals.length);
+  assert.strictEqual(claimValue('claim-season-span'), summary.season_span.replace('-', '\u2013'));
+  const boundClaims = ['claim-personas', 'claim-personas-dash', 'claim-personas-cta',
+    'claim-personas-heading', 'claim-upcoming', 'claim-history', 'claim-registry',
+    'claim-week-games', 'claim-week-signals', 'claim-season-span'];
+  for (const id of boundClaims) assert.ok(claimValue(id), `${id} must be bound in index.html`);
+  console.log(`✓ index.html prose claims match the published data (${boundClaims.length} bound numbers)`);
 
   // 5. Check strategy review UI contracts
   const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');

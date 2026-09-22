@@ -791,6 +791,17 @@ class NFLBacktestRunner:
             "ledger_all_time_bets": total_bets,
             "ledger_all_time_pnl": round(total_pnl, 2),
             "ledger_manifest": "data/ledger_manifest.json",
+            "season_first": min((g["season"] for g in self.games), default=None),
+            "season_last": max((g["season"] for g in self.games), default=None),
+            "season_span": (f"{min((g['season'] for g in self.games), default='?')}"
+                            f"-{max((g['season'] for g in self.games), default='?')}"),
+            "current_week_slice": {
+                "season": 2026,
+                "week": 2,
+                "signals": len([b for b in self.upcoming_bets if b.get("season") == 2026 and b.get("week") == 2]),
+                "games": len({b["game_id"] for b in self.upcoming_bets
+                              if b.get("season") == 2026 and b.get("week") == 2}),
+            },
             "top_performing_strategy": leaderboard_list[0]["username"] if leaderboard_list else None,
             "top_pnl": leaderboard_list[0]["total_pnl"] if leaderboard_list else 0.0,
             "top_roi": leaderboard_list[0]["roi"] if leaderboard_list else 0.0

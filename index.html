@@ -93,7 +93,7 @@
       <div class="section-header">
         <div>
           <h2 class="section-title">📊 NFL Competition Dashboard</h2>
-          <p class="section-desc">Year-long autonomous sports betting strategy competition across 58 quantitative personas covering QB, OL, Defensive, Weather, Rest, Coaching, Props, Game Script, Live, Statistical ML (Elo, Poisson, Logistic, Bayesian, GBM, Ensemble, Monte Carlo), Market Movement, Kalshi, Referee, Public Research. Zero lookahead bias, strict point-in-time pricing, and continuous empirical research.</p>
+          <p class="section-desc">Year-long autonomous sports betting strategy competition across <span id="claim-personas-dash">60</span> quantitative personas covering QB, OL, Defensive, Weather, Rest, Coaching, Props, Game Script, Live, Statistical ML (Elo, Poisson, Logistic, Bayesian, GBM, Ensemble, Monte Carlo), Market Movement, Kalshi, Referee, Public Research. Zero lookahead bias, strict point-in-time pricing, and continuous empirical research.</p>
         </div>
       </div>
 
@@ -102,7 +102,7 @@
         <div class="card">
           <div class="card-title">
             <span>🏆 Current Leaderboard (Top 5)</span>
-            <button class="btn btn-sm" onclick="switchTab('leaderboard')">View All 58 →</button>
+            <button class="btn btn-sm" onclick="switchTab('leaderboard')">View All <span id="claim-personas-cta">60</span> →</button>
           </div>
           <div class="table-responsive">
             <table id="dash-leader-table">
@@ -126,8 +126,8 @@
         <!-- Active 2026 Slate Pulse -->
         <div class="card">
           <div class="card-title">
-            <span>⚡ Week 2 Active Slate Pulse (16 Games)</span>
-            <button class="btn btn-sm" onclick="switchTab('upcoming')">View 225 Signals →</button>
+            <span>⚡ Week 2 Active Slate Pulse (<span id="claim-week-games">15</span> Games)</span>
+            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">264</span> Signals →</button>
           </div>
           <div class="table-responsive" style="max-height: 260px;">
             <table id="dash-slate-table">
@@ -151,7 +151,7 @@
       <!-- Performance Curve Preview -->
       <div class="card">
         <div class="card-title">
-          <span>📈 Top Strategy Equity Growth Trajectories (1999–2026) — OL, Elo, Weather, Coaching</span>
+          <span>📈 Top Strategy Equity Growth Trajectories (<span id="claim-season-span">1999–2026</span>) — OL, Elo, Weather, Coaching</span>
           <button class="btn btn-sm" onclick="switchTab('performance')">Interactive Charts →</button>
         </div>
         <div class="chart-container" id="dash-equity-chart">
@@ -164,7 +164,7 @@
     <section id="view-leaderboard" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🏆 Strategy Leaderboard — 58 Autonomous Personas</h2>
+          <h2 class="section-title">🏆 Strategy Leaderboard — <span id="claim-personas-heading">60</span> Autonomous Personas</h2>
           <p class="section-desc">Performance rankings across all <span id="claim-personas">60</span> registered quantitative personas. Covers 17 categories: QB, OL, Defensive, Weather, Injury WAR, Rest/Travel/International, Statistical ML (9 models), Market Movement & CLV, Kalshi, Referee, Public Research, Coaching, Player Props, Game Script, Live, Team Totals, Alt Markets. Sort by multi-factor metrics or click any strategy for full methodology, version history, and bet ledger.</p>
         </div>
         <div class="section-controls">

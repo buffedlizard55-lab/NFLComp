@@ -94,7 +94,7 @@ local snapshot, not a claim about an upstream release asset.
 | 22 | `PUBLISHED_README_BLOCK` | PUBLICATION | PASS | 25 published metrics and badges match the data files |
 | 23 | `PUBLISHED_REPORT_BLOCK` | PUBLICATION | PASS | 25 report metrics match the data files |
 | 24 | `PUBLISHED_VERIFICATION_BLOCK` | PUBLICATION | PASS | evidence ledger matches the snapshot hashes and audit results |
-| 25 | `PUBLISHED_SITE_CLAIMS` | PUBLICATION | PASS | 4 embedded site claims match the data files |
+| 25 | `PUBLISHED_SITE_CLAIMS` | PUBLICATION | PASS | 10 embedded site claims match the data files |
 
 ### Ledger chain
 

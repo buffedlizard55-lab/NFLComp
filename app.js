@@ -170,13 +170,21 @@ function renderPublishedClaims() {
     const el = document.getElementById(id);
     if (el) el.textContent = value;
   };
-  set('claim-personas', s.total_strategies.toLocaleString());
+  const personas = s.total_strategies.toLocaleString();
+  ['claim-personas', 'claim-personas-dash', 'claim-personas-cta', 'claim-personas-heading']
+    .forEach((id) => set(id, personas));
   set('claim-upcoming', s.total_upcoming_bets.toLocaleString());
   if (Array.isArray(STATE.ledger) && STATE.ledger.length) {
     const published = STATE.ledger.length;
     set('claim-history', published >= 1000 ? `${Math.round(published / 1000)}k` : published.toLocaleString());
   }
   if (Array.isArray(STATE.registry)) set('claim-registry', STATE.registry.length.toLocaleString());
+  if (Array.isArray(STATE.upcomingBets) && STATE.upcomingBets.length) {
+    const week = STATE.upcomingBets.filter(b => b.season === s.current_season && b.week === s.current_week);
+    set('claim-week-signals', week.length.toLocaleString());
+    set('claim-week-games', new Set(week.map(b => b.game_id)).size.toLocaleString());
+  }
+  if (s.season_span) set('claim-season-span', s.season_span.replace('-', '\u2013'));
 }
 
 function renderDashboard() {
