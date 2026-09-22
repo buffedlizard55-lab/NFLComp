@@ -22,6 +22,15 @@
   "ledger_all_time_bets": 92814,
   "ledger_all_time_pnl": -268772.62,
   "ledger_manifest": "data/ledger_manifest.json",
+  "season_first": 1999,
+  "season_last": 2026,
+  "season_span": "1999-2026",
+  "current_week_slice": {
+    "season": 2026,
+    "week": 2,
+    "signals": 264,
+    "games": 15
+  },
   "top_performing_strategy": "@AltSpread_Value_v2",
   "top_pnl": 105223.38,
   "top_roi": 26.81

@@ -79,6 +79,8 @@ def published_facts(data_dir: str | Path) -> dict:
         "top_pnl": top.get("total_pnl"),
         "top_roi": top.get("roi"),
         "top_bets": top.get("total_bets"),
+        "season_span": summary.get("season_span"),
+        "current_week_slice": summary.get("current_week_slice") or {},
     }
 
 
@@ -251,11 +253,17 @@ def parse_verification_block(text: str) -> str | None:
 
 
 CLAIM_PATTERNS = {
-    # claim id -> (regex with one numeric group, human description)
+    # claim id -> (regex with one captured group, human description)
     "claim-personas": (r'id="claim-personas"[^>]*>([^<]+)<', "strategy persona count"),
+    "claim-personas-dash": (r'id="claim-personas-dash"[^>]*>([^<]+)<', "dashboard persona count"),
+    "claim-personas-cta": (r'id="claim-personas-cta"[^>]*>([^<]+)<', "\"view all personas\" count"),
+    "claim-personas-heading": (r'id="claim-personas-heading"[^>]*>([^<]+)<', "leaderboard heading persona count"),
     "claim-history": (r'id="claim-history"[^>]*>([^<]+)<', "published trade-history count"),
     "claim-upcoming": (r'id="claim-upcoming"[^>]*>([^<]+)<', "upcoming signal count"),
     "claim-registry": (r'id="claim-registry"[^>]*>([^<]+)<', "registered source count"),
+    "claim-week-games": (r'id="claim-week-games"[^>]*>([^<]+)<', "current-week game count"),
+    "claim-week-signals": (r'id="claim-week-signals"[^>]*>([^<]+)<', "current-week signal count"),
+    "claim-season-span": (r'id="claim-season-span"[^>]*>([^<]+)<', "simulation season span"),
 }
 
 
@@ -273,9 +281,18 @@ def expected_site_claims(facts: dict) -> dict[str, str]:
     """The values the embedded site claims must carry for the current data."""
     published = facts["published_bets"]
     history = f"{published / 1000:.0f}k" if published else "n/a"
+    personas = _count(facts["strategies"])
+    week = facts.get("current_week_slice") or {}
+    span = facts.get("season_span") or "n/a"
     return {
-        "claim-personas": _count(facts["strategies"]),
+        "claim-personas": personas,
+        "claim-personas-dash": personas,
+        "claim-personas-cta": personas,
+        "claim-personas-heading": personas,
         "claim-history": history,
         "claim-upcoming": _count(facts["upcoming_signals"]),
         "claim-registry": _count(facts["registry_sources"]),
+        "claim-week-games": _count(week.get("games")),
+        "claim-week-signals": _count(week.get("signals")),
+        "claim-season-span": span.replace("-", "\u2013") if span != "n/a" else span,
     }
