@@ -17,6 +17,7 @@ import re
 import sys
 import json
 import random
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -709,7 +710,7 @@ class TestPublishedArtifactsReconcile(unittest.TestCase):
                          "index.html advertises numbers the data does not support")
 
     def test_week_slice_counts_follow_the_signal_queue(self):
-        """The dashboard's 'week 2 slate' numbers must come from the queue itself."""
+        """The dashboard's live-slate numbers must come from the queue itself."""
         upcoming = json.loads((self.data / "upcoming_bets.json").read_text(encoding="utf-8"))
         slice_facts = self.facts["current_week_slice"]
         week = [b for b in upcoming
@@ -725,6 +726,206 @@ class TestPublishedArtifactsReconcile(unittest.TestCase):
         games = loader.load_all()
         latest = max(g["gameday"] for g in games if g["completed"])
         self.assertEqual(self.summary["as_of_date"], latest)
+
+    def test_live_window_matches_the_snapshot(self):
+        """summary's live slate must equal the engine's derivation, not a literal."""
+        from engine.backtest_engine import derive_as_of_date, derive_live_window
+
+        loader = NFLDataLoader(str(self.data / "source"))
+        games = loader.load_all()
+        season, week = derive_live_window(games)
+        self.assertEqual(self.summary["current_season"], season)
+        self.assertEqual(self.summary["current_week"], week)
+        self.assertEqual(self.summary["as_of_date"], derive_as_of_date(games))
+        completed_reg = [g for g in games
+                         if g["season"] == season and g["completed"] and g.get("game_type") == "REG"]
+        if week is not None:
+            earlier = {g["week"] for g in completed_reg if g["week"] < week}
+            for w in earlier:
+                unplayed = [g for g in games if g["season"] == season and g["week"] == w and not g["completed"]]
+                self.assertEqual(unplayed, [], f"week {w} earlier than the live week is not fully settled")
+
+    def test_sync_manifest_is_present_and_hashes_match(self):
+        from engine.source_sync import check_manifest
+
+        ok, problems = check_manifest(str(self.data / "source"))
+        hard = [p for p in problems if "pending review" not in p]
+        self.assertEqual(hard, [], f"source sync manifest does not verify: {hard}")
+        self.assertTrue((self.data / "source" / "sync_manifest.json").exists())
+
+
+class TestLiveWindowDerivation(unittest.TestCase):
+    """The paper-trading slate is computed from data, regressions included."""
+
+    @staticmethod
+    def _game(season, week, completed, game_type="REG"):
+        return {
+            "season": season,
+            "week": week,
+            "game_type": game_type,
+            "completed": completed,
+            "gameday": f"{season}-09-0{min(week, 9)}",
+        }
+
+    def test_partially_played_week_stays_live(self):
+        from engine.backtest_engine import derive_live_window
+
+        games = ([self._game(2026, 1, True)] * 16
+                 + [self._game(2026, 2, True)] * 3 + [self._game(2026, 2, False)] * 13
+                 + [self._game(2026, 3, False)] * 16)
+        self.assertEqual(derive_live_window(games), (2026, 2))
+
+    def test_week_advances_only_after_final_game_settles(self):
+        from engine.backtest_engine import derive_live_window
+
+        games = ([self._game(2026, 1, True)] * 16 + [self._game(2026, 2, True)] * 16
+                 + [self._game(2026, 3, False)] * 16)
+        self.assertEqual(derive_live_window(games), (2026, 3))
+
+    def test_latest_season_wins(self):
+        from engine.backtest_engine import derive_live_window
+
+        games = ([self._game(2025, 1, True)] * 16 + [self._game(2025, 2, True)] * 16
+                 + [self._game(2026, 1, True)] * 16 + [self._game(2026, 2, False)] * 16)
+        self.assertEqual(derive_live_window(games), (2026, 2))
+
+    def test_no_completed_games_returns_none(self):
+        from engine.backtest_engine import derive_live_window
+
+        self.assertEqual(derive_live_window([self._game(2026, 1, False)]), (None, None))
+        self.assertEqual(derive_live_window([]), (None, None))
+
+    def test_playoff_games_do_not_confuse_the_anchor(self):
+        from engine.backtest_engine import derive_live_window
+
+        games = ([self._game(2026, 1, True)] * 16 + [self._game(2026, 18, True)] * 16
+                 + [self._game(2026, 19, False, "POST"), self._game(2026, 20, True, "POST")])
+        # All regular season open weeks are gone -> live window advances past 18.
+        season, week = derive_live_window(games)
+        self.assertEqual(season, 2026)
+        self.assertIs(week, None)
+
+
+class TestSourceSyncDiff(unittest.TestCase):
+    """Upstream revisions are classified and never silently absorbed."""
+
+    HEADER = ("game_id,season,week,gameday,away_team,away_score,home_team,home_score,"
+              "result,total,overtime,away_moneyline,home_moneyline,spread_line,"
+              "away_spread_odds,home_spread_odds,total_line,under_odds,over_odds,"
+              "away_qb_name,home_qb_name,away_qb_id,home_qb_id,away_coach,home_coach,referee,temp,wind")
+
+    def _build(self, **per_game):
+        rows = []
+        for gid, fields in per_game.items():
+            base = {
+                "game_id": gid, "season": "2026", "week": "2", "gameday": "2026-09-21",
+                "away_team": "MIA", "away_score": "", "home_team": "SF", "home_score": "",
+                "result": "", "total": "", "overtime": "",
+                "away_moneyline": "", "home_moneyline": "", "spread_line": "",
+                "away_spread_odds": "", "home_spread_odds": "", "total_line": "",
+                "under_odds": "", "over_odds": "",
+                "away_qb_name": "", "home_qb_name": "", "away_qb_id": "", "home_qb_id": "",
+                "away_coach": "", "home_coach": "", "referee": "", "temp": "", "wind": "",
+            }
+            base.update(fields)
+            order = self.HEADER.split(",")
+            rows.append(",".join(base[k] for k in order))
+        return (self.HEADER + "\n" + "\n".join(rows) + "\n").encode("utf-8")
+
+    def test_result_posting_is_info_and_not_settled(self):
+        from engine.source_sync import diff_games_rows
+
+        old = self._build(**{"2026_02_MIA_SF": {}})
+        new = self._build(**{"2026_02_MIA_SF": {
+            "away_score": "13", "home_score": "35", "result": "22", "total": "48", "overtime": "0"}})
+        revisions, summary = diff_games_rows(old, new)
+        posted = [r for r in revisions if r["type"] == "RESULT_POSTED"]
+        self.assertEqual(len({r["field"] for r in posted}), 5)
+        self.assertTrue(all(r["severity"] == "INFO" for r in posted))
+        self.assertTrue(all(not r["settled_at_revision"] for r in posted))
+        self.assertEqual(summary["posted_fields"], 5)
+
+    def test_score_correction_on_settled_game_is_high_and_flagged(self):
+        from engine.source_sync import diff_games_rows
+
+        settled = {"away_score": "13", "home_score": "35", "result": "22", "total": "48", "overtime": "0"}
+        old = self._build(**{"2026_02_MIA_SF": settled})
+        changed = dict(settled, home_score="36", result="23", total="49")
+        new = self._build(**{"2026_02_MIA_SF": changed})
+        revisions, summary = diff_games_rows(old, new)
+        corrections = [r for r in revisions if r["type"] == "RESULT_CORRECTED"]
+        self.assertEqual(len(corrections), 3)
+        self.assertTrue(all(r["severity"] == "HIGH" for r in corrections))
+        self.assertTrue(all(r["settled_at_revision"] for r in corrections))
+        self.assertEqual(summary["revised_fields"], 3)
+
+    def test_qb_reassignment_is_medium_pre_kickoff(self):
+        from engine.source_sync import diff_games_rows
+
+        old = self._build(**{"2026_03_ATL_GB": {"away_qb_name": "Tua Tagovailoa", "away_qb_id": "00-0036212"}})
+        new = self._build(**{"2026_03_ATL_GB": {"away_qb_name": "Michael Penix Jr.", "away_qb_id": "00-0039917"}})
+        revisions, summary = diff_games_rows(old, new)
+        qbs = [r for r in revisions if r["type"] == "QB_REASSIGNED"]
+        self.assertEqual(len(qbs), 2)
+        self.assertTrue(all(r["severity"] == "MEDIUM" for r in qbs))
+        self.assertTrue(all(not r["settled_at_revision"] for r in qbs))
+
+    def test_line_move_detected_separately_from_posting(self):
+        from engine.source_sync import diff_games_rows
+
+        old = self._build(**{"2026_02_MIA_SF": {"spread_line": "13.5", "away_spread_odds": "-110"}})
+        new = self._build(**{"2026_02_MIA_SF": {"spread_line": "12.5", "away_spread_odds": "-110"}})
+        revisions, summary = diff_games_rows(old, new)
+        moved = [r for r in revisions if r["type"] == "LINE_MOVED"]
+        self.assertEqual(len(moved), 1)
+        self.assertEqual(moved[0]["field"], "spread_line")
+        self.assertEqual(summary["posted_fields"], 0)
+        self.assertEqual(summary["revised_fields"], 1)
+
+    def test_manifest_hash_check_detects_tampering(self):
+        import hashlib as _hl
+        from engine.source_sync import check_manifest
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "games.csv"
+            path.write_bytes(b"game_id\nX\n")
+            manifest = {
+                "classification": "SOURCE_PROVENANCE",
+                "synced_at_utc": "2026-09-22T00:00:00Z",
+                "files": {"games.csv": {"fetch": {"sha256": _hl.sha256(b"game_id\nX\n").hexdigest()}}},
+                "revisions": [],
+            }
+            (Path(tmp) / "sync_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            ok, problems = check_manifest(tmp)
+            self.assertTrue(ok, problems)
+            path.write_bytes(b"game_id\nTAMPERED\n")
+            ok, problems = check_manifest(tmp)
+            self.assertFalse(ok)
+            self.assertTrue(any("sha256" in p for p in problems))
+
+    def test_irregularity_promotion_carries_review_flags(self):
+        from engine.source_sync import revisions_for_irregularity_register
+
+        manifest = {
+            "synced_at_utc": "2026-09-22T00:00:00Z",
+            "upstream_repo": "https://github.com/nflverse/nfldata",
+            "revision_summary": {"total_revisions": 2, "by_type": {"RESULT_CORRECTED": 1, "QB_REASSIGNED": 1}},
+            "revisions": [
+                {"file": "games.csv", "type": "RESULT_CORRECTED", "key": "2026_02_MIA_SF",
+                 "field": "home_score", "old": "35", "new": "36", "severity": "HIGH",
+                 "settled_at_revision": True},
+                {"file": "games.csv", "type": "QB_REASSIGNED", "key": "2026_03_ATL_GB",
+                 "field": "away_qb_name", "old": "A", "new": "B", "severity": "MEDIUM",
+                 "settled_at_revision": False},
+            ],
+        }
+        items = revisions_for_irregularity_register(manifest)
+        self.assertEqual(len(items), 2)
+        flagged = next(i for i in items if "RESULT_CORRECTED" in i["id"])
+        self.assertEqual(flagged["status"], "FLAGGED")
+        self.assertEqual(flagged["severity"], "HIGH")
+        logged = next(i for i in items if "QB_REASSIGNED" in i["id"])
+        self.assertEqual(logged["status"], "LOGGED_AND_RESOLVED")
 
 if __name__ == "__main__":
     unittest.main()

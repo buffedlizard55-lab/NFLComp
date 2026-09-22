@@ -7,22 +7,22 @@
     "parent_version": null,
     "category": "Coaching & Decision Tendencies",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 13952.36,
-    "total_pnl": 3952.36,
-    "roi": 4.29,
-    "total_bets": 921,
-    "wins": 481,
-    "losses": 415,
+    "current_bankroll": 13839.32,
+    "total_pnl": 3839.32,
+    "roi": 4.16,
+    "total_bets": 924,
+    "wins": 482,
+    "losses": 417,
     "pushes": 25,
-    "win_rate": 53.7,
-    "avg_odds": -60.0,
-    "avg_edge": 3.05,
-    "avg_clv": 0.258,
+    "win_rate": 53.6,
+    "avg_odds": -60.1,
+    "avg_edge": 3.04,
+    "avg_clv": 0.257,
     "max_drawdown": 1635.55,
     "max_drawdown_pct": 14.9,
     "peak_bankroll": 15106.239504829273,
     "profit_by_market": {
-      "SPREAD": 3952.36
+      "SPREAD": 3839.32
     },
     "profit_by_season": {
       "2006": -515.11,
@@ -45,7 +45,7 @@
       "2023": 851.6,
       "2024": 1772.69,
       "2025": 168.17,
-      "2026": -307.41
+      "2026": -420.45
     },
     "profit_by_week": {
       "W05": -802.8,
@@ -67,37 +67,37 @@
       "W18": 480.87,
       "W19": 311.15,
       "W20": 256.67,
-      "W02": 39.02,
+      "W02": -74.02,
       "W21": -309.09,
       "W22": -213.04
     },
     "profit_by_team": {
       "DEN": -704.99,
       "BAL": 161.6,
-      "LV": 33.24,
+      "LV": -16.76,
       "CLE": 666.92,
       "IND": -528.22,
       "PIT": -227.06,
-      "LAC": 75.27,
+      "LAC": 25.27,
       "KC": -201.66,
       "SEA": -236.27,
       "ARI": 89.13,
       "CIN": -162.98,
-      "SF": 528.92,
+      "SF": 572.4,
       "BUF": -283.26,
       "JAX": 209.2,
       "GB": 21.23,
       "DET": 884.82,
-      "TEN": 158.13,
+      "TEN": 108.13,
       "CHI": 148.33,
       "HOU": -18.97,
       "MIN": 264.04,
       "TB": 198.6,
-      "MIA": 108.74,
+      "MIA": 152.21,
       "NE": 147.05,
       "ATL": 130.93,
       "NYG": 251.21,
-      "PHI": -79.42,
+      "PHI": -129.42,
       "NYJ": 334.51,
       "WAS": -90.96,
       "CAR": 43.88,
@@ -126,7 +126,7 @@
       "2023": 76,
       "2024": 96,
       "2025": 90,
-      "2026": 5
+      "2026": 8
     },
     "equity_curve": [
       {
@@ -310,17 +310,38 @@
         "week": 2,
         "bankroll": 13952.36,
         "pnl": 3952.36
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13852.36,
+        "pnl": 3852.36
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13752.36,
+        "pnl": 3752.36
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13839.32,
+        "pnl": 3839.32
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 92100.0,
-    "variance": 9177.86,
-    "std_pnl": 95.8,
-    "published_ledger_bets": 471,
-    "published_ledger_pnl": 3526.3,
-    "all_time_bets": 921,
-    "all_time_pnl": 3952.36,
+    "total_staked": 92400.0,
+    "variance": 9178.99,
+    "std_pnl": 95.81,
+    "published_ledger_bets": 474,
+    "published_ledger_pnl": 3413.26,
+    "all_time_bets": 924,
+    "all_time_pnl": 3839.32,
     "pnl_outside_published_window": 426.06
   },
   {
@@ -331,12 +352,12 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 13353.5,
-    "total_pnl": 3353.5,
-    "roi": 0.87,
-    "total_bets": 2971,
-    "wins": 1520,
-    "losses": 1412,
+    "current_bankroll": 13321.56,
+    "total_pnl": 3321.56,
+    "roi": 0.86,
+    "total_bets": 2977,
+    "wins": 1523,
+    "losses": 1415,
     "pushes": 39,
     "win_rate": 51.8,
     "avg_odds": -77.1,
@@ -346,7 +367,7 @@
     "max_drawdown_pct": 27.8,
     "peak_bankroll": 16895.98136253418,
     "profit_by_market": {
-      "TOTAL": 3353.5
+      "TOTAL": 3321.56
     },
     "profit_by_season": {
       "2006": 1480.72,
@@ -369,7 +390,7 @@
       "2023": -490.66,
       "2024": -501.11,
       "2025": -688.5,
-      "2026": -938.57
+      "2026": -970.51
     },
     "profit_by_week": {
       "W04": -183.02,
@@ -391,7 +412,7 @@
       "W20": -396.79,
       "W21": -52.8,
       "W01": -1343.59,
-      "W02": -1300.48,
+      "W02": -1332.41,
       "W03": 2406.51,
       "W22": -141.82
     },
@@ -399,35 +420,35 @@
       "BAL": -377.02,
       "LAC": 880.29,
       "BUF": -1116.15,
-      "MIN": 465.36,
-      "KC": 394.63,
+      "MIN": 527.26,
+      "KC": 329.63,
       "SF": -35.18,
       "NYJ": 541.57,
-      "IND": 971.1,
-      "TEN": -257.05,
-      "DAL": -500.61,
+      "IND": 906.1,
+      "TEN": -199.01,
+      "DAL": -565.61,
       "LV": 56.88,
       "CLE": 400.41,
-      "WAS": -1574.05,
+      "WAS": -1639.05,
       "JAX": 842.27,
-      "CHI": 722.44,
-      "SEA": 466.49,
-      "PHI": -337.41,
+      "CHI": 784.35,
+      "SEA": 401.49,
+      "PHI": -279.37,
       "GB": -132.03,
       "CAR": -869.34,
       "NE": -849.59,
       "MIA": 475.27,
       "NO": -1069.65,
       "TB": -779.56,
-      "ARI": 672.8,
+      "ARI": 607.8,
       "PIT": 1436.4,
       "DEN": -83.45,
       "ATL": 1072.04,
       "CIN": 1025.82,
       "HOU": 816.51,
-      "NYG": 471.99,
+      "NYG": 531.08,
       "DET": -501.08,
-      "LA": 123.39
+      "LA": 182.48
     },
     "bets_by_season": {
       "2006": 135,
@@ -450,7 +471,7 @@
       "2023": 151,
       "2024": 154,
       "2025": 155,
-      "2026": 13
+      "2026": 19
     },
     "equity_curve": [
       {
@@ -690,349 +711,60 @@
         "week": 2,
         "bankroll": 13353.5,
         "pnl": 3353.5
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13477.31,
+        "pnl": 3477.31
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13593.38,
+        "pnl": 3593.38
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13463.38,
+        "pnl": 3463.38
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13333.38,
+        "pnl": 3333.38
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13203.38,
+        "pnl": 3203.38
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 13321.56,
+        "pnl": 3321.56
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 386230.0,
-    "variance": 15785.17,
+    "total_staked": 387010.0,
+    "variance": 15784.78,
     "std_pnl": 125.64,
-    "published_ledger_bets": 953,
-    "published_ledger_pnl": -2553.66,
-    "all_time_bets": 2971,
-    "all_time_pnl": 3353.5,
+    "published_ledger_bets": 959,
+    "published_ledger_pnl": -2585.6,
+    "all_time_bets": 2977,
+    "all_time_pnl": 3321.56,
     "pnl_outside_published_window": 5907.16
-  },
-  {
-    "id": "STRAT_DOME_PACE_004_v2",
-    "username": "@DomePace_Over_v2",
-    "name": "Dome High Pass Rate Over Expected (PROE)",
-    "version": "v2",
-    "parent_version": "STRAT_DOME_PACE_004_v1",
-    "category": "Weather & Stadium Conditions",
-    "initial_bankroll": 10000.0,
-    "current_bankroll": 12465.5,
-    "total_pnl": 2465.5,
-    "roi": 2.11,
-    "total_bets": 1062,
-    "wins": 553,
-    "losses": 498,
-    "pushes": 11,
-    "win_rate": 52.6,
-    "avg_odds": -83.6,
-    "avg_edge": 3.44,
-    "avg_clv": 0.067,
-    "max_drawdown": 3069.76,
-    "max_drawdown_pct": 20.79,
-    "peak_bankroll": 14768.412217923227,
-    "profit_by_market": {
-      "TOTAL": 2465.5
-    },
-    "profit_by_season": {
-      "2006": 969.15,
-      "2007": 1508.94,
-      "2008": 118.85,
-      "2009": -680.68,
-      "2010": 546.63,
-      "2011": -139.01,
-      "2012": 491.91,
-      "2013": 1133.66,
-      "2014": 428.42,
-      "2015": -324.52,
-      "2016": -952.98,
-      "2017": -720.63,
-      "2018": -459.26,
-      "2019": 368.16,
-      "2020": -271.45,
-      "2021": 486.47,
-      "2022": 906.24,
-      "2023": -155.55,
-      "2024": -77.3,
-      "2025": -697.23,
-      "2026": -14.31
-    },
-    "profit_by_week": {
-      "W04": 230.85,
-      "W05": 673.46,
-      "W06": -5.0,
-      "W07": 1339.93,
-      "W08": -197.7,
-      "W09": -258.62,
-      "W10": 1136.23,
-      "W11": 532.72,
-      "W12": 14.7,
-      "W13": 260.65,
-      "W14": -530.44,
-      "W15": -1068.31,
-      "W16": -7.87,
-      "W17": -616.15,
-      "W19": 493.81,
-      "W20": 400.84,
-      "W01": -697.68,
-      "W02": -46.23,
-      "W03": -50.3,
-      "W18": 579.55,
-      "W21": 295.39,
-      "W22": -14.35
-    },
-    "profit_by_team": {
-      "ATL": -344.65,
-      "ARI": 346.72,
-      "HOU": -809.52,
-      "MIA": -780.2,
-      "LA": 289.76,
-      "DET": 1146.41,
-      "NO": -205.53,
-      "TB": 555.31,
-      "KC": -108.44,
-      "NYG": 252.09,
-      "BUF": -637.36,
-      "PHI": 658.32,
-      "SEA": 562.55,
-      "PIT": -38.82,
-      "IND": 125.92,
-      "WAS": -70.26,
-      "BAL": 185.72,
-      "MIN": -34.3,
-      "NE": -84.85,
-      "CLE": 224.74,
-      "SF": -144.7,
-      "GB": 643.23,
-      "TEN": 186.23,
-      "CHI": -319.6,
-      "DAL": 652.9,
-      "NYJ": -249.86,
-      "CAR": -89.69,
-      "DEN": 374.68,
-      "LAC": -210.68,
-      "JAX": 349.93,
-      "LV": 146.58,
-      "CIN": -107.17
-    },
-    "bets_by_season": {
-      "2006": 43,
-      "2007": 54,
-      "2008": 30,
-      "2009": 57,
-      "2010": 62,
-      "2011": 54,
-      "2012": 54,
-      "2013": 52,
-      "2014": 42,
-      "2015": 46,
-      "2016": 42,
-      "2017": 51,
-      "2018": 45,
-      "2019": 49,
-      "2020": 32,
-      "2021": 54,
-      "2022": 64,
-      "2023": 73,
-      "2024": 75,
-      "2025": 77,
-      "2026": 6
-    },
-    "equity_curve": [
-      {
-        "date": "2010-09-01",
-        "season": 2010,
-        "week": 1,
-        "bankroll": 10000.0,
-        "pnl": 0.0
-      },
-      {
-        "date": "2006-11-05",
-        "season": 2006,
-        "week": 9,
-        "bankroll": 10501.7,
-        "pnl": 501.7
-      },
-      {
-        "date": "2007-09-09",
-        "season": 2007,
-        "week": 1,
-        "bankroll": 10859.15,
-        "pnl": 859.15
-      },
-      {
-        "date": "2008-11-02",
-        "season": 2008,
-        "week": 9,
-        "bankroll": 12441.46,
-        "pnl": 2441.46
-      },
-      {
-        "date": "2009-09-13",
-        "season": 2009,
-        "week": 1,
-        "bankroll": 12486.94,
-        "pnl": 2486.94
-      },
-      {
-        "date": "2010-09-09",
-        "season": 2010,
-        "week": 1,
-        "bankroll": 11806.26,
-        "pnl": 1806.26
-      },
-      {
-        "date": "2011-09-11",
-        "season": 2011,
-        "week": 1,
-        "bankroll": 12462.88,
-        "pnl": 2462.88
-      },
-      {
-        "date": "2012-09-09",
-        "season": 2012,
-        "week": 1,
-        "bankroll": 12427.65,
-        "pnl": 2427.65
-      },
-      {
-        "date": "2013-09-08",
-        "season": 2013,
-        "week": 1,
-        "bankroll": 12925.79,
-        "pnl": 2925.79
-      },
-      {
-        "date": "2014-09-07",
-        "season": 2014,
-        "week": 1,
-        "bankroll": 13839.45,
-        "pnl": 3839.45
-      },
-      {
-        "date": "2015-09-13",
-        "season": 2015,
-        "week": 1,
-        "bankroll": 14480.67,
-        "pnl": 4480.67
-      },
-      {
-        "date": "2016-09-11",
-        "season": 2016,
-        "week": 1,
-        "bankroll": 14158.11,
-        "pnl": 4158.11
-      },
-      {
-        "date": "2017-09-10",
-        "season": 2017,
-        "week": 1,
-        "bankroll": 13210.37,
-        "pnl": 3210.37
-      },
-      {
-        "date": "2018-09-09",
-        "season": 2018,
-        "week": 1,
-        "bankroll": 12479.74,
-        "pnl": 2479.74
-      },
-      {
-        "date": "2019-09-08",
-        "season": 2019,
-        "week": 1,
-        "bankroll": 11810.48,
-        "pnl": 1810.48
-      },
-      {
-        "date": "2020-09-13",
-        "season": 2020,
-        "week": 1,
-        "bankroll": 12395.44,
-        "pnl": 2395.44
-      },
-      {
-        "date": "2021-09-12",
-        "season": 2021,
-        "week": 1,
-        "bankroll": 12119.04,
-        "pnl": 2119.04
-      },
-      {
-        "date": "2022-09-11",
-        "season": 2022,
-        "week": 1,
-        "bankroll": 12605.51,
-        "pnl": 2605.51
-      },
-      {
-        "date": "2023-09-10",
-        "season": 2023,
-        "week": 1,
-        "bankroll": 13299.9,
-        "pnl": 3299.9
-      },
-      {
-        "date": "2024-09-08",
-        "season": 2024,
-        "week": 1,
-        "bankroll": 13144.35,
-        "pnl": 3144.35
-      },
-      {
-        "date": "2025-09-05",
-        "season": 2025,
-        "week": 1,
-        "bankroll": 13277.05,
-        "pnl": 3277.05
-      },
-      {
-        "date": "2026-09-10",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 12369.81,
-        "pnl": 2369.81
-      },
-      {
-        "date": "2026-09-13",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 12469.81,
-        "pnl": 2469.81
-      },
-      {
-        "date": "2026-09-13",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 12577.66,
-        "pnl": 2577.66
-      },
-      {
-        "date": "2026-09-13",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 12467.66,
-        "pnl": 2467.66
-      },
-      {
-        "date": "2026-09-13",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 12357.66,
-        "pnl": 2357.66
-      },
-      {
-        "date": "2026-09-13",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 12465.5,
-        "pnl": 2465.5
-      }
-    ],
-    "is_kalshi": false,
-    "status": "ACTIVE",
-    "total_staked": 116820.0,
-    "variance": 11259.99,
-    "std_pnl": 106.11,
-    "published_ledger_bets": 381,
-    "published_ledger_pnl": 176.61,
-    "all_time_bets": 1062,
-    "all_time_pnl": 2465.5,
-    "pnl_outside_published_window": 2288.89
   },
   {
     "id": "STRAT_WEATHER_WIND_003_v1",
@@ -1298,6 +1030,372 @@
     "all_time_bets": 375,
     "all_time_pnl": 2181.2,
     "pnl_outside_published_window": 2355.5
+  },
+  {
+    "id": "STRAT_DOME_PACE_004_v2",
+    "username": "@DomePace_Over_v2",
+    "name": "Dome High Pass Rate Over Expected (PROE)",
+    "version": "v2",
+    "parent_version": "STRAT_DOME_PACE_004_v1",
+    "category": "Weather & Stadium Conditions",
+    "initial_bankroll": 10000.0,
+    "current_bankroll": 11915.5,
+    "total_pnl": 1915.5,
+    "roi": 1.63,
+    "total_bets": 1067,
+    "wins": 553,
+    "losses": 503,
+    "pushes": 11,
+    "win_rate": 52.4,
+    "avg_odds": -83.7,
+    "avg_edge": 3.43,
+    "avg_clv": 0.067,
+    "max_drawdown": 3069.76,
+    "max_drawdown_pct": 20.79,
+    "peak_bankroll": 14768.412217923227,
+    "profit_by_market": {
+      "TOTAL": 1915.5
+    },
+    "profit_by_season": {
+      "2006": 969.15,
+      "2007": 1508.94,
+      "2008": 118.85,
+      "2009": -680.68,
+      "2010": 546.63,
+      "2011": -139.01,
+      "2012": 491.91,
+      "2013": 1133.66,
+      "2014": 428.42,
+      "2015": -324.52,
+      "2016": -952.98,
+      "2017": -720.63,
+      "2018": -459.26,
+      "2019": 368.16,
+      "2020": -271.45,
+      "2021": 486.47,
+      "2022": 906.24,
+      "2023": -155.55,
+      "2024": -77.3,
+      "2025": -697.23,
+      "2026": -564.31
+    },
+    "profit_by_week": {
+      "W04": 230.85,
+      "W05": 673.46,
+      "W06": -5.0,
+      "W07": 1339.93,
+      "W08": -197.7,
+      "W09": -258.62,
+      "W10": 1136.23,
+      "W11": 532.72,
+      "W12": 14.7,
+      "W13": 260.65,
+      "W14": -530.44,
+      "W15": -1068.31,
+      "W16": -7.87,
+      "W17": -616.15,
+      "W19": 493.81,
+      "W20": 400.84,
+      "W01": -697.68,
+      "W02": -596.23,
+      "W03": -50.3,
+      "W18": 579.55,
+      "W21": 295.39,
+      "W22": -14.35
+    },
+    "profit_by_team": {
+      "ATL": -399.65,
+      "ARI": 291.72,
+      "HOU": -864.52,
+      "MIA": -780.2,
+      "LA": 234.76,
+      "DET": 1146.41,
+      "NO": -205.53,
+      "TB": 555.31,
+      "KC": -108.44,
+      "NYG": 197.09,
+      "BUF": -637.36,
+      "PHI": 658.32,
+      "SEA": 507.55,
+      "PIT": -38.82,
+      "IND": 125.92,
+      "WAS": -70.26,
+      "BAL": 185.72,
+      "MIN": -34.3,
+      "NE": -84.85,
+      "CLE": 224.74,
+      "SF": -144.7,
+      "GB": 643.23,
+      "TEN": 186.23,
+      "CHI": -319.6,
+      "DAL": 652.9,
+      "NYJ": -249.86,
+      "CAR": -144.69,
+      "DEN": 374.68,
+      "LAC": -265.68,
+      "JAX": 349.93,
+      "LV": 91.58,
+      "CIN": -162.17
+    },
+    "bets_by_season": {
+      "2006": 43,
+      "2007": 54,
+      "2008": 30,
+      "2009": 57,
+      "2010": 62,
+      "2011": 54,
+      "2012": 54,
+      "2013": 52,
+      "2014": 42,
+      "2015": 46,
+      "2016": 42,
+      "2017": 51,
+      "2018": 45,
+      "2019": 49,
+      "2020": 32,
+      "2021": 54,
+      "2022": 64,
+      "2023": 73,
+      "2024": 75,
+      "2025": 77,
+      "2026": 11
+    },
+    "equity_curve": [
+      {
+        "date": "2010-09-01",
+        "season": 2010,
+        "week": 1,
+        "bankroll": 10000.0,
+        "pnl": 0.0
+      },
+      {
+        "date": "2006-11-05",
+        "season": 2006,
+        "week": 9,
+        "bankroll": 10501.7,
+        "pnl": 501.7
+      },
+      {
+        "date": "2007-09-09",
+        "season": 2007,
+        "week": 1,
+        "bankroll": 10859.15,
+        "pnl": 859.15
+      },
+      {
+        "date": "2008-11-02",
+        "season": 2008,
+        "week": 9,
+        "bankroll": 12441.46,
+        "pnl": 2441.46
+      },
+      {
+        "date": "2009-09-13",
+        "season": 2009,
+        "week": 1,
+        "bankroll": 12486.94,
+        "pnl": 2486.94
+      },
+      {
+        "date": "2010-09-09",
+        "season": 2010,
+        "week": 1,
+        "bankroll": 11806.26,
+        "pnl": 1806.26
+      },
+      {
+        "date": "2011-09-11",
+        "season": 2011,
+        "week": 1,
+        "bankroll": 12462.88,
+        "pnl": 2462.88
+      },
+      {
+        "date": "2012-09-09",
+        "season": 2012,
+        "week": 1,
+        "bankroll": 12427.65,
+        "pnl": 2427.65
+      },
+      {
+        "date": "2013-09-08",
+        "season": 2013,
+        "week": 1,
+        "bankroll": 12925.79,
+        "pnl": 2925.79
+      },
+      {
+        "date": "2014-09-07",
+        "season": 2014,
+        "week": 1,
+        "bankroll": 13839.45,
+        "pnl": 3839.45
+      },
+      {
+        "date": "2015-09-13",
+        "season": 2015,
+        "week": 1,
+        "bankroll": 14480.67,
+        "pnl": 4480.67
+      },
+      {
+        "date": "2016-09-11",
+        "season": 2016,
+        "week": 1,
+        "bankroll": 14158.11,
+        "pnl": 4158.11
+      },
+      {
+        "date": "2017-09-10",
+        "season": 2017,
+        "week": 1,
+        "bankroll": 13210.37,
+        "pnl": 3210.37
+      },
+      {
+        "date": "2018-09-09",
+        "season": 2018,
+        "week": 1,
+        "bankroll": 12479.74,
+        "pnl": 2479.74
+      },
+      {
+        "date": "2019-09-08",
+        "season": 2019,
+        "week": 1,
+        "bankroll": 11810.48,
+        "pnl": 1810.48
+      },
+      {
+        "date": "2020-09-13",
+        "season": 2020,
+        "week": 1,
+        "bankroll": 12395.44,
+        "pnl": 2395.44
+      },
+      {
+        "date": "2021-09-12",
+        "season": 2021,
+        "week": 1,
+        "bankroll": 12119.04,
+        "pnl": 2119.04
+      },
+      {
+        "date": "2022-09-11",
+        "season": 2022,
+        "week": 1,
+        "bankroll": 12605.51,
+        "pnl": 2605.51
+      },
+      {
+        "date": "2023-09-10",
+        "season": 2023,
+        "week": 1,
+        "bankroll": 13299.9,
+        "pnl": 3299.9
+      },
+      {
+        "date": "2024-09-08",
+        "season": 2024,
+        "week": 1,
+        "bankroll": 13144.35,
+        "pnl": 3144.35
+      },
+      {
+        "date": "2025-09-05",
+        "season": 2025,
+        "week": 1,
+        "bankroll": 13277.05,
+        "pnl": 3277.05
+      },
+      {
+        "date": "2026-09-10",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 12369.81,
+        "pnl": 2369.81
+      },
+      {
+        "date": "2026-09-13",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 12469.81,
+        "pnl": 2469.81
+      },
+      {
+        "date": "2026-09-13",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 12577.66,
+        "pnl": 2577.66
+      },
+      {
+        "date": "2026-09-13",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 12467.66,
+        "pnl": 2467.66
+      },
+      {
+        "date": "2026-09-13",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 12357.66,
+        "pnl": 2357.66
+      },
+      {
+        "date": "2026-09-13",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 12465.5,
+        "pnl": 2465.5
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 12355.5,
+        "pnl": 2355.5
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 12245.5,
+        "pnl": 2245.5
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 12135.5,
+        "pnl": 2135.5
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 12025.5,
+        "pnl": 2025.5
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 11915.5,
+        "pnl": 1915.5
+      }
+    ],
+    "is_kalshi": false,
+    "status": "ACTIVE",
+    "total_staked": 117370.0,
+    "variance": 11266.07,
+    "std_pnl": 106.14,
+    "published_ledger_bets": 386,
+    "published_ledger_pnl": -373.39,
+    "all_time_bets": 1067,
+    "all_time_pnl": 1915.5,
+    "pnl_outside_published_window": 2288.89
   },
   {
     "id": "STRAT_WEATHER_WIND_003_v3",
@@ -1708,276 +1806,6 @@
     "pnl_outside_published_window": 1435.24
   },
   {
-    "id": "STRAT_OL_CONT_024_v1",
-    "username": "@OL_Continuity_Edge_v1",
-    "name": "Offensive Line Continuity Advantage",
-    "version": "v1",
-    "parent_version": null,
-    "category": "Offensive Line & Protection",
-    "initial_bankroll": 10000.0,
-    "current_bankroll": 10897.4,
-    "total_pnl": 897.4,
-    "roi": 3.58,
-    "total_bets": 228,
-    "wins": 118,
-    "losses": 104,
-    "pushes": 6,
-    "win_rate": 53.2,
-    "avg_odds": -58.6,
-    "avg_edge": 5.43,
-    "avg_clv": 0.684,
-    "max_drawdown": 1396.16,
-    "max_drawdown_pct": 13.72,
-    "peak_bankroll": 11021.746430035319,
-    "profit_by_market": {
-      "SPREAD": 897.4
-    },
-    "profit_by_season": {
-      "2006": 79.96,
-      "2007": -764.19,
-      "2008": 121.34,
-      "2009": -655.1,
-      "2010": 529.28,
-      "2011": 7.56,
-      "2012": -240.42,
-      "2013": 407.18,
-      "2014": -346.46,
-      "2015": 389.94,
-      "2016": 310.52,
-      "2017": 400.68,
-      "2018": -60.33,
-      "2019": 174.9,
-      "2020": 63.93,
-      "2021": -26.67,
-      "2022": -36.84,
-      "2023": -262.26,
-      "2024": 878.76,
-      "2025": -170.05,
-      "2026": 95.65
-    },
-    "profit_by_week": {
-      "W04": -247.29,
-      "W05": 699.04,
-      "W08": -133.63,
-      "W09": 284.27,
-      "W11": 195.66,
-      "W12": -266.92,
-      "W13": -151.39,
-      "W14": -236.16,
-      "W16": 237.4,
-      "W17": 172.74,
-      "W01": 146.79,
-      "W02": -238.14,
-      "W03": -590.83,
-      "W06": -48.55,
-      "W10": 408.23,
-      "W07": 380.25,
-      "W15": 210.26,
-      "W18": 85.68,
-      "W19": -10.0
-    },
-    "profit_by_team": {
-      "LV": -122.42,
-      "CLE": 448.7,
-      "CAR": -71.75,
-      "NYJ": 144.83,
-      "LAC": -126.12,
-      "PIT": 126.85,
-      "CIN": 338.93,
-      "KC": -223.95,
-      "TB": 47.38,
-      "HOU": 306.58,
-      "MIA": -186.06,
-      "LA": 150.97,
-      "SEA": 50.27,
-      "SF": -12.64,
-      "NYG": 41.95,
-      "WAS": -8.52,
-      "JAX": 28.59,
-      "IND": -14.49,
-      "TEN": -59.49,
-      "MIN": 42.33,
-      "GB": 55.32,
-      "NO": -53.95,
-      "DAL": -5.89
-    },
-    "bets_by_season": {
-      "2006": 10,
-      "2007": 11,
-      "2008": 8,
-      "2009": 10,
-      "2010": 11,
-      "2011": 13,
-      "2012": 11,
-      "2013": 10,
-      "2014": 12,
-      "2015": 12,
-      "2016": 11,
-      "2017": 12,
-      "2018": 12,
-      "2019": 10,
-      "2020": 15,
-      "2021": 10,
-      "2022": 12,
-      "2023": 13,
-      "2024": 13,
-      "2025": 11,
-      "2026": 1
-    },
-    "equity_curve": [
-      {
-        "date": "2010-09-01",
-        "season": 2010,
-        "week": 1,
-        "bankroll": 10000.0,
-        "pnl": 0.0
-      },
-      {
-        "date": "2006-11-05",
-        "season": 2006,
-        "week": 9,
-        "bankroll": 9764.83,
-        "pnl": -235.17
-      },
-      {
-        "date": "2007-09-09",
-        "season": 2007,
-        "week": 1,
-        "bankroll": 10178.18,
-        "pnl": 178.18
-      },
-      {
-        "date": "2009-09-13",
-        "season": 2009,
-        "week": 1,
-        "bankroll": 9539.92,
-        "pnl": -460.08
-      },
-      {
-        "date": "2010-09-12",
-        "season": 2010,
-        "week": 1,
-        "bankroll": 8882.02,
-        "pnl": -1117.98
-      },
-      {
-        "date": "2011-09-11",
-        "season": 2011,
-        "week": 1,
-        "bankroll": 9431.2,
-        "pnl": -568.8
-      },
-      {
-        "date": "2013-09-08",
-        "season": 2013,
-        "week": 1,
-        "bankroll": 9181.25,
-        "pnl": -818.75
-      },
-      {
-        "date": "2014-09-07",
-        "season": 2014,
-        "week": 1,
-        "bankroll": 9375.62,
-        "pnl": -624.38
-      },
-      {
-        "date": "2015-09-13",
-        "season": 2015,
-        "week": 1,
-        "bankroll": 9241.01,
-        "pnl": -758.99
-      },
-      {
-        "date": "2016-11-06",
-        "season": 2016,
-        "week": 9,
-        "bankroll": 9723.86,
-        "pnl": -276.14
-      },
-      {
-        "date": "2017-09-10",
-        "season": 2017,
-        "week": 1,
-        "bankroll": 9729.62,
-        "pnl": -270.38
-      },
-      {
-        "date": "2018-09-09",
-        "season": 2018,
-        "week": 1,
-        "bankroll": 10130.31,
-        "pnl": 130.31
-      },
-      {
-        "date": "2019-09-08",
-        "season": 2019,
-        "week": 1,
-        "bankroll": 10277.32,
-        "pnl": 277.32
-      },
-      {
-        "date": "2021-01-10",
-        "season": 2020,
-        "week": 18,
-        "bankroll": 10528.81,
-        "pnl": 528.81
-      },
-      {
-        "date": "2021-09-12",
-        "season": 2021,
-        "week": 1,
-        "bankroll": 10308.81,
-        "pnl": 308.81
-      },
-      {
-        "date": "2022-09-11",
-        "season": 2022,
-        "week": 1,
-        "bankroll": 10282.14,
-        "pnl": 282.14
-      },
-      {
-        "date": "2023-09-10",
-        "season": 2023,
-        "week": 1,
-        "bankroll": 10245.3,
-        "pnl": 245.3
-      },
-      {
-        "date": "2024-09-08",
-        "season": 2024,
-        "week": 1,
-        "bankroll": 10191.25,
-        "pnl": 191.25
-      },
-      {
-        "date": "2025-09-07",
-        "season": 2025,
-        "week": 1,
-        "bankroll": 10861.8,
-        "pnl": 861.8
-      },
-      {
-        "date": "2026-09-13",
-        "season": 2026,
-        "week": 1,
-        "bankroll": 10897.4,
-        "pnl": 897.4
-      }
-    ],
-    "is_kalshi": false,
-    "status": "ACTIVE",
-    "total_staked": 25080.0,
-    "variance": 11192.31,
-    "std_pnl": 105.79,
-    "published_ledger_bets": 75,
-    "published_ledger_pnl": 542.48,
-    "all_time_bets": 228,
-    "all_time_pnl": 897.4,
-    "pnl_outside_published_window": 354.92
-  },
-  {
     "id": "STRAT_RLM_008_v1",
     "username": "@RLM_SharpTracker_v1",
     "name": "Reverse Line Movement Tracker (1.0 pt move)",
@@ -2200,6 +2028,283 @@
     "all_time_bets": 228,
     "all_time_pnl": 806.9,
     "pnl_outside_published_window": -0.04
+  },
+  {
+    "id": "STRAT_OL_CONT_024_v1",
+    "username": "@OL_Continuity_Edge_v1",
+    "name": "Offensive Line Continuity Advantage",
+    "version": "v1",
+    "parent_version": null,
+    "category": "Offensive Line & Protection",
+    "initial_bankroll": 10000.0,
+    "current_bankroll": 10787.4,
+    "total_pnl": 787.4,
+    "roi": 3.13,
+    "total_bets": 229,
+    "wins": 118,
+    "losses": 105,
+    "pushes": 6,
+    "win_rate": 52.9,
+    "avg_odds": -58.8,
+    "avg_edge": 5.43,
+    "avg_clv": 0.683,
+    "max_drawdown": 1396.16,
+    "max_drawdown_pct": 13.72,
+    "peak_bankroll": 11021.746430035319,
+    "profit_by_market": {
+      "SPREAD": 787.4
+    },
+    "profit_by_season": {
+      "2006": 79.96,
+      "2007": -764.19,
+      "2008": 121.34,
+      "2009": -655.1,
+      "2010": 529.28,
+      "2011": 7.56,
+      "2012": -240.42,
+      "2013": 407.18,
+      "2014": -346.46,
+      "2015": 389.94,
+      "2016": 310.52,
+      "2017": 400.68,
+      "2018": -60.33,
+      "2019": 174.9,
+      "2020": 63.93,
+      "2021": -26.67,
+      "2022": -36.84,
+      "2023": -262.26,
+      "2024": 878.76,
+      "2025": -170.05,
+      "2026": -14.35
+    },
+    "profit_by_week": {
+      "W04": -247.29,
+      "W05": 699.04,
+      "W08": -133.63,
+      "W09": 284.27,
+      "W11": 195.66,
+      "W12": -266.92,
+      "W13": -151.39,
+      "W14": -236.16,
+      "W16": 237.4,
+      "W17": 172.74,
+      "W01": 146.79,
+      "W02": -348.14,
+      "W03": -590.83,
+      "W06": -48.55,
+      "W10": 408.23,
+      "W07": 380.25,
+      "W15": 210.26,
+      "W18": 85.68,
+      "W19": -10.0
+    },
+    "profit_by_team": {
+      "LV": -122.42,
+      "CLE": 393.7,
+      "CAR": -71.75,
+      "NYJ": 144.83,
+      "LAC": -126.12,
+      "PIT": 126.85,
+      "CIN": 338.93,
+      "KC": -223.95,
+      "TB": -7.62,
+      "HOU": 306.58,
+      "MIA": -186.06,
+      "LA": 150.97,
+      "SEA": 50.27,
+      "SF": -12.64,
+      "NYG": 41.95,
+      "WAS": -8.52,
+      "JAX": 28.59,
+      "IND": -14.49,
+      "TEN": -59.49,
+      "MIN": 42.33,
+      "GB": 55.32,
+      "NO": -53.95,
+      "DAL": -5.89
+    },
+    "bets_by_season": {
+      "2006": 10,
+      "2007": 11,
+      "2008": 8,
+      "2009": 10,
+      "2010": 11,
+      "2011": 13,
+      "2012": 11,
+      "2013": 10,
+      "2014": 12,
+      "2015": 12,
+      "2016": 11,
+      "2017": 12,
+      "2018": 12,
+      "2019": 10,
+      "2020": 15,
+      "2021": 10,
+      "2022": 12,
+      "2023": 13,
+      "2024": 13,
+      "2025": 11,
+      "2026": 2
+    },
+    "equity_curve": [
+      {
+        "date": "2010-09-01",
+        "season": 2010,
+        "week": 1,
+        "bankroll": 10000.0,
+        "pnl": 0.0
+      },
+      {
+        "date": "2006-11-05",
+        "season": 2006,
+        "week": 9,
+        "bankroll": 9764.83,
+        "pnl": -235.17
+      },
+      {
+        "date": "2007-09-09",
+        "season": 2007,
+        "week": 1,
+        "bankroll": 10178.18,
+        "pnl": 178.18
+      },
+      {
+        "date": "2009-09-13",
+        "season": 2009,
+        "week": 1,
+        "bankroll": 9539.92,
+        "pnl": -460.08
+      },
+      {
+        "date": "2010-09-12",
+        "season": 2010,
+        "week": 1,
+        "bankroll": 8882.02,
+        "pnl": -1117.98
+      },
+      {
+        "date": "2011-09-11",
+        "season": 2011,
+        "week": 1,
+        "bankroll": 9431.2,
+        "pnl": -568.8
+      },
+      {
+        "date": "2013-09-08",
+        "season": 2013,
+        "week": 1,
+        "bankroll": 9181.25,
+        "pnl": -818.75
+      },
+      {
+        "date": "2014-09-07",
+        "season": 2014,
+        "week": 1,
+        "bankroll": 9375.62,
+        "pnl": -624.38
+      },
+      {
+        "date": "2015-09-13",
+        "season": 2015,
+        "week": 1,
+        "bankroll": 9241.01,
+        "pnl": -758.99
+      },
+      {
+        "date": "2016-11-06",
+        "season": 2016,
+        "week": 9,
+        "bankroll": 9723.86,
+        "pnl": -276.14
+      },
+      {
+        "date": "2017-09-10",
+        "season": 2017,
+        "week": 1,
+        "bankroll": 9729.62,
+        "pnl": -270.38
+      },
+      {
+        "date": "2018-09-09",
+        "season": 2018,
+        "week": 1,
+        "bankroll": 10130.31,
+        "pnl": 130.31
+      },
+      {
+        "date": "2019-09-08",
+        "season": 2019,
+        "week": 1,
+        "bankroll": 10277.32,
+        "pnl": 277.32
+      },
+      {
+        "date": "2021-01-10",
+        "season": 2020,
+        "week": 18,
+        "bankroll": 10528.81,
+        "pnl": 528.81
+      },
+      {
+        "date": "2021-09-12",
+        "season": 2021,
+        "week": 1,
+        "bankroll": 10308.81,
+        "pnl": 308.81
+      },
+      {
+        "date": "2022-09-11",
+        "season": 2022,
+        "week": 1,
+        "bankroll": 10282.14,
+        "pnl": 282.14
+      },
+      {
+        "date": "2023-09-10",
+        "season": 2023,
+        "week": 1,
+        "bankroll": 10245.3,
+        "pnl": 245.3
+      },
+      {
+        "date": "2024-09-08",
+        "season": 2024,
+        "week": 1,
+        "bankroll": 10191.25,
+        "pnl": 191.25
+      },
+      {
+        "date": "2025-09-07",
+        "season": 2025,
+        "week": 1,
+        "bankroll": 10861.8,
+        "pnl": 861.8
+      },
+      {
+        "date": "2026-09-13",
+        "season": 2026,
+        "week": 1,
+        "bankroll": 10897.4,
+        "pnl": 897.4
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 10787.4,
+        "pnl": 787.4
+      }
+    ],
+    "is_kalshi": false,
+    "status": "ACTIVE",
+    "total_staked": 25190.0,
+    "variance": 11199.87,
+    "std_pnl": 105.83,
+    "published_ledger_bets": 76,
+    "published_ledger_pnl": 432.48,
+    "all_time_bets": 229,
+    "all_time_pnl": 787.4,
+    "pnl_outside_published_window": 354.92
   },
   {
     "id": "STRAT_RLM_008_v2",
@@ -3831,22 +3936,22 @@
     "parent_version": "STRAT_REST_TNF_005_v1",
     "category": "Rest & Scheduling Asymmetries",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 9445.13,
-    "total_pnl": -554.87,
-    "roi": -0.85,
-    "total_bets": 651,
-    "wins": 324,
+    "current_bankroll": 9613.21,
+    "total_pnl": -386.79,
+    "roi": -0.59,
+    "total_bets": 653,
+    "wins": 326,
     "losses": 312,
     "pushes": 15,
-    "win_rate": 50.9,
-    "avg_odds": -62.4,
+    "win_rate": 51.1,
+    "avg_odds": -62.5,
     "avg_edge": 2.47,
-    "avg_clv": 0.351,
+    "avg_clv": 0.35,
     "max_drawdown": 2283.36,
     "max_drawdown_pct": 20.14,
     "peak_bankroll": 11336.31673865246,
     "profit_by_market": {
-      "SPREAD": -554.87
+      "SPREAD": -386.79
     },
     "profit_by_season": {
       "2006": 66.48,
@@ -3868,7 +3973,8 @@
       "2022": 203.83,
       "2023": 85.94,
       "2024": -1021.79,
-      "2025": 321.32
+      "2025": 321.32,
+      "2026": 168.08
     },
     "profit_by_week": {
       "W04": -3.37,
@@ -3884,7 +3990,7 @@
       "W15": -165.74,
       "W17": 89.75,
       "W12": -365.93,
-      "W02": 85.24,
+      "W02": 253.32,
       "W14": 155.31,
       "W20": -237.33,
       "W18": 179.55,
@@ -3903,15 +4009,15 @@
       "TB": 43.73,
       "NYG": -590.74,
       "WAS": -101.61,
-      "PIT": -3.78,
+      "PIT": 38.59,
       "DEN": 104.54,
       "ATL": -108.09,
       "HOU": 620.31,
       "LA": 30.74,
-      "SEA": -164.96,
+      "SEA": -123.3,
       "CIN": -234.0,
       "BUF": 347.53,
-      "NE": -51.51,
+      "NE": -9.14,
       "JAX": 445.18,
       "MIA": -57.2,
       "GB": 166.34,
@@ -3921,7 +4027,7 @@
       "DET": 251.06,
       "NYJ": -191.47,
       "PHI": 85.29,
-      "ARI": -292.49,
+      "ARI": -250.82,
       "CAR": -383.78
     },
     "bets_by_season": {
@@ -3944,7 +4050,8 @@
       "2022": 29,
       "2023": 25,
       "2024": 35,
-      "2025": 27
+      "2025": 27,
+      "2026": 2
     },
     "equity_curve": [
       {
@@ -4086,17 +4193,31 @@
         "week": 9,
         "bankroll": 9441.73,
         "pnl": -558.27
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 9529.88,
+        "pnl": -470.12
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 9613.21,
+        "pnl": -386.79
       }
     ],
     "is_kalshi": false,
     "status": "HOLDOUT_FAILED",
-    "total_staked": 65100.0,
-    "variance": 9267.09,
-    "std_pnl": 96.27,
-    "published_ledger_bets": 179,
-    "published_ledger_pnl": -1082.12,
-    "all_time_bets": 651,
-    "all_time_pnl": -554.87,
+    "total_staked": 65300.0,
+    "variance": 9260.72,
+    "std_pnl": 96.23,
+    "published_ledger_bets": 181,
+    "published_ledger_pnl": -914.04,
+    "all_time_bets": 653,
+    "all_time_pnl": -386.79,
     "pnl_outside_published_window": 527.25
   },
   {
@@ -4842,22 +4963,22 @@
     "parent_version": "STRAT_INJURY_WAR_009_v2",
     "category": "Injury & Player Availability",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 7909.22,
-    "total_pnl": -2090.78,
-    "roi": -0.65,
-    "total_bets": 2139,
-    "wins": 1065,
-    "losses": 1028,
+    "current_bankroll": 8154.2,
+    "total_pnl": -1845.8,
+    "roi": -0.57,
+    "total_bets": 2143,
+    "wins": 1068,
+    "losses": 1029,
     "pushes": 46,
     "win_rate": 50.9,
-    "avg_odds": -55.8,
+    "avg_odds": -55.9,
     "avg_edge": 6.49,
     "avg_clv": 0.391,
     "max_drawdown": 5044.21,
     "max_drawdown_pct": 46.21,
     "peak_bankroll": 10914.871493916015,
     "profit_by_market": {
-      "SPREAD": -2090.78
+      "SPREAD": -1845.8
     },
     "profit_by_season": {
       "2006": 59.29,
@@ -4880,7 +5001,7 @@
       "2023": -1114.15,
       "2024": -1961.89,
       "2025": 721.79,
-      "2026": -222.15
+      "2026": 22.82
     },
     "profit_by_week": {
       "W04": 3580.29,
@@ -4900,7 +5021,7 @@
       "W18": 639.02,
       "W19": 540.62,
       "W01": -1234.23,
-      "W02": -3248.26,
+      "W02": -3003.28,
       "W03": 150.2,
       "W20": 491.03,
       "W21": -130.14,
@@ -4911,11 +5032,11 @@
       "MIA": -588.92,
       "LA": 1061.44,
       "DET": -114.53,
-      "CHI": 114.5,
+      "CHI": 39.5,
       "SEA": -444.67,
-      "PHI": -1273.41,
+      "PHI": -1201.98,
       "GB": 580.72,
-      "CAR": -480.86,
+      "CAR": -418.36,
       "CLE": 1128.42,
       "BUF": -1510.41,
       "NO": 566.72,
@@ -4923,17 +5044,17 @@
       "ARI": -961.32,
       "KC": -551.14,
       "DAL": -367.44,
-      "ATL": 587.91,
+      "ATL": 650.41,
       "NYG": -280.67,
       "CIN": 864.85,
-      "PIT": -145.91,
-      "NE": 1995.36,
+      "PIT": -82.35,
+      "NE": 2058.92,
       "JAX": -1240.23,
       "DEN": 14.67,
-      "TEN": -767.89,
+      "TEN": -696.46,
       "LAC": -89.51,
       "NYJ": -895.53,
-      "MIN": -677.1,
+      "MIN": -752.1,
       "SF": -444.14,
       "IND": 45.47,
       "WAS": -353.37,
@@ -4961,7 +5082,7 @@
       "2023": 109,
       "2024": 128,
       "2025": 111,
-      "2026": 10
+      "2026": 14
     },
     "equity_curve": [
       {
@@ -5180,17 +5301,45 @@
         "week": 2,
         "bankroll": 7909.22,
         "pnl": -2090.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 8034.22,
+        "pnl": -1965.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 7884.22,
+        "pnl": -2115.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 8011.34,
+        "pnl": -1988.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 8154.2,
+        "pnl": -1845.8
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 320850.0,
-    "variance": 21026.18,
-    "std_pnl": 145.0,
-    "published_ledger_bets": 706,
-    "published_ledger_pnl": -1328.22,
-    "all_time_bets": 2139,
-    "all_time_pnl": -2090.78,
+    "total_staked": 321450.0,
+    "variance": 21022.0,
+    "std_pnl": 144.99,
+    "published_ledger_bets": 710,
+    "published_ledger_pnl": -1083.24,
+    "all_time_bets": 2143,
+    "all_time_pnl": -1845.8,
     "pnl_outside_published_window": -762.56
   },
   {
@@ -5695,22 +5844,22 @@
     "parent_version": null,
     "category": "Rest & Scheduling Asymmetries",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 5680.74,
-    "total_pnl": -4319.26,
-    "roi": -3.53,
-    "total_bets": 1111,
-    "wins": 536,
+    "current_bankroll": 5872.04,
+    "total_pnl": -4127.96,
+    "roi": -3.37,
+    "total_bets": 1113,
+    "wins": 538,
     "losses": 548,
     "pushes": 27,
-    "win_rate": 49.4,
-    "avg_odds": -59.8,
-    "avg_edge": 5.15,
+    "win_rate": 49.5,
+    "avg_odds": -59.9,
+    "avg_edge": 5.14,
     "avg_clv": 0.299,
     "max_drawdown": 7618.36,
     "max_drawdown_pct": 62.11,
     "peak_bankroll": 12266.347468979722,
     "profit_by_market": {
-      "SPREAD": -4319.26
+      "SPREAD": -4127.96
     },
     "profit_by_season": {
       "2006": 696.31,
@@ -5733,7 +5882,7 @@
       "2023": -944.3,
       "2024": -62.02,
       "2025": 148.64,
-      "2026": 100.0
+      "2026": 291.3
     },
     "profit_by_week": {
       "W04": -1974.29,
@@ -5751,7 +5900,7 @@
       "W18": -24.89,
       "W19": 832.93,
       "W01": -1106.44,
-      "W02": 471.9,
+      "W02": 663.2,
       "W03": -139.97,
       "W06": -1593.53,
       "W07": -1627.83,
@@ -5764,7 +5913,7 @@
       "ARI": -466.24,
       "BAL": -209.21,
       "LAC": -483.93,
-      "LA": -774.56,
+      "LA": -726.73,
       "DET": 441.31,
       "LV": 251.79,
       "CLE": 36.3,
@@ -5773,7 +5922,7 @@
       "GB": 323.51,
       "PIT": -94.13,
       "DEN": -234.47,
-      "SF": -730.42,
+      "SF": -682.6,
       "KC": 161.25,
       "MIN": 171.91,
       "CIN": -486.36,
@@ -5786,8 +5935,8 @@
       "NYJ": 154.92,
       "TB": -658.01,
       "DAL": -186.99,
-      "MIA": 63.19,
-      "NYG": -940.25,
+      "MIA": 111.01,
+      "NYG": -892.43,
       "TEN": -118.02,
       "IND": -551.42,
       "JAX": -15.25,
@@ -5814,7 +5963,7 @@
       "2023": 67,
       "2024": 62,
       "2025": 65,
-      "2026": 2
+      "2026": 4
     },
     "equity_curve": [
       {
@@ -5977,17 +6126,31 @@
         "week": 1,
         "bankroll": 5680.74,
         "pnl": -4319.26
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 5776.39,
+        "pnl": -4223.61
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 5872.04,
+        "pnl": -4127.96
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 122210.0,
-    "variance": 11240.94,
-    "std_pnl": 106.02,
-    "published_ledger_bets": 367,
-    "published_ledger_pnl": -2160.61,
-    "all_time_bets": 1111,
-    "all_time_pnl": -4319.26,
+    "total_staked": 122430.0,
+    "variance": 11238.51,
+    "std_pnl": 106.01,
+    "published_ledger_bets": 369,
+    "published_ledger_pnl": -1969.31,
+    "all_time_bets": 1113,
+    "all_time_pnl": -4127.96,
     "pnl_outside_published_window": -2158.65
   },
   {
@@ -5998,22 +6161,22 @@
     "parent_version": "STRAT_INJURY_WAR_009_v1",
     "category": "Injury & Player Availability",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 5024.52,
-    "total_pnl": -4975.48,
-    "roi": -1.41,
-    "total_bets": 2832,
-    "wins": 1394,
-    "losses": 1368,
+    "current_bankroll": 5228.66,
+    "total_pnl": -4771.34,
+    "roi": -1.35,
+    "total_bets": 2836,
+    "wins": 1397,
+    "losses": 1369,
     "pushes": 70,
     "win_rate": 50.5,
-    "avg_odds": -55.9,
+    "avg_odds": -56.0,
     "avg_edge": 6.11,
     "avg_clv": 0.415,
     "max_drawdown": 7205.87,
     "max_drawdown_pct": 65.28,
     "peak_bankroll": 11038.219437416046,
     "profit_by_market": {
-      "SPREAD": -4975.48
+      "SPREAD": -4771.34
     },
     "profit_by_season": {
       "2006": 350.18,
@@ -6036,7 +6199,7 @@
       "2023": -894.7,
       "2024": -3634.3,
       "2025": 564.64,
-      "2026": -310.13
+      "2026": -105.98
     },
     "profit_by_week": {
       "W04": 1667.95,
@@ -6057,27 +6220,27 @@
       "W19": 1035.72,
       "W21": -483.45,
       "W01": -284.38,
-      "W02": -3278.57,
+      "W02": -3074.43,
       "W03": 281.68,
       "W20": 512.68,
       "W22": -253.64
     },
     "profit_by_team": {
       "BUF": -1342.9,
-      "MIN": -341.24,
+      "MIN": -403.74,
       "HOU": 457.01,
       "MIA": -556.21,
       "LA": 15.05,
       "DET": -116.79,
       "LV": 935.67,
       "CLE": 1206.75,
-      "CHI": 63.38,
+      "CHI": 0.88,
       "SEA": -271.12,
-      "PHI": -499.58,
+      "PHI": -440.05,
       "GB": 1000.06,
-      "CAR": -734.32,
+      "CAR": -682.24,
       "IND": 494.23,
-      "TEN": -1053.54,
+      "TEN": -994.02,
       "NO": 387.67,
       "TB": 1095.08,
       "ARI": -892.35,
@@ -6085,11 +6248,11 @@
       "SF": -979.04,
       "DAL": -709.68,
       "LAC": -918.74,
-      "PIT": -1218.71,
-      "ATL": 816.89,
+      "PIT": -1165.75,
+      "ATL": 868.97,
       "NYG": -379.28,
       "CIN": -280.51,
-      "NE": 1732.81,
+      "NE": 1785.77,
       "JAX": -883.09,
       "DEN": 209.33,
       "NYJ": -1053.21,
@@ -6117,7 +6280,7 @@
       "2023": 146,
       "2024": 168,
       "2025": 144,
-      "2026": 11
+      "2026": 15
     },
     "equity_curve": [
       {
@@ -6343,18 +6506,46 @@
         "week": 2,
         "bankroll": 5024.52,
         "pnl": -4975.48
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 5128.68,
+        "pnl": -4871.32
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 5003.68,
+        "pnl": -4996.32
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 5109.62,
+        "pnl": -4890.38
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 5228.66,
+        "pnl": -4771.34
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 354000.0,
-    "variance": 14565.98,
-    "std_pnl": 120.69,
-    "published_ledger_bets": 925,
-    "published_ledger_pnl": -2882.6,
-    "all_time_bets": 2832,
-    "all_time_pnl": -4975.48,
-    "pnl_outside_published_window": -2092.88
+    "total_staked": 354500.0,
+    "variance": 14563.97,
+    "std_pnl": 120.68,
+    "published_ledger_bets": 929,
+    "published_ledger_pnl": -2678.45,
+    "all_time_bets": 2836,
+    "all_time_pnl": -4771.34,
+    "pnl_outside_published_window": -2092.89
   },
   {
     "id": "STRAT_INJURY_WAR_009_v1",
@@ -6364,22 +6555,22 @@
     "parent_version": null,
     "category": "Injury & Player Availability",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 4241.22,
-    "total_pnl": -5758.78,
-    "roi": -1.62,
-    "total_bets": 3557,
-    "wins": 1749,
-    "losses": 1724,
+    "current_bankroll": 4372.62,
+    "total_pnl": -5627.38,
+    "roi": -1.58,
+    "total_bets": 3565,
+    "wins": 1754,
+    "losses": 1727,
     "pushes": 84,
     "win_rate": 50.4,
-    "avg_odds": -57.0,
+    "avg_odds": -57.1,
     "avg_edge": 5.75,
     "avg_clv": 0.393,
     "max_drawdown": 7235.59,
     "max_drawdown_pct": 64.72,
     "peak_bankroll": 11180.504250599864,
     "profit_by_market": {
-      "SPREAD": -5758.78
+      "SPREAD": -5627.38
     },
     "profit_by_season": {
       "2006": 864.12,
@@ -6402,7 +6593,7 @@
       "2023": -817.19,
       "2024": -2165.7,
       "2025": -534.53,
-      "2026": -157.19
+      "2026": -25.8
     },
     "profit_by_week": {
       "W04": 399.21,
@@ -6424,41 +6615,41 @@
       "W20": 184.68,
       "W21": -586.76,
       "W01": 732.72,
-      "W02": -2897.15,
+      "W02": -2765.76,
       "W03": -928.3,
       "W22": -202.91
     },
     "profit_by_team": {
-      "ATL": 527.28,
-      "ARI": -857.31,
+      "ATL": 568.95,
+      "ARI": -815.65,
       "BUF": -1013.91,
-      "MIN": -423.67,
-      "HOU": 300.93,
+      "MIN": -473.67,
+      "HOU": 343.31,
       "MIA": -390.74,
       "LA": -238.03,
       "DET": -224.79,
-      "CIN": -686.95,
-      "NE": 1984.45,
-      "LV": 478.52,
+      "CIN": -644.57,
+      "NE": 2026.82,
+      "LV": 428.52,
       "CLE": 1119.2,
-      "CHI": -129.77,
-      "SEA": -290.51,
-      "PHI": -124.64,
+      "CHI": -179.77,
+      "SEA": -248.84,
+      "PHI": -77.02,
       "GB": 197.0,
-      "CAR": -438.8,
+      "CAR": -397.13,
       "IND": 309.31,
-      "TEN": -1352.14,
+      "TEN": -1304.52,
       "NO": 819.49,
       "TB": 843.0,
       "KC": -383.9,
       "SF": -1245.82,
       "DAL": -698.65,
-      "LAC": -334.68,
-      "PIT": -918.83,
+      "LAC": -384.68,
+      "PIT": -876.45,
       "NYG": -564.4,
       "BAL": -126.56,
-      "DEN": -287.81,
-      "JAX": -740.25,
+      "DEN": -337.81,
+      "JAX": -790.25,
       "NYJ": -665.45,
       "WAS": -200.37
     },
@@ -6483,7 +6674,7 @@
       "2023": 188,
       "2024": 199,
       "2025": 190,
-      "2026": 12
+      "2026": 20
     },
     "equity_curve": [
       {
@@ -6716,17 +6907,73 @@
         "week": 2,
         "bankroll": 4241.22,
         "pnl": -5758.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4324.55,
+        "pnl": -5675.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4224.55,
+        "pnl": -5775.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4309.3,
+        "pnl": -5690.7
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4394.04,
+        "pnl": -5605.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4489.28,
+        "pnl": -5510.72
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4389.28,
+        "pnl": -5610.72
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4289.28,
+        "pnl": -5710.72
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 4372.62,
+        "pnl": -5627.38
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 355700.0,
-    "variance": 9332.15,
-    "std_pnl": 96.6,
-    "published_ledger_bets": 1156,
-    "published_ledger_pnl": -2952.15,
-    "all_time_bets": 3557,
-    "all_time_pnl": -5758.78,
+    "total_staked": 356500.0,
+    "variance": 9330.22,
+    "std_pnl": 96.59,
+    "published_ledger_bets": 1164,
+    "published_ledger_pnl": -2820.75,
+    "all_time_bets": 3565,
+    "all_time_pnl": -5627.38,
     "pnl_outside_published_window": -2806.63
   },
   {
@@ -6737,22 +6984,22 @@
     "parent_version": null,
     "category": "Public Strategy Research & Replication",
     "initial_bankroll": 10000.0,
-    "current_bankroll": 3908.03,
-    "total_pnl": -6091.97,
+    "current_bankroll": 3892.55,
+    "total_pnl": -6107.45,
     "roi": -3.62,
-    "total_bets": 1683,
-    "wins": 809,
-    "losses": 828,
+    "total_bets": 1687,
+    "wins": 811,
+    "losses": 830,
     "pushes": 46,
     "win_rate": 49.4,
-    "avg_odds": -61.4,
+    "avg_odds": -61.3,
     "avg_edge": 2.13,
-    "avg_clv": -0.254,
+    "avg_clv": -0.253,
     "max_drawdown": 7967.6,
     "max_drawdown_pct": 68.56,
     "peak_bankroll": 11622.12298979842,
     "profit_by_market": {
-      "SPREAD": -6091.97
+      "SPREAD": -6107.45
     },
     "profit_by_season": {
       "2006": 882.55,
@@ -6775,7 +7022,7 @@
       "2023": -746.36,
       "2024": -728.57,
       "2025": -472.81,
-      "2026": -207.41
+      "2026": -222.88
     },
     "profit_by_week": {
       "W04": 532.73,
@@ -6794,7 +7041,7 @@
       "W17": 17.93,
       "W21": -10.59,
       "W01": -599.7,
-      "W02": 1461.08,
+      "W02": 1445.6,
       "W03": 278.69,
       "W18": 292.19,
       "W20": 248.31,
@@ -6804,35 +7051,35 @@
     "profit_by_team": {
       "HOU": -204.24,
       "MIA": -112.21,
-      "NYJ": 36.28,
+      "NYJ": 80.92,
       "IND": -400.34,
       "LV": -147.88,
       "CLE": -65.61,
       "WAS": -77.25,
       "JAX": -464.33,
-      "GB": -183.85,
+      "GB": -139.2,
       "LA": -979.64,
-      "ARI": 603.2,
+      "ARI": 553.2,
       "KC": -610.66,
-      "PHI": -339.36,
+      "PHI": -291.74,
       "DAL": 165.7,
       "DET": -320.78,
       "BUF": -284.09,
       "NO": -239.48,
-      "SEA": 421.51,
+      "SEA": 371.51,
       "TB": -568.54,
       "CIN": -286.42,
-      "ATL": -36.4,
+      "ATL": -86.4,
       "PIT": 882.21,
       "NE": -1234.65,
       "LAC": -132.32,
       "DEN": 616.67,
       "MIN": 10.35,
       "SF": -764.82,
-      "TEN": -138.38,
+      "TEN": -90.76,
       "BAL": -352.5,
       "CHI": -348.08,
-      "CAR": 231.5,
+      "CAR": 181.5,
       "NYG": -767.58
     },
     "bets_by_season": {
@@ -6856,7 +7103,7 @@
       "2023": 96,
       "2024": 112,
       "2025": 106,
-      "2026": 4
+      "2026": 8
     },
     "equity_curve": [
       {
@@ -7033,18 +7280,46 @@
         "week": 1,
         "bankroll": 3908.03,
         "pnl": -6091.97
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 3808.03,
+        "pnl": -6191.97
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 3897.31,
+        "pnl": -6102.69
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 3992.55,
+        "pnl": -6007.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": 3892.55,
+        "pnl": -6107.45
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 168300.0,
-    "variance": 9252.66,
+    "total_staked": 168700.0,
+    "variance": 9252.64,
     "std_pnl": 96.19,
-    "published_ledger_bets": 595,
-    "published_ledger_pnl": -1730.96,
-    "all_time_bets": 1683,
-    "all_time_pnl": -6091.97,
-    "pnl_outside_published_window": -4361.01
+    "published_ledger_bets": 599,
+    "published_ledger_pnl": -1746.43,
+    "all_time_bets": 1687,
+    "all_time_pnl": -6107.45,
+    "pnl_outside_published_window": -4361.02
   },
   {
     "id": "STRAT_TEAM_TOTAL_038_v1",
@@ -7054,22 +7329,22 @@
     "parent_version": null,
     "category": "Team Totals & Efficiency",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -318.18,
-    "total_pnl": -10318.18,
-    "roi": -7.99,
-    "total_bets": 1292,
-    "wins": 618,
-    "losses": 665,
+    "current_bankroll": -245.45,
+    "total_pnl": -10245.45,
+    "roi": -7.9,
+    "total_bets": 1297,
+    "wins": 621,
+    "losses": 667,
     "pushes": 9,
     "win_rate": 48.2,
     "avg_odds": -110.0,
     "avg_edge": 7.44,
-    "avg_clv": 0.455,
+    "avg_clv": 0.456,
     "max_drawdown": 12636.36,
     "max_drawdown_pct": 124.0,
     "peak_bankroll": 10190.909090909081,
     "profit_by_market": {
-      "TEAM_TOTAL": -10318.18
+      "TEAM_TOTAL": -10245.45
     },
     "profit_by_season": {
       "2006": -409.09,
@@ -7092,7 +7367,7 @@
       "2023": -154.55,
       "2024": 763.64,
       "2025": 1236.36,
-      "2026": -36.36
+      "2026": 36.36
     },
     "profit_by_week": {
       "W04": 154.55,
@@ -7111,7 +7386,7 @@
       "W20": -836.36,
       "W21": 54.55,
       "W01": -1209.09,
-      "W02": -263.64,
+      "W02": -190.91,
       "W03": -72.73,
       "W09": -827.27,
       "W10": -700.0,
@@ -7119,14 +7394,14 @@
       "W22": 90.91
     },
     "profit_by_team": {
-      "ATL": -1181.82,
+      "ATL": -1231.82,
       "ARI": -181.82,
       "CHI": -645.45,
       "SEA": -1036.36,
       "PHI": 36.36,
       "GB": -86.36,
       "KC": -368.18,
-      "DEN": -400.0,
+      "DEN": -354.55,
       "BAL": 45.45,
       "PIT": -395.45,
       "CLE": 577.27,
@@ -7136,20 +7411,20 @@
       "NE": -777.27,
       "DET": -168.18,
       "NYJ": -495.45,
-      "HOU": 204.55,
-      "CIN": -845.45,
-      "LV": -272.73,
+      "HOU": 154.55,
+      "CIN": -895.45,
+      "LV": -227.27,
       "LA": 95.45,
       "NO": -527.27,
-      "CAR": 45.45,
+      "CAR": -4.55,
       "TEN": -218.18,
       "MIA": -818.18,
-      "LAC": -681.82,
+      "LAC": -636.36,
       "BUF": -550.0,
-      "JAX": -454.55,
-      "DAL": -336.36,
+      "JAX": -409.09,
+      "DAL": -290.91,
       "TB": -304.55,
-      "WAS": 336.36,
+      "WAS": 381.82,
       "NYG": -277.27
     },
     "bets_by_season": {
@@ -7173,7 +7448,7 @@
       "2023": 55,
       "2024": 85,
       "2025": 106,
-      "2026": 8
+      "2026": 13
     },
     "equity_curve": [
       {
@@ -7378,17 +7653,52 @@
         "week": 2,
         "bankroll": -318.18,
         "pnl": -10318.18
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -418.18,
+        "pnl": -10418.18
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -518.18,
+        "pnl": -10518.18
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -427.27,
+        "pnl": -10427.27
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -336.36,
+        "pnl": -10336.36
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -245.45,
+        "pnl": -10245.45
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 129200.0,
-    "variance": 9036.49,
+    "total_staked": 129700.0,
+    "variance": 9037.33,
     "std_pnl": 95.06,
-    "published_ledger_bets": 517,
-    "published_ledger_pnl": -1372.49,
-    "all_time_bets": 1292,
-    "all_time_pnl": -10318.18,
+    "published_ledger_bets": 522,
+    "published_ledger_pnl": -1299.76,
+    "all_time_bets": 1297,
+    "all_time_pnl": -10245.45,
     "pnl_outside_published_window": -8945.69
   },
   {
@@ -7399,22 +7709,22 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -3476.1,
-    "total_pnl": -13476.1,
-    "roi": -3.29,
-    "total_bets": 3415,
-    "wins": 1645,
-    "losses": 1681,
+    "current_bankroll": -3444.28,
+    "total_pnl": -13444.28,
+    "roi": -3.27,
+    "total_bets": 3426,
+    "wins": 1651,
+    "losses": 1686,
     "pushes": 89,
     "win_rate": 49.5,
-    "avg_odds": -56.4,
-    "avg_edge": 9.73,
+    "avg_odds": -56.6,
+    "avg_edge": 9.72,
     "avg_clv": 0.694,
     "max_drawdown": 18480.26,
     "max_drawdown_pct": 147.07,
     "peak_bankroll": 12565.981824947996,
     "profit_by_market": {
-      "SPREAD": -13476.1
+      "SPREAD": -13444.28
     },
     "profit_by_season": {
       "2006": 517.03,
@@ -7437,7 +7747,7 @@
       "2023": -992.26,
       "2024": -1750.17,
       "2025": 806.51,
-      "2026": -64.59
+      "2026": -32.77
     },
     "profit_by_week": {
       "W04": 1327.48,
@@ -7459,43 +7769,43 @@
       "W20": 66.32,
       "W21": -492.28,
       "W01": -2009.64,
-      "W02": -3086.38,
+      "W02": -3054.56,
       "W03": -1756.47,
       "W22": -10.91
     },
     "profit_by_team": {
-      "CAR": -316.13,
-      "NO": -343.44,
-      "KC": -1148.19,
-      "SF": -1591.92,
-      "NYJ": -265.76,
-      "IND": -77.54,
-      "LA": 118.5,
+      "CAR": -266.13,
+      "NO": -403.44,
+      "KC": -1208.19,
+      "SF": -1539.74,
+      "NYJ": -212.19,
+      "IND": -137.54,
+      "LA": 170.67,
       "DET": -212.82,
-      "LV": -241.39,
-      "CLE": 979.74,
+      "LV": -301.39,
+      "CLE": 919.74,
       "WAS": -1592.44,
       "JAX": -989.14,
-      "CHI": -34.33,
+      "CHI": -94.33,
       "SEA": 417.29,
       "BUF": 26.37,
-      "NE": 1343.88,
-      "MIA": -417.24,
-      "TB": -1074.24,
-      "NYG": -1716.75,
-      "LAC": -1619.81,
-      "PIT": 316.59,
+      "NE": 1394.73,
+      "MIA": -365.07,
+      "TB": -1134.24,
+      "NYG": -1664.57,
+      "LAC": -1679.81,
+      "PIT": 367.43,
       "DEN": -388.6,
-      "BAL": -1306.05,
+      "BAL": -1366.05,
       "DAL": -910.19,
       "HOU": 389.95,
-      "PHI": -231.08,
-      "TEN": -1052.97,
+      "PHI": -173.94,
+      "TEN": -995.82,
       "ARI": -854.8,
-      "MIN": -137.23,
+      "MIN": -197.23,
       "CIN": -1746.29,
-      "ATL": 259.66,
-      "GB": 940.27
+      "ATL": 309.66,
+      "GB": 993.84
     },
     "bets_by_season": {
       "2006": 150,
@@ -7518,7 +7828,7 @@
       "2023": 184,
       "2024": 176,
       "2025": 183,
-      "2026": 10
+      "2026": 21
     },
     "equity_curve": [
       {
@@ -7737,17 +8047,94 @@
         "week": 1,
         "bankroll": -3476.1,
         "pnl": -13476.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3376.1,
+        "pnl": -13376.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3496.1,
+        "pnl": -13496.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3616.1,
+        "pnl": -13616.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3514.4,
+        "pnl": -13514.4
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3407.26,
+        "pnl": -13407.26
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3527.26,
+        "pnl": -13527.26
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3412.98,
+        "pnl": -13412.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3532.98,
+        "pnl": -13532.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3428.63,
+        "pnl": -13428.63
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3548.63,
+        "pnl": -13548.63
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -3444.28,
+        "pnl": -13444.28
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 409800.0,
-    "variance": 13411.89,
-    "std_pnl": 115.81,
-    "published_ledger_bets": 1076,
-    "published_ledger_pnl": -3063.74,
-    "all_time_bets": 3415,
-    "all_time_pnl": -13476.1,
+    "total_staked": 411120.0,
+    "variance": 13409.42,
+    "std_pnl": 115.8,
+    "published_ledger_bets": 1087,
+    "published_ledger_pnl": -3031.92,
+    "all_time_bets": 3426,
+    "all_time_pnl": -13444.28,
     "pnl_outside_published_window": -10412.36
   },
   {
@@ -7758,22 +8145,22 @@
     "parent_version": "STRAT_POISSON_007_v1",
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -6252.01,
-    "total_pnl": -16252.01,
+    "current_bankroll": -6301.93,
+    "total_pnl": -16301.93,
     "roi": -4.72,
-    "total_bets": 2754,
-    "wins": 1331,
-    "losses": 1387,
+    "total_bets": 2762,
+    "wins": 1335,
+    "losses": 1391,
     "pushes": 36,
     "win_rate": 49.0,
-    "avg_odds": -78.7,
+    "avg_odds": -78.8,
     "avg_edge": 11.73,
-    "avg_clv": 0.827,
+    "avg_clv": 0.828,
     "max_drawdown": 20655.82,
     "max_drawdown_pct": 178.26,
     "peak_bankroll": 11587.766870213709,
     "profit_by_market": {
-      "TOTAL": -16252.01
+      "TOTAL": -16301.93
     },
     "profit_by_season": {
       "2006": -46.97,
@@ -7796,7 +8183,7 @@
       "2023": -1998.59,
       "2024": 442.81,
       "2025": 1737.74,
-      "2026": 298.61
+      "2026": 248.68
     },
     "profit_by_week": {
       "W04": 1349.33,
@@ -7817,42 +8204,42 @@
       "W19": -511.03,
       "W20": -808.64,
       "W01": -1133.91,
-      "W02": -365.74,
+      "W02": -415.66,
       "W03": -2641.97,
       "W21": -535.62,
       "W22": 108.7
     },
     "profit_by_team": {
-      "ATL": -2597.74,
-      "ARI": -772.98,
-      "CAR": -71.6,
+      "ATL": -2660.24,
+      "ARI": -835.48,
+      "CAR": -134.1,
       "NO": 179.03,
-      "LA": -731.05,
+      "LA": -793.55,
       "DET": 73.31,
-      "LV": -810.4,
+      "LV": -753.58,
       "CLE": -487.58,
       "CHI": -1121.76,
-      "SEA": -606.57,
+      "SEA": -669.07,
       "GB": -108.57,
       "TB": -593.97,
-      "SF": 213.15,
-      "LAC": -943.77,
-      "PIT": -1440.55,
+      "SF": 267.5,
+      "LAC": -886.96,
+      "PIT": -1386.2,
       "DEN": -652.28,
       "BAL": -932.89,
       "PHI": -1124.85,
-      "MIA": -624.86,
+      "MIA": -570.51,
       "IND": 896.35,
-      "WAS": 232.4,
+      "WAS": 291.92,
       "KC": -942.67,
       "JAX": 163.65,
       "MIN": -736.21,
-      "NE": -789.32,
-      "DAL": 370.87,
-      "CIN": -902.5,
-      "NYG": 275.55,
+      "NE": -734.97,
+      "DAL": 430.39,
+      "CIN": -965.0,
+      "NYG": 213.05,
       "NYJ": -534.07,
-      "HOU": -763.17,
+      "HOU": -825.67,
       "BUF": 786.12,
       "TEN": -1153.06
     },
@@ -7877,7 +8264,7 @@
       "2023": 142,
       "2024": 153,
       "2025": 175,
-      "2026": 11
+      "2026": 19
     },
     "equity_curve": [
       {
@@ -8103,18 +8490,74 @@
         "week": 2,
         "bankroll": -6252.01,
         "pnl": -16252.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6377.01,
+        "pnl": -16377.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6502.01,
+        "pnl": -16502.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6393.31,
+        "pnl": -16393.31
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6279.67,
+        "pnl": -16279.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6404.67,
+        "pnl": -16404.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6285.63,
+        "pnl": -16285.63
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6176.93,
+        "pnl": -16176.93
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -6301.93,
+        "pnl": -16301.93
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 344250.0,
-    "variance": 14585.82,
+    "total_staked": 345250.0,
+    "variance": 14584.45,
     "std_pnl": 120.77,
-    "published_ledger_bets": 979,
-    "published_ledger_pnl": -4888.44,
-    "all_time_bets": 2754,
-    "all_time_pnl": -16252.01,
-    "pnl_outside_published_window": -11363.57
+    "published_ledger_bets": 987,
+    "published_ledger_pnl": -4938.35,
+    "all_time_bets": 2762,
+    "all_time_pnl": -16301.93,
+    "pnl_outside_published_window": -11363.58
   },
   {
     "id": "STRAT_NB_TOTALS_043_v1",
@@ -8124,22 +8567,22 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -7893.45,
-    "total_pnl": -17893.45,
-    "roi": -5.19,
-    "total_bets": 3132,
-    "wins": 1507,
-    "losses": 1585,
+    "current_bankroll": -8157.38,
+    "total_pnl": -18157.38,
+    "roi": -5.25,
+    "total_bets": 3142,
+    "wins": 1511,
+    "losses": 1591,
     "pushes": 40,
     "win_rate": 48.7,
-    "avg_odds": -79.0,
+    "avg_odds": -79.1,
     "avg_edge": 8.51,
     "avg_clv": 0.577,
     "max_drawdown": 21078.26,
     "max_drawdown_pct": 205.23,
     "peak_bankroll": 10270.317498777998,
     "profit_by_market": {
-      "TOTAL": -17893.45
+      "TOTAL": -18157.38
     },
     "profit_by_season": {
       "2006": 130.53,
@@ -8162,7 +8605,7 @@
       "2023": -1852.08,
       "2024": -98.06,
       "2025": 1968.02,
-      "2026": 355.99
+      "2026": 92.06
     },
     "profit_by_week": {
       "W04": 171.13,
@@ -8183,40 +8626,40 @@
       "W19": -338.61,
       "W20": -947.27,
       "W01": -638.0,
-      "W02": 53.14,
+      "W02": -210.8,
       "W03": -2383.98,
       "W21": -476.58,
       "W22": 95.65
     },
     "profit_by_team": {
-      "ATL": -2489.51,
-      "ARI": -242.94,
-      "CAR": -157.41,
-      "NO": -53.05,
-      "LA": -738.48,
+      "ATL": -2544.51,
+      "ARI": -297.94,
+      "CAR": -212.41,
+      "NO": -108.05,
+      "LA": -793.48,
       "DET": -180.76,
-      "CIN": -881.16,
-      "NE": -779.45,
-      "LV": -604.25,
+      "CIN": -936.16,
+      "NE": -731.62,
+      "LV": -554.25,
       "CLE": -362.29,
       "CHI": -969.48,
-      "SEA": -523.09,
+      "SEA": -578.09,
       "PHI": -1576.42,
-      "GB": -410.61,
+      "GB": -465.61,
       "TB": -782.67,
       "JAX": -155.48,
-      "NYJ": -715.17,
-      "SF": 85.0,
-      "LAC": -649.45,
-      "PIT": -1370.22,
+      "NYJ": -770.17,
+      "SF": 132.83,
+      "LAC": -599.45,
+      "PIT": -1322.4,
       "DEN": -763.21,
-      "BAL": -869.37,
-      "NYG": 51.12,
-      "DAL": 301.18,
-      "HOU": -1139.47,
-      "MIA": -504.4,
+      "BAL": -924.37,
+      "NYG": -3.88,
+      "DAL": 353.56,
+      "HOU": -1194.47,
+      "MIA": -456.57,
       "IND": 523.58,
-      "WAS": 19.41,
+      "WAS": 71.79,
       "KC": -857.3,
       "MIN": -420.54,
       "BUF": 261.2,
@@ -8243,7 +8686,7 @@
       "2023": 162,
       "2024": 167,
       "2025": 194,
-      "2026": 12
+      "2026": 22
     },
     "equity_curve": [
       {
@@ -8476,18 +8919,88 @@
         "week": 2,
         "bankroll": -7893.45,
         "pnl": -17893.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8003.45,
+        "pnl": -18003.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8113.45,
+        "pnl": -18113.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8223.45,
+        "pnl": -18223.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8127.8,
+        "pnl": -18127.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8237.8,
+        "pnl": -18237.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8137.8,
+        "pnl": -18137.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8247.8,
+        "pnl": -18247.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8143.03,
+        "pnl": -18143.03
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8047.38,
+        "pnl": -18047.38
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -8157.38,
+        "pnl": -18157.38
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 344520.0,
-    "variance": 11289.46,
+    "total_staked": 345620.0,
+    "variance": 11288.28,
     "std_pnl": 106.25,
-    "published_ledger_bets": 1089,
-    "published_ledger_pnl": -5089.77,
-    "all_time_bets": 3132,
-    "all_time_pnl": -17893.45,
-    "pnl_outside_published_window": -12803.68
+    "published_ledger_bets": 1099,
+    "published_ledger_pnl": -5353.71,
+    "all_time_bets": 3142,
+    "all_time_pnl": -18157.38,
+    "pnl_outside_published_window": -12803.67
   },
   {
     "id": "STRAT_POISSON_007_v1",
@@ -8497,22 +9010,22 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -8917.66,
-    "total_pnl": -18917.66,
-    "roi": -5.49,
-    "total_bets": 3446,
-    "wins": 1651,
-    "losses": 1748,
+    "current_bankroll": -9157.6,
+    "total_pnl": -19157.6,
+    "roi": -5.54,
+    "total_bets": 3456,
+    "wins": 1655,
+    "losses": 1754,
     "pushes": 47,
-    "win_rate": 48.6,
-    "avg_odds": -79.0,
+    "win_rate": 48.5,
+    "avg_odds": -79.1,
     "avg_edge": 10.51,
     "avg_clv": 0.733,
     "max_drawdown": 21329.44,
     "max_drawdown_pct": 213.29,
     "peak_bankroll": 10000.0,
     "profit_by_market": {
-      "TOTAL": -18917.66
+      "TOTAL": -19157.6
     },
     "profit_by_season": {
       "2006": -391.09,
@@ -8535,7 +9048,7 @@
       "2023": -1767.09,
       "2024": -684.49,
       "2025": 1354.8,
-      "2026": 507.13
+      "2026": 267.19
     },
     "profit_by_week": {
       "W04": 224.01,
@@ -8557,40 +9070,40 @@
       "W20": -868.56,
       "W21": -633.26,
       "W01": -76.14,
-      "W02": -224.51,
+      "W02": -464.44,
       "W03": -2113.67,
       "W22": 86.96
     },
     "profit_by_team": {
-      "ATL": -2269.66,
-      "ARI": -393.18,
-      "CAR": 119.0,
-      "NO": -123.68,
-      "NYJ": -862.94,
+      "ATL": -2319.66,
+      "ARI": -443.18,
+      "CAR": 69.0,
+      "NO": -173.68,
+      "NYJ": -912.94,
       "IND": 539.54,
-      "LA": -899.04,
+      "LA": -949.04,
       "DET": -270.41,
-      "CIN": -1019.78,
-      "NE": -629.5,
-      "LV": -519.0,
+      "CIN": -1069.78,
+      "NE": -586.02,
+      "LV": -473.54,
       "CLE": -407.85,
       "CHI": -1052.58,
-      "SEA": -780.63,
+      "SEA": -830.63,
       "PHI": -1645.05,
-      "GB": -351.6,
-      "MIA": -739.4,
+      "GB": -401.6,
+      "MIA": -695.92,
       "TB": -634.78,
       "JAX": 171.71,
-      "SF": 54.63,
-      "LAC": -682.09,
-      "PIT": -1355.29,
+      "SF": 98.11,
+      "LAC": -636.64,
+      "PIT": -1311.81,
       "DEN": -830.08,
-      "BAL": -1005.31,
-      "NYG": 61.02,
-      "DAL": 206.64,
-      "HOU": -745.33,
+      "BAL": -1055.31,
+      "NYG": 11.02,
+      "DAL": 254.26,
+      "HOU": -795.33,
       "KC": -1250.07,
-      "WAS": -88.9,
+      "WAS": -41.28,
       "MIN": -937.07,
       "BUF": 203.21,
       "TEN": -780.2
@@ -8616,7 +9129,7 @@
       "2023": 181,
       "2024": 193,
       "2025": 206,
-      "2026": 14
+      "2026": 24
     },
     "equity_curve": [
       {
@@ -8863,18 +9376,88 @@
         "week": 2,
         "bankroll": -8917.66,
         "pnl": -18917.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9017.66,
+        "pnl": -19017.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9117.66,
+        "pnl": -19117.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9217.66,
+        "pnl": -19217.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9130.71,
+        "pnl": -19130.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9230.71,
+        "pnl": -19230.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9139.8,
+        "pnl": -19139.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9239.8,
+        "pnl": -19239.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9144.56,
+        "pnl": -19144.56
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9057.6,
+        "pnl": -19057.6
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -9157.6,
+        "pnl": -19157.6
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 344600.0,
-    "variance": 9323.73,
-    "std_pnl": 96.56,
-    "published_ledger_bets": 1190,
-    "published_ledger_pnl": -6057.91,
-    "all_time_bets": 3446,
-    "all_time_pnl": -18917.66,
-    "pnl_outside_published_window": -12859.75
+    "total_staked": 345600.0,
+    "variance": 9322.83,
+    "std_pnl": 96.55,
+    "published_ledger_bets": 1200,
+    "published_ledger_pnl": -6297.84,
+    "all_time_bets": 3456,
+    "all_time_pnl": -19157.6,
+    "pnl_outside_published_window": -12859.76
   },
   {
     "id": "STRAT_ELO_QUANT_006_v1",
@@ -8884,22 +9467,22 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -10547.71,
-    "total_pnl": -20547.71,
-    "roi": -4.59,
-    "total_bets": 4477,
-    "wins": 2121,
-    "losses": 2247,
+    "current_bankroll": -10835.42,
+    "total_pnl": -20835.42,
+    "roi": -4.64,
+    "total_bets": 4491,
+    "wins": 2127,
+    "losses": 2255,
     "pushes": 109,
-    "win_rate": 48.6,
-    "avg_odds": -46.0,
-    "avg_edge": 6.21,
-    "avg_clv": 0.806,
+    "win_rate": 48.5,
+    "avg_odds": -46.2,
+    "avg_edge": 6.2,
+    "avg_clv": 0.804,
     "max_drawdown": 22002.57,
     "max_drawdown_pct": 204.3,
     "peak_bankroll": 10769.748763627189,
     "profit_by_market": {
-      "SPREAD": -20547.71
+      "SPREAD": -20835.42
     },
     "profit_by_season": {
       "2006": -3167.45,
@@ -8922,7 +9505,7 @@
       "2023": -1107.73,
       "2024": 1083.02,
       "2025": -1555.86,
-      "2026": 125.06
+      "2026": -162.66
     },
     "profit_by_week": {
       "W04": -991.45,
@@ -8944,43 +9527,43 @@
       "W20": -41.12,
       "W21": -519.33,
       "W01": -1141.73,
-      "W02": -3054.96,
+      "W02": -3342.68,
       "W03": -1355.28,
       "W22": -13.04
     },
     "profit_by_team": {
       "ATL": -1222.12,
-      "ARI": -1977.94,
+      "ARI": -1936.27,
       "CAR": -1051.64,
-      "NO": -1655.12,
-      "HOU": 377.37,
-      "MIA": -866.4,
-      "KC": -1010.87,
-      "SF": -105.09,
-      "NYJ": 261.98,
-      "IND": -1011.41,
-      "TEN": -452.43,
-      "DAL": -1245.29,
-      "LA": -213.84,
+      "NO": -1705.12,
+      "HOU": 327.37,
+      "MIA": -822.92,
+      "KC": -1060.87,
+      "SF": -61.61,
+      "NYJ": 211.98,
+      "IND": -1061.41,
+      "TEN": -502.43,
+      "DAL": -1203.62,
+      "LA": -170.36,
       "DET": -23.16,
-      "CIN": -1057.64,
-      "NE": 1660.28,
-      "CHI": 837.05,
-      "SEA": -484.55,
-      "PHI": -1371.27,
-      "GB": 473.26,
-      "CLE": -179.27,
+      "CIN": -1107.64,
+      "NE": 1702.66,
+      "CHI": 787.05,
+      "SEA": -442.88,
+      "PHI": -1421.27,
+      "GB": 423.26,
+      "CLE": -229.27,
       "BUF": 60.32,
-      "MIN": -347.06,
-      "TB": -1145.22,
-      "NYG": -1268.09,
-      "WAS": -1979.24,
-      "JAX": -132.61,
-      "LAC": -1788.7,
-      "PIT": -1068.39,
-      "DEN": -814.88,
-      "BAL": -1222.3,
-      "LV": -523.44
+      "MIN": -397.06,
+      "TB": -1195.22,
+      "NYG": -1224.61,
+      "WAS": -1937.58,
+      "JAX": -89.13,
+      "LAC": -1838.7,
+      "PIT": -1026.01,
+      "DEN": -771.41,
+      "BAL": -1272.3,
+      "LV": -573.44
     },
     "bets_by_season": {
       "2006": 187,
@@ -9003,7 +9586,7 @@
       "2023": 228,
       "2024": 230,
       "2025": 238,
-      "2026": 13
+      "2026": 27
     },
     "equity_curve": [
       {
@@ -9243,17 +9826,115 @@
         "week": 2,
         "bankroll": -10547.71,
         "pnl": -20547.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10647.71,
+        "pnl": -20647.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10747.71,
+        "pnl": -20747.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10847.71,
+        "pnl": -20847.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10762.96,
+        "pnl": -20762.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10862.96,
+        "pnl": -20862.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10962.96,
+        "pnl": -20962.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11062.96,
+        "pnl": -21062.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10976.0,
+        "pnl": -20976.0
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11076.0,
+        "pnl": -21076.0
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10992.67,
+        "pnl": -20992.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10909.34,
+        "pnl": -20909.34
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10822.38,
+        "pnl": -20822.38
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10922.38,
+        "pnl": -20922.38
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -10835.42,
+        "pnl": -20835.42
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 447700.0,
-    "variance": 9407.69,
-    "std_pnl": 96.99,
-    "published_ledger_bets": 1444,
-    "published_ledger_pnl": -9350.02,
-    "all_time_bets": 4477,
-    "all_time_pnl": -20547.71,
+    "total_staked": 449100.0,
+    "variance": 9405.39,
+    "std_pnl": 96.98,
+    "published_ledger_bets": 1458,
+    "published_ledger_pnl": -9637.73,
+    "all_time_bets": 4491,
+    "all_time_pnl": -20835.42,
     "pnl_outside_published_window": -11197.69
   },
   {
@@ -9264,22 +9945,22 @@
     "parent_version": null,
     "category": "Quarterback & Passing Efficiency",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -11630.28,
-    "total_pnl": -21630.28,
-    "roi": -5.04,
-    "total_bets": 4292,
-    "wins": 2026,
-    "losses": 2165,
+    "current_bankroll": -12088.29,
+    "total_pnl": -22088.29,
+    "roi": -5.13,
+    "total_bets": 4304,
+    "wins": 2030,
+    "losses": 2173,
     "pushes": 101,
     "win_rate": 48.3,
-    "avg_odds": -46.2,
+    "avg_odds": -46.4,
     "avg_edge": 6.19,
-    "avg_clv": 0.829,
-    "max_drawdown": 23048.16,
-    "max_drawdown_pct": 212.48,
+    "avg_clv": 0.827,
+    "max_drawdown": 23092.58,
+    "max_drawdown_pct": 212.89,
     "peak_bankroll": 10847.04957663532,
     "profit_by_market": {
-      "SPREAD": -21630.28
+      "SPREAD": -22088.29
     },
     "profit_by_season": {
       "2006": -2895.13,
@@ -9302,7 +9983,7 @@
       "2023": -658.28,
       "2024": 290.0,
       "2025": -1375.32,
-      "2026": 39.73
+      "2026": -418.28
     },
     "profit_by_week": {
       "W04": -124.54,
@@ -9324,7 +10005,7 @@
       "W20": 148.25,
       "W21": -537.36,
       "W01": -1764.63,
-      "W02": -2656.63,
+      "W02": -3114.64,
       "W03": -1451.51,
       "W22": -113.04
     },
@@ -9332,35 +10013,35 @@
       "ATL": -1214.82,
       "ARI": -2307.39,
       "CAR": -1022.84,
-      "NO": -1230.29,
-      "KC": -1304.41,
-      "SF": -340.66,
-      "NYJ": -271.17,
-      "IND": -615.48,
-      "TEN": -1059.15,
-      "DAL": -608.06,
-      "LA": -178.7,
+      "NO": -1280.29,
+      "KC": -1354.41,
+      "SF": -297.18,
+      "NYJ": -321.17,
+      "IND": -665.48,
+      "TEN": -1109.15,
+      "DAL": -566.39,
+      "LA": -135.22,
       "DET": -54.7,
-      "CIN": -1417.32,
-      "NE": 1557.67,
-      "CHI": 855.9,
+      "CIN": -1467.32,
+      "NE": 1600.04,
+      "CHI": 805.9,
       "SEA": -693.22,
-      "PHI": -1360.79,
-      "GB": 414.92,
-      "CLE": 394.45,
+      "PHI": -1410.79,
+      "GB": 364.92,
+      "CLE": 344.45,
       "BUF": -265.14,
-      "MIN": -492.33,
-      "MIA": -813.1,
-      "TB": -1591.51,
-      "NYG": -1675.03,
-      "WAS": -1270.01,
+      "MIN": -542.33,
+      "MIA": -769.62,
+      "TB": -1641.51,
+      "NYG": -1631.56,
+      "WAS": -1228.34,
       "JAX": 44.71,
-      "LV": -359.79,
-      "LAC": -1630.6,
-      "PIT": -873.36,
+      "LV": -409.79,
+      "LAC": -1680.6,
+      "PIT": -830.99,
       "DEN": -578.19,
-      "BAL": -1417.72,
-      "HOU": -252.15
+      "BAL": -1467.72,
+      "HOU": -302.15
     },
     "bets_by_season": {
       "2006": 178,
@@ -9383,7 +10064,7 @@
       "2023": 214,
       "2024": 214,
       "2025": 215,
-      "2026": 12
+      "2026": 24
     },
     "equity_curve": [
       {
@@ -9616,18 +10297,102 @@
         "week": 2,
         "bankroll": -11630.28,
         "pnl": -21630.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11730.28,
+        "pnl": -21730.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11830.28,
+        "pnl": -21830.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11930.28,
+        "pnl": -21930.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11845.53,
+        "pnl": -21845.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -11945.53,
+        "pnl": -21945.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12045.53,
+        "pnl": -22045.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12145.53,
+        "pnl": -22145.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12245.53,
+        "pnl": -22245.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12162.2,
+        "pnl": -22162.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12075.24,
+        "pnl": -22075.24
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12175.24,
+        "pnl": -22175.24
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12088.29,
+        "pnl": -22088.29
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 429200.0,
-    "variance": 9406.49,
-    "std_pnl": 96.99,
-    "published_ledger_bets": 1350,
-    "published_ledger_pnl": -10131.57,
-    "all_time_bets": 4292,
-    "all_time_pnl": -21630.28,
-    "pnl_outside_published_window": -11498.71
+    "total_staked": 430400.0,
+    "variance": 9404.63,
+    "std_pnl": 96.98,
+    "published_ledger_bets": 1362,
+    "published_ledger_pnl": -10589.57,
+    "all_time_bets": 4304,
+    "all_time_pnl": -22088.29,
+    "pnl_outside_published_window": -11498.72
   },
   {
     "id": "STRAT_QB_EPA_001_v1",
@@ -9637,22 +10402,22 @@
     "parent_version": null,
     "category": "Quarterback & Passing Efficiency",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -12094.21,
-    "total_pnl": -22094.21,
-    "roi": -5.11,
-    "total_bets": 4322,
-    "wins": 2039,
-    "losses": 2181,
+    "current_bankroll": -12552.21,
+    "total_pnl": -22552.21,
+    "roi": -5.2,
+    "total_bets": 4334,
+    "wins": 2043,
+    "losses": 2189,
     "pushes": 102,
     "win_rate": 48.3,
-    "avg_odds": -46.7,
+    "avg_odds": -46.8,
     "avg_edge": 6.16,
-    "avg_clv": 0.824,
+    "avg_clv": 0.823,
     "max_drawdown": 23604.68,
     "max_drawdown_pct": 217.61,
     "peak_bankroll": 10847.04957663532,
     "profit_by_market": {
-      "SPREAD": -22094.21
+      "SPREAD": -22552.21
     },
     "profit_by_season": {
       "2006": -3007.41,
@@ -9675,7 +10440,7 @@
       "2023": -874.94,
       "2024": 274.75,
       "2025": -1291.82,
-      "2026": 39.73
+      "2026": -418.28
     },
     "profit_by_week": {
       "W04": -141.21,
@@ -9697,7 +10462,7 @@
       "W20": 240.84,
       "W21": -537.36,
       "W01": -1683.99,
-      "W02": -2478.0,
+      "W02": -2936.01,
       "W03": -1661.42,
       "W22": -113.04
     },
@@ -9705,35 +10470,35 @@
       "ATL": -1227.4,
       "ARI": -2307.39,
       "CAR": -1030.11,
-      "NO": -1234.84,
-      "KC": -1270.23,
-      "SF": -345.2,
-      "NYJ": -275.71,
-      "IND": -620.44,
-      "TEN": -1059.15,
-      "DAL": -708.06,
-      "LA": -178.7,
+      "NO": -1284.84,
+      "KC": -1320.23,
+      "SF": -301.72,
+      "NYJ": -325.71,
+      "IND": -670.44,
+      "TEN": -1109.15,
+      "DAL": -666.39,
+      "LA": -135.22,
       "DET": -7.53,
-      "CIN": -1567.32,
-      "NE": 1557.67,
-      "CHI": 805.9,
+      "CIN": -1617.32,
+      "NE": 1600.04,
+      "CHI": 755.9,
       "SEA": -652.9,
-      "PHI": -1360.79,
-      "GB": 412.09,
-      "CLE": 337.93,
+      "PHI": -1410.79,
+      "GB": 362.09,
+      "CLE": 287.93,
       "BUF": -227.17,
-      "MIN": -502.0,
-      "MIA": -771.43,
-      "TB": -1549.14,
-      "NYG": -1725.03,
-      "WAS": -1187.96,
+      "MIN": -552.0,
+      "MIA": -727.96,
+      "TB": -1599.14,
+      "NYG": -1681.56,
+      "WAS": -1146.29,
       "JAX": -11.81,
-      "LV": -409.79,
-      "LAC": -1730.6,
-      "PIT": -1023.36,
+      "LV": -459.79,
+      "LAC": -1780.6,
+      "PIT": -980.99,
       "DEN": -588.03,
-      "BAL": -1417.72,
-      "HOU": -217.97
+      "BAL": -1467.72,
+      "HOU": -267.97
     },
     "bets_by_season": {
       "2006": 181,
@@ -9756,7 +10521,7 @@
       "2023": 218,
       "2024": 216,
       "2025": 218,
-      "2026": 12
+      "2026": 24
     },
     "equity_curve": [
       {
@@ -9989,17 +10754,101 @@
         "week": 2,
         "bankroll": -12094.21,
         "pnl": -22094.21
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12194.21,
+        "pnl": -22194.21
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12294.21,
+        "pnl": -22294.21
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12394.21,
+        "pnl": -22394.21
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12309.46,
+        "pnl": -22309.46
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12409.46,
+        "pnl": -22409.46
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12509.46,
+        "pnl": -22509.46
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12609.46,
+        "pnl": -22609.46
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12709.46,
+        "pnl": -22709.46
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12626.13,
+        "pnl": -22626.13
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12539.17,
+        "pnl": -22539.17
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12639.17,
+        "pnl": -22639.17
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12552.21,
+        "pnl": -22552.21
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 432200.0,
-    "variance": 9400.33,
-    "std_pnl": 96.96,
-    "published_ledger_bets": 1359,
-    "published_ledger_pnl": -10279.99,
-    "all_time_bets": 4322,
-    "all_time_pnl": -22094.21,
+    "total_staked": 433400.0,
+    "variance": 9398.49,
+    "std_pnl": 96.95,
+    "published_ledger_bets": 1371,
+    "published_ledger_pnl": -10737.99,
+    "all_time_bets": 4334,
+    "all_time_pnl": -22552.21,
     "pnl_outside_published_window": -11814.22
   },
   {
@@ -10010,22 +10859,22 @@
     "parent_version": "STRAT_QB_EPA_001_v1",
     "category": "Quarterback & Passing Efficiency",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -12245.53,
-    "total_pnl": -22245.53,
-    "roi": -5.29,
-    "total_bets": 4202,
-    "wins": 1976,
-    "losses": 2124,
+    "current_bankroll": -12620.2,
+    "total_pnl": -22620.2,
+    "roi": -5.37,
+    "total_bets": 4215,
+    "wins": 1981,
+    "losses": 2132,
     "pushes": 102,
     "win_rate": 48.2,
-    "avg_odds": -46.6,
-    "avg_edge": 6.31,
-    "avg_clv": 0.834,
+    "avg_odds": -46.8,
+    "avg_edge": 6.3,
+    "avg_clv": 0.833,
     "max_drawdown": 23572.05,
     "max_drawdown_pct": 221.01,
     "peak_bankroll": 10665.748763627189,
     "profit_by_market": {
-      "SPREAD": -22245.53
+      "SPREAD": -22620.2
     },
     "profit_by_season": {
       "2006": -3171.16,
@@ -10048,7 +10897,7 @@
       "2023": -844.09,
       "2024": -458.86,
       "2025": -1879.4,
-      "2026": 219.28
+      "2026": -155.4
     },
     "profit_by_week": {
       "W04": -328.33,
@@ -10070,43 +10919,43 @@
       "W20": 45.61,
       "W21": -537.36,
       "W01": -1128.13,
-      "W02": -2684.48,
+      "W02": -3059.15,
       "W03": -1434.5,
       "W22": -200.0
     },
     "profit_by_team": {
       "ATL": -1428.37,
-      "ARI": -2202.11,
+      "ARI": -2160.44,
       "CAR": -861.25,
-      "NO": -1223.53,
-      "HOU": -523.91,
-      "MIA": -773.4,
-      "KC": -1324.9,
-      "SF": -173.21,
-      "NYJ": -7.99,
-      "IND": -519.33,
-      "TEN": -848.4,
-      "DAL": -875.01,
-      "LA": -257.41,
+      "NO": -1273.53,
+      "HOU": -573.91,
+      "MIA": -729.92,
+      "KC": -1374.9,
+      "SF": -129.74,
+      "NYJ": -57.99,
+      "IND": -569.33,
+      "TEN": -898.4,
+      "DAL": -833.35,
+      "LA": -213.93,
       "DET": -87.73,
-      "CIN": -1056.73,
-      "NE": 1409.65,
-      "CHI": 698.01,
-      "SEA": -495.31,
-      "PHI": -1419.48,
-      "GB": 468.23,
-      "CLE": -90.2,
+      "CIN": -1106.73,
+      "NE": 1452.02,
+      "CHI": 648.01,
+      "SEA": -453.64,
+      "PHI": -1469.48,
+      "GB": 418.23,
+      "CLE": -140.2,
       "BUF": -439.41,
-      "MIN": 77.79,
-      "TB": -1486.76,
-      "NYG": -1422.89,
-      "WAS": -1401.83,
+      "MIN": 27.79,
+      "TB": -1536.76,
+      "NYG": -1379.41,
+      "WAS": -1360.17,
       "JAX": -163.67,
-      "LAC": -1643.14,
-      "PIT": -1304.24,
+      "LAC": -1693.14,
+      "PIT": -1261.86,
       "DEN": -822.96,
-      "BAL": -1453.55,
-      "LV": -592.51
+      "BAL": -1503.55,
+      "LV": -642.51
     },
     "bets_by_season": {
       "2006": 175,
@@ -10129,7 +10978,7 @@
       "2023": 210,
       "2024": 210,
       "2025": 218,
-      "2026": 14
+      "2026": 27
     },
     "equity_curve": [
       {
@@ -10376,17 +11225,108 @@
         "week": 2,
         "bankroll": -12245.53,
         "pnl": -22245.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12345.53,
+        "pnl": -22345.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12445.53,
+        "pnl": -22445.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12545.53,
+        "pnl": -22545.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12460.78,
+        "pnl": -22460.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12560.78,
+        "pnl": -22560.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12660.78,
+        "pnl": -22660.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12760.78,
+        "pnl": -22760.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12860.78,
+        "pnl": -22860.78
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12777.45,
+        "pnl": -22777.45
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12694.11,
+        "pnl": -22694.11
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12607.16,
+        "pnl": -22607.16
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12707.16,
+        "pnl": -22707.16
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -12620.2,
+        "pnl": -22620.2
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 420200.0,
-    "variance": 9401.7,
-    "std_pnl": 96.96,
-    "published_ledger_bets": 1326,
-    "published_ledger_pnl": -10546.82,
-    "all_time_bets": 4202,
-    "all_time_pnl": -22245.53,
+    "total_staked": 421500.0,
+    "variance": 9399.41,
+    "std_pnl": 96.95,
+    "published_ledger_bets": 1339,
+    "published_ledger_pnl": -10921.49,
+    "all_time_bets": 4215,
+    "all_time_pnl": -22620.2,
     "pnl_outside_published_window": -11698.71
   },
   {
@@ -10397,22 +11337,22 @@
     "parent_version": "STRAT_ELO_QUANT_006_v1",
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -13035.67,
-    "total_pnl": -23035.67,
-    "roi": -4.48,
-    "total_bets": 4289,
-    "wins": 2035,
-    "losses": 2151,
+    "current_bankroll": -13380.93,
+    "total_pnl": -23380.93,
+    "roi": -4.53,
+    "total_bets": 4303,
+    "wins": 2041,
+    "losses": 2159,
     "pushes": 103,
     "win_rate": 48.6,
-    "avg_odds": -45.5,
+    "avg_odds": -45.7,
     "avg_edge": 6.34,
-    "avg_clv": 0.822,
-    "max_drawdown": 24417.29,
-    "max_drawdown_pct": 225.82,
+    "avg_clv": 0.821,
+    "max_drawdown": 24482.21,
+    "max_drawdown_pct": 226.42,
     "peak_bankroll": 10812.587405241513,
     "profit_by_market": {
-      "SPREAD": -23035.67
+      "SPREAD": -23380.93
     },
     "profit_by_season": {
       "2006": -3435.66,
@@ -10435,7 +11375,7 @@
       "2023": -1172.66,
       "2024": 727.5,
       "2025": -1849.25,
-      "2026": 150.07
+      "2026": -195.19
     },
     "profit_by_week": {
       "W04": -921.81,
@@ -10457,43 +11397,43 @@
       "W20": -274.74,
       "W21": -503.19,
       "W01": -1103.66,
-      "W02": -2698.26,
+      "W02": -3043.53,
       "W03": -1604.53,
       "W22": -15.65
     },
     "profit_by_team": {
       "ATL": -1631.45,
-      "ARI": -2302.54,
+      "ARI": -2252.54,
       "CAR": -1247.74,
-      "NO": -1477.54,
-      "HOU": 334.57,
-      "MIA": -1208.07,
-      "KC": -1355.42,
-      "SF": 128.31,
-      "NYJ": 624.39,
-      "IND": -1382.29,
-      "TEN": -485.32,
-      "DAL": -1719.89,
-      "LA": 9.48,
+      "NO": -1537.54,
+      "HOU": 274.57,
+      "MIA": -1155.9,
+      "KC": -1415.42,
+      "SF": 180.48,
+      "NYJ": 564.39,
+      "IND": -1442.29,
+      "TEN": -545.32,
+      "DAL": -1669.89,
+      "LA": 61.65,
       "DET": -41.72,
-      "CIN": -1317.98,
-      "NE": 2176.78,
-      "PHI": -1637.56,
-      "GB": 687.91,
-      "CLE": -69.24,
-      "CHI": 843.99,
+      "CIN": -1377.98,
+      "NE": 2227.63,
+      "PHI": -1697.56,
+      "GB": 627.91,
+      "CLE": -129.24,
+      "CHI": 783.99,
       "BUF": -33.96,
-      "MIN": -355.86,
-      "TB": -1533.17,
-      "NYG": -1532.01,
-      "WAS": -2141.7,
-      "JAX": -202.45,
-      "LAC": -2127.96,
-      "PIT": -1097.4,
-      "DEN": -917.16,
-      "BAL": -1215.54,
-      "SEA": -381.56,
-      "LV": -425.55
+      "MIN": -415.86,
+      "TB": -1593.17,
+      "NYG": -1479.83,
+      "WAS": -2091.7,
+      "JAX": -150.27,
+      "LAC": -2187.96,
+      "PIT": -1046.56,
+      "DEN": -864.98,
+      "BAL": -1275.54,
+      "SEA": -331.56,
+      "LV": -485.55
     },
     "bets_by_season": {
       "2006": 178,
@@ -10516,7 +11456,7 @@
       "2023": 221,
       "2024": 223,
       "2025": 232,
-      "2026": 13
+      "2026": 27
     },
     "equity_curve": [
       {
@@ -10756,17 +11696,115 @@
         "week": 2,
         "bankroll": -13035.67,
         "pnl": -23035.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13155.67,
+        "pnl": -23155.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13275.67,
+        "pnl": -23275.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13395.67,
+        "pnl": -23395.67
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13293.97,
+        "pnl": -23293.97
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13413.97,
+        "pnl": -23413.97
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13533.97,
+        "pnl": -23533.97
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13653.97,
+        "pnl": -23653.97
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13549.62,
+        "pnl": -23549.62
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13669.62,
+        "pnl": -23669.62
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13569.62,
+        "pnl": -23569.62
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13469.62,
+        "pnl": -23469.62
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13365.28,
+        "pnl": -23365.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13485.28,
+        "pnl": -23485.28
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13380.93,
+        "pnl": -23380.93
       }
     ],
     "is_kalshi": false,
     "status": "BACKTESTED",
-    "total_staked": 514680.0,
-    "variance": 13554.19,
-    "std_pnl": 116.42,
-    "published_ledger_bets": 1382,
-    "published_ledger_pnl": -10593.28,
-    "all_time_bets": 4289,
-    "all_time_pnl": -23035.67,
+    "total_staked": 516360.0,
+    "variance": 13550.74,
+    "std_pnl": 116.41,
+    "published_ledger_bets": 1396,
+    "published_ledger_pnl": -10938.54,
+    "all_time_bets": 4303,
+    "all_time_pnl": -23380.93,
     "pnl_outside_published_window": -12442.39
   },
   {
@@ -10777,22 +11815,22 @@
     "parent_version": null,
     "category": "Quarterback & Passing Efficiency",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -13353.82,
-    "total_pnl": -23353.82,
-    "roi": -5.0,
-    "total_bets": 4242,
-    "wins": 2002,
-    "losses": 2140,
+    "current_bankroll": -13857.63,
+    "total_pnl": -23857.63,
+    "roi": -5.1,
+    "total_bets": 4254,
+    "wins": 2006,
+    "losses": 2148,
     "pushes": 100,
     "win_rate": 48.3,
-    "avg_odds": -45.4,
-    "avg_edge": 6.24,
-    "avg_clv": 0.833,
-    "max_drawdown": 24719.29,
-    "max_drawdown_pct": 227.99,
+    "avg_odds": -45.6,
+    "avg_edge": 6.23,
+    "avg_clv": 0.832,
+    "max_drawdown": 24872.92,
+    "max_drawdown_pct": 229.41,
     "peak_bankroll": 10842.323639989907,
     "profit_by_market": {
-      "SPREAD": -23353.82
+      "SPREAD": -23857.63
     },
     "profit_by_season": {
       "2006": -3164.07,
@@ -10815,7 +11853,7 @@
       "2023": -724.1,
       "2024": 120.79,
       "2025": -1507.62,
-      "2026": 43.7
+      "2026": -460.11
     },
     "profit_by_week": {
       "W04": -226.43,
@@ -10837,7 +11875,7 @@
       "W20": 163.08,
       "W21": -591.09,
       "W01": -2212.76,
-      "W02": -2702.29,
+      "W02": -3206.1,
       "W03": -1697.58,
       "W22": -124.35
     },
@@ -10845,35 +11883,35 @@
       "ATL": -1434.96,
       "ARI": -2582.85,
       "CAR": -1171.18,
-      "NO": -1281.54,
-      "KC": -1410.21,
-      "SF": -254.44,
-      "NYJ": -283.92,
-      "IND": -622.03,
-      "TEN": -1215.99,
-      "DAL": -602.68,
-      "LA": -237.68,
+      "NO": -1336.54,
+      "KC": -1465.21,
+      "SF": -206.61,
+      "NYJ": -338.92,
+      "IND": -677.03,
+      "TEN": -1270.99,
+      "DAL": -556.85,
+      "LA": -189.86,
       "DET": -35.06,
-      "CIN": -1548.77,
-      "NE": 1663.43,
-      "CHI": 1054.11,
+      "CIN": -1603.77,
+      "NE": 1710.04,
+      "CHI": 999.11,
       "SEA": -652.54,
-      "PHI": -1491.86,
-      "GB": 465.95,
-      "CLE": 444.18,
+      "PHI": -1546.86,
+      "GB": 410.95,
+      "CLE": 389.18,
       "BUF": -372.93,
-      "MIN": -368.97,
-      "MIA": -934.13,
-      "TB": -1745.67,
-      "NYG": -1677.54,
-      "WAS": -1380.4,
+      "MIN": -423.97,
+      "MIA": -886.3,
+      "TB": -1800.67,
+      "NYG": -1629.71,
+      "WAS": -1334.57,
       "JAX": 159.19,
-      "LAC": -1738.66,
-      "PIT": -1057.79,
+      "LAC": -1793.66,
+      "PIT": -1011.18,
       "DEN": -630.11,
-      "BAL": -1703.8,
-      "HOU": -374.46,
-      "LV": -330.48
+      "BAL": -1758.8,
+      "HOU": -429.46,
+      "LV": -385.48
     },
     "bets_by_season": {
       "2006": 176,
@@ -10896,7 +11934,7 @@
       "2023": 214,
       "2024": 212,
       "2025": 213,
-      "2026": 12
+      "2026": 24
     },
     "equity_curve": [
       {
@@ -11129,17 +12167,101 @@
         "week": 2,
         "bankroll": -13353.82,
         "pnl": -23353.82
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13463.82,
+        "pnl": -23463.82
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13573.82,
+        "pnl": -23573.82
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13683.82,
+        "pnl": -23683.82
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13590.6,
+        "pnl": -23590.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13700.6,
+        "pnl": -23700.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13810.6,
+        "pnl": -23810.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13920.6,
+        "pnl": -23920.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14030.6,
+        "pnl": -24030.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13938.93,
+        "pnl": -23938.93
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13843.28,
+        "pnl": -23843.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13953.28,
+        "pnl": -23953.28
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -13857.63,
+        "pnl": -23857.63
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 466620.0,
-    "variance": 11392.75,
-    "std_pnl": 106.74,
-    "published_ledger_bets": 1338,
-    "published_ledger_pnl": -11080.29,
-    "all_time_bets": 4242,
-    "all_time_pnl": -23353.82,
+    "total_staked": 467940.0,
+    "variance": 11390.45,
+    "std_pnl": 106.73,
+    "published_ledger_bets": 1350,
+    "published_ledger_pnl": -11584.1,
+    "all_time_bets": 4254,
+    "all_time_pnl": -23857.63,
     "pnl_outside_published_window": -12273.53
   },
   {
@@ -11150,22 +12272,22 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -14312.85,
-    "total_pnl": -24312.85,
-    "roi": -3.97,
-    "total_bets": 4371,
-    "wins": 2086,
-    "losses": 2178,
+    "current_bankroll": -15117.39,
+    "total_pnl": -25117.39,
+    "roi": -4.09,
+    "total_bets": 4386,
+    "wins": 2091,
+    "losses": 2188,
     "pushes": 107,
     "win_rate": 48.9,
-    "avg_odds": -47.0,
+    "avg_odds": -47.2,
     "avg_edge": 18.92,
-    "avg_clv": 1.72,
+    "avg_clv": 1.719,
     "max_drawdown": 26704.17,
     "max_drawdown_pct": 244.69,
     "peak_bankroll": 10913.439777659816,
     "profit_by_market": {
-      "SPREAD": -24312.85
+      "SPREAD": -25117.39
     },
     "profit_by_season": {
       "2006": -3473.13,
@@ -11188,7 +12310,7 @@
       "2023": -1172.16,
       "2024": 841.9,
       "2025": -864.6,
-      "2026": -115.29
+      "2026": -919.83
     },
     "profit_by_week": {
       "W04": -1163.28,
@@ -11210,43 +12332,43 @@
       "W20": -465.57,
       "W21": -1000.39,
       "W01": -2096.3,
-      "W02": -1334.45,
+      "W02": -2138.99,
       "W03": 169.33,
       "W22": -18.26
     },
     "profit_by_team": {
-      "ATL": -1531.45,
-      "ARI": -2049.61,
+      "ATL": -1601.45,
+      "ARI": -1991.28,
       "BUF": -524.73,
-      "MIN": 526.52,
-      "CAR": -2463.23,
-      "NO": -2211.03,
-      "HOU": 238.88,
-      "MIA": -1269.1,
-      "KC": -1401.84,
-      "SF": 765.72,
-      "NYJ": 548.38,
-      "IND": -976.19,
-      "TEN": -339.66,
-      "DAL": -1800.67,
-      "LA": 445.98,
+      "MIN": 456.52,
+      "CAR": -2533.23,
+      "NO": -2281.03,
+      "HOU": 168.88,
+      "MIA": -1208.23,
+      "KC": -1471.84,
+      "SF": 826.59,
+      "NYJ": 478.38,
+      "IND": -1046.19,
+      "TEN": -409.66,
+      "DAL": -1742.34,
+      "LA": 506.85,
       "DET": -173.02,
-      "PHI": -1841.57,
-      "GB": 1089.99,
-      "CLE": -253.05,
-      "CHI": 547.01,
-      "NE": 2643.84,
-      "TB": -1747.72,
-      "JAX": 480.47,
-      "LV": 30.77,
-      "LAC": -1904.03,
-      "PIT": -1713.53,
-      "DEN": -964.73,
-      "BAL": -2443.48,
-      "SEA": 647.85,
-      "CIN": -712.37,
-      "WAS": -2392.75,
-      "NYG": -3564.5
+      "PHI": -1911.57,
+      "GB": 1019.99,
+      "CLE": -323.05,
+      "CHI": 477.01,
+      "NE": 2703.17,
+      "TB": -1817.72,
+      "JAX": 410.47,
+      "LV": -39.23,
+      "LAC": -1974.03,
+      "PIT": -1654.21,
+      "DEN": -1034.73,
+      "BAL": -2513.48,
+      "SEA": 706.18,
+      "CIN": -782.37,
+      "WAS": -2334.41,
+      "NYG": -3503.63
     },
     "bets_by_season": {
       "2006": 175,
@@ -11269,7 +12391,7 @@
       "2023": 234,
       "2024": 239,
       "2025": 216,
-      "2026": 17
+      "2026": 32
     },
     "equity_curve": [
       {
@@ -11537,17 +12659,122 @@
         "week": 2,
         "bankroll": -14312.85,
         "pnl": -24312.85
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14452.85,
+        "pnl": -24452.85
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14592.85,
+        "pnl": -24592.85
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14732.85,
+        "pnl": -24732.85
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14872.85,
+        "pnl": -24872.85
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14754.2,
+        "pnl": -24754.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -14894.2,
+        "pnl": -24894.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15034.2,
+        "pnl": -25034.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15174.2,
+        "pnl": -25174.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15314.2,
+        "pnl": -25314.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15454.2,
+        "pnl": -25454.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15337.54,
+        "pnl": -25337.54
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15220.87,
+        "pnl": -25220.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15099.13,
+        "pnl": -25099.13
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15239.13,
+        "pnl": -25239.13
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -15117.39,
+        "pnl": -25117.39
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 611940.0,
-    "variance": 18414.73,
-    "std_pnl": 135.7,
-    "published_ledger_bets": 1400,
-    "published_ledger_pnl": -10821.25,
-    "all_time_bets": 4371,
-    "all_time_pnl": -24312.85,
+    "total_staked": 614040.0,
+    "variance": 18410.66,
+    "std_pnl": 135.69,
+    "published_ledger_bets": 1415,
+    "published_ledger_pnl": -11625.79,
+    "all_time_bets": 4386,
+    "all_time_pnl": -25117.39,
     "pnl_outside_published_window": -13491.6
   },
   {
@@ -11558,22 +12785,22 @@
     "parent_version": "STRAT_ELO_QUANT_006_v2",
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -16518.01,
-    "total_pnl": -26518.01,
-    "roi": -4.48,
-    "total_bets": 3945,
-    "wins": 1869,
-    "losses": 1986,
+    "current_bankroll": -17307.14,
+    "total_pnl": -27307.14,
+    "roi": -4.6,
+    "total_bets": 3954,
+    "wins": 1871,
+    "losses": 1993,
     "pushes": 90,
-    "win_rate": 48.5,
-    "avg_odds": -42.1,
-    "avg_edge": 6.59,
-    "avg_clv": 0.852,
+    "win_rate": 48.4,
+    "avg_odds": -42.3,
+    "avg_edge": 6.58,
+    "avg_clv": 0.851,
     "max_drawdown": 29120.65,
     "max_drawdown_pct": 268.15,
     "peak_bankroll": 10859.734256551892,
     "profit_by_market": {
-      "SPREAD": -26518.01
+      "SPREAD": -27307.14
     },
     "profit_by_season": {
       "2006": -3641.43,
@@ -11596,7 +12823,7 @@
       "2023": -817.07,
       "2024": 1708.6,
       "2025": -1708.13,
-      "2026": 230.04
+      "2026": -559.09
     },
     "profit_by_week": {
       "W04": -1243.89,
@@ -11618,7 +12845,7 @@
       "W20": -147.67,
       "W21": -771.85,
       "W01": -702.4,
-      "W02": -2751.04,
+      "W02": -3540.17,
       "W03": -2731.95,
       "W22": -19.57
     },
@@ -11626,33 +12853,33 @@
       "ATL": -1563.9,
       "ARI": -2600.24,
       "CAR": -1423.26,
-      "NO": -1507.68,
-      "HOU": 466.75,
-      "MIA": -1671.74,
-      "KC": -1349.56,
-      "SF": -475.92,
-      "NYJ": 957.03,
-      "IND": -1059.88,
-      "TEN": -680.32,
+      "NO": -1582.68,
+      "HOU": 391.75,
+      "MIA": -1606.52,
+      "KC": -1424.56,
+      "SF": -410.7,
+      "NYJ": 882.03,
+      "IND": -1134.88,
+      "TEN": -755.32,
       "DAL": -2022.39,
-      "LA": 493.24,
+      "LA": 558.46,
       "DET": -39.78,
-      "CIN": -1762.06,
+      "CIN": -1837.06,
       "NE": 2870.03,
-      "PHI": -2335.71,
-      "GB": 1165.97,
-      "CLE": -56.75,
-      "CHI": 455.99,
+      "PHI": -2410.71,
+      "GB": 1090.97,
+      "CLE": -131.75,
+      "CHI": 380.99,
       "BUF": -207.13,
-      "MIN": -440.38,
-      "TB": -1639.3,
-      "NYG": -2329.03,
+      "MIN": -515.38,
+      "TB": -1714.3,
+      "NYG": -2263.81,
       "WAS": -2092.18,
       "JAX": 300.51,
       "LAC": -2308.68,
       "PIT": -1810.99,
       "DEN": -649.31,
-      "BAL": -1935.28,
+      "BAL": -2010.28,
       "SEA": -610.79,
       "LV": -655.26
     },
@@ -11677,7 +12904,7 @@
       "2023": 183,
       "2024": 182,
       "2025": 186,
-      "2026": 8
+      "2026": 17
     },
     "equity_curve": [
       {
@@ -11882,18 +13109,81 @@
         "week": 2,
         "bankroll": -16518.01,
         "pnl": -26518.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -16668.01,
+        "pnl": -26668.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -16818.01,
+        "pnl": -26818.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -16968.01,
+        "pnl": -26968.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -17118.01,
+        "pnl": -27118.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -17268.01,
+        "pnl": -27268.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -17418.01,
+        "pnl": -27418.01
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -17287.58,
+        "pnl": -27287.58
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -17437.58,
+        "pnl": -27437.58
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -17307.14,
+        "pnl": -27307.14
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 591750.0,
-    "variance": 21311.9,
-    "std_pnl": 145.99,
-    "published_ledger_bets": 1212,
-    "published_ledger_pnl": -10653.02,
-    "all_time_bets": 3945,
-    "all_time_pnl": -26518.01,
-    "pnl_outside_published_window": -15864.99
+    "total_staked": 593100.0,
+    "variance": 21309.22,
+    "std_pnl": 145.98,
+    "published_ledger_bets": 1221,
+    "published_ledger_pnl": -11442.16,
+    "all_time_bets": 3954,
+    "all_time_pnl": -27307.14,
+    "pnl_outside_published_window": -15864.98
   },
   {
     "id": "STRAT_EPA_DIFF_041_v1",
@@ -11903,22 +13193,22 @@
     "parent_version": null,
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -19567.8,
-    "total_pnl": -29567.8,
-    "roi": -5.41,
-    "total_bets": 4371,
-    "wins": 2056,
-    "losses": 2206,
+    "current_bankroll": -20036.15,
+    "total_pnl": -30036.15,
+    "roi": -5.48,
+    "total_bets": 4384,
+    "wins": 2061,
+    "losses": 2214,
     "pushes": 109,
     "win_rate": 48.2,
-    "avg_odds": -49.3,
+    "avg_odds": -49.5,
     "avg_edge": 6.36,
-    "avg_clv": 0.831,
-    "max_drawdown": 31300.13,
-    "max_drawdown_pct": 280.41,
+    "avg_clv": 0.83,
+    "max_drawdown": 31498.99,
+    "max_drawdown_pct": 282.2,
     "peak_bankroll": 11162.117755918114,
     "profit_by_market": {
-      "SPREAD": -29567.8
+      "SPREAD": -30036.15
     },
     "profit_by_season": {
       "2006": -3578.37,
@@ -11941,7 +13231,7 @@
       "2023": -315.17,
       "2024": 220.68,
       "2025": -2138.13,
-      "2026": 156.33
+      "2026": -312.02
     },
     "profit_by_week": {
       "W04": -857.69,
@@ -11963,43 +13253,43 @@
       "W20": -64.69,
       "W21": -796.7,
       "W01": -2506.35,
-      "W02": -2869.19,
+      "W02": -3337.53,
       "W03": -1992.48,
       "W22": -32.61
     },
     "profit_by_team": {
       "ATL": -1742.93,
-      "ARI": -2885.73,
+      "ARI": -2833.65,
       "BUF": 1.48,
-      "MIN": -270.91,
+      "MIN": -333.41,
       "CAR": -1271.93,
-      "NO": -1571.59,
-      "KC": -1858.11,
-      "SF": 75.56,
-      "NYJ": -70.42,
-      "IND": -861.55,
-      "TEN": -1397.22,
-      "DAL": -1023.05,
-      "LA": -532.39,
+      "NO": -1634.09,
+      "KC": -1920.61,
+      "SF": 129.91,
+      "NYJ": -132.92,
+      "IND": -924.05,
+      "TEN": -1459.72,
+      "DAL": -970.96,
+      "LA": -478.04,
       "DET": -353.46,
-      "CIN": -1797.63,
-      "NE": 1747.3,
-      "CHI": 774.75,
-      "SEA": -386.04,
-      "PHI": -1483.12,
-      "GB": 487.37,
-      "CLE": 133.01,
-      "MIA": -1126.33,
-      "TB": -1978.73,
-      "NYG": -1777.11,
-      "WAS": -1585.8,
+      "CIN": -1860.13,
+      "NE": 1800.27,
+      "CHI": 712.25,
+      "SEA": -333.96,
+      "PHI": -1545.62,
+      "GB": 424.87,
+      "CLE": 70.51,
+      "MIA": -1071.98,
+      "TB": -2041.23,
+      "NYG": -1722.76,
+      "WAS": -1533.71,
       "JAX": -2.76,
-      "LV": -890.37,
-      "LAC": -2168.8,
-      "PIT": -1654.46,
+      "LV": -952.87,
+      "LAC": -2231.3,
+      "PIT": -1601.49,
       "DEN": -1286.37,
-      "BAL": -2047.45,
-      "HOU": -763.03
+      "BAL": -2109.95,
+      "HOU": -825.53
     },
     "bets_by_season": {
       "2006": 186,
@@ -12022,7 +13312,7 @@
       "2023": 225,
       "2024": 227,
       "2025": 224,
-      "2026": 13
+      "2026": 26
     },
     "equity_curve": [
       {
@@ -12262,18 +13552,109 @@
         "week": 2,
         "bankroll": -19567.8,
         "pnl": -29567.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -19692.8,
+        "pnl": -29692.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -19817.8,
+        "pnl": -29817.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -19942.8,
+        "pnl": -29942.8
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -19836.87,
+        "pnl": -29836.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -19961.87,
+        "pnl": -29961.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20086.87,
+        "pnl": -30086.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20211.87,
+        "pnl": -30211.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20336.87,
+        "pnl": -30336.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20232.71,
+        "pnl": -30232.71
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20128.54,
+        "pnl": -30128.54
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20019.84,
+        "pnl": -30019.84
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20144.84,
+        "pnl": -30144.84
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20036.15,
+        "pnl": -30036.15
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 546375.0,
-    "variance": 14618.55,
-    "std_pnl": 120.91,
-    "published_ledger_bets": 1377,
-    "published_ledger_pnl": -13054.75,
-    "all_time_bets": 4371,
-    "all_time_pnl": -29567.8,
-    "pnl_outside_published_window": -16513.05
+    "total_staked": 548000.0,
+    "variance": 14615.3,
+    "std_pnl": 120.89,
+    "published_ledger_bets": 1390,
+    "published_ledger_pnl": -13523.08,
+    "all_time_bets": 4384,
+    "all_time_pnl": -30036.15,
+    "pnl_outside_published_window": -16513.07
   },
   {
     "id": "STRAT_QB_EPA_001_v3",
@@ -12283,22 +13664,22 @@
     "parent_version": "STRAT_QB_EPA_001_v2",
     "category": "Quarterback & Passing Efficiency",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -20300.66,
-    "total_pnl": -30300.66,
-    "roi": -5.28,
-    "total_bets": 3825,
-    "wins": 1801,
-    "losses": 1936,
+    "current_bankroll": -20812.67,
+    "total_pnl": -30812.67,
+    "roi": -5.36,
+    "total_bets": 3834,
+    "wins": 1804,
+    "losses": 1942,
     "pushes": 88,
     "win_rate": 48.2,
-    "avg_odds": -46.4,
+    "avg_odds": -46.6,
     "avg_edge": 6.44,
-    "avg_clv": 0.851,
-    "max_drawdown": 32059.29,
-    "max_drawdown_pct": 283.75,
+    "avg_clv": 0.85,
+    "max_drawdown": 32241.73,
+    "max_drawdown_pct": 285.36,
     "peak_bankroll": 11298.62314544078,
     "profit_by_market": {
-      "SPREAD": -30300.66
+      "SPREAD": -30812.67
     },
     "profit_by_season": {
       "2006": -3421.73,
@@ -12321,7 +13702,7 @@
       "2023": -350.31,
       "2024": 410.52,
       "2025": -1883.13,
-      "2026": 59.59
+      "2026": -452.42
     },
     "profit_by_week": {
       "W04": -167.56,
@@ -12343,7 +13724,7 @@
       "W20": -47.93,
       "W21": -806.04,
       "W01": -2252.88,
-      "W02": -3261.05,
+      "W02": -3773.06,
       "W03": -2782.15,
       "W22": -150.0
     },
@@ -12351,34 +13732,34 @@
       "ATL": -2244.88,
       "ARI": -3000.36,
       "CAR": -1273.56,
-      "NO": -1359.83,
-      "KC": -1901.2,
-      "SF": -303.01,
+      "NO": -1434.83,
+      "KC": -1976.2,
+      "SF": -237.79,
       "NYJ": 190.53,
-      "IND": -1461.71,
-      "TEN": -1062.78,
+      "IND": -1536.71,
+      "TEN": -1137.78,
       "DAL": -821.62,
-      "LA": -311.13,
+      "LA": -245.91,
       "DET": -449.27,
-      "CIN": -1048.64,
-      "NE": 2158.64,
-      "CHI": 1052.91,
+      "CIN": -1123.64,
+      "NE": 2222.2,
+      "CHI": 977.91,
       "SEA": -266.78,
-      "PHI": -2145.79,
+      "PHI": -2220.79,
       "GB": 1033.77,
-      "CLE": 66.94,
+      "CLE": -8.06,
       "BUF": -238.29,
-      "MIN": 383.82,
-      "MIA": -1654.22,
-      "TB": -2660.85,
-      "NYG": -2030.62,
+      "MIN": 308.82,
+      "MIA": -1589.0,
+      "TB": -2735.85,
+      "NYG": -1965.4,
       "WAS": -2108.99,
       "JAX": -47.28,
       "LAC": -2742.58,
-      "PIT": -1334.89,
+      "PIT": -1271.33,
       "DEN": -779.91,
-      "BAL": -2197.91,
-      "HOU": -744.7,
+      "BAL": -2272.91,
+      "HOU": -819.7,
       "LV": -996.47
     },
     "bets_by_season": {
@@ -12402,7 +13783,7 @@
       "2023": 185,
       "2024": 198,
       "2025": 182,
-      "2026": 12
+      "2026": 21
     },
     "equity_curve": [
       {
@@ -12635,18 +14016,81 @@
         "week": 2,
         "bankroll": -20300.66,
         "pnl": -30300.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20450.66,
+        "pnl": -30450.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20600.66,
+        "pnl": -30600.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20750.66,
+        "pnl": -30750.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20623.54,
+        "pnl": -30623.54
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20773.54,
+        "pnl": -30773.54
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20923.54,
+        "pnl": -30923.54
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20793.11,
+        "pnl": -30793.11
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20943.11,
+        "pnl": -30943.11
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -20812.67,
+        "pnl": -30812.67
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 573750.0,
-    "variance": 21189.2,
-    "std_pnl": 145.57,
-    "published_ledger_bets": 1202,
-    "published_ledger_pnl": -12170.42,
-    "all_time_bets": 3825,
-    "all_time_pnl": -30300.66,
-    "pnl_outside_published_window": -18130.24
+    "total_staked": 575100.0,
+    "variance": 21185.78,
+    "std_pnl": 145.55,
+    "published_ledger_bets": 1211,
+    "published_ledger_pnl": -12682.44,
+    "all_time_bets": 3834,
+    "all_time_pnl": -30812.67,
+    "pnl_outside_published_window": -18130.23
   },
   {
     "id": "STRAT_EPA_DIFF_041_v2",
@@ -12656,22 +14100,22 @@
     "parent_version": "STRAT_EPA_DIFF_041_v1",
     "category": "Statistical & Machine Learning Models",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -23671.1,
-    "total_pnl": -33671.1,
-    "roi": -5.73,
-    "total_bets": 3918,
-    "wins": 1837,
-    "losses": 1987,
+    "current_bankroll": -24233.11,
+    "total_pnl": -34233.11,
+    "roi": -5.81,
+    "total_bets": 3931,
+    "wins": 1842,
+    "losses": 1995,
     "pushes": 94,
     "win_rate": 48.0,
-    "avg_odds": -47.6,
-    "avg_edge": 6.72,
-    "avg_clv": 0.882,
-    "max_drawdown": 34948.06,
-    "max_drawdown_pct": 313.95,
+    "avg_odds": -47.8,
+    "avg_edge": 6.71,
+    "avg_clv": 0.88,
+    "max_drawdown": 35725.67,
+    "max_drawdown_pct": 320.94,
     "peak_bankroll": 11131.685476064087,
     "profit_by_market": {
-      "SPREAD": -33671.1
+      "SPREAD": -34233.11
     },
     "profit_by_season": {
       "2006": -2883.9,
@@ -12694,7 +14138,7 @@
       "2023": -646.39,
       "2024": -837.92,
       "2025": -2897.61,
-      "2026": -215.66
+      "2026": -777.67
     },
     "profit_by_week": {
       "W04": -1683.41,
@@ -12716,43 +14160,43 @@
       "W20": -222.04,
       "W21": -798.89,
       "W01": -2722.51,
-      "W02": -3259.91,
+      "W02": -3821.92,
       "W03": -2716.8,
       "W22": 260.87
     },
     "profit_by_team": {
       "ATL": -2408.67,
-      "ARI": -3059.62,
+      "ARI": -2997.12,
       "CAR": -1253.42,
-      "NO": -2130.16,
-      "KC": -2029.78,
-      "SF": 80.21,
-      "NYJ": -74.47,
-      "IND": -905.17,
-      "TEN": -1506.88,
-      "DAL": -940.4,
-      "LA": -63.91,
+      "NO": -2205.16,
+      "KC": -2104.78,
+      "SF": 145.43,
+      "NYJ": -149.47,
+      "IND": -980.17,
+      "TEN": -1581.88,
+      "DAL": -877.9,
+      "LA": 1.31,
       "DET": -431.36,
-      "CIN": -1690.39,
-      "NE": 2130.37,
-      "PHI": -1759.66,
-      "GB": 192.03,
-      "CLE": 75.09,
-      "CHI": 316.56,
+      "CIN": -1765.39,
+      "NE": 2193.93,
+      "PHI": -1834.66,
+      "GB": 117.03,
+      "CLE": 0.09,
+      "CHI": 241.56,
       "BUF": -130.37,
-      "MIN": -25.07,
-      "MIA": -1371.24,
-      "TB": -2596.31,
-      "NYG": -2301.75,
-      "WAS": -1845.61,
+      "MIN": -100.07,
+      "MIA": -1306.03,
+      "TB": -2671.31,
+      "NYG": -2236.53,
+      "WAS": -1783.11,
       "JAX": -14.26,
-      "LV": -1168.9,
-      "LAC": -2431.24,
-      "PIT": -1959.18,
+      "LV": -1243.9,
+      "LAC": -2506.24,
+      "PIT": -1895.62,
       "DEN": -1403.54,
-      "BAL": -2533.37,
-      "HOU": -290.84,
-      "SEA": -139.81
+      "BAL": -2608.37,
+      "HOU": -365.84,
+      "SEA": -77.31
     },
     "bets_by_season": {
       "2006": 164,
@@ -12775,7 +14219,7 @@
       "2023": 198,
       "2024": 203,
       "2025": 201,
-      "2026": 10
+      "2026": 23
     },
     "equity_curve": [
       {
@@ -12994,18 +14438,109 @@
         "week": 2,
         "bankroll": -23671.1,
         "pnl": -33671.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -23821.1,
+        "pnl": -33821.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -23971.1,
+        "pnl": -33971.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24121.1,
+        "pnl": -34121.1
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -23993.98,
+        "pnl": -33993.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24143.98,
+        "pnl": -34143.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24293.98,
+        "pnl": -34293.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24443.98,
+        "pnl": -34443.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24593.98,
+        "pnl": -34593.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24468.98,
+        "pnl": -34468.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24343.98,
+        "pnl": -34343.98
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24213.55,
+        "pnl": -34213.55
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24363.55,
+        "pnl": -34363.55
+      },
+      {
+        "date": "2026-09-21",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -24233.11,
+        "pnl": -34233.11
       }
     ],
     "is_kalshi": false,
     "status": "ACTIVE",
-    "total_staked": 587700.0,
-    "variance": 21097.01,
-    "std_pnl": 145.25,
-    "published_ledger_bets": 1237,
-    "published_ledger_pnl": -15812.47,
-    "all_time_bets": 3918,
-    "all_time_pnl": -33671.1,
-    "pnl_outside_published_window": -17858.63
+    "total_staked": 589650.0,
+    "variance": 21091.52,
+    "std_pnl": 145.23,
+    "published_ledger_bets": 1250,
+    "published_ledger_pnl": -16374.49,
+    "all_time_bets": 3931,
+    "all_time_pnl": -34233.11,
+    "pnl_outside_published_window": -17858.62
   },
   {
     "id": "STRAT_KALSHI_SPREAD_010_v1",
@@ -13015,12 +14550,12 @@
     "parent_version": null,
     "category": "Kalshi Prediction Markets",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -30449.36,
-    "total_pnl": -40449.36,
-    "roi": -7.08,
-    "total_bets": 5715,
-    "wins": 2823,
-    "losses": 2741,
+    "current_bankroll": -30580.0,
+    "total_pnl": -40580.0,
+    "roi": -7.09,
+    "total_bets": 5726,
+    "wins": 2828,
+    "losses": 2747,
     "pushes": 151,
     "win_rate": 50.7,
     "avg_odds": 52.0,
@@ -13030,7 +14565,7 @@
     "max_drawdown_pct": 377.1,
     "peak_bankroll": 11193.59999999998,
     "profit_by_market": {
-      "KALSHI_SPREAD": -40449.36
+      "KALSHI_SPREAD": -40580.0
     },
     "profit_by_season": {
       "1999": 733.44,
@@ -13060,11 +14595,11 @@
       "2023": -3340.48,
       "2024": -1553.44,
       "2025": -1515.84,
-      "2026": -164.88
+      "2026": -295.52
     },
     "profit_by_week": {
       "W01": -4751.04,
-      "W02": -2461.12,
+      "W02": -2591.76,
       "W03": -4852.16,
       "W04": -2412.96,
       "W05": -3728.24,
@@ -13087,38 +14622,38 @@
       "W22": -75.44
     },
     "profit_by_team": {
-      "ATL": -2305.96,
-      "MIN": -452.92,
-      "CHI": -834.52,
-      "KC": -1779.8,
-      "CLE": 41.64,
-      "PIT": -710.04,
-      "GB": 60.56,
+      "ATL": -2374.56,
+      "MIN": -495.6,
+      "CHI": -877.2,
+      "KC": -1838.8,
+      "CLE": -4.88,
+      "PIT": -677.84,
+      "GB": 113.88,
       "LV": -1486.24,
-      "IND": -2745.44,
+      "IND": -2804.44,
       "BUF": -753.28,
-      "JAX": -2001.6,
+      "JAX": -1936.76,
       "SF": -1439.68,
-      "NYJ": 60.92,
-      "NE": -2059.56,
-      "PHI": -2365.24,
-      "ARI": -757.88,
-      "SEA": -512.68,
+      "NYJ": 114.24,
+      "NE": -2027.36,
+      "PHI": -2311.92,
+      "ARI": -787.12,
+      "SEA": -541.92,
       "DET": -858.16,
       "LA": -786.4,
       "BAL": -662.72,
-      "TB": -2011.24,
+      "TB": -2057.76,
       "NYG": -3889.32,
-      "TEN": -1509.12,
-      "CIN": -891.64,
-      "DEN": 233.52,
+      "TEN": -1455.8,
+      "CIN": -954.48,
+      "DEN": 298.36,
       "MIA": -1161.88,
-      "CAR": -553.04,
+      "CAR": -621.64,
       "LAC": -1884.64,
-      "WAS": -2113.48,
+      "WAS": -2073.6,
       "NO": -2383.52,
-      "DAL": -1151.48,
-      "HOU": -784.52
+      "DAL": -1111.6,
+      "HOU": -847.36
     },
     "bets_by_season": {
       "1999": 216,
@@ -13148,7 +14683,7 @@
       "2023": 220,
       "2024": 238,
       "2025": 228,
-      "2026": 15
+      "2026": 26
     },
     "equity_curve": [
       {
@@ -13451,17 +14986,94 @@
         "week": 2,
         "bankroll": -30449.36,
         "pnl": -40449.36
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30586.56,
+        "pnl": -40586.56
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30671.92,
+        "pnl": -40671.92
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30797.6,
+        "pnl": -40797.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30733.2,
+        "pnl": -40733.2
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30626.56,
+        "pnl": -40626.56
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30719.6,
+        "pnl": -40719.6
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30612.96,
+        "pnl": -40612.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30483.28,
+        "pnl": -40483.28
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30541.76,
+        "pnl": -40541.76
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30462.0,
+        "pnl": -40462.0
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -30580.0,
+        "pnl": -40580.0
       }
     ],
     "is_kalshi": true,
     "status": "BACKTESTED",
-    "total_staked": 571500.0,
-    "variance": 9841.36,
-    "std_pnl": 99.2,
-    "published_ledger_bets": 1351,
-    "published_ledger_pnl": -13736.08,
-    "all_time_bets": 5715,
-    "all_time_pnl": -40449.36,
+    "total_staked": 572600.0,
+    "variance": 9842.83,
+    "std_pnl": 99.21,
+    "published_ledger_bets": 1362,
+    "published_ledger_pnl": -13866.72,
+    "all_time_bets": 5726,
+    "all_time_pnl": -40580.0,
     "pnl_outside_published_window": -26713.28
   },
   {
@@ -13472,12 +15084,12 @@
     "parent_version": null,
     "category": "Kalshi Prediction Markets",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -40967.86,
-    "total_pnl": -50967.86,
-    "roi": -7.43,
-    "total_bets": 5715,
-    "wins": 2823,
-    "losses": 2741,
+    "current_bankroll": -41129.2,
+    "total_pnl": -51129.2,
+    "roi": -7.44,
+    "total_bets": 5726,
+    "wins": 2828,
+    "losses": 2747,
     "pushes": 151,
     "win_rate": 50.7,
     "avg_odds": 52.0,
@@ -13487,7 +15099,7 @@
     "max_drawdown_pct": 467.18,
     "peak_bankroll": 11338.350000000002,
     "profit_by_market": {
-      "KALSHI_SPREAD": -50967.86
+      "KALSHI_SPREAD": -51129.2
     },
     "profit_by_season": {
       "1999": 783.61,
@@ -13517,11 +15129,11 @@
       "2023": -4098.38,
       "2024": -1965.69,
       "2025": -1916.17,
-      "2026": -204.12
+      "2026": -365.46
     },
     "profit_by_week": {
       "W01": -5855.13,
-      "W02": -3097.72,
+      "W02": -3259.06,
       "W03": -5958.49,
       "W04": -3030.26,
       "W05": -4600.08,
@@ -13544,38 +15156,38 @@
       "W22": -92.6
     },
     "profit_by_team": {
-      "ATL": -2838.59,
-      "MIN": -620.14,
-      "CHI": -1074.68,
-      "KC": -2214.04,
-      "CLE": -28.7,
-      "PIT": -929.04,
-      "GB": -12.35,
+      "ATL": -2920.99,
+      "MIN": -671.49,
+      "CHI": -1126.02,
+      "KC": -2284.94,
+      "CLE": -84.65,
+      "PIT": -890.69,
+      "GB": 51.3,
       "LV": -1858.57,
-      "IND": -3368.85,
+      "IND": -3439.75,
       "BUF": -983.29,
-      "JAX": -2476.92,
+      "JAX": -2399.47,
       "SF": -1805.54,
-      "NYJ": -0.67,
-      "NE": -2552.28,
-      "PHI": -2916.17,
-      "ARI": -987.2,
-      "SEA": -695.71,
+      "NYJ": 62.99,
+      "NE": -2513.93,
+      "PHI": -2852.52,
+      "ARI": -1022.45,
+      "SEA": -730.95,
       "DET": -1102.33,
       "LA": -1020.31,
       "BAL": -876.54,
-      "TB": -2485.61,
+      "TB": -2541.55,
       "NYG": -4738.9,
-      "TEN": -1886.93,
-      "CIN": -1145.79,
-      "DEN": 199.31,
+      "TEN": -1823.27,
+      "CIN": -1221.29,
+      "DEN": 276.76,
       "MIA": -1466.84,
-      "CAR": -741.21,
+      "CAR": -823.61,
       "LAC": -2335.92,
-      "WAS": -2610.68,
+      "WAS": -2563.13,
       "NO": -2929.98,
-      "DAL": -1453.41,
-      "HOU": -1009.97
+      "DAL": -1405.85,
+      "HOU": -1085.47
     },
     "bets_by_season": {
       "1999": 216,
@@ -13605,7 +15217,7 @@
       "2023": 220,
       "2024": 238,
       "2025": 228,
-      "2026": 15
+      "2026": 26
     },
     "equity_curve": [
       {
@@ -13908,17 +15520,94 @@
         "week": 2,
         "bankroll": -40967.86,
         "pnl": -50967.86
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41132.66,
+        "pnl": -51132.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41235.35,
+        "pnl": -51235.35
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41386.35,
+        "pnl": -51386.35
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41309.65,
+        "pnl": -51309.65
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41182.34,
+        "pnl": -51182.34
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41294.23,
+        "pnl": -51294.23
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41166.92,
+        "pnl": -51166.92
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41012.02,
+        "pnl": -51012.02
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41082.51,
+        "pnl": -51082.51
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -40987.4,
+        "pnl": -50987.4
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -41129.2,
+        "pnl": -51129.2
       }
     ],
     "is_kalshi": true,
     "status": "ACTIVE",
-    "total_staked": 685800.0,
-    "variance": 14122.51,
-    "std_pnl": 118.84,
-    "published_ledger_bets": 1351,
-    "published_ledger_pnl": -17049.32,
-    "all_time_bets": 5715,
-    "all_time_pnl": -50967.86,
+    "total_staked": 687120.0,
+    "variance": 14124.62,
+    "std_pnl": 118.85,
+    "published_ledger_bets": 1362,
+    "published_ledger_pnl": -17210.66,
+    "all_time_bets": 5726,
+    "all_time_pnl": -51129.2,
     "pnl_outside_published_window": -33918.54
   },
   {
@@ -13929,14 +15618,14 @@
     "parent_version": "STRAT_KALSHI_SPREAD_010_v1",
     "category": "Kalshi Prediction Markets",
     "initial_bankroll": 10000.0,
-    "current_bankroll": -50747.34,
-    "total_pnl": -60747.34,
-    "roi": -8.3,
-    "total_bets": 4882,
-    "wins": 2418,
-    "losses": 2337,
+    "current_bankroll": -50935.89,
+    "total_pnl": -60935.89,
+    "roi": -8.31,
+    "total_bets": 4891,
+    "wins": 2421,
+    "losses": 2343,
     "pushes": 127,
-    "win_rate": 50.9,
+    "win_rate": 50.8,
     "avg_odds": 52.0,
     "avg_edge": 10.53,
     "avg_clv": 0.842,
@@ -13944,7 +15633,7 @@
     "max_drawdown_pct": 531.34,
     "peak_bankroll": 11888.710000000003,
     "profit_by_market": {
-      "KALSHI_SPREAD": -60747.34
+      "KALSHI_SPREAD": -60935.89
     },
     "profit_by_season": {
       "1999": 1187.35,
@@ -13974,11 +15663,11 @@
       "2023": -5233.02,
       "2024": -1851.21,
       "2025": -1439.55,
-      "2026": -268.17
+      "2026": -456.72
     },
     "profit_by_week": {
       "W01": -7013.45,
-      "W02": -4257.31,
+      "W02": -4445.86,
       "W03": -6795.96,
       "W04": -3358.76,
       "W05": -4219.22,
@@ -14001,38 +15690,38 @@
       "W22": -120.11
     },
     "profit_by_team": {
-      "ATL": -3470.4,
-      "MIN": -790.05,
-      "CHI": -1473.63,
-      "KC": -3077.27,
+      "ATL": -3574.0,
+      "MIN": -854.77,
+      "CHI": -1538.35,
+      "KC": -3166.47,
       "CLE": 595.75,
-      "PIT": -986.06,
-      "GB": -313.32,
+      "PIT": -938.45,
+      "GB": -234.03,
       "LV": -1676.92,
-      "IND": -3561.12,
+      "IND": -3650.31,
       "BUF": -1221.79,
-      "JAX": -2101.97,
+      "JAX": -2005.41,
       "SF": -2668.4,
-      "NYJ": -142.65,
-      "NE": -2863.47,
-      "PHI": -3703.25,
-      "ARI": -1507.42,
-      "SEA": -1074.91,
+      "NYJ": -63.36,
+      "NE": -2815.87,
+      "PHI": -3623.96,
+      "ARI": -1551.98,
+      "SEA": -1119.47,
       "DET": -1215.11,
       "LA": -1749.6,
       "BAL": -238.69,
       "TB": -3066.69,
       "NYG": -4720.32,
-      "TEN": -2404.54,
-      "CIN": -1955.18,
-      "DEN": -37.85,
+      "TEN": -2325.26,
+      "CIN": -2050.13,
+      "DEN": 58.71,
       "MIA": -1328.78,
-      "CAR": -1971.61,
+      "CAR": -2075.21,
       "WAS": -3456.84,
       "NO": -2771.16,
       "DAL": -2340.09,
       "LAC": -2564.12,
-      "HOU": -889.92
+      "HOU": -984.88
     },
     "bets_by_season": {
       "1999": 191,
@@ -14062,7 +15751,7 @@
       "2023": 186,
       "2024": 207,
       "2025": 189,
-      "2026": 15
+      "2026": 24
     },
     "equity_curve": [
       {
@@ -14365,17 +16054,80 @@
         "week": 2,
         "bankroll": -50747.34,
         "pnl": -60747.34
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -50954.53,
+        "pnl": -60954.53
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -51083.96,
+        "pnl": -61083.96
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -51273.87,
+        "pnl": -61273.87
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -51178.66,
+        "pnl": -61178.66
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -51020.09,
+        "pnl": -61020.09
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -50861.52,
+        "pnl": -60861.52
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -50668.39,
+        "pnl": -60668.39
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -50757.5,
+        "pnl": -60757.5
+      },
+      {
+        "date": "2026-09-20",
+        "season": 2026,
+        "week": 2,
+        "bankroll": -50935.89,
+        "pnl": -60935.89
       }
     ],
     "is_kalshi": true,
     "status": "ACTIVE",
-    "total_staked": 732300.0,
-    "variance": 22333.84,
-    "std_pnl": 149.45,
-    "published_ledger_bets": 1157,
-    "published_ledger_pnl": -21074.99,
-    "all_time_bets": 4882,
-    "all_time_pnl": -60747.34,
+    "total_staked": 733650.0,
+    "variance": 22339.53,
+    "std_pnl": 149.46,
+    "published_ledger_bets": 1166,
+    "published_ledger_pnl": -21263.54,
+    "all_time_bets": 4891,
+    "all_time_pnl": -60935.89,
     "pnl_outside_published_window": -39672.35
   }
 ]

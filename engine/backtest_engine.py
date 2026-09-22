@@ -47,6 +47,34 @@ from engine.provenance import sha256_file
 #: published numbers can always be reconciled with the complete simulation.
 LEDGER_PUBLISH_FROM_SEASON = 2020
 
+
+def derive_live_window(games):
+    """Derive the active (season, week) paper-trading slate from the data.
+
+    The live week is never a hardcoded constant: it is the earliest
+    regular-season week in the latest season that still has unplayed games,
+    measured against the most recent completed week.  While a week is only
+    partially played it stays live; once its final game settles the next week
+    becomes the slate.  Returns ``(None, None)`` when nothing is completed.
+    """
+    completed_seasons = {g["season"] for g in games if g.get("completed")}
+    if not completed_seasons:
+        return None, None
+    season = max(completed_seasons)
+    reg = [g for g in games if g["season"] == season and g.get("game_type", "REG") == "REG"]
+    completed_weeks = sorted({g["week"] for g in reg if g.get("completed")})
+    open_weeks = sorted({g["week"] for g in reg if not g.get("completed")})
+    anchor = max(completed_weeks) if completed_weeks else 0
+    live_week = next((w for w in open_weeks if w >= anchor), None)
+    if live_week is None:
+        live_week = (anchor + 1) if open_weeks else None
+    return season, live_week
+
+
+def derive_as_of_date(games):
+    """Latest gameday with a posted result; the snapshot's evidence horizon."""
+    return max((g["gameday"] for g in games if g.get("completed")), default=None)
+
 class NFLBacktestRunner:
     def __init__(self, data_loader=None):
         self.loader = data_loader or NFLDataLoader()
@@ -107,6 +135,8 @@ class NFLBacktestRunner:
 
     def initialize(self):
         self.games = self.loader.load_all()
+        self._live_season, self._live_week = derive_live_window(self.games)
+        self._as_of_date = derive_as_of_date(self.games)
         self.strategies = get_strategy_instances()
         for s in self.strategies:
             self.strategy_performance[s.id] = {
@@ -541,7 +571,9 @@ class NFLBacktestRunner:
                         self.ledger.append(ledger_item)
 
                     else:
-                        status = "READY_TO_BET" if game["week"] == 2 else "QUALIFIED"
+                        is_live_slate = (season == self._live_season
+                                         and game["week"] == self._live_week)
+                        status = "READY_TO_BET" if is_live_slate else "QUALIFIED"
                         # Some forward test statuses
                         if sig.get("status") == "WATCHING":
                             status = "WATCHING"
@@ -567,13 +599,18 @@ class NFLBacktestRunner:
                             "implied_prob": implied_prob,
                             "estimated_edge": edge,
                             "stake": stake,
-                            "decision_time": f"2026-09-20T14:00:00Z",
+                            # decision_time is the latest point-in-time decision
+                            # boundary (game morning, matching the settled-ledger
+                            # convention).  signal_generated_at anchors the signal
+                            # to the snapshot's evidence horizon, not a wall clock.
+                            "decision_time": f"{game['gameday']}T09:00:00Z",
+                            "signal_generated_at": f"{self._as_of_date}T12:00:00Z" if self._as_of_date else None,
                             "supporting_data": sig.get("supporting_data", {}),
                             "market_source": "Kalshi Prediction Market" if strat.is_kalshi else "NFL Official Market Consensus / WSGT",
                             "status": status
                         }
                         self.upcoming_bets.append(upcoming_item)
-                        if game["week"] == 2:
+                        if season == self._live_season and game["week"] == self._live_week:
                             self.open_positions.append(upcoming_item)
 
             self._update_post_game_state(game)
@@ -816,13 +853,20 @@ class NFLBacktestRunner:
         completed_games_count = len([g for g in self.games if g["completed"]])
         upcoming_games_count = len([g for g in self.games if not g["completed"]])
         published_pnl = sum(b["pnl"] for b in published_ledger)
-        as_of_date = max((g["gameday"] for g in self.games if g["completed"]), default=None)
-        
+        as_of_date = self._as_of_date or derive_as_of_date(self.games)
+        live_season = self._live_season if self._live_season is not None else max(
+            (g["season"] for g in self.games), default=None)
+        live_week = self._live_week
+
         summary = {
             "competition_name": "ARENA AI — NFL Autonomous Betting Strategy Competition",
             "as_of_date": as_of_date,
-            "current_season": 2026,
-            "current_week": 2,
+            "current_season": live_season,
+            "current_week": live_week,
+            "live_window_derivation": (
+                "Earliest regular-season week in the latest season with unplayed games; "
+                "derived from the snapshot, never hardcoded."
+            ),
             "total_games_tracked": len(self.games),
             "completed_games": completed_games_count,
             "upcoming_games": upcoming_games_count,
@@ -847,11 +891,12 @@ class NFLBacktestRunner:
             "season_span": (f"{min((g['season'] for g in self.games), default='?')}"
                             f"-{max((g['season'] for g in self.games), default='?')}"),
             "current_week_slice": {
-                "season": 2026,
-                "week": 2,
-                "signals": len([b for b in self.upcoming_bets if b.get("season") == 2026 and b.get("week") == 2]),
+                "season": live_season,
+                "week": live_week,
+                "signals": len([b for b in self.upcoming_bets
+                                if b.get("season") == live_season and b.get("week") == live_week]),
                 "games": len({b["game_id"] for b in self.upcoming_bets
-                              if b.get("season") == 2026 and b.get("week") == 2}),
+                              if b.get("season") == live_season and b.get("week") == live_week}),
             },
             "top_performing_strategy": leaderboard_list[0]["username"] if leaderboard_list else None,
             "top_pnl": leaderboard_list[0]["total_pnl"] if leaderboard_list else 0.0,

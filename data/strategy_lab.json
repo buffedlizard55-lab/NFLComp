@@ -3,10 +3,10 @@
   "research_class": "PAPER_TRADING_STRATEGY_LAB",
   "source": {
     "path": "data/source/games.csv",
-    "sha256": "2b9d942b56af9de9382dc9519cb59025a82117447eea05eda1e9c7f78d840547",
+    "sha256": "c9038d5c927d9d6bd9d2e98cb76b57fccfd4f040b7ce4b9353cc0c7ad4a860d4",
     "loaded_games": 7548,
-    "completed_games": 7293,
-    "latest_completed_gameday": "2026-09-17"
+    "completed_games": 7308,
+    "latest_completed_gameday": "2026-09-21"
   },
   "policy": {
     "development_window": "2000-2019",
@@ -36,11 +36,11 @@
       "missing_value_counts_in_loaded_games": {
         "home_rest": 0,
         "away_rest": 0,
-        "spread_line": 240,
-        "home_spread_odds": 2221,
-        "away_spread_odds": 2221,
-        "home_score": 255,
-        "away_score": 255
+        "spread_line": 210,
+        "home_spread_odds": 2191,
+        "away_spread_odds": 2191,
+        "home_score": 240,
+        "away_score": 240
       },
       "windows": {
         "development": {
@@ -93,9 +93,9 @@
       ],
       "missing_value_counts_in_loaded_games": {
         "div_game": 0,
-        "total_line": 240,
-        "total": 255,
-        "under_odds": 2224
+        "total_line": 208,
+        "total": 240,
+        "under_odds": 2192
       },
       "windows": {
         "development": {

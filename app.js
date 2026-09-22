@@ -220,6 +220,11 @@ function renderPublishedClaims() {
     set('claim-week-signals', week.length.toLocaleString());
     set('claim-week-games', new Set(week.map(b => b.game_id)).size.toLocaleString());
   }
+  if (Number.isInteger(s.current_week) && Number.isInteger(s.current_season)) {
+    set('live-slate-label', `${s.current_season} Season • Week ${s.current_week} Active Slate`);
+    set('forward-slate-label', `${s.current_season} Week ${s.current_week} & Forward • Props/Alt/TeamTotal`);
+    set('slate-week-label', `Week ${s.current_week}`);
+  }
   if (s.season_span) {
     const span = s.season_span.replace('-', '\u2013');
     set('claim-season-span', span);
@@ -277,14 +282,17 @@ function renderDashboard() {
     tbody.appendChild(tr);
   });
 
-  // Active Week 2 Slate Pulse - dynamic from upcoming bets
+  // Active live-slate pulse - derived from summary, never a hardcoded week
   const slateBody = document.getElementById('dash-slate-body');
   if (!slateBody) return;
   slateBody.innerHTML = '';
-  
+
+  const liveSeason = STATE.summary?.current_season;
+  const liveWeek = STATE.summary?.current_week;
+
   // Group upcoming bets by matchup
   const matchupMap = {};
-  STATE.upcomingBets.filter(u => u.week === 2).forEach(u => {
+  STATE.upcomingBets.filter(u => u.season === liveSeason && u.week === liveWeek).forEach(u => {
     if (!matchupMap[u.matchup]) {
       matchupMap[u.matchup] = { count: 0, gameday: u.gameday, gametime: u.gametime, spread: null, total: null };
     }
@@ -552,7 +560,9 @@ function renderOpenPositions() {
   tbody.innerHTML = '';
 
   const positions = STATE.openPositions;
-  document.getElementById('open-pos-count').textContent = `${positions.length} Active Week 2 Positions`;
+  const liveWeek = STATE.summary?.current_week;
+  document.getElementById('open-pos-count').textContent =
+    `${positions.length} Active Week ${Number.isInteger(liveWeek) ? liveWeek : '?'} Positions`;
 
   positions.forEach(pos => {
     const tr = document.createElement('tr');

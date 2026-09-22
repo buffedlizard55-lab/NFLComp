@@ -27,6 +27,7 @@ class NFLAuditVerifier:
 
     def run_full_audit(self, write=True):
         self._audit_games()
+        self._audit_source_sync()
         self._audit_bets_ledger()
         self._audit_leaderboard()
         self._audit_kalshi_trades()
@@ -187,7 +188,7 @@ class NFLAuditVerifier:
             "MEDIUM",
             "Live win probability strategies require sub-second play-by-play; ESPN hidden API provides real-time but unofficial contract. Live strategies forward-test only until official live feed verified.",
             "ESPN hidden API",
-            "Live strategies marked FORWARD_TEST with WATCHING status for 2026 Week 2."
+            "Live strategies marked FORWARD_TEST with WATCHING status on the current live slate."
         )
 
         self._add_irregularity(
@@ -198,6 +199,62 @@ class NFLAuditVerifier:
             "Stadium coordinates for travel fatigue model use approximate centroids; actual team travel may include layovers, not direct stadium-to-stadium.",
             "NFL stadium coordinates",
             "Haversine distance used as proxy; flagged as approximation, not exact travel."
+        )
+
+    def _audit_source_sync(self):
+        """Verified source snapshots are never silently overwritten.
+
+        ``engine.source_sync`` records a provenance manifest every time the
+        nflverse snapshot is refreshed: which endpoint served the bytes, when,
+        the before/after SHA-256, and a field-level diff of games.csv.  This
+        check proves the on-disk files still match the manifest and promotes
+        non-trivial upstream revisions (line moves, starter reassignments,
+        score corrections) into the irregularity register.
+        """
+        from engine.source_sync import (
+            MANIFEST_NAME,
+            check_manifest,
+            revisions_for_irregularity_register,
+            unacknowledged_corrections,
+        )
+
+        source_dir = os.path.join(self.data_dir, "source")
+        manifest_path = os.path.join(source_dir, MANIFEST_NAME)
+        if not os.path.exists(manifest_path):
+            self._add_check(
+                "SOURCE_SYNC_PROVENANCE", "SOURCE_PROVENANCE", False,
+                "No sync manifest; run python3 -m engine.source_sync to pin snapshot provenance",
+            )
+            return
+        ok, problems = check_manifest(source_dir)
+        # A pending RESULT_CORRECTED review is reported by check_manifest as a
+        # problem for the *pipeline*; for the audit it is a flag, not a failed
+        # hash check.  Only hash/classification failures fail this check.
+        hard_failures = [p for p in problems if "pending review" not in p]
+        with open(manifest_path, encoding="utf-8") as f:
+            manifest = json.load(f)
+        summary = manifest.get("revision_summary", {}) or {}
+        history_summary = manifest.get("history_summary", {}) or {}
+        details = (
+            f"last sync {manifest.get('synced_at_utc')}; "
+            f"{len(manifest.get('files', {}))} files hash-verified against fetched bytes; "
+            f"{summary.get('total_revisions', 0)} upstream revisions this sync "
+            f"(by severity {summary.get('by_severity', {})}); "
+            f"{history_summary.get('notable_revisions_retained', 0)} notable revisions retained in history"
+        )
+        if hard_failures:
+            details += "; " + "; ".join(hard_failures[:3])
+        self._add_check("SOURCE_SYNC_PROVENANCE", "SOURCE_PROVENANCE", not hard_failures, details)
+
+        for item in revisions_for_irregularity_register(manifest):
+            self.irregularities.append(item)
+
+        corrections = unacknowledged_corrections(manifest)
+        self._add_check(
+            "SOURCE_REVISION_REVIEW", "SOURCE_PROVENANCE", len(corrections) == 0,
+            f"{len(corrections)} unacknowledged result corrections against already-settled games"
+            + (" — settled paper wagers must be reconciled and each revision_id acknowledged"
+               " in sync_manifest.json, never re-settled silently" if corrections else ""),
         )
 
     def _audit_bets_ledger(self):

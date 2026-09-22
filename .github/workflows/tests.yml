@@ -24,6 +24,9 @@ jobs:
       - name: UI and data contract tests
         run: node test/ui.test.js
 
+      - name: Source snapshot provenance check
+        run: python3 -m engine.source_sync --check
+
       - name: Audit check (no writes)
         run: python3 -m engine.audit_verifier --check
 

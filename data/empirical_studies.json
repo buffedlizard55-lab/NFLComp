@@ -34,33 +34,33 @@
       "findings": {
         "wind_0_to_10_mph": {
           "wind_mph_range": "0-10",
-          "sample": 3605,
-          "mean_total_points": 43.93,
-          "under_count": 1738,
+          "sample": 3613,
+          "mean_total_points": 43.92,
+          "under_count": 1742,
           "push_count": 60,
-          "decided_count": 3545,
+          "decided_count": 3553,
           "under_rate_pct": 49.03,
           "under_rate_ci95_pct": [
-            47.38,
+            47.39,
             50.67
           ],
-          "flat_stake_pnl_usd": -17726.92,
-          "games_with_recorded_under_price": 2529
+          "flat_stake_pnl_usd": -17766.86,
+          "games_with_recorded_under_price": 2537
         },
         "wind_11_to_14_mph": {
           "wind_mph_range": "11-14",
-          "sample": 736,
-          "mean_total_points": 42.46,
-          "under_count": 397,
+          "sample": 737,
+          "mean_total_points": 42.45,
+          "under_count": 398,
           "push_count": 11,
-          "decided_count": 725,
-          "under_rate_pct": 54.76,
+          "decided_count": 726,
+          "under_rate_pct": 54.82,
           "under_rate_ci95_pct": [
-            51.12,
-            58.35
+            51.18,
+            58.41
           ],
-          "flat_stake_pnl_usd": 4406.59,
-          "games_with_recorded_under_price": 532
+          "flat_stake_pnl_usd": 4497.5,
+          "games_with_recorded_under_price": 533
         },
         "wind_15_to_19_mph": {
           "wind_mph_range": "15-19",
@@ -184,19 +184,19 @@
       "market": "TOTAL",
       "findings": {
         "all_divisional_high_totals": {
-          "sample": 631,
+          "sample": 632,
           "under_count": 335,
           "push_count": 8,
-          "under_rate_pct": 53.77,
+          "under_rate_pct": 53.69,
           "under_rate_ci95_pct": [
-            49.85,
-            57.65
+            49.76,
+            57.56
           ],
-          "flat_stake_pnl_usd": 2874.04
+          "flat_stake_pnl_usd": 2774.04
         }
       },
       "limitations": "This is the full-history rate, not the strategy lab's walk-forward holdout; a rate inside the confidence interval is not a claim of profitability.",
-      "headline": "53.77% Under rate across 631 divisional games at 47.0 or above, flat-stake +2,874.04 USD",
+      "headline": "53.69% Under rate across 632 divisional games at 47.0 or above, flat-stake +2,774.04 USD",
       "strategy_id": "STRAT_DIV_TOTAL_040_v1",
       "strategy_ids": [
         "STRAT_DIV_TOTAL_040_v1"
@@ -231,20 +231,20 @@
           "flat_stake_pnl_usd": -3982.32
         },
         "whole_snapshot": {
-          "sample": 2460,
-          "cover_count": 1199,
+          "sample": 2464,
+          "cover_count": 1201,
           "push_count": 65,
-          "decided_count": 2395,
+          "decided_count": 2399,
           "cover_rate_pct": 50.06,
           "cover_rate_ci95_pct": [
             48.06,
             52.06
           ],
-          "flat_stake_pnl_usd": -7472.74
+          "flat_stake_pnl_usd": -7488.22
         }
       },
       "limitations": "Cover rate alone is not a tradable edge: the price paid for the spread is not part of the claim, and flat-stake PnL here assumes a conventional -110 where the snapshot has no price.",
-      "headline": "49.14% cover rate in 2002-2011 (840 games) and 50.06% across the whole snapshot (2460 games)",
+      "headline": "49.14% cover rate in 2002-2011 (840 games) and 50.06% across the whole snapshot (2464 games)",
       "strategy_id": "STRAT_HOME_DOG_042_v1",
       "strategy_ids": [
         "STRAT_HOME_DOG_042_v1"
@@ -268,32 +268,32 @@
       "market": "TOTAL",
       "findings": {
         "climate_controlled": {
-          "sample": 1741,
-          "under_count": 839,
+          "sample": 1747,
+          "under_count": 844,
           "push_count": 21,
-          "decided_count": 1720,
-          "mean_total_points": 46.8,
-          "under_rate_pct": 48.78,
+          "decided_count": 1726,
+          "mean_total_points": 46.78,
+          "under_rate_pct": 48.9,
           "under_rate_ci95_pct": [
-            46.42,
-            51.14
+            46.55,
+            51.26
           ]
         },
         "outdoors": {
-          "sample": 5115,
-          "under_count": 2573,
+          "sample": 5124,
+          "under_count": 2578,
           "push_count": 78,
-          "decided_count": 5037,
-          "mean_total_points": 43.22,
-          "under_rate_pct": 51.08,
+          "decided_count": 5046,
+          "mean_total_points": 43.21,
+          "under_rate_pct": 51.09,
           "under_rate_ci95_pct": [
-            49.7,
-            52.46
+            49.71,
+            52.47
           ]
         }
       },
       "limitations": "Roof values are recorded as dome/closed/open/outdoors by the provider; a retractable roof left open is not distinguishable from one closed at kickoff beyond this column.",
-      "headline": "mean total 46.8 indoors against 43.22 outdoors; Under rate 48.78% against 51.08%",
+      "headline": "mean total 46.78 indoors against 43.21 outdoors; Under rate 48.9% against 51.09%",
       "strategy_id": "STRAT_DOME_PACE_004_v1",
       "strategy_ids": [
         "STRAT_DOME_PACE_004_v1",

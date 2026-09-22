@@ -122,3 +122,37 @@ Portfolio-wide: Brier score $\frac{1}{N}\sum (p_i - o_i)^2$, log loss, and a
 decile reliability table with expected calibration error in percentage points, so
 a model that is systematically over-confident at the top of the curve is visible
 before any ROI is quoted.
+
+---
+
+## 7. Source Synchronization & Live-Slate Derivation (`engine/source_sync.py`)
+
+The checked-in nflverse snapshot is a *moving* upstream dataset: results post,
+odds appear, and pre-kickoff fields (projected starters, weather, roof state)
+are revised in place. The sync protocol keeps that motion auditable:
+
+1. **Fetch with fail-over provenance.** Each file is pulled from the first
+   reachable verified mirror of `nflverse/nfldata@master` (git blobs API, then
+   contents API, then raw.githubusercontent.com); every attempt — endpoint,
+   HTTP status, latency, bytes — is recorded in
+   `data/source/sync_manifest.json`.
+2. **Hash both sides.** The manifest stores the previous and new SHA-256 for
+   every file; `python3 -m engine.source_sync --check` re-verifies disk against
+   the manifest, so a hand-edited source file fails verification.
+3. **Classify the delta.** For `games.csv` the diff is field-level per
+   `game_id`. Posting a previously missing value (result, price, weather) is
+   lifecycle-INFO; revising an already-filled value is a classification:
+   `RESULT_CORRECTED` (HIGH), `LINE_MOVED` (MEDIUM), `QB_REASSIGNED` /
+   `COACH_REASSIGNED` (MEDIUM), environment/official/schedule revisions (LOW).
+4. **Promote, never absorb.** MEDIUM/HIGH revisions are grouped per event and
+   promoted into `data/irregularities.json` by the audit. A revision touching a
+   game that was already settled in the prior snapshot is `FLAGGED` for
+   reconciliation — settled paper wagers are preserved as originally settled,
+   never re-settled in place.
+
+The live paper-trading slate is derived, not configured:
+$w_{live} = \min\{w \in W_{open} : w \ge \max(W_{settled})\}$ in the latest
+season with completed games. A partially played week stays live; the slate
+advances only when its final game settles. `current_season` / `current_week`
+in `data/summary.json`, the `READY_TO_BET` statuses, the open-position desk and
+the site labels all read from this single derivation.

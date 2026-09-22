@@ -19,8 +19,22 @@ function runTests() {
   const summaryPath = path.join(__dirname, '..', 'data', 'summary.json');
   assert.ok(fs.existsSync(summaryPath), 'data/summary.json must exist');
   const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
-  assert.strictEqual(summary.current_season, 2026);
-  assert.strictEqual(summary.current_week, 2);
+  // current_season/current_week are derived from the snapshot (earliest open
+  // week in the latest season), never hand-typed: validate the contract,
+  // not a hardcoded week number that rots after every gameday.
+  assert.strictEqual(typeof summary.current_season, 'number');
+  assert.ok(Number.isInteger(summary.current_week), 'current_week must be a derived integer week');
+  assert.ok(summary.current_week >= 1 && summary.current_week <= 18, 'current_week must be a regular-season week');
+  assert.ok(summary.live_window_derivation, 'summary must declare how the live window is derived');
+  const slice = summary.current_week_slice;
+  assert.strictEqual(slice.season, summary.current_season, 'week slice season must equal current_season');
+  assert.strictEqual(slice.week, summary.current_week, 'week slice week must equal current_week');
+  const openPositionsSummary = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'open_positions.json'), 'utf8'));
+  for (const pos of openPositionsSummary) {
+    assert.strictEqual(pos.week, summary.current_week, 'open positions must live in the derived live week');
+    assert.strictEqual(pos.season, summary.current_season, 'open positions must live in the derived live season');
+  }
+  assert.strictEqual(summary.total_open_positions, openPositionsSummary.length);
   assert.ok(summary.total_strategies >= 20, 'At least 20 strategies tracked');
   assert.ok(summary.total_simulated_bets > 40000, 'Over 40k bets in backtest/forward test');
   console.log('✓ summary.json validated');
@@ -49,7 +63,16 @@ function runTests() {
     assert.ok(u.bet_id, 'Upcoming bet must have bet_id');
     assert.ok(u.matchup, 'Must have matchup');
     assert.ok(['READY_TO_BET', 'QUALIFIED', 'WATCHING'].includes(u.status), 'Valid status');
+    assert.ok(u.decision_time && u.decision_time.startsWith(u.gameday),
+      'decision_time must be the point-in-time boundary on the gameday, not a wall-clock constant');
+    assert.strictEqual(u.signal_generated_at, `${summary.as_of_date}T12:00:00Z`,
+      'signal_generated_at must anchor to the snapshot evidence horizon');
   }
+  const liveSignals = upcoming.filter(u => u.season === summary.current_season && u.week === summary.current_week);
+  assert.ok(liveSignals.length > 0, 'the derived live slate must carry signals');
+  const unexpected = liveSignals.filter(u => !['READY_TO_BET', 'WATCHING'].includes(u.status));
+  assert.strictEqual(unexpected.length, 0,
+    `live-slate signals must be READY_TO_BET (or explicitly WATCHING), got: ${[...new Set(unexpected.map(u => u.status))].join(', ')}`);
   console.log(`✓ upcoming_bets.json validated (${upcoming.length} upcoming signals)`);
 
   // 4. Check placed-bet ledger and strategy linkage

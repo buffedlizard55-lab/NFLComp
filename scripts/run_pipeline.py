@@ -8,18 +8,23 @@ order, and fails loudly if any step does not reconcile.
 
 Usage::
 
-    python3 scripts/run_pipeline.py                 # full run + docs + audit
+    python3 scripts/run_pipeline.py                 # source sync + full run + docs + audit
+    python3 scripts/run_pipeline.py --no-sync       # skip the live source refresh
     python3 scripts/run_pipeline.py --skip-docs     # data only
     python3 scripts/run_pipeline.py --check-only    # re-verify, do not simulate
 
-Nothing here places a real bet: the runner only simulates paper wagers against
-prices recorded in the source snapshots.
+The sync step (``engine.source_sync``) refreshes the nflverse snapshot with a
+provenance manifest and a field-level revision log; when no mirror is
+reachable the pipeline proceeds with the last verified snapshot and the
+manifest records why.  Nothing here places a real bet: the runner only
+simulates paper wagers against prices recorded in the source snapshots.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -51,12 +56,25 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", default=str(ROOT / "data"))
     parser.add_argument("--skip-docs", action="store_true")
+    parser.add_argument("--no-sync", action="store_true",
+                        help="skip the live source refresh (uses the last verified snapshot)")
     parser.add_argument("--check-only", action="store_true",
                         help="skip the simulation and only re-verify the published files")
     args = parser.parse_args(argv)
 
     if not args.check_only:
         started = time.time()
+        if not args.no_sync:
+            from engine.source_sync import sync_snapshot  # noqa: E402
+            print("Refreshing source snapshot with provenance manifest...")
+            manifest = sync_snapshot(os.path.join(args.data_dir, "source"))
+            sync_summary = manifest.get("revision_summary", {})
+            print(f"  Source sync: changed={sync_summary.get('changed_files', [])}, "
+                  f"revisions={sync_summary.get('total_revisions', 0)} "
+                  f"{sync_summary.get('by_severity', {})}")
+            for error in manifest.get("errors", []):
+                print(f"  SYNC WARNING: {error}")
+
         runner = NFLBacktestRunner()
         runner.run_simulation()
         runner.generate_research_experiments()
@@ -144,6 +162,16 @@ def main(argv=None) -> int:
               f"{len(study_report['declared_assumptions'])} classified dossier claims, "
               f"{len(study_report['cross_check_disagreements'])} cross-check disagreement(s)")
 
+        print("Re-evaluating pre-declared strategy-lab candidates...")
+        from engine.strategy_lab import build_report as build_strategy_lab  # noqa: E402
+        # build_report stores its source path verbatim; keep it repo-relative
+        # (matching `python3 -m engine.strategy_lab`) or --check will never match.
+        lab_report = build_strategy_lab(os.path.relpath(os.path.join(args.data_dir, "source"), ROOT))
+        Path(args.data_dir, "strategy_lab.json").write_text(
+            json.dumps(lab_report, indent=2) + "\n", encoding="utf-8")
+        lab_states = [f"{c['strategy_id']}:{c.get('status', '?')}" for c in lab_report.get("candidates", [])]
+        print(f"  Strategy lab: {len(lab_states)} candidates re-evaluated against the snapshot ({', '.join(lab_states)})")
+
         print("Building risk, calibration and capital-sufficiency analytics...")
         risk_report = build_risk_analytics(args.data_dir)
         Path(args.data_dir, "risk_analytics.json").write_text(
@@ -167,6 +195,7 @@ def main(argv=None) -> int:
         ROOT / "README.md",
         ROOT / "docs" / "FINAL_REPORT.md",
         ROOT / "docs" / "VERIFICATION.md",
+        ROOT / "docs" / "IRREGULARITIES.md",
         ROOT / "index.html",
     ]
 
@@ -191,6 +220,13 @@ def main(argv=None) -> int:
             # and registry tables live in the README.
             status |= render_readme(["--data-dir", args.data_dir, "--readme", str(report_path),
                                      "--blocks", "status,executive_summary,findings"])
+        irregularities_path = ROOT / "docs" / "IRREGULARITIES.md"
+        if irregularities_path.exists() and "<!-- IRREGULARITIES_START -->" in irregularities_path.read_text(encoding="utf-8"):
+            # The machine-checked register is generated like every other block:
+            # an irregularity the audit detects (upstream sync revisions, a
+            # dossier claim the snapshot disputes) appears here automatically.
+            status |= render_readme(["--data-dir", args.data_dir, "--readme", str(irregularities_path),
+                                     "--blocks", "irregularities"])
         status |= render_verification(["--data-dir", args.data_dir])
         status |= render_claims(["--data-dir", args.data_dir])
         return status
