@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T18:48:14.047287+00:00",
+  "generated_at": "2026-09-23T17:24:29.410787+00:00",
   "classification": "DERIVED_DATA",
   "total_findings": 18,
   "by_category": {
@@ -33,7 +33,7 @@
   "findings": [
     {
       "finding_id": "AUTO-QB-001",
-      "discovered_at": "2026-09-22T18:48:14.029409+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394312+00:00",
       "category": "Quarterback & Passing Efficiency",
       "hypothesis": "Backup QB announcement creates market overreaction; contrarian value on backup team when spread moves >=3 pts",
       "data_sources_used": [
@@ -52,7 +52,7 @@
     },
     {
       "finding_id": "AUTO-OL-001",
-      "discovered_at": "2026-09-22T18:48:14.030174+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394952+00:00",
       "category": "Offensive Line & Protection",
       "hypothesis": "OL continuity (5 same starters) provides +1.2 pt advantage vs teams with <=3 continuity",
       "data_sources_used": [
@@ -72,7 +72,7 @@
     },
     {
       "finding_id": "AUTO-DEF-001",
-      "discovered_at": "2026-09-22T18:48:14.030188+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394968+00:00",
       "category": "Defensive Matchups & Scheme",
       "hypothesis": "Defensive pressure rate differential >=1.8 pts predicts spread cover; elite rush vs vulnerable OL",
       "data_sources_used": [
@@ -92,7 +92,7 @@
     },
     {
       "finding_id": "AUTO-EPA-001",
-      "discovered_at": "2026-09-22T18:48:14.030192+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394973+00:00",
       "category": "Statistical & Machine Learning Models",
       "hypothesis": "EPA differential (offensive EPA - defensive EPA) is strongest predictor of future margin at 2.7:1 ratio",
       "data_sources_used": [
@@ -112,7 +112,7 @@
     },
     {
       "finding_id": "AUTO-COVERAGE-001",
-      "discovered_at": "2026-09-22T18:48:14.030195+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394977+00:00",
       "category": "Defensive Matchups & Scheme",
       "hypothesis": "High man coverage (>40%) suppresses YAC and total points vs market",
       "data_sources_used": [
@@ -131,7 +131,7 @@
     },
     {
       "finding_id": "AUTO-PACE-001",
-      "discovered_at": "2026-09-22T18:48:14.030199+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394981+00:00",
       "category": "Game Script & Situational",
       "hypothesis": "Fast pace both teams top-10 neutral pace creates high play volume and Over value indoors",
       "data_sources_used": [
@@ -150,7 +150,7 @@
     },
     {
       "finding_id": "AUTO-RZ-001",
-      "discovered_at": "2026-09-22T18:48:14.030202+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394985+00:00",
       "category": "Team Totals & Efficiency",
       "hypothesis": "Red zone efficiency differential >=12% predicts spread cover via hidden points (FG vs TD)",
       "data_sources_used": [
@@ -169,7 +169,7 @@
     },
     {
       "finding_id": "AUTO-COACH-001",
-      "discovered_at": "2026-09-22T18:48:14.030205+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394989+00:00",
       "category": "Coaching & Decision Tendencies",
       "hypothesis": "Top quartile 4th-down aggressiveness coaches (Campbell, Shanahan, Sirianni) generate +2.5 pts hidden win equity vs conservative punters",
       "data_sources_used": [
@@ -189,7 +189,7 @@
     },
     {
       "finding_id": "AUTO-REST-001",
-      "discovered_at": "2026-09-22T18:48:14.030209+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394994+00:00",
       "category": "Rest & Scheduling Asymmetries",
       "hypothesis": "TNF home teams vs road short rest <=4 days cover at 58.1% ROI +10.9%; cross-country +3 TZ 1PM ET home cover 56%",
       "data_sources_used": [
@@ -208,7 +208,7 @@
     },
     {
       "finding_id": "AUTO-WEATHER-001",
-      "discovered_at": "2026-09-22T18:48:14.030212+00:00",
+      "discovered_at": "2026-09-23T17:24:29.394998+00:00",
       "category": "Weather & Stadium Conditions",
       "hypothesis": "Outdoor wind >=16.5 mph hits Under at 56.6% due to -28% deep-ball completion and -3.2% FG >40 yards",
       "data_sources_used": [
@@ -229,7 +229,7 @@
     },
     {
       "finding_id": "AUTO-REF-001",
-      "discovered_at": "2026-09-22T18:48:14.030215+00:00",
+      "discovered_at": "2026-09-23T17:24:29.395001+00:00",
       "category": "Referee & Officiating Tendencies",
       "hypothesis": "High-flag crews >14.5 penalties/game extend drives via DPI automatic first downs, beating low totals <=43.5",
       "data_sources_used": [
@@ -248,7 +248,7 @@
     },
     {
       "finding_id": "AUTO-MARKET-001",
-      "discovered_at": "2026-09-22T18:48:14.030218+00:00",
+      "discovered_at": "2026-09-23T17:24:29.395005+00:00",
       "category": "Market Movement & CLV Strategies",
       "hypothesis": "Line movements >=2.0 pts represent strongest institutional conviction, 56.5% cover rate; RLM through key numbers stronger",
       "data_sources_used": [
@@ -268,7 +268,7 @@
     },
     {
       "finding_id": "AUTO-PROP-001",
-      "discovered_at": "2026-09-22T18:48:14.030220+00:00",
+      "discovered_at": "2026-09-23T17:24:29.395009+00:00",
       "category": "Player Prop Strategies",
       "hypothesis": "WRs with >22% target share and >85% route participation exceed receiving yards props vs market using recent average not role; RZ target >30% -> Anytime TD 38.5% hit ROI +12.3%",
       "data_sources_used": [
@@ -288,7 +288,7 @@
     },
     {
       "finding_id": "AUTO-LIVE-001",
-      "discovered_at": "2026-09-22T18:48:14.030223+00:00",
+      "discovered_at": "2026-09-23T17:24:29.395012+00:00",
       "category": "Live & In-Game Strategies",
       "hypothesis": "Live win probability models using score, time, possession, down/distance, timeouts provide edge vs retail live markets that overreact to recent plays",
       "data_sources_used": [
@@ -308,7 +308,7 @@
     },
     {
       "finding_id": "AUTO-KALSHI-001",
-      "discovered_at": "2026-09-22T18:48:14.030226+00:00",
+      "discovered_at": "2026-09-23T17:24:29.395016+00:00",
       "category": "Kalshi Prediction Markets",
       "hypothesis": "Kalshi binary spread contracts carry retail favorite bias 4-8c; underdog NO contracts +6.8c value after fees",
       "data_sources_used": [
@@ -328,7 +328,7 @@
     },
     {
       "finding_id": "ACAD-001",
-      "discovered_at": "2026-09-22T18:48:14.047216+00:00",
+      "discovered_at": "2026-09-23T17:24:29.410734+00:00",
       "category": "Statistical & Machine Learning Models",
       "hypothesis": "Home underdogs historically 53.5% ATS 2002-2011, above 52.38% breakeven, but effectiveness diminishing over time (Szalkowski & Nelson 2012)",
       "data_sources_used": [
@@ -346,7 +346,7 @@
     },
     {
       "finding_id": "ACAD-002",
-      "discovered_at": "2026-09-22T18:48:14.047253+00:00",
+      "discovered_at": "2026-09-23T17:24:29.410760+00:00",
       "category": "Market Movement & CLV Strategies",
       "hypothesis": "Betting lines have memory; current lines are functions of previous betting market results; hot hand bias creates inefficiencies (Sinkey & Logan 2010)",
       "data_sources_used": [
@@ -364,7 +364,7 @@
     },
     {
       "finding_id": "ACAD-003",
-      "discovered_at": "2026-09-22T18:48:14.047258+00:00",
+      "discovered_at": "2026-09-23T17:24:29.410765+00:00",
       "category": "Market Movement & CLV Strategies",
       "hypothesis": "Moneyline market overvalues home field in close games; away teams in predicted win prob 0.3-0.7 profitable; line movement continues direction of opening 24h (Claremont McKenna thesis)",
       "data_sources_used": [

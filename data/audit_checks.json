@@ -27,7 +27,7 @@
     "name": "SOURCE_SYNC_PROVENANCE",
     "category": "SOURCE_PROVENANCE",
     "passed": true,
-    "details": "last sync 2026-09-22T18:29:52Z; 7 files hash-verified against fetched bytes; 79 upstream revisions this sync (by severity {'MEDIUM': 2, 'INFO': 77}); 19 notable revisions retained in history"
+    "details": "last sync 2026-09-23T17:23:08Z; 7 files hash-verified against fetched bytes; 0 upstream revisions this sync (by severity {}); 188 notable revisions retained in history"
   },
   {
     "name": "SOURCE_REVISION_REVIEW",

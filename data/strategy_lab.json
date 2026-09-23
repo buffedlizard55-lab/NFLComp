@@ -3,7 +3,7 @@
   "research_class": "PAPER_TRADING_STRATEGY_LAB",
   "source": {
     "path": "data/source/games.csv",
-    "sha256": "c9038d5c927d9d6bd9d2e98cb76b57fccfd4f040b7ce4b9353cc0c7ad4a860d4",
+    "sha256": "433199ff45a49ea706c1af3dedaf616904d73e57285ce4cf543f0b20cb2e8667",
     "loaded_games": 7548,
     "completed_games": 7308,
     "latest_completed_gameday": "2026-09-21"
@@ -36,9 +36,9 @@
       "missing_value_counts_in_loaded_games": {
         "home_rest": 0,
         "away_rest": 0,
-        "spread_line": 210,
-        "home_spread_odds": 2191,
-        "away_spread_odds": 2191,
+        "spread_line": 208,
+        "home_spread_odds": 2189,
+        "away_spread_odds": 2189,
         "home_score": 240,
         "away_score": 240
       },

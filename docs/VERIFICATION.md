@@ -60,7 +60,7 @@ local snapshot, not a claim about an upstream release asset.
 
 | snapshot file | bytes | sha256 |
 | --- | --- | --- |
-| games.csv | 2,180,005 | `c9038d5c927d9d6bd9d2e98cb76b57fccfd4f040b7ce4b9353cc0c7ad4a860d4` |
+| games.csv | 2,180,725 | `433199ff45a49ea706c1af3dedaf616904d73e57285ce4cf543f0b20cb2e8667` |
 | closing_lines.csv | 942,229 | `3571e1c9fc8d7396f405fb7c17d43c15676d335ffc932fbb03ff18da691d1729` |
 | initial_lines.csv | 45,068 | `654770173d11fdb2074537d520f6b1213d663e3bbf47689e5cc9994c1af255e5` |
 | teams.csv | 90,927 | `b7cfab98e6ac35c684432f6ace65d6065b0b89b90e3a2e91116a69ae38e04d42` |
@@ -74,7 +74,7 @@ local snapshot, not a claim about an upstream release asset.
 | 2 | `GAME_ID_UNIQUENESS` | DATA_INTEGRITY | PASS | Found 0 duplicate game IDs across 7548 games |
 | 3 | `SCORE_MARGIN_ARITHMETIC` | CALCULATION | PASS | Score margin checked on 7548 games; 0 mismatches |
 | 4 | `GAMES_CHRONOLOGICAL_ORDER` | DATA_INTEGRITY | PASS | Games sorted chronologically: 1999-09-12 to 2027-01-10 |
-| 5 | `SOURCE_SYNC_PROVENANCE` | SOURCE_PROVENANCE | PASS | last sync 2026-09-22T18:29:52Z; 7 files hash-verified against fetched bytes; 79 upstream revisions this sync (by severity {'MEDIUM': 2, 'INFO': 77}); 19 notable revisions retained in history |
+| 5 | `SOURCE_SYNC_PROVENANCE` | SOURCE_PROVENANCE | PASS | last sync 2026-09-23T17:23:08Z; 7 files hash-verified against fetched bytes; 0 upstream revisions this sync (by severity {}); 188 notable revisions retained in history |
 | 6 | `SOURCE_REVISION_REVIEW` | SOURCE_PROVENANCE | PASS | 0 unacknowledged result corrections against already-settled games |
 | 7 | `LEDGER_POPULATED` | AUDIT | PASS | Found 31,502 bets in ledger (2020-2026 recent slice) |
 | 8 | `BET_ID_UNIQUENESS` | AUDIT | PASS | Found 0 duplicate bet IDs out of 31,502 |
