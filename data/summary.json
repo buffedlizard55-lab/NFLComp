@@ -10,8 +10,8 @@
   "total_strategies": 70,
   "total_simulated_bets": 97218,
   "total_simulated_pnl": -531192.71,
-  "total_upcoming_bets": 646,
-  "total_open_positions": 326,
+  "total_upcoming_bets": 695,
+  "total_open_positions": 334,
   "total_kalshi_trades": 16343,
   "kalshi_trades_published": 1463,
   "ledger_published_window": {
@@ -29,7 +29,7 @@
   "current_week_slice": {
     "season": 2026,
     "week": 3,
-    "signals": 326,
+    "signals": 334,
     "games": 16
   },
   "top_performing_strategy": "@AnalyticsCoach_ATS_v1",

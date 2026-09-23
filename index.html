@@ -128,7 +128,7 @@
         <div class="card">
           <div class="card-title">
             <span>⚡ <span id="slate-week-label">Week 2</span> Active Slate Pulse (<span id="claim-week-games">16</span> Games)</span>
-            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">326</span> Signals →</button>
+            <button class="btn btn-sm" onclick="switchTab('upcoming')">View <span id="claim-week-signals">334</span> Signals →</button>
           </div>
           <div class="table-responsive" style="max-height: 260px;">
             <table id="dash-slate-table">
@@ -257,7 +257,7 @@
     <section id="view-upcoming" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">⚡ Upcoming Strategy Bets (Active 2026 Slate — <span id="claim-upcoming-title">646</span> Signals)</h2>
+          <h2 class="section-title">⚡ Upcoming Strategy Bets (Active 2026 Slate — <span id="claim-upcoming-title">695</span> Signals)</h2>
           <p class="section-desc">Prospective betting signals generated for the current 2026 NFL schedule. Covers 7 market types: SPREAD, TOTAL, TEAM_TOTAL, PLAYER_PROP, ALT_SPREAD, KALSHI_SPREAD, KALSHI_TOTAL, KALSHI_LIVE. Gated by point-in-time model probabilities, minimum edge thresholds, and verified injury/weather reports. Includes OL, Defensive, Props, Game Script, Travel, International.</p>
         </div>
         <div class="section-controls">
@@ -324,7 +324,7 @@
     <section id="view-live-desk" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">📈 Live Paper Trading Desk (2026 Slate — <span id="claim-open-positions">326</span> Positions)</h2>
+          <h2 class="section-title">📈 Live Paper Trading Desk (2026 Slate — <span id="claim-open-positions">334</span> Positions)</h2>
           <p class="section-desc">Active open positions and real-time execution simulation for the 2026 NFL season. Simulates spreads, totals, team totals, player props, alt spreads, and Kalshi binary contracts under zero-lookahead rules. Includes Live WP strategies.</p>
         </div>
       </div>
@@ -774,7 +774,7 @@
     <section id="view-verification" class="view-section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">🛡️ Verification, Audits & Irregularity Register — <span id="claim-audit-checks-view">33</span> Checks, <span id="claim-irregularities">18</span> Irregularities</h2>
+          <h2 class="section-title">🛡️ Verification, Audits & Irregularity Register — <span id="claim-audit-checks-view">33</span> Checks, <span id="claim-irregularities">20</span> Irregularities</h2>
           <p class="section-desc">Automated mathematical audit checks, lookahead-bias prevention tests, and documented data discrepancies across all official and third-party sources. Includes OL continuity tracking limit pre-2018, player prop historical archive limitation, alt spread archive limitation, live PBP latency, travel coordinate mapping approximation.</p>
         </div>
       </div>
@@ -836,7 +836,7 @@
         </p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">4. Execution Modeling, Fees & Slippage — 14 Market Types</h3>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">646</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Traditional sportsbook spreads, totals, team totals, player props, alt spreads are modeled at verified closing market odds (-110 baseline with vig, +150 alt example). Kalshi binary contracts include a $0.01 per-contract taker fee, realistic bid/ask spreads (2¢ to 5¢), and size-based slippage scaling above 100 contracts, bounded by real historical volume and 500 contract max. Bet ledger includes all required fields: bet_id, strategy_id, username, season, week, game_id, market, selection, price, stake, result, pnl, plus odds_val, odds_format, implied_prob, model_prob, edge, decision_timestamp, bet_timestamp, settlement_timestamp, actual_score, source_url, verification_status, supporting_data, market_source, entry_price, closing_price, clv_pct, liquidity, bet_type, sportsbook. Upcoming bets page includes <span id="claim-upcoming">695</span> signals with status READY_TO_BET/QUALIFIED/WATCHING.</p>
 
         <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: var(--accent-cyan);">5. Zero-Hallucination Mandate — 41 Sources, 10 Irregularities Logged</h3>
         <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Every game, line, score, player injury status, and referee assignment is directly traceable to verified primary datasets (nflverse 7,276 games + 51,024 officials + 20,490 closing lines, FiveThirtyEight Elo, NFLInjuryReport 834 players, NOAA NWS hourly, PFR advanced, Kalshi API, Odds API, Pinnacle, Action Network, RotoWire, FTN, DraftKings/FanDuel props, MasterSite 44 directory). Reddit JSON API 403 blocked flagged, X/Twitter paid rejected flagged, NFL policy PDFs 404 flagged, TNF indoor weather attribution flagged, Kalshi orderbook re-anchoring flagged, OL continuity pre-2018 limited flagged, player prop historical archive flagged as FORWARD_TEST, alt spread historical limited flagged, live PBP latency flagged, travel coordinate mapping approximation flagged. No hypothetical games or fabricated odds are permitted. All <span id="claim-audit-checks-methodology">33</span> audit checks PASSED.</p>
@@ -861,7 +861,7 @@
       <a href="#dashboard" onclick="switchTab('dashboard')">Dashboard</a>
       <a href="#leaderboard" onclick="switchTab('leaderboard')">Leaderboard (58)</a>
       <a href="#strategies" onclick="switchTab('strategies')">Strategies (17 cats)</a>
-      <a href="#upcoming" onclick="switchTab('upcoming')">Upcoming (<span id="claim-upcoming-nav">646</span>)</a>
+      <a href="#upcoming" onclick="switchTab('upcoming')">Upcoming (<span id="claim-upcoming-nav">695</span>)</a>
       <a href="#live-desk" onclick="switchTab('live-desk')">Paper Trading</a>
       <a href="#history" onclick="switchTab('history')">Trade History (<span id="claim-history">32k</span>)</a>
       <a href="#research" onclick="switchTab('research')">Research Lab (8 exp)</a>

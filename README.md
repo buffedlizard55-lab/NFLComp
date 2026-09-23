@@ -33,7 +33,7 @@ The system autonomously investigates NFL data sources, extracts predictive varia
 | published_ledger_bets | 31,502 |
 | published_ledger_window | 2020–2026 |
 | published_ledger_pnl_usd | -221,808.53 |
-| upcoming_signals | 646 |
+| upcoming_signals | 695 |
 | kalshi_trades_all_time | 16,343 |
 | kalshi_trades_published | 1,463 |
 | registry_sources | 56 |
@@ -71,7 +71,7 @@ statuses of every candidate are rendered from `data/strategy_lab.json` below, so
 a result the report does not contain.
 
 <!-- STRATEGY_LAB_START -->
-_generated — do not edit by hand — the source snapshot is `data/source/games.csv` (`sha256:c9038d5c927d9d6b…`, 7,548 games, 7,308 completed, latest 2026-09-21)._
+_generated — do not edit by hand — the source snapshot is `data/source/games.csv` (`sha256:433199ff45a49ea7…`, 7,548 games, 7,308 completed, latest 2026-09-21)._
 
 Promotion gate: At least 100 development, 40 validation, and 40 holdout bets; positive ROI in all three windows. Stake: $100 flat per qualifying observation.
 
@@ -100,12 +100,12 @@ number here disagrees with the checked-in data files, the audit fails.
 _generated — do not edit by hand — `scripts/render_readme.py --check` fails if this block and the data disagree._
 
 - **Current simulation window:** 2026 regular season, week 3, last completed game 2026-09-21.
-- **Historical universe:** 7,548 games in `data/source/games.csv` (1999-2026), 7,308 with a final score and 240 still open. The file is hashed into the ledger manifest (`sha256:c9038d5c927d9d6b…`).
+- **Historical universe:** 7,548 games in `data/source/games.csv` (1999-2026), 7,308 with a final score and 240 still open. The file is hashed into the ledger manifest (`sha256:433199ff45a49ea7…`).
 - **Published ledger:** 31,502 hash-chained wagers inside the published window 2020–2026 netting -$221,808.53; 97,218 simulated wagers all-time netting -$531,192.71.
 - **Strategy universe:** 70 personas across 17 categories, 23 of them carrying a version lineage, every one flat-staking a $10,000 paper bankroll.
-- **Forward slate:** 646 queued paper signals over 240 games without a final score, of which 326 are open positions in the current week.
+- **Forward slate:** 695 queued paper signals over 240 games without a final score, of which 334 are open positions in the current week.
 - **Research:** 8 dossier experiments, 5 of them re-derived from the snapshot; claims the bundled data cannot re-derive are labelled `DECLARED_ASSUMPTION` instead of being quoted as results, and 1 cross-check disagreement is retained rather than overwritten.
-- **Audit:** 33/33 automated checks pass, 18 irregularities are tracked in `data/irregularities.json` (listed in `docs/IRREGULARITIES.md`), and no risk statistic is published for a persona below 100 settled bets.
+- **Audit:** 33/33 automated checks pass, 20 irregularities are tracked in `data/irregularities.json` (listed in `docs/IRREGULARITIES.md`), and no risk statistic is published for a persona below 100 settled bets.
 - **Strategy lab:** 2 pre-declared candidates scored on the untouched 2023-2025 holdout, 1 of them past the promotion gate; the rest stay archived untuned.
 - **No real orders:** every figure here is a simulation on historical and current-season prices. Nothing in this repository places, routes, or recommends a real wager.
 <!-- EXEC_SUMMARY_END -->

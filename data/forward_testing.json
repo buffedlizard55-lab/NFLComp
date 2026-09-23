@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-22T18:48:13.718416+00:00",
+  "generated_at": "2026-09-23T17:24:29.080740+00:00",
   "classification": "DERIVED_DATA",
-  "total_records": 14,
+  "total_records": 13,
   "by_status": {
-    "WATCHING": 14,
+    "WATCHING": 13,
     "QUALIFIED": 0,
     "READY": 0,
     "PRICE_TOO_HIGH": 0,
@@ -13,13 +13,13 @@
     "EXPIRED": 0
   },
   "by_market": {
-    "KALSHI_LIVE": 9,
+    "QUARTER_MARKET": 2,
     "FIRST_HALF_SPREAD": 3,
-    "QUARTER_MARKET": 2
+    "KALSHI_LIVE": 8
   },
   "by_classification": {
     "BACKTEST": 0,
-    "FORWARD_TEST": 12,
+    "FORWARD_TEST": 11,
     "PAPER_TRADE": 2
   },
   "records": [
@@ -33,7 +33,7 @@
       "game_id": "2026_03_ATL_GB",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-GB-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718162+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080496+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -78,8 +78,8 @@
       "week": 3,
       "game_id": "2026_03_ATL_GB",
       "market": "FIRST_HALF_SPREAD",
-      "selection": "GB 1H -3.3",
-      "decision_timestamp": "2026-09-22T18:48:13.718229+00:00",
+      "selection": "GB 1H -3.0",
+      "decision_timestamp": "2026-09-23T17:24:29.080602+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -88,8 +88,8 @@
         "market_prices": "Opening to current, no future closing prices",
         "results": "No future statistics/results",
         "supporting_data": {
-          "full_spread": -6.0,
-          "1h_spread": -3.3,
+          "full_spread": -5.5,
+          "1h_spread": -3.03,
           "thesis": "1H spread 55% of full"
         },
         "classification": "FORWARD_TEST",
@@ -124,7 +124,7 @@
       "game_id": "2026_03_ATL_GB",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-GB-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718240+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080614+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -170,7 +170,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-BUF-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718250+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080650+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -216,7 +216,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "FIRST_HALF_SPREAD",
       "selection": "BUF 1H -3.9",
-      "decision_timestamp": "2026-09-22T18:48:13.718257+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080665+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -261,7 +261,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "QUARTER_MARKET",
       "selection": "Q1 Over 10.1",
-      "decision_timestamp": "2026-09-22T18:48:13.718265+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080673+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -305,7 +305,7 @@
       "game_id": "2026_03_LAC_BUF",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-BUF-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718272+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080680+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -351,7 +351,7 @@
       "game_id": "2026_03_CAR_CLE",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-CLE-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718359+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080690+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -397,7 +397,7 @@
       "game_id": "2026_03_CAR_CLE",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-CLE-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718370+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080701+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -443,7 +443,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-DET-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718379+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080710+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -489,7 +489,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "FIRST_HALF_SPREAD",
       "selection": "DET 1H -3.6",
-      "decision_timestamp": "2026-09-22T18:48:13.718387+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080718+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -533,8 +533,8 @@
       "week": 3,
       "game_id": "2026_03_NYJ_DET",
       "market": "QUARTER_MARKET",
-      "selection": "Q1 Over 9.7",
-      "decision_timestamp": "2026-09-22T18:48:13.718394+00:00",
+      "selection": "Q1 Over 9.5",
+      "decision_timestamp": "2026-09-23T17:24:29.080724+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -543,8 +543,8 @@
         "market_prices": "Opening to current, no future closing prices",
         "results": "No future statistics/results",
         "supporting_data": {
-          "full_total": 48.5,
-          "q1_total": 9.7
+          "full_total": 47.5,
+          "q1_total": 9.5
         },
         "classification": "FORWARD_TEST",
         "warning": "This is a prospective test, not a historical backtest"
@@ -578,7 +578,7 @@
       "game_id": "2026_03_NYJ_DET",
       "market": "KALSHI_LIVE",
       "selection": "KXNFL-2026-W3-DET-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718400+00:00",
+      "decision_timestamp": "2026-09-23T17:24:29.080730+00:00",
       "bet_timestamp": null,
       "information_available": {
         "rolling_metrics_available": "Only games < decision_timestamp",
@@ -600,52 +600,6 @@
       "actual_market_price": "25.0\u00a2",
       "market_source": "Kalshi Prediction Market",
       "simulated_stake": 110.0,
-      "liquidity_available": 500.0,
-      "bid": null,
-      "ask": null,
-      "spread": null,
-      "slippage": null,
-      "status": "WATCHING",
-      "result": null,
-      "pnl": null,
-      "roi": null,
-      "closing_price": null,
-      "source_url": "https://docs.kalshi.com/",
-      "verification_status": "FORWARD_TEST_PENDING",
-      "notes": "Market KALSHI_LIVE classified as FORWARD_TEST because historical price archive unavailable; never invent history"
-    },
-    {
-      "record_id": "FT-2026-W03-STRAT_LIVE_WP_036_v1-00014",
-      "strategy_id": "STRAT_LIVE_WP_036_v1",
-      "strategy_version": "v2",
-      "classification": "FORWARD_TEST",
-      "season": 2026,
-      "week": 3,
-      "game_id": "2026_03_HOU_IND",
-      "market": "KALSHI_LIVE",
-      "selection": "KXNFL-2026-W3-IND-LIVE YES (Live WP 0.32)",
-      "decision_timestamp": "2026-09-22T18:48:13.718408+00:00",
-      "bet_timestamp": null,
-      "information_available": {
-        "rolling_metrics_available": "Only games < decision_timestamp",
-        "injury_report": "Friday 4PM ET status only, no future injuries",
-        "weather_forecast": "Pre-game forecast, not post-game observation",
-        "market_prices": "Opening to current, no future closing prices",
-        "results": "No future statistics/results",
-        "supporting_data": {
-          "live_wp": 0.32,
-          "market_cents": 25.0,
-          "quarter": 4,
-          "time_remaining": "05:00"
-        },
-        "classification": "FORWARD_TEST",
-        "warning": "This is a prospective test, not a historical backtest"
-      },
-      "model_probability": 0.32,
-      "fair_price": "32.0\u00a2",
-      "actual_market_price": "25.0\u00a2",
-      "market_source": "Kalshi Prediction Market",
-      "simulated_stake": 100.0,
       "liquidity_available": 500.0,
       "bid": null,
       "ask": null,
